@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobitech Diagnose Download</title>
+  <link rel="stylesheet" href="/mdt.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <meta name="theme-color" content="#111827" />
+</head>
+<body>
+  <main class="container">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-blue-400 mb-4">Mobitech Diagnose</h1>
+      <p class="text-xl text-gray-300">
+        Download our diagnostic app for your device
+      </p>
+    </div>
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+      <!-- Android Regular Version Card -->
+      <div class="card">
+        <div class="flex justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone-icon lucide-smartphone text-green-500 " style="width: 80px; height: 80px;"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>         </div>
+        <h2 class="text-2xl font-semibold text-center mb-2 text-white">Android</h2>
+        <p class="text-green-400 text-center font-medium mb-4">Regular Version</p>
+        <p class="text-gray-300 mb-6 text-center text-sm">
+          For modern Android devices with latest features
+        </p>
+        <button onclick="downloadApk(false)" class="button green">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v12" /></svg>
+          Download APK (v2.2.10)
+        </button>
+        <div class="mt-4 text-sm text-gray-400 text-center">
+          Requires Android 8.0 or later
+        </div>
+      </div>
+      <!-- Android BC Version Card -->
+      <div class="card">
+        <div class="flex justify-center mb-6">
+          <div class="relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone-icon lucide-smartphone text-orange-500"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>            
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-undo2-icon lucide-undo-2 text-orange-400 absolute bottom-2 -right-1"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>        </div>
+        </div>
+        <h2 class="text-2xl font-semibold text-center mb-2 text-white">Android</h2>
+        <p class="text-orange-400 text-center font-medium mb-4">Legacy Version</p>
+        <p class="text-gray-300 mb-6 text-center text-sm">
+          For older Android devices with backward compatibility
+        </p>
+        <button onclick="downloadApk(true)" class="button orange">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v12" /></svg>
+          Download BC APK (v2.2.10)
+        </button>
+        <div class="mt-4 text-sm text-gray-400 text-center">
+          Requires Android 5.0 or later
+        </div>
+      </div>
+      <!-- iOS Download Card -->
+      <div class="card">
+        <div class="flex justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 lucide lucide-apple-icon lucide-apple"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+        </div>
+        <h2 class="text-2xl font-semibold text-center mb-2 text-white">iOS</h2>
+        <p class="text-gray-400 text-center font-medium mb-4">Coming Soon</p>
+        <p class="text-gray-300 mb-6 text-center text-sm">
+          Available on the App Store soon
+        </p>
+        <button disabled class="button gray">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 lucide lucide-apple-icon lucide-apple"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+          Coming Soon
+        </button>
+        <div class="mt-4 text-sm text-gray-400 text-center">
+          Requires iOS 14 or later
+        </div>
+      </div>
+    </div>
+    <!-- Version Information Section -->
+    <div class="mt-12 card">
+      <h3 class="text-xl font-semibold text-white mb-4 text-center">Which version should I choose?</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="border-l-4 border-green-500 pl-4">
+          <h4 class="text-lg font-medium text-green-400 mb-2">Regular Version</h4>
+          <ul class="text-gray-300 space-y-1 text-sm">
+            <li>• Latest features and optimizations</li>
+            <li>• Better performance</li>
+            <li>• Modern UI components</li>
+            <li>• Recommended for most users</li>
+          </ul>
+        </div>
+        <div class="border-l-4 border-orange-500 pl-4">
+          <h4 class="text-lg font-medium text-orange-400 mb-2">Legacy Version (BC)</h4>
+          <ul class="text-gray-300 space-y-1 text-sm">
+            <li>• Compatible with older devices</li>
+            <li>• Reduced system requirements</li>
+            <li>• Stable on legacy hardware</li>
+            <li>• Choose if regular version doesn't work</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-16 text-center text-gray-400 text-sm">
+      <p>By downloading, you agree to our Terms of Service and Privacy Policy</p>
+    </div>
+  </main>
+  <script>
+    function downloadApk(isBC) {
+      var fileName = isBC ? 'Mobitech_Diagnose_2.2.10(BC).apk' : 'Mobitech_Diagnose_2.2.10.apk';
+      var link = document.createElement('a');
+      link.href = '/' + fileName;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html> 

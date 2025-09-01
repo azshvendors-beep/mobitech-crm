@@ -1,6 +1,6 @@
 "use client";
 
-import { useModelData } from "@/hooks/pickup-fx/model-data";
+import { useModelData } from "@/components/GetModelData";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";

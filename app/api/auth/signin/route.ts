@@ -95,7 +95,7 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return new NextResponse(JSON.stringify(error.errors), { status: 422 });
+      return new NextResponse(JSON.stringify(error.flatten().fieldErrors), { status: 422 });
     }
 
     console.error("Signin error:", error);

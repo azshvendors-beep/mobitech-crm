@@ -4702,16 +4702,22 @@ export namespace Prisma {
   export type AdminMinAggregateOutputType = {
     userId: string | null
     employeeId: string | null
+    firstName: string | null
+    lastName: string | null
   }
 
   export type AdminMaxAggregateOutputType = {
     userId: string | null
     employeeId: string | null
+    firstName: string | null
+    lastName: string | null
   }
 
   export type AdminCountAggregateOutputType = {
     userId: number
     employeeId: number
+    firstName: number
+    lastName: number
     _all: number
   }
 
@@ -4719,16 +4725,22 @@ export namespace Prisma {
   export type AdminMinAggregateInputType = {
     userId?: true
     employeeId?: true
+    firstName?: true
+    lastName?: true
   }
 
   export type AdminMaxAggregateInputType = {
     userId?: true
     employeeId?: true
+    firstName?: true
+    lastName?: true
   }
 
   export type AdminCountAggregateInputType = {
     userId?: true
     employeeId?: true
+    firstName?: true
+    lastName?: true
     _all?: true
   }
 
@@ -4807,6 +4819,8 @@ export namespace Prisma {
   export type AdminGroupByOutputType = {
     userId: string
     employeeId: string
+    firstName: string | null
+    lastName: string | null
     _count: AdminCountAggregateOutputType | null
     _min: AdminMinAggregateOutputType | null
     _max: AdminMaxAggregateOutputType | null
@@ -4829,27 +4843,35 @@ export namespace Prisma {
   export type AdminSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     userId?: boolean
     employeeId?: boolean
+    firstName?: boolean
+    lastName?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["admin"]>
 
   export type AdminSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     userId?: boolean
     employeeId?: boolean
+    firstName?: boolean
+    lastName?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["admin"]>
 
   export type AdminSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     userId?: boolean
     employeeId?: boolean
+    firstName?: boolean
+    lastName?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["admin"]>
 
   export type AdminSelectScalar = {
     userId?: boolean
     employeeId?: boolean
+    firstName?: boolean
+    lastName?: boolean
   }
 
-  export type AdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "employeeId", ExtArgs["result"]["admin"]>
+  export type AdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "employeeId" | "firstName" | "lastName", ExtArgs["result"]["admin"]>
   export type AdminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -4868,6 +4890,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       userId: string
       employeeId: string
+      firstName: string | null
+      lastName: string | null
     }, ExtArgs["result"]["admin"]>
     composites: {}
   }
@@ -5294,6 +5318,8 @@ export namespace Prisma {
   interface AdminFieldRefs {
     readonly userId: FieldRef<"Admin", 'String'>
     readonly employeeId: FieldRef<"Admin", 'String'>
+    readonly firstName: FieldRef<"Admin", 'String'>
+    readonly lastName: FieldRef<"Admin", 'String'>
   }
     
 
@@ -30966,7 +30992,9 @@ export namespace Prisma {
 
   export const AdminScalarFieldEnum: {
     userId: 'userId',
-    employeeId: 'employeeId'
+    employeeId: 'employeeId',
+    firstName: 'firstName',
+    lastName: 'lastName'
   };
 
   export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
@@ -31606,12 +31634,16 @@ export namespace Prisma {
     NOT?: AdminWhereInput | AdminWhereInput[]
     userId?: StringFilter<"Admin"> | string
     employeeId?: StringFilter<"Admin"> | string
+    firstName?: StringNullableFilter<"Admin"> | string | null
+    lastName?: StringNullableFilter<"Admin"> | string | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type AdminOrderByWithRelationInput = {
     userId?: SortOrder
     employeeId?: SortOrder
+    firstName?: SortOrderInput | SortOrder
+    lastName?: SortOrderInput | SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -31621,12 +31653,16 @@ export namespace Prisma {
     AND?: AdminWhereInput | AdminWhereInput[]
     OR?: AdminWhereInput[]
     NOT?: AdminWhereInput | AdminWhereInput[]
+    firstName?: StringNullableFilter<"Admin"> | string | null
+    lastName?: StringNullableFilter<"Admin"> | string | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "userId" | "employeeId">
 
   export type AdminOrderByWithAggregationInput = {
     userId?: SortOrder
     employeeId?: SortOrder
+    firstName?: SortOrderInput | SortOrder
+    lastName?: SortOrderInput | SortOrder
     _count?: AdminCountOrderByAggregateInput
     _max?: AdminMaxOrderByAggregateInput
     _min?: AdminMinOrderByAggregateInput
@@ -31638,6 +31674,8 @@ export namespace Prisma {
     NOT?: AdminScalarWhereWithAggregatesInput | AdminScalarWhereWithAggregatesInput[]
     userId?: StringWithAggregatesFilter<"Admin"> | string
     employeeId?: StringWithAggregatesFilter<"Admin"> | string
+    firstName?: StringNullableWithAggregatesFilter<"Admin"> | string | null
+    lastName?: StringNullableWithAggregatesFilter<"Admin"> | string | null
   }
 
   export type ManagerWhereInput = {
@@ -33351,36 +33389,50 @@ export namespace Prisma {
 
   export type AdminCreateInput = {
     employeeId: string
+    firstName?: string | null
+    lastName?: string | null
     user: UserCreateNestedOneWithoutAdminInput
   }
 
   export type AdminUncheckedCreateInput = {
     userId: string
     employeeId: string
+    firstName?: string | null
+    lastName?: string | null
   }
 
   export type AdminUpdateInput = {
     employeeId?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
     user?: UserUpdateOneRequiredWithoutAdminNestedInput
   }
 
   export type AdminUncheckedUpdateInput = {
     userId?: StringFieldUpdateOperationsInput | string
     employeeId?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AdminCreateManyInput = {
     userId: string
     employeeId: string
+    firstName?: string | null
+    lastName?: string | null
   }
 
   export type AdminUpdateManyMutationInput = {
     employeeId?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AdminUncheckedUpdateManyInput = {
     userId?: StringFieldUpdateOperationsInput | string
     employeeId?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ManagerCreateInput = {
@@ -35324,16 +35376,22 @@ export namespace Prisma {
   export type AdminCountOrderByAggregateInput = {
     userId?: SortOrder
     employeeId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
   }
 
   export type AdminMaxOrderByAggregateInput = {
     userId?: SortOrder
     employeeId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
   }
 
   export type AdminMinOrderByAggregateInput = {
     userId?: SortOrder
     employeeId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
   }
 
   export type BankDetailsNullableScalarRelationFilter = {
@@ -37901,10 +37959,14 @@ export namespace Prisma {
 
   export type AdminCreateWithoutUserInput = {
     employeeId: string
+    firstName?: string | null
+    lastName?: string | null
   }
 
   export type AdminUncheckedCreateWithoutUserInput = {
     employeeId: string
+    firstName?: string | null
+    lastName?: string | null
   }
 
   export type AdminCreateOrConnectWithoutUserInput = {
@@ -38102,10 +38164,14 @@ export namespace Prisma {
 
   export type AdminUpdateWithoutUserInput = {
     employeeId?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AdminUncheckedUpdateWithoutUserInput = {
     employeeId?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateWithoutAdminInput = {

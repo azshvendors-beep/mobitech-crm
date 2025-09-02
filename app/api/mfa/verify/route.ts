@@ -6,7 +6,7 @@ import { getSession } from "@/lib/session";
 export async function POST(req: Request) {
   try {
     const { userId, token } = await req.json();
-
+console.log(userId, token)
     const session = await getSession()
 
     const user = await prisma.user.findUnique({ where: { id: userId } });

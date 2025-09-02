@@ -28,13 +28,14 @@ export async function POST(req: Request) {
         isAdmin: true,
       }
     });
+    console.log(user)
 
     if (!user) {
       return new NextResponse("Invalid credentials", { status: 401 });
     }
 
     const isValidPassword = await compare(body.password, user.password);
-
+    console.log(isValidPassword);
     if (!isValidPassword) {
       return new NextResponse("Invalid credentials", { status: 401 });
     }

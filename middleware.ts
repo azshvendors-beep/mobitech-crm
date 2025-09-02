@@ -58,6 +58,7 @@ export async function middleware(request: NextRequest) {
     "/api/qc-reports", // Quality control reports
     "/api/otp/send",
     "/api/otp/verify",
+    "/api/mfa/verify",
     "/api/aadhar/generate-otp",
     "/api/aadhar/verify-otp",
     "/api/voterId",

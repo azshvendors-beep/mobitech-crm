@@ -37,6 +37,20 @@ export async function POST(req: NextRequest) {
 }
 
 async function checkEmployeeId(employeeId: string) {
+
+  const admin = await prisma.admin.findUnique({
+    where: { employeeId },
+    include: { user: true },
+  });
+  if(admin && admin.user.status === "ACTIVE") {
+    return {
+      success: true,
+      name: admin.firstName + " " + admin.lastName,
+      isMfaEnabled: admin.user.mfaEnabled,
+      id: admin.user.id,
+    };
+  }
+
   const manager = await prisma.manager.findUnique({
     where: { employeeId },
     include: { user: true },

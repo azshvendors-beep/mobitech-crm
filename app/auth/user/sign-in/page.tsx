@@ -66,6 +66,7 @@ export default function SignInPage() {
         throw new Error("Invalid credentials");
       }
       const data = await res.json();
+      console.log(data)
       setUserId(data.userId);
       // Step 2: Check if MFA is enabled
       const mfaRes = await fetch("/api/mfa/check", { method: "GET" });

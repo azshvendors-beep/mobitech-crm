@@ -59,9 +59,11 @@ model User {
 }
 
 model Admin {
-  userId     String @id
-  employeeId String @unique
-  user       User   @relation("AdminToUser", fields: [userId], references: [id], onDelete: Cascade)
+  userId     String  @id
+  employeeId String  @unique
+  firstName  String?
+  lastName   String?
+  user       User    @relation("AdminToUser", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Manager {

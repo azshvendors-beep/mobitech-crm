@@ -150,7 +150,9 @@ exports.Prisma.UserScalarFieldEnum = {
 
 exports.Prisma.AdminScalarFieldEnum = {
   userId: 'userId',
-  employeeId: 'employeeId'
+  employeeId: 'employeeId',
+  firstName: 'firstName',
+  lastName: 'lastName'
 };
 
 exports.Prisma.ManagerScalarFieldEnum = {

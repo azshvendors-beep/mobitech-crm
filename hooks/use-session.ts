@@ -22,7 +22,7 @@ export function useSession() {
           } else if (data.isAdmin && window.location.pathname === '/auth/user/sign-in') {
             router.push('/admin/sessions');
           } else if (!window.location.pathname.startsWith('/admin')) {
-            router.push('/dashboard');
+            router.push('/user');
           }
         }
       } else {
@@ -61,7 +61,7 @@ export function useSession() {
       if (data.isAdmin) {
         router.push("/admin/sessions");
       } else {
-        router.push("/dashboard");
+        router.push("/user");
       }
       
       return true;

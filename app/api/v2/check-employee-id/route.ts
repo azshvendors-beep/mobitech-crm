@@ -45,6 +45,8 @@ async function checkEmployeeId(employeeId: string) {
     return {
       success: true,
       name: manager.firstName + " " + manager.lastName,
+      isMfaEnabled: manager.user.mfaEnabled,
+      id: manager.user.id,
     };
 
   const technician = await prisma.technician.findUnique({

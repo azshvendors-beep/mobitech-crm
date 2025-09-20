@@ -83,6 +83,8 @@ export default async function EmployeeDetailPage({ params }: PageProps) {
     if (!employee || !user) {
       return notFound();
     }
+
+
   } catch (error) {
     console.error("Error fetching employee:", error);
     return notFound();

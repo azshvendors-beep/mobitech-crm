@@ -288,6 +288,85 @@ model AudioJackTest {
   deviceTest   DeviceTest @relation(fields: [deviceTestId], references: [id], onDelete: Cascade)
 }
 
+model ManualDiagnosticsResult {
+  id          String  @id @default(cuid())
+  diagnoseId  String  @unique
+  employeeId  String?
+  smc         String
+  variant     String
+  imei1       String?
+  imei2       String?
+  screenTouch String
+
+  // Screen condition fields
+  screenSpot     String
+  screenLines    String
+  screenPhysical String
+  screenDiscolor String
+  screenBubble   String
+
+  // Functional Problems fields
+  frontCamera    String
+  backCamera     String
+  audioJack      String
+  wifi           String
+  gps            String
+  bluetooth      String
+  volumeButton   String
+  flashLight     String
+  fcImageBlurred String
+  bcImageBlurred String
+  vibrator       String
+  battery        String
+  speaker        String
+  microphone     String
+  fingerprint    String
+  proximity      String
+  chargingPort   String
+  powerButton    String
+  faceLock       String
+  copyScreen     String
+  sim            String
+
+  // Physical Condition fields
+  physicalScratch String
+  physicalDent    String
+  physicalPanel   String
+  physicalBent    String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Declaration {
+  id                String   @id @default(cuid())
+  orderId           String   @unique
+  brand             String
+  model             String
+  smc               String
+  variant           String
+  imei1             String?
+  imei2             String?
+  bluetooth         String?
+  gps               String?
+  wifi              String?
+  proximity         String?
+  multiTouch        String?
+  screenCalibration String?
+  speaker           String?
+  earReceiver       String?
+  microphone        String?
+  frontCamera       String?
+  backCamera        String?
+  sim               String?
+  fingerprint       String?
+  chargingPort      String?
+  audioJack         String?
+  isAccepted        Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
 model Address {
   id            String @id @default(cuid())
   streetAddress String

@@ -119,6 +119,16 @@ export type UsbTest = $Result.DefaultSelection<Prisma.$UsbTestPayload>
  */
 export type AudioJackTest = $Result.DefaultSelection<Prisma.$AudioJackTestPayload>
 /**
+ * Model ManualDiagnosticsResult
+ * 
+ */
+export type ManualDiagnosticsResult = $Result.DefaultSelection<Prisma.$ManualDiagnosticsResultPayload>
+/**
+ * Model Declaration
+ * 
+ */
+export type Declaration = $Result.DefaultSelection<Prisma.$DeclarationPayload>
+/**
  * Model Address
  * 
  */
@@ -499,6 +509,26 @@ export class PrismaClient<
     * ```
     */
   get audioJackTest(): Prisma.AudioJackTestDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.manualDiagnosticsResult`: Exposes CRUD operations for the **ManualDiagnosticsResult** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ManualDiagnosticsResults
+    * const manualDiagnosticsResults = await prisma.manualDiagnosticsResult.findMany()
+    * ```
+    */
+  get manualDiagnosticsResult(): Prisma.ManualDiagnosticsResultDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.declaration`: Exposes CRUD operations for the **Declaration** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Declarations
+    * const declarations = await prisma.declaration.findMany()
+    * ```
+    */
+  get declaration(): Prisma.DeclarationDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.address`: Exposes CRUD operations for the **Address** model.
@@ -1000,6 +1030,8 @@ export namespace Prisma {
     FingerprintTest: 'FingerprintTest',
     UsbTest: 'UsbTest',
     AudioJackTest: 'AudioJackTest',
+    ManualDiagnosticsResult: 'ManualDiagnosticsResult',
+    Declaration: 'Declaration',
     Address: 'Address',
     Otp: 'Otp',
     CustomModelBrand: 'CustomModelBrand',
@@ -1022,7 +1054,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "admin" | "manager" | "technician" | "fieldExecutive" | "salesExecutive" | "store" | "bankDetails" | "session" | "notification" | "deviceTest" | "connectivityTestResult" | "deviceTestResult" | "simTestResult" | "screenTest" | "audioTest" | "proximitySensorTest" | "cameraTest" | "fingerprintTest" | "usbTest" | "audioJackTest" | "address" | "otp" | "customModelBrand" | "customModel"
+      modelProps: "user" | "admin" | "manager" | "technician" | "fieldExecutive" | "salesExecutive" | "store" | "bankDetails" | "session" | "notification" | "deviceTest" | "connectivityTestResult" | "deviceTestResult" | "simTestResult" | "screenTest" | "audioTest" | "proximitySensorTest" | "cameraTest" | "fingerprintTest" | "usbTest" | "audioJackTest" | "manualDiagnosticsResult" | "declaration" | "address" | "otp" | "customModelBrand" | "customModel"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2580,6 +2612,154 @@ export namespace Prisma {
           }
         }
       }
+      ManualDiagnosticsResult: {
+        payload: Prisma.$ManualDiagnosticsResultPayload<ExtArgs>
+        fields: Prisma.ManualDiagnosticsResultFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ManualDiagnosticsResultFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ManualDiagnosticsResultFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload>
+          }
+          findFirst: {
+            args: Prisma.ManualDiagnosticsResultFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ManualDiagnosticsResultFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload>
+          }
+          findMany: {
+            args: Prisma.ManualDiagnosticsResultFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload>[]
+          }
+          create: {
+            args: Prisma.ManualDiagnosticsResultCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload>
+          }
+          createMany: {
+            args: Prisma.ManualDiagnosticsResultCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ManualDiagnosticsResultCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload>[]
+          }
+          delete: {
+            args: Prisma.ManualDiagnosticsResultDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload>
+          }
+          update: {
+            args: Prisma.ManualDiagnosticsResultUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload>
+          }
+          deleteMany: {
+            args: Prisma.ManualDiagnosticsResultDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ManualDiagnosticsResultUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ManualDiagnosticsResultUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload>[]
+          }
+          upsert: {
+            args: Prisma.ManualDiagnosticsResultUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ManualDiagnosticsResultPayload>
+          }
+          aggregate: {
+            args: Prisma.ManualDiagnosticsResultAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateManualDiagnosticsResult>
+          }
+          groupBy: {
+            args: Prisma.ManualDiagnosticsResultGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ManualDiagnosticsResultGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ManualDiagnosticsResultCountArgs<ExtArgs>
+            result: $Utils.Optional<ManualDiagnosticsResultCountAggregateOutputType> | number
+          }
+        }
+      }
+      Declaration: {
+        payload: Prisma.$DeclarationPayload<ExtArgs>
+        fields: Prisma.DeclarationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DeclarationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DeclarationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload>
+          }
+          findFirst: {
+            args: Prisma.DeclarationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DeclarationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload>
+          }
+          findMany: {
+            args: Prisma.DeclarationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload>[]
+          }
+          create: {
+            args: Prisma.DeclarationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload>
+          }
+          createMany: {
+            args: Prisma.DeclarationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DeclarationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload>[]
+          }
+          delete: {
+            args: Prisma.DeclarationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload>
+          }
+          update: {
+            args: Prisma.DeclarationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload>
+          }
+          deleteMany: {
+            args: Prisma.DeclarationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DeclarationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DeclarationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload>[]
+          }
+          upsert: {
+            args: Prisma.DeclarationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeclarationPayload>
+          }
+          aggregate: {
+            args: Prisma.DeclarationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDeclaration>
+          }
+          groupBy: {
+            args: Prisma.DeclarationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DeclarationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DeclarationCountArgs<ExtArgs>
+            result: $Utils.Optional<DeclarationCountAggregateOutputType> | number
+          }
+        }
+      }
       Address: {
         payload: Prisma.$AddressPayload<ExtArgs>
         fields: Prisma.AddressFieldRefs
@@ -2989,6 +3169,8 @@ export namespace Prisma {
     fingerprintTest?: FingerprintTestOmit
     usbTest?: UsbTestOmit
     audioJackTest?: AudioJackTestOmit
+    manualDiagnosticsResult?: ManualDiagnosticsResultOmit
+    declaration?: DeclarationOmit
     address?: AddressOmit
     otp?: OtpOmit
     customModelBrand?: CustomModelBrandOmit
@@ -26627,6 +26809,2724 @@ export namespace Prisma {
 
 
   /**
+   * Model ManualDiagnosticsResult
+   */
+
+  export type AggregateManualDiagnosticsResult = {
+    _count: ManualDiagnosticsResultCountAggregateOutputType | null
+    _min: ManualDiagnosticsResultMinAggregateOutputType | null
+    _max: ManualDiagnosticsResultMaxAggregateOutputType | null
+  }
+
+  export type ManualDiagnosticsResultMinAggregateOutputType = {
+    id: string | null
+    diagnoseId: string | null
+    employeeId: string | null
+    smc: string | null
+    variant: string | null
+    imei1: string | null
+    imei2: string | null
+    screenTouch: string | null
+    screenSpot: string | null
+    screenLines: string | null
+    screenPhysical: string | null
+    screenDiscolor: string | null
+    screenBubble: string | null
+    frontCamera: string | null
+    backCamera: string | null
+    audioJack: string | null
+    wifi: string | null
+    gps: string | null
+    bluetooth: string | null
+    volumeButton: string | null
+    flashLight: string | null
+    fcImageBlurred: string | null
+    bcImageBlurred: string | null
+    vibrator: string | null
+    battery: string | null
+    speaker: string | null
+    microphone: string | null
+    fingerprint: string | null
+    proximity: string | null
+    chargingPort: string | null
+    powerButton: string | null
+    faceLock: string | null
+    copyScreen: string | null
+    sim: string | null
+    physicalScratch: string | null
+    physicalDent: string | null
+    physicalPanel: string | null
+    physicalBent: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ManualDiagnosticsResultMaxAggregateOutputType = {
+    id: string | null
+    diagnoseId: string | null
+    employeeId: string | null
+    smc: string | null
+    variant: string | null
+    imei1: string | null
+    imei2: string | null
+    screenTouch: string | null
+    screenSpot: string | null
+    screenLines: string | null
+    screenPhysical: string | null
+    screenDiscolor: string | null
+    screenBubble: string | null
+    frontCamera: string | null
+    backCamera: string | null
+    audioJack: string | null
+    wifi: string | null
+    gps: string | null
+    bluetooth: string | null
+    volumeButton: string | null
+    flashLight: string | null
+    fcImageBlurred: string | null
+    bcImageBlurred: string | null
+    vibrator: string | null
+    battery: string | null
+    speaker: string | null
+    microphone: string | null
+    fingerprint: string | null
+    proximity: string | null
+    chargingPort: string | null
+    powerButton: string | null
+    faceLock: string | null
+    copyScreen: string | null
+    sim: string | null
+    physicalScratch: string | null
+    physicalDent: string | null
+    physicalPanel: string | null
+    physicalBent: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ManualDiagnosticsResultCountAggregateOutputType = {
+    id: number
+    diagnoseId: number
+    employeeId: number
+    smc: number
+    variant: number
+    imei1: number
+    imei2: number
+    screenTouch: number
+    screenSpot: number
+    screenLines: number
+    screenPhysical: number
+    screenDiscolor: number
+    screenBubble: number
+    frontCamera: number
+    backCamera: number
+    audioJack: number
+    wifi: number
+    gps: number
+    bluetooth: number
+    volumeButton: number
+    flashLight: number
+    fcImageBlurred: number
+    bcImageBlurred: number
+    vibrator: number
+    battery: number
+    speaker: number
+    microphone: number
+    fingerprint: number
+    proximity: number
+    chargingPort: number
+    powerButton: number
+    faceLock: number
+    copyScreen: number
+    sim: number
+    physicalScratch: number
+    physicalDent: number
+    physicalPanel: number
+    physicalBent: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ManualDiagnosticsResultMinAggregateInputType = {
+    id?: true
+    diagnoseId?: true
+    employeeId?: true
+    smc?: true
+    variant?: true
+    imei1?: true
+    imei2?: true
+    screenTouch?: true
+    screenSpot?: true
+    screenLines?: true
+    screenPhysical?: true
+    screenDiscolor?: true
+    screenBubble?: true
+    frontCamera?: true
+    backCamera?: true
+    audioJack?: true
+    wifi?: true
+    gps?: true
+    bluetooth?: true
+    volumeButton?: true
+    flashLight?: true
+    fcImageBlurred?: true
+    bcImageBlurred?: true
+    vibrator?: true
+    battery?: true
+    speaker?: true
+    microphone?: true
+    fingerprint?: true
+    proximity?: true
+    chargingPort?: true
+    powerButton?: true
+    faceLock?: true
+    copyScreen?: true
+    sim?: true
+    physicalScratch?: true
+    physicalDent?: true
+    physicalPanel?: true
+    physicalBent?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ManualDiagnosticsResultMaxAggregateInputType = {
+    id?: true
+    diagnoseId?: true
+    employeeId?: true
+    smc?: true
+    variant?: true
+    imei1?: true
+    imei2?: true
+    screenTouch?: true
+    screenSpot?: true
+    screenLines?: true
+    screenPhysical?: true
+    screenDiscolor?: true
+    screenBubble?: true
+    frontCamera?: true
+    backCamera?: true
+    audioJack?: true
+    wifi?: true
+    gps?: true
+    bluetooth?: true
+    volumeButton?: true
+    flashLight?: true
+    fcImageBlurred?: true
+    bcImageBlurred?: true
+    vibrator?: true
+    battery?: true
+    speaker?: true
+    microphone?: true
+    fingerprint?: true
+    proximity?: true
+    chargingPort?: true
+    powerButton?: true
+    faceLock?: true
+    copyScreen?: true
+    sim?: true
+    physicalScratch?: true
+    physicalDent?: true
+    physicalPanel?: true
+    physicalBent?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ManualDiagnosticsResultCountAggregateInputType = {
+    id?: true
+    diagnoseId?: true
+    employeeId?: true
+    smc?: true
+    variant?: true
+    imei1?: true
+    imei2?: true
+    screenTouch?: true
+    screenSpot?: true
+    screenLines?: true
+    screenPhysical?: true
+    screenDiscolor?: true
+    screenBubble?: true
+    frontCamera?: true
+    backCamera?: true
+    audioJack?: true
+    wifi?: true
+    gps?: true
+    bluetooth?: true
+    volumeButton?: true
+    flashLight?: true
+    fcImageBlurred?: true
+    bcImageBlurred?: true
+    vibrator?: true
+    battery?: true
+    speaker?: true
+    microphone?: true
+    fingerprint?: true
+    proximity?: true
+    chargingPort?: true
+    powerButton?: true
+    faceLock?: true
+    copyScreen?: true
+    sim?: true
+    physicalScratch?: true
+    physicalDent?: true
+    physicalPanel?: true
+    physicalBent?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ManualDiagnosticsResultAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ManualDiagnosticsResult to aggregate.
+     */
+    where?: ManualDiagnosticsResultWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ManualDiagnosticsResults to fetch.
+     */
+    orderBy?: ManualDiagnosticsResultOrderByWithRelationInput | ManualDiagnosticsResultOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ManualDiagnosticsResultWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ManualDiagnosticsResults from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ManualDiagnosticsResults.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ManualDiagnosticsResults
+    **/
+    _count?: true | ManualDiagnosticsResultCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ManualDiagnosticsResultMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ManualDiagnosticsResultMaxAggregateInputType
+  }
+
+  export type GetManualDiagnosticsResultAggregateType<T extends ManualDiagnosticsResultAggregateArgs> = {
+        [P in keyof T & keyof AggregateManualDiagnosticsResult]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateManualDiagnosticsResult[P]>
+      : GetScalarType<T[P], AggregateManualDiagnosticsResult[P]>
+  }
+
+
+
+
+  export type ManualDiagnosticsResultGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ManualDiagnosticsResultWhereInput
+    orderBy?: ManualDiagnosticsResultOrderByWithAggregationInput | ManualDiagnosticsResultOrderByWithAggregationInput[]
+    by: ManualDiagnosticsResultScalarFieldEnum[] | ManualDiagnosticsResultScalarFieldEnum
+    having?: ManualDiagnosticsResultScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ManualDiagnosticsResultCountAggregateInputType | true
+    _min?: ManualDiagnosticsResultMinAggregateInputType
+    _max?: ManualDiagnosticsResultMaxAggregateInputType
+  }
+
+  export type ManualDiagnosticsResultGroupByOutputType = {
+    id: string
+    diagnoseId: string
+    employeeId: string | null
+    smc: string
+    variant: string
+    imei1: string | null
+    imei2: string | null
+    screenTouch: string
+    screenSpot: string
+    screenLines: string
+    screenPhysical: string
+    screenDiscolor: string
+    screenBubble: string
+    frontCamera: string
+    backCamera: string
+    audioJack: string
+    wifi: string
+    gps: string
+    bluetooth: string
+    volumeButton: string
+    flashLight: string
+    fcImageBlurred: string
+    bcImageBlurred: string
+    vibrator: string
+    battery: string
+    speaker: string
+    microphone: string
+    fingerprint: string
+    proximity: string
+    chargingPort: string
+    powerButton: string
+    faceLock: string
+    copyScreen: string
+    sim: string
+    physicalScratch: string
+    physicalDent: string
+    physicalPanel: string
+    physicalBent: string
+    createdAt: Date
+    updatedAt: Date
+    _count: ManualDiagnosticsResultCountAggregateOutputType | null
+    _min: ManualDiagnosticsResultMinAggregateOutputType | null
+    _max: ManualDiagnosticsResultMaxAggregateOutputType | null
+  }
+
+  type GetManualDiagnosticsResultGroupByPayload<T extends ManualDiagnosticsResultGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ManualDiagnosticsResultGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ManualDiagnosticsResultGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ManualDiagnosticsResultGroupByOutputType[P]>
+            : GetScalarType<T[P], ManualDiagnosticsResultGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ManualDiagnosticsResultSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    diagnoseId?: boolean
+    employeeId?: boolean
+    smc?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    screenTouch?: boolean
+    screenSpot?: boolean
+    screenLines?: boolean
+    screenPhysical?: boolean
+    screenDiscolor?: boolean
+    screenBubble?: boolean
+    frontCamera?: boolean
+    backCamera?: boolean
+    audioJack?: boolean
+    wifi?: boolean
+    gps?: boolean
+    bluetooth?: boolean
+    volumeButton?: boolean
+    flashLight?: boolean
+    fcImageBlurred?: boolean
+    bcImageBlurred?: boolean
+    vibrator?: boolean
+    battery?: boolean
+    speaker?: boolean
+    microphone?: boolean
+    fingerprint?: boolean
+    proximity?: boolean
+    chargingPort?: boolean
+    powerButton?: boolean
+    faceLock?: boolean
+    copyScreen?: boolean
+    sim?: boolean
+    physicalScratch?: boolean
+    physicalDent?: boolean
+    physicalPanel?: boolean
+    physicalBent?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["manualDiagnosticsResult"]>
+
+  export type ManualDiagnosticsResultSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    diagnoseId?: boolean
+    employeeId?: boolean
+    smc?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    screenTouch?: boolean
+    screenSpot?: boolean
+    screenLines?: boolean
+    screenPhysical?: boolean
+    screenDiscolor?: boolean
+    screenBubble?: boolean
+    frontCamera?: boolean
+    backCamera?: boolean
+    audioJack?: boolean
+    wifi?: boolean
+    gps?: boolean
+    bluetooth?: boolean
+    volumeButton?: boolean
+    flashLight?: boolean
+    fcImageBlurred?: boolean
+    bcImageBlurred?: boolean
+    vibrator?: boolean
+    battery?: boolean
+    speaker?: boolean
+    microphone?: boolean
+    fingerprint?: boolean
+    proximity?: boolean
+    chargingPort?: boolean
+    powerButton?: boolean
+    faceLock?: boolean
+    copyScreen?: boolean
+    sim?: boolean
+    physicalScratch?: boolean
+    physicalDent?: boolean
+    physicalPanel?: boolean
+    physicalBent?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["manualDiagnosticsResult"]>
+
+  export type ManualDiagnosticsResultSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    diagnoseId?: boolean
+    employeeId?: boolean
+    smc?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    screenTouch?: boolean
+    screenSpot?: boolean
+    screenLines?: boolean
+    screenPhysical?: boolean
+    screenDiscolor?: boolean
+    screenBubble?: boolean
+    frontCamera?: boolean
+    backCamera?: boolean
+    audioJack?: boolean
+    wifi?: boolean
+    gps?: boolean
+    bluetooth?: boolean
+    volumeButton?: boolean
+    flashLight?: boolean
+    fcImageBlurred?: boolean
+    bcImageBlurred?: boolean
+    vibrator?: boolean
+    battery?: boolean
+    speaker?: boolean
+    microphone?: boolean
+    fingerprint?: boolean
+    proximity?: boolean
+    chargingPort?: boolean
+    powerButton?: boolean
+    faceLock?: boolean
+    copyScreen?: boolean
+    sim?: boolean
+    physicalScratch?: boolean
+    physicalDent?: boolean
+    physicalPanel?: boolean
+    physicalBent?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["manualDiagnosticsResult"]>
+
+  export type ManualDiagnosticsResultSelectScalar = {
+    id?: boolean
+    diagnoseId?: boolean
+    employeeId?: boolean
+    smc?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    screenTouch?: boolean
+    screenSpot?: boolean
+    screenLines?: boolean
+    screenPhysical?: boolean
+    screenDiscolor?: boolean
+    screenBubble?: boolean
+    frontCamera?: boolean
+    backCamera?: boolean
+    audioJack?: boolean
+    wifi?: boolean
+    gps?: boolean
+    bluetooth?: boolean
+    volumeButton?: boolean
+    flashLight?: boolean
+    fcImageBlurred?: boolean
+    bcImageBlurred?: boolean
+    vibrator?: boolean
+    battery?: boolean
+    speaker?: boolean
+    microphone?: boolean
+    fingerprint?: boolean
+    proximity?: boolean
+    chargingPort?: boolean
+    powerButton?: boolean
+    faceLock?: boolean
+    copyScreen?: boolean
+    sim?: boolean
+    physicalScratch?: boolean
+    physicalDent?: boolean
+    physicalPanel?: boolean
+    physicalBent?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ManualDiagnosticsResultOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "diagnoseId" | "employeeId" | "smc" | "variant" | "imei1" | "imei2" | "screenTouch" | "screenSpot" | "screenLines" | "screenPhysical" | "screenDiscolor" | "screenBubble" | "frontCamera" | "backCamera" | "audioJack" | "wifi" | "gps" | "bluetooth" | "volumeButton" | "flashLight" | "fcImageBlurred" | "bcImageBlurred" | "vibrator" | "battery" | "speaker" | "microphone" | "fingerprint" | "proximity" | "chargingPort" | "powerButton" | "faceLock" | "copyScreen" | "sim" | "physicalScratch" | "physicalDent" | "physicalPanel" | "physicalBent" | "createdAt" | "updatedAt", ExtArgs["result"]["manualDiagnosticsResult"]>
+
+  export type $ManualDiagnosticsResultPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ManualDiagnosticsResult"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      diagnoseId: string
+      employeeId: string | null
+      smc: string
+      variant: string
+      imei1: string | null
+      imei2: string | null
+      screenTouch: string
+      screenSpot: string
+      screenLines: string
+      screenPhysical: string
+      screenDiscolor: string
+      screenBubble: string
+      frontCamera: string
+      backCamera: string
+      audioJack: string
+      wifi: string
+      gps: string
+      bluetooth: string
+      volumeButton: string
+      flashLight: string
+      fcImageBlurred: string
+      bcImageBlurred: string
+      vibrator: string
+      battery: string
+      speaker: string
+      microphone: string
+      fingerprint: string
+      proximity: string
+      chargingPort: string
+      powerButton: string
+      faceLock: string
+      copyScreen: string
+      sim: string
+      physicalScratch: string
+      physicalDent: string
+      physicalPanel: string
+      physicalBent: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["manualDiagnosticsResult"]>
+    composites: {}
+  }
+
+  type ManualDiagnosticsResultGetPayload<S extends boolean | null | undefined | ManualDiagnosticsResultDefaultArgs> = $Result.GetResult<Prisma.$ManualDiagnosticsResultPayload, S>
+
+  type ManualDiagnosticsResultCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ManualDiagnosticsResultFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ManualDiagnosticsResultCountAggregateInputType | true
+    }
+
+  export interface ManualDiagnosticsResultDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ManualDiagnosticsResult'], meta: { name: 'ManualDiagnosticsResult' } }
+    /**
+     * Find zero or one ManualDiagnosticsResult that matches the filter.
+     * @param {ManualDiagnosticsResultFindUniqueArgs} args - Arguments to find a ManualDiagnosticsResult
+     * @example
+     * // Get one ManualDiagnosticsResult
+     * const manualDiagnosticsResult = await prisma.manualDiagnosticsResult.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ManualDiagnosticsResultFindUniqueArgs>(args: SelectSubset<T, ManualDiagnosticsResultFindUniqueArgs<ExtArgs>>): Prisma__ManualDiagnosticsResultClient<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ManualDiagnosticsResult that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ManualDiagnosticsResultFindUniqueOrThrowArgs} args - Arguments to find a ManualDiagnosticsResult
+     * @example
+     * // Get one ManualDiagnosticsResult
+     * const manualDiagnosticsResult = await prisma.manualDiagnosticsResult.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ManualDiagnosticsResultFindUniqueOrThrowArgs>(args: SelectSubset<T, ManualDiagnosticsResultFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ManualDiagnosticsResultClient<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ManualDiagnosticsResult that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ManualDiagnosticsResultFindFirstArgs} args - Arguments to find a ManualDiagnosticsResult
+     * @example
+     * // Get one ManualDiagnosticsResult
+     * const manualDiagnosticsResult = await prisma.manualDiagnosticsResult.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ManualDiagnosticsResultFindFirstArgs>(args?: SelectSubset<T, ManualDiagnosticsResultFindFirstArgs<ExtArgs>>): Prisma__ManualDiagnosticsResultClient<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ManualDiagnosticsResult that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ManualDiagnosticsResultFindFirstOrThrowArgs} args - Arguments to find a ManualDiagnosticsResult
+     * @example
+     * // Get one ManualDiagnosticsResult
+     * const manualDiagnosticsResult = await prisma.manualDiagnosticsResult.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ManualDiagnosticsResultFindFirstOrThrowArgs>(args?: SelectSubset<T, ManualDiagnosticsResultFindFirstOrThrowArgs<ExtArgs>>): Prisma__ManualDiagnosticsResultClient<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ManualDiagnosticsResults that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ManualDiagnosticsResultFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ManualDiagnosticsResults
+     * const manualDiagnosticsResults = await prisma.manualDiagnosticsResult.findMany()
+     * 
+     * // Get first 10 ManualDiagnosticsResults
+     * const manualDiagnosticsResults = await prisma.manualDiagnosticsResult.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const manualDiagnosticsResultWithIdOnly = await prisma.manualDiagnosticsResult.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ManualDiagnosticsResultFindManyArgs>(args?: SelectSubset<T, ManualDiagnosticsResultFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ManualDiagnosticsResult.
+     * @param {ManualDiagnosticsResultCreateArgs} args - Arguments to create a ManualDiagnosticsResult.
+     * @example
+     * // Create one ManualDiagnosticsResult
+     * const ManualDiagnosticsResult = await prisma.manualDiagnosticsResult.create({
+     *   data: {
+     *     // ... data to create a ManualDiagnosticsResult
+     *   }
+     * })
+     * 
+     */
+    create<T extends ManualDiagnosticsResultCreateArgs>(args: SelectSubset<T, ManualDiagnosticsResultCreateArgs<ExtArgs>>): Prisma__ManualDiagnosticsResultClient<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ManualDiagnosticsResults.
+     * @param {ManualDiagnosticsResultCreateManyArgs} args - Arguments to create many ManualDiagnosticsResults.
+     * @example
+     * // Create many ManualDiagnosticsResults
+     * const manualDiagnosticsResult = await prisma.manualDiagnosticsResult.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ManualDiagnosticsResultCreateManyArgs>(args?: SelectSubset<T, ManualDiagnosticsResultCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ManualDiagnosticsResults and returns the data saved in the database.
+     * @param {ManualDiagnosticsResultCreateManyAndReturnArgs} args - Arguments to create many ManualDiagnosticsResults.
+     * @example
+     * // Create many ManualDiagnosticsResults
+     * const manualDiagnosticsResult = await prisma.manualDiagnosticsResult.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ManualDiagnosticsResults and only return the `id`
+     * const manualDiagnosticsResultWithIdOnly = await prisma.manualDiagnosticsResult.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ManualDiagnosticsResultCreateManyAndReturnArgs>(args?: SelectSubset<T, ManualDiagnosticsResultCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ManualDiagnosticsResult.
+     * @param {ManualDiagnosticsResultDeleteArgs} args - Arguments to delete one ManualDiagnosticsResult.
+     * @example
+     * // Delete one ManualDiagnosticsResult
+     * const ManualDiagnosticsResult = await prisma.manualDiagnosticsResult.delete({
+     *   where: {
+     *     // ... filter to delete one ManualDiagnosticsResult
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ManualDiagnosticsResultDeleteArgs>(args: SelectSubset<T, ManualDiagnosticsResultDeleteArgs<ExtArgs>>): Prisma__ManualDiagnosticsResultClient<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ManualDiagnosticsResult.
+     * @param {ManualDiagnosticsResultUpdateArgs} args - Arguments to update one ManualDiagnosticsResult.
+     * @example
+     * // Update one ManualDiagnosticsResult
+     * const manualDiagnosticsResult = await prisma.manualDiagnosticsResult.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ManualDiagnosticsResultUpdateArgs>(args: SelectSubset<T, ManualDiagnosticsResultUpdateArgs<ExtArgs>>): Prisma__ManualDiagnosticsResultClient<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ManualDiagnosticsResults.
+     * @param {ManualDiagnosticsResultDeleteManyArgs} args - Arguments to filter ManualDiagnosticsResults to delete.
+     * @example
+     * // Delete a few ManualDiagnosticsResults
+     * const { count } = await prisma.manualDiagnosticsResult.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ManualDiagnosticsResultDeleteManyArgs>(args?: SelectSubset<T, ManualDiagnosticsResultDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ManualDiagnosticsResults.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ManualDiagnosticsResultUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ManualDiagnosticsResults
+     * const manualDiagnosticsResult = await prisma.manualDiagnosticsResult.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ManualDiagnosticsResultUpdateManyArgs>(args: SelectSubset<T, ManualDiagnosticsResultUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ManualDiagnosticsResults and returns the data updated in the database.
+     * @param {ManualDiagnosticsResultUpdateManyAndReturnArgs} args - Arguments to update many ManualDiagnosticsResults.
+     * @example
+     * // Update many ManualDiagnosticsResults
+     * const manualDiagnosticsResult = await prisma.manualDiagnosticsResult.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ManualDiagnosticsResults and only return the `id`
+     * const manualDiagnosticsResultWithIdOnly = await prisma.manualDiagnosticsResult.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ManualDiagnosticsResultUpdateManyAndReturnArgs>(args: SelectSubset<T, ManualDiagnosticsResultUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ManualDiagnosticsResult.
+     * @param {ManualDiagnosticsResultUpsertArgs} args - Arguments to update or create a ManualDiagnosticsResult.
+     * @example
+     * // Update or create a ManualDiagnosticsResult
+     * const manualDiagnosticsResult = await prisma.manualDiagnosticsResult.upsert({
+     *   create: {
+     *     // ... data to create a ManualDiagnosticsResult
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ManualDiagnosticsResult we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ManualDiagnosticsResultUpsertArgs>(args: SelectSubset<T, ManualDiagnosticsResultUpsertArgs<ExtArgs>>): Prisma__ManualDiagnosticsResultClient<$Result.GetResult<Prisma.$ManualDiagnosticsResultPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ManualDiagnosticsResults.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ManualDiagnosticsResultCountArgs} args - Arguments to filter ManualDiagnosticsResults to count.
+     * @example
+     * // Count the number of ManualDiagnosticsResults
+     * const count = await prisma.manualDiagnosticsResult.count({
+     *   where: {
+     *     // ... the filter for the ManualDiagnosticsResults we want to count
+     *   }
+     * })
+    **/
+    count<T extends ManualDiagnosticsResultCountArgs>(
+      args?: Subset<T, ManualDiagnosticsResultCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ManualDiagnosticsResultCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ManualDiagnosticsResult.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ManualDiagnosticsResultAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ManualDiagnosticsResultAggregateArgs>(args: Subset<T, ManualDiagnosticsResultAggregateArgs>): Prisma.PrismaPromise<GetManualDiagnosticsResultAggregateType<T>>
+
+    /**
+     * Group by ManualDiagnosticsResult.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ManualDiagnosticsResultGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ManualDiagnosticsResultGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ManualDiagnosticsResultGroupByArgs['orderBy'] }
+        : { orderBy?: ManualDiagnosticsResultGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ManualDiagnosticsResultGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetManualDiagnosticsResultGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ManualDiagnosticsResult model
+   */
+  readonly fields: ManualDiagnosticsResultFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ManualDiagnosticsResult.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ManualDiagnosticsResultClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ManualDiagnosticsResult model
+   */
+  interface ManualDiagnosticsResultFieldRefs {
+    readonly id: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly diagnoseId: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly employeeId: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly smc: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly variant: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly imei1: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly imei2: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly screenTouch: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly screenSpot: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly screenLines: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly screenPhysical: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly screenDiscolor: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly screenBubble: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly frontCamera: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly backCamera: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly audioJack: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly wifi: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly gps: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly bluetooth: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly volumeButton: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly flashLight: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly fcImageBlurred: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly bcImageBlurred: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly vibrator: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly battery: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly speaker: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly microphone: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly fingerprint: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly proximity: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly chargingPort: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly powerButton: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly faceLock: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly copyScreen: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly sim: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly physicalScratch: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly physicalDent: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly physicalPanel: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly physicalBent: FieldRef<"ManualDiagnosticsResult", 'String'>
+    readonly createdAt: FieldRef<"ManualDiagnosticsResult", 'DateTime'>
+    readonly updatedAt: FieldRef<"ManualDiagnosticsResult", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ManualDiagnosticsResult findUnique
+   */
+  export type ManualDiagnosticsResultFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * Filter, which ManualDiagnosticsResult to fetch.
+     */
+    where: ManualDiagnosticsResultWhereUniqueInput
+  }
+
+  /**
+   * ManualDiagnosticsResult findUniqueOrThrow
+   */
+  export type ManualDiagnosticsResultFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * Filter, which ManualDiagnosticsResult to fetch.
+     */
+    where: ManualDiagnosticsResultWhereUniqueInput
+  }
+
+  /**
+   * ManualDiagnosticsResult findFirst
+   */
+  export type ManualDiagnosticsResultFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * Filter, which ManualDiagnosticsResult to fetch.
+     */
+    where?: ManualDiagnosticsResultWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ManualDiagnosticsResults to fetch.
+     */
+    orderBy?: ManualDiagnosticsResultOrderByWithRelationInput | ManualDiagnosticsResultOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ManualDiagnosticsResults.
+     */
+    cursor?: ManualDiagnosticsResultWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ManualDiagnosticsResults from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ManualDiagnosticsResults.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ManualDiagnosticsResults.
+     */
+    distinct?: ManualDiagnosticsResultScalarFieldEnum | ManualDiagnosticsResultScalarFieldEnum[]
+  }
+
+  /**
+   * ManualDiagnosticsResult findFirstOrThrow
+   */
+  export type ManualDiagnosticsResultFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * Filter, which ManualDiagnosticsResult to fetch.
+     */
+    where?: ManualDiagnosticsResultWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ManualDiagnosticsResults to fetch.
+     */
+    orderBy?: ManualDiagnosticsResultOrderByWithRelationInput | ManualDiagnosticsResultOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ManualDiagnosticsResults.
+     */
+    cursor?: ManualDiagnosticsResultWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ManualDiagnosticsResults from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ManualDiagnosticsResults.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ManualDiagnosticsResults.
+     */
+    distinct?: ManualDiagnosticsResultScalarFieldEnum | ManualDiagnosticsResultScalarFieldEnum[]
+  }
+
+  /**
+   * ManualDiagnosticsResult findMany
+   */
+  export type ManualDiagnosticsResultFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * Filter, which ManualDiagnosticsResults to fetch.
+     */
+    where?: ManualDiagnosticsResultWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ManualDiagnosticsResults to fetch.
+     */
+    orderBy?: ManualDiagnosticsResultOrderByWithRelationInput | ManualDiagnosticsResultOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ManualDiagnosticsResults.
+     */
+    cursor?: ManualDiagnosticsResultWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ManualDiagnosticsResults from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ManualDiagnosticsResults.
+     */
+    skip?: number
+    distinct?: ManualDiagnosticsResultScalarFieldEnum | ManualDiagnosticsResultScalarFieldEnum[]
+  }
+
+  /**
+   * ManualDiagnosticsResult create
+   */
+  export type ManualDiagnosticsResultCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * The data needed to create a ManualDiagnosticsResult.
+     */
+    data: XOR<ManualDiagnosticsResultCreateInput, ManualDiagnosticsResultUncheckedCreateInput>
+  }
+
+  /**
+   * ManualDiagnosticsResult createMany
+   */
+  export type ManualDiagnosticsResultCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ManualDiagnosticsResults.
+     */
+    data: ManualDiagnosticsResultCreateManyInput | ManualDiagnosticsResultCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ManualDiagnosticsResult createManyAndReturn
+   */
+  export type ManualDiagnosticsResultCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * The data used to create many ManualDiagnosticsResults.
+     */
+    data: ManualDiagnosticsResultCreateManyInput | ManualDiagnosticsResultCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ManualDiagnosticsResult update
+   */
+  export type ManualDiagnosticsResultUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * The data needed to update a ManualDiagnosticsResult.
+     */
+    data: XOR<ManualDiagnosticsResultUpdateInput, ManualDiagnosticsResultUncheckedUpdateInput>
+    /**
+     * Choose, which ManualDiagnosticsResult to update.
+     */
+    where: ManualDiagnosticsResultWhereUniqueInput
+  }
+
+  /**
+   * ManualDiagnosticsResult updateMany
+   */
+  export type ManualDiagnosticsResultUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ManualDiagnosticsResults.
+     */
+    data: XOR<ManualDiagnosticsResultUpdateManyMutationInput, ManualDiagnosticsResultUncheckedUpdateManyInput>
+    /**
+     * Filter which ManualDiagnosticsResults to update
+     */
+    where?: ManualDiagnosticsResultWhereInput
+    /**
+     * Limit how many ManualDiagnosticsResults to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ManualDiagnosticsResult updateManyAndReturn
+   */
+  export type ManualDiagnosticsResultUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * The data used to update ManualDiagnosticsResults.
+     */
+    data: XOR<ManualDiagnosticsResultUpdateManyMutationInput, ManualDiagnosticsResultUncheckedUpdateManyInput>
+    /**
+     * Filter which ManualDiagnosticsResults to update
+     */
+    where?: ManualDiagnosticsResultWhereInput
+    /**
+     * Limit how many ManualDiagnosticsResults to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ManualDiagnosticsResult upsert
+   */
+  export type ManualDiagnosticsResultUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * The filter to search for the ManualDiagnosticsResult to update in case it exists.
+     */
+    where: ManualDiagnosticsResultWhereUniqueInput
+    /**
+     * In case the ManualDiagnosticsResult found by the `where` argument doesn't exist, create a new ManualDiagnosticsResult with this data.
+     */
+    create: XOR<ManualDiagnosticsResultCreateInput, ManualDiagnosticsResultUncheckedCreateInput>
+    /**
+     * In case the ManualDiagnosticsResult was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ManualDiagnosticsResultUpdateInput, ManualDiagnosticsResultUncheckedUpdateInput>
+  }
+
+  /**
+   * ManualDiagnosticsResult delete
+   */
+  export type ManualDiagnosticsResultDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+    /**
+     * Filter which ManualDiagnosticsResult to delete.
+     */
+    where: ManualDiagnosticsResultWhereUniqueInput
+  }
+
+  /**
+   * ManualDiagnosticsResult deleteMany
+   */
+  export type ManualDiagnosticsResultDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ManualDiagnosticsResults to delete
+     */
+    where?: ManualDiagnosticsResultWhereInput
+    /**
+     * Limit how many ManualDiagnosticsResults to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ManualDiagnosticsResult without action
+   */
+  export type ManualDiagnosticsResultDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ManualDiagnosticsResult
+     */
+    select?: ManualDiagnosticsResultSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ManualDiagnosticsResult
+     */
+    omit?: ManualDiagnosticsResultOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Declaration
+   */
+
+  export type AggregateDeclaration = {
+    _count: DeclarationCountAggregateOutputType | null
+    _min: DeclarationMinAggregateOutputType | null
+    _max: DeclarationMaxAggregateOutputType | null
+  }
+
+  export type DeclarationMinAggregateOutputType = {
+    id: string | null
+    orderId: string | null
+    brand: string | null
+    model: string | null
+    smc: string | null
+    variant: string | null
+    imei1: string | null
+    imei2: string | null
+    bluetooth: string | null
+    gps: string | null
+    wifi: string | null
+    proximity: string | null
+    multiTouch: string | null
+    screenCalibration: string | null
+    speaker: string | null
+    earReceiver: string | null
+    microphone: string | null
+    frontCamera: string | null
+    backCamera: string | null
+    sim: string | null
+    fingerprint: string | null
+    chargingPort: string | null
+    audioJack: string | null
+    isAccepted: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DeclarationMaxAggregateOutputType = {
+    id: string | null
+    orderId: string | null
+    brand: string | null
+    model: string | null
+    smc: string | null
+    variant: string | null
+    imei1: string | null
+    imei2: string | null
+    bluetooth: string | null
+    gps: string | null
+    wifi: string | null
+    proximity: string | null
+    multiTouch: string | null
+    screenCalibration: string | null
+    speaker: string | null
+    earReceiver: string | null
+    microphone: string | null
+    frontCamera: string | null
+    backCamera: string | null
+    sim: string | null
+    fingerprint: string | null
+    chargingPort: string | null
+    audioJack: string | null
+    isAccepted: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DeclarationCountAggregateOutputType = {
+    id: number
+    orderId: number
+    brand: number
+    model: number
+    smc: number
+    variant: number
+    imei1: number
+    imei2: number
+    bluetooth: number
+    gps: number
+    wifi: number
+    proximity: number
+    multiTouch: number
+    screenCalibration: number
+    speaker: number
+    earReceiver: number
+    microphone: number
+    frontCamera: number
+    backCamera: number
+    sim: number
+    fingerprint: number
+    chargingPort: number
+    audioJack: number
+    isAccepted: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DeclarationMinAggregateInputType = {
+    id?: true
+    orderId?: true
+    brand?: true
+    model?: true
+    smc?: true
+    variant?: true
+    imei1?: true
+    imei2?: true
+    bluetooth?: true
+    gps?: true
+    wifi?: true
+    proximity?: true
+    multiTouch?: true
+    screenCalibration?: true
+    speaker?: true
+    earReceiver?: true
+    microphone?: true
+    frontCamera?: true
+    backCamera?: true
+    sim?: true
+    fingerprint?: true
+    chargingPort?: true
+    audioJack?: true
+    isAccepted?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DeclarationMaxAggregateInputType = {
+    id?: true
+    orderId?: true
+    brand?: true
+    model?: true
+    smc?: true
+    variant?: true
+    imei1?: true
+    imei2?: true
+    bluetooth?: true
+    gps?: true
+    wifi?: true
+    proximity?: true
+    multiTouch?: true
+    screenCalibration?: true
+    speaker?: true
+    earReceiver?: true
+    microphone?: true
+    frontCamera?: true
+    backCamera?: true
+    sim?: true
+    fingerprint?: true
+    chargingPort?: true
+    audioJack?: true
+    isAccepted?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DeclarationCountAggregateInputType = {
+    id?: true
+    orderId?: true
+    brand?: true
+    model?: true
+    smc?: true
+    variant?: true
+    imei1?: true
+    imei2?: true
+    bluetooth?: true
+    gps?: true
+    wifi?: true
+    proximity?: true
+    multiTouch?: true
+    screenCalibration?: true
+    speaker?: true
+    earReceiver?: true
+    microphone?: true
+    frontCamera?: true
+    backCamera?: true
+    sim?: true
+    fingerprint?: true
+    chargingPort?: true
+    audioJack?: true
+    isAccepted?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DeclarationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Declaration to aggregate.
+     */
+    where?: DeclarationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Declarations to fetch.
+     */
+    orderBy?: DeclarationOrderByWithRelationInput | DeclarationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DeclarationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Declarations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Declarations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Declarations
+    **/
+    _count?: true | DeclarationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DeclarationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DeclarationMaxAggregateInputType
+  }
+
+  export type GetDeclarationAggregateType<T extends DeclarationAggregateArgs> = {
+        [P in keyof T & keyof AggregateDeclaration]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDeclaration[P]>
+      : GetScalarType<T[P], AggregateDeclaration[P]>
+  }
+
+
+
+
+  export type DeclarationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeclarationWhereInput
+    orderBy?: DeclarationOrderByWithAggregationInput | DeclarationOrderByWithAggregationInput[]
+    by: DeclarationScalarFieldEnum[] | DeclarationScalarFieldEnum
+    having?: DeclarationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DeclarationCountAggregateInputType | true
+    _min?: DeclarationMinAggregateInputType
+    _max?: DeclarationMaxAggregateInputType
+  }
+
+  export type DeclarationGroupByOutputType = {
+    id: string
+    orderId: string
+    brand: string
+    model: string
+    smc: string
+    variant: string
+    imei1: string | null
+    imei2: string | null
+    bluetooth: string | null
+    gps: string | null
+    wifi: string | null
+    proximity: string | null
+    multiTouch: string | null
+    screenCalibration: string | null
+    speaker: string | null
+    earReceiver: string | null
+    microphone: string | null
+    frontCamera: string | null
+    backCamera: string | null
+    sim: string | null
+    fingerprint: string | null
+    chargingPort: string | null
+    audioJack: string | null
+    isAccepted: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: DeclarationCountAggregateOutputType | null
+    _min: DeclarationMinAggregateOutputType | null
+    _max: DeclarationMaxAggregateOutputType | null
+  }
+
+  type GetDeclarationGroupByPayload<T extends DeclarationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DeclarationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DeclarationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DeclarationGroupByOutputType[P]>
+            : GetScalarType<T[P], DeclarationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DeclarationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    brand?: boolean
+    model?: boolean
+    smc?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    bluetooth?: boolean
+    gps?: boolean
+    wifi?: boolean
+    proximity?: boolean
+    multiTouch?: boolean
+    screenCalibration?: boolean
+    speaker?: boolean
+    earReceiver?: boolean
+    microphone?: boolean
+    frontCamera?: boolean
+    backCamera?: boolean
+    sim?: boolean
+    fingerprint?: boolean
+    chargingPort?: boolean
+    audioJack?: boolean
+    isAccepted?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["declaration"]>
+
+  export type DeclarationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    brand?: boolean
+    model?: boolean
+    smc?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    bluetooth?: boolean
+    gps?: boolean
+    wifi?: boolean
+    proximity?: boolean
+    multiTouch?: boolean
+    screenCalibration?: boolean
+    speaker?: boolean
+    earReceiver?: boolean
+    microphone?: boolean
+    frontCamera?: boolean
+    backCamera?: boolean
+    sim?: boolean
+    fingerprint?: boolean
+    chargingPort?: boolean
+    audioJack?: boolean
+    isAccepted?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["declaration"]>
+
+  export type DeclarationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    brand?: boolean
+    model?: boolean
+    smc?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    bluetooth?: boolean
+    gps?: boolean
+    wifi?: boolean
+    proximity?: boolean
+    multiTouch?: boolean
+    screenCalibration?: boolean
+    speaker?: boolean
+    earReceiver?: boolean
+    microphone?: boolean
+    frontCamera?: boolean
+    backCamera?: boolean
+    sim?: boolean
+    fingerprint?: boolean
+    chargingPort?: boolean
+    audioJack?: boolean
+    isAccepted?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["declaration"]>
+
+  export type DeclarationSelectScalar = {
+    id?: boolean
+    orderId?: boolean
+    brand?: boolean
+    model?: boolean
+    smc?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    bluetooth?: boolean
+    gps?: boolean
+    wifi?: boolean
+    proximity?: boolean
+    multiTouch?: boolean
+    screenCalibration?: boolean
+    speaker?: boolean
+    earReceiver?: boolean
+    microphone?: boolean
+    frontCamera?: boolean
+    backCamera?: boolean
+    sim?: boolean
+    fingerprint?: boolean
+    chargingPort?: boolean
+    audioJack?: boolean
+    isAccepted?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DeclarationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "brand" | "model" | "smc" | "variant" | "imei1" | "imei2" | "bluetooth" | "gps" | "wifi" | "proximity" | "multiTouch" | "screenCalibration" | "speaker" | "earReceiver" | "microphone" | "frontCamera" | "backCamera" | "sim" | "fingerprint" | "chargingPort" | "audioJack" | "isAccepted" | "createdAt" | "updatedAt", ExtArgs["result"]["declaration"]>
+
+  export type $DeclarationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Declaration"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      orderId: string
+      brand: string
+      model: string
+      smc: string
+      variant: string
+      imei1: string | null
+      imei2: string | null
+      bluetooth: string | null
+      gps: string | null
+      wifi: string | null
+      proximity: string | null
+      multiTouch: string | null
+      screenCalibration: string | null
+      speaker: string | null
+      earReceiver: string | null
+      microphone: string | null
+      frontCamera: string | null
+      backCamera: string | null
+      sim: string | null
+      fingerprint: string | null
+      chargingPort: string | null
+      audioJack: string | null
+      isAccepted: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["declaration"]>
+    composites: {}
+  }
+
+  type DeclarationGetPayload<S extends boolean | null | undefined | DeclarationDefaultArgs> = $Result.GetResult<Prisma.$DeclarationPayload, S>
+
+  type DeclarationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DeclarationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DeclarationCountAggregateInputType | true
+    }
+
+  export interface DeclarationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Declaration'], meta: { name: 'Declaration' } }
+    /**
+     * Find zero or one Declaration that matches the filter.
+     * @param {DeclarationFindUniqueArgs} args - Arguments to find a Declaration
+     * @example
+     * // Get one Declaration
+     * const declaration = await prisma.declaration.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DeclarationFindUniqueArgs>(args: SelectSubset<T, DeclarationFindUniqueArgs<ExtArgs>>): Prisma__DeclarationClient<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Declaration that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DeclarationFindUniqueOrThrowArgs} args - Arguments to find a Declaration
+     * @example
+     * // Get one Declaration
+     * const declaration = await prisma.declaration.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DeclarationFindUniqueOrThrowArgs>(args: SelectSubset<T, DeclarationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DeclarationClient<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Declaration that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclarationFindFirstArgs} args - Arguments to find a Declaration
+     * @example
+     * // Get one Declaration
+     * const declaration = await prisma.declaration.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DeclarationFindFirstArgs>(args?: SelectSubset<T, DeclarationFindFirstArgs<ExtArgs>>): Prisma__DeclarationClient<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Declaration that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclarationFindFirstOrThrowArgs} args - Arguments to find a Declaration
+     * @example
+     * // Get one Declaration
+     * const declaration = await prisma.declaration.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DeclarationFindFirstOrThrowArgs>(args?: SelectSubset<T, DeclarationFindFirstOrThrowArgs<ExtArgs>>): Prisma__DeclarationClient<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Declarations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclarationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Declarations
+     * const declarations = await prisma.declaration.findMany()
+     * 
+     * // Get first 10 Declarations
+     * const declarations = await prisma.declaration.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const declarationWithIdOnly = await prisma.declaration.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DeclarationFindManyArgs>(args?: SelectSubset<T, DeclarationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Declaration.
+     * @param {DeclarationCreateArgs} args - Arguments to create a Declaration.
+     * @example
+     * // Create one Declaration
+     * const Declaration = await prisma.declaration.create({
+     *   data: {
+     *     // ... data to create a Declaration
+     *   }
+     * })
+     * 
+     */
+    create<T extends DeclarationCreateArgs>(args: SelectSubset<T, DeclarationCreateArgs<ExtArgs>>): Prisma__DeclarationClient<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Declarations.
+     * @param {DeclarationCreateManyArgs} args - Arguments to create many Declarations.
+     * @example
+     * // Create many Declarations
+     * const declaration = await prisma.declaration.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DeclarationCreateManyArgs>(args?: SelectSubset<T, DeclarationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Declarations and returns the data saved in the database.
+     * @param {DeclarationCreateManyAndReturnArgs} args - Arguments to create many Declarations.
+     * @example
+     * // Create many Declarations
+     * const declaration = await prisma.declaration.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Declarations and only return the `id`
+     * const declarationWithIdOnly = await prisma.declaration.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DeclarationCreateManyAndReturnArgs>(args?: SelectSubset<T, DeclarationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Declaration.
+     * @param {DeclarationDeleteArgs} args - Arguments to delete one Declaration.
+     * @example
+     * // Delete one Declaration
+     * const Declaration = await prisma.declaration.delete({
+     *   where: {
+     *     // ... filter to delete one Declaration
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DeclarationDeleteArgs>(args: SelectSubset<T, DeclarationDeleteArgs<ExtArgs>>): Prisma__DeclarationClient<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Declaration.
+     * @param {DeclarationUpdateArgs} args - Arguments to update one Declaration.
+     * @example
+     * // Update one Declaration
+     * const declaration = await prisma.declaration.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DeclarationUpdateArgs>(args: SelectSubset<T, DeclarationUpdateArgs<ExtArgs>>): Prisma__DeclarationClient<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Declarations.
+     * @param {DeclarationDeleteManyArgs} args - Arguments to filter Declarations to delete.
+     * @example
+     * // Delete a few Declarations
+     * const { count } = await prisma.declaration.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DeclarationDeleteManyArgs>(args?: SelectSubset<T, DeclarationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Declarations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclarationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Declarations
+     * const declaration = await prisma.declaration.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DeclarationUpdateManyArgs>(args: SelectSubset<T, DeclarationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Declarations and returns the data updated in the database.
+     * @param {DeclarationUpdateManyAndReturnArgs} args - Arguments to update many Declarations.
+     * @example
+     * // Update many Declarations
+     * const declaration = await prisma.declaration.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Declarations and only return the `id`
+     * const declarationWithIdOnly = await prisma.declaration.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DeclarationUpdateManyAndReturnArgs>(args: SelectSubset<T, DeclarationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Declaration.
+     * @param {DeclarationUpsertArgs} args - Arguments to update or create a Declaration.
+     * @example
+     * // Update or create a Declaration
+     * const declaration = await prisma.declaration.upsert({
+     *   create: {
+     *     // ... data to create a Declaration
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Declaration we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DeclarationUpsertArgs>(args: SelectSubset<T, DeclarationUpsertArgs<ExtArgs>>): Prisma__DeclarationClient<$Result.GetResult<Prisma.$DeclarationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Declarations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclarationCountArgs} args - Arguments to filter Declarations to count.
+     * @example
+     * // Count the number of Declarations
+     * const count = await prisma.declaration.count({
+     *   where: {
+     *     // ... the filter for the Declarations we want to count
+     *   }
+     * })
+    **/
+    count<T extends DeclarationCountArgs>(
+      args?: Subset<T, DeclarationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DeclarationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Declaration.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclarationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DeclarationAggregateArgs>(args: Subset<T, DeclarationAggregateArgs>): Prisma.PrismaPromise<GetDeclarationAggregateType<T>>
+
+    /**
+     * Group by Declaration.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeclarationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DeclarationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DeclarationGroupByArgs['orderBy'] }
+        : { orderBy?: DeclarationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DeclarationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDeclarationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Declaration model
+   */
+  readonly fields: DeclarationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Declaration.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DeclarationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Declaration model
+   */
+  interface DeclarationFieldRefs {
+    readonly id: FieldRef<"Declaration", 'String'>
+    readonly orderId: FieldRef<"Declaration", 'String'>
+    readonly brand: FieldRef<"Declaration", 'String'>
+    readonly model: FieldRef<"Declaration", 'String'>
+    readonly smc: FieldRef<"Declaration", 'String'>
+    readonly variant: FieldRef<"Declaration", 'String'>
+    readonly imei1: FieldRef<"Declaration", 'String'>
+    readonly imei2: FieldRef<"Declaration", 'String'>
+    readonly bluetooth: FieldRef<"Declaration", 'String'>
+    readonly gps: FieldRef<"Declaration", 'String'>
+    readonly wifi: FieldRef<"Declaration", 'String'>
+    readonly proximity: FieldRef<"Declaration", 'String'>
+    readonly multiTouch: FieldRef<"Declaration", 'String'>
+    readonly screenCalibration: FieldRef<"Declaration", 'String'>
+    readonly speaker: FieldRef<"Declaration", 'String'>
+    readonly earReceiver: FieldRef<"Declaration", 'String'>
+    readonly microphone: FieldRef<"Declaration", 'String'>
+    readonly frontCamera: FieldRef<"Declaration", 'String'>
+    readonly backCamera: FieldRef<"Declaration", 'String'>
+    readonly sim: FieldRef<"Declaration", 'String'>
+    readonly fingerprint: FieldRef<"Declaration", 'String'>
+    readonly chargingPort: FieldRef<"Declaration", 'String'>
+    readonly audioJack: FieldRef<"Declaration", 'String'>
+    readonly isAccepted: FieldRef<"Declaration", 'Boolean'>
+    readonly createdAt: FieldRef<"Declaration", 'DateTime'>
+    readonly updatedAt: FieldRef<"Declaration", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Declaration findUnique
+   */
+  export type DeclarationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * Filter, which Declaration to fetch.
+     */
+    where: DeclarationWhereUniqueInput
+  }
+
+  /**
+   * Declaration findUniqueOrThrow
+   */
+  export type DeclarationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * Filter, which Declaration to fetch.
+     */
+    where: DeclarationWhereUniqueInput
+  }
+
+  /**
+   * Declaration findFirst
+   */
+  export type DeclarationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * Filter, which Declaration to fetch.
+     */
+    where?: DeclarationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Declarations to fetch.
+     */
+    orderBy?: DeclarationOrderByWithRelationInput | DeclarationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Declarations.
+     */
+    cursor?: DeclarationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Declarations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Declarations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Declarations.
+     */
+    distinct?: DeclarationScalarFieldEnum | DeclarationScalarFieldEnum[]
+  }
+
+  /**
+   * Declaration findFirstOrThrow
+   */
+  export type DeclarationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * Filter, which Declaration to fetch.
+     */
+    where?: DeclarationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Declarations to fetch.
+     */
+    orderBy?: DeclarationOrderByWithRelationInput | DeclarationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Declarations.
+     */
+    cursor?: DeclarationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Declarations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Declarations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Declarations.
+     */
+    distinct?: DeclarationScalarFieldEnum | DeclarationScalarFieldEnum[]
+  }
+
+  /**
+   * Declaration findMany
+   */
+  export type DeclarationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * Filter, which Declarations to fetch.
+     */
+    where?: DeclarationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Declarations to fetch.
+     */
+    orderBy?: DeclarationOrderByWithRelationInput | DeclarationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Declarations.
+     */
+    cursor?: DeclarationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Declarations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Declarations.
+     */
+    skip?: number
+    distinct?: DeclarationScalarFieldEnum | DeclarationScalarFieldEnum[]
+  }
+
+  /**
+   * Declaration create
+   */
+  export type DeclarationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Declaration.
+     */
+    data: XOR<DeclarationCreateInput, DeclarationUncheckedCreateInput>
+  }
+
+  /**
+   * Declaration createMany
+   */
+  export type DeclarationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Declarations.
+     */
+    data: DeclarationCreateManyInput | DeclarationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Declaration createManyAndReturn
+   */
+  export type DeclarationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Declarations.
+     */
+    data: DeclarationCreateManyInput | DeclarationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Declaration update
+   */
+  export type DeclarationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Declaration.
+     */
+    data: XOR<DeclarationUpdateInput, DeclarationUncheckedUpdateInput>
+    /**
+     * Choose, which Declaration to update.
+     */
+    where: DeclarationWhereUniqueInput
+  }
+
+  /**
+   * Declaration updateMany
+   */
+  export type DeclarationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Declarations.
+     */
+    data: XOR<DeclarationUpdateManyMutationInput, DeclarationUncheckedUpdateManyInput>
+    /**
+     * Filter which Declarations to update
+     */
+    where?: DeclarationWhereInput
+    /**
+     * Limit how many Declarations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Declaration updateManyAndReturn
+   */
+  export type DeclarationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * The data used to update Declarations.
+     */
+    data: XOR<DeclarationUpdateManyMutationInput, DeclarationUncheckedUpdateManyInput>
+    /**
+     * Filter which Declarations to update
+     */
+    where?: DeclarationWhereInput
+    /**
+     * Limit how many Declarations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Declaration upsert
+   */
+  export type DeclarationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Declaration to update in case it exists.
+     */
+    where: DeclarationWhereUniqueInput
+    /**
+     * In case the Declaration found by the `where` argument doesn't exist, create a new Declaration with this data.
+     */
+    create: XOR<DeclarationCreateInput, DeclarationUncheckedCreateInput>
+    /**
+     * In case the Declaration was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DeclarationUpdateInput, DeclarationUncheckedUpdateInput>
+  }
+
+  /**
+   * Declaration delete
+   */
+  export type DeclarationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+    /**
+     * Filter which Declaration to delete.
+     */
+    where: DeclarationWhereUniqueInput
+  }
+
+  /**
+   * Declaration deleteMany
+   */
+  export type DeclarationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Declarations to delete
+     */
+    where?: DeclarationWhereInput
+    /**
+     * Limit how many Declarations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Declaration without action
+   */
+  export type DeclarationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Declaration
+     */
+    select?: DeclarationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Declaration
+     */
+    omit?: DeclarationOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Model Address
    */
 
@@ -31234,6 +34134,84 @@ export namespace Prisma {
   export type AudioJackTestScalarFieldEnum = (typeof AudioJackTestScalarFieldEnum)[keyof typeof AudioJackTestScalarFieldEnum]
 
 
+  export const ManualDiagnosticsResultScalarFieldEnum: {
+    id: 'id',
+    diagnoseId: 'diagnoseId',
+    employeeId: 'employeeId',
+    smc: 'smc',
+    variant: 'variant',
+    imei1: 'imei1',
+    imei2: 'imei2',
+    screenTouch: 'screenTouch',
+    screenSpot: 'screenSpot',
+    screenLines: 'screenLines',
+    screenPhysical: 'screenPhysical',
+    screenDiscolor: 'screenDiscolor',
+    screenBubble: 'screenBubble',
+    frontCamera: 'frontCamera',
+    backCamera: 'backCamera',
+    audioJack: 'audioJack',
+    wifi: 'wifi',
+    gps: 'gps',
+    bluetooth: 'bluetooth',
+    volumeButton: 'volumeButton',
+    flashLight: 'flashLight',
+    fcImageBlurred: 'fcImageBlurred',
+    bcImageBlurred: 'bcImageBlurred',
+    vibrator: 'vibrator',
+    battery: 'battery',
+    speaker: 'speaker',
+    microphone: 'microphone',
+    fingerprint: 'fingerprint',
+    proximity: 'proximity',
+    chargingPort: 'chargingPort',
+    powerButton: 'powerButton',
+    faceLock: 'faceLock',
+    copyScreen: 'copyScreen',
+    sim: 'sim',
+    physicalScratch: 'physicalScratch',
+    physicalDent: 'physicalDent',
+    physicalPanel: 'physicalPanel',
+    physicalBent: 'physicalBent',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ManualDiagnosticsResultScalarFieldEnum = (typeof ManualDiagnosticsResultScalarFieldEnum)[keyof typeof ManualDiagnosticsResultScalarFieldEnum]
+
+
+  export const DeclarationScalarFieldEnum: {
+    id: 'id',
+    orderId: 'orderId',
+    brand: 'brand',
+    model: 'model',
+    smc: 'smc',
+    variant: 'variant',
+    imei1: 'imei1',
+    imei2: 'imei2',
+    bluetooth: 'bluetooth',
+    gps: 'gps',
+    wifi: 'wifi',
+    proximity: 'proximity',
+    multiTouch: 'multiTouch',
+    screenCalibration: 'screenCalibration',
+    speaker: 'speaker',
+    earReceiver: 'earReceiver',
+    microphone: 'microphone',
+    frontCamera: 'frontCamera',
+    backCamera: 'backCamera',
+    sim: 'sim',
+    fingerprint: 'fingerprint',
+    chargingPort: 'chargingPort',
+    audioJack: 'audioJack',
+    isAccepted: 'isAccepted',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DeclarationScalarFieldEnum = (typeof DeclarationScalarFieldEnum)[keyof typeof DeclarationScalarFieldEnum]
+
+
   export const AddressScalarFieldEnum: {
     id: 'id',
     streetAddress: 'streetAddress',
@@ -32902,6 +35880,390 @@ export namespace Prisma {
     message?: StringNullableWithAggregatesFilter<"AudioJackTest"> | string | null
     timestamp?: DateTimeNullableWithAggregatesFilter<"AudioJackTest"> | Date | string | null
     deviceTestId?: StringWithAggregatesFilter<"AudioJackTest"> | string
+  }
+
+  export type ManualDiagnosticsResultWhereInput = {
+    AND?: ManualDiagnosticsResultWhereInput | ManualDiagnosticsResultWhereInput[]
+    OR?: ManualDiagnosticsResultWhereInput[]
+    NOT?: ManualDiagnosticsResultWhereInput | ManualDiagnosticsResultWhereInput[]
+    id?: StringFilter<"ManualDiagnosticsResult"> | string
+    diagnoseId?: StringFilter<"ManualDiagnosticsResult"> | string
+    employeeId?: StringNullableFilter<"ManualDiagnosticsResult"> | string | null
+    smc?: StringFilter<"ManualDiagnosticsResult"> | string
+    variant?: StringFilter<"ManualDiagnosticsResult"> | string
+    imei1?: StringNullableFilter<"ManualDiagnosticsResult"> | string | null
+    imei2?: StringNullableFilter<"ManualDiagnosticsResult"> | string | null
+    screenTouch?: StringFilter<"ManualDiagnosticsResult"> | string
+    screenSpot?: StringFilter<"ManualDiagnosticsResult"> | string
+    screenLines?: StringFilter<"ManualDiagnosticsResult"> | string
+    screenPhysical?: StringFilter<"ManualDiagnosticsResult"> | string
+    screenDiscolor?: StringFilter<"ManualDiagnosticsResult"> | string
+    screenBubble?: StringFilter<"ManualDiagnosticsResult"> | string
+    frontCamera?: StringFilter<"ManualDiagnosticsResult"> | string
+    backCamera?: StringFilter<"ManualDiagnosticsResult"> | string
+    audioJack?: StringFilter<"ManualDiagnosticsResult"> | string
+    wifi?: StringFilter<"ManualDiagnosticsResult"> | string
+    gps?: StringFilter<"ManualDiagnosticsResult"> | string
+    bluetooth?: StringFilter<"ManualDiagnosticsResult"> | string
+    volumeButton?: StringFilter<"ManualDiagnosticsResult"> | string
+    flashLight?: StringFilter<"ManualDiagnosticsResult"> | string
+    fcImageBlurred?: StringFilter<"ManualDiagnosticsResult"> | string
+    bcImageBlurred?: StringFilter<"ManualDiagnosticsResult"> | string
+    vibrator?: StringFilter<"ManualDiagnosticsResult"> | string
+    battery?: StringFilter<"ManualDiagnosticsResult"> | string
+    speaker?: StringFilter<"ManualDiagnosticsResult"> | string
+    microphone?: StringFilter<"ManualDiagnosticsResult"> | string
+    fingerprint?: StringFilter<"ManualDiagnosticsResult"> | string
+    proximity?: StringFilter<"ManualDiagnosticsResult"> | string
+    chargingPort?: StringFilter<"ManualDiagnosticsResult"> | string
+    powerButton?: StringFilter<"ManualDiagnosticsResult"> | string
+    faceLock?: StringFilter<"ManualDiagnosticsResult"> | string
+    copyScreen?: StringFilter<"ManualDiagnosticsResult"> | string
+    sim?: StringFilter<"ManualDiagnosticsResult"> | string
+    physicalScratch?: StringFilter<"ManualDiagnosticsResult"> | string
+    physicalDent?: StringFilter<"ManualDiagnosticsResult"> | string
+    physicalPanel?: StringFilter<"ManualDiagnosticsResult"> | string
+    physicalBent?: StringFilter<"ManualDiagnosticsResult"> | string
+    createdAt?: DateTimeFilter<"ManualDiagnosticsResult"> | Date | string
+    updatedAt?: DateTimeFilter<"ManualDiagnosticsResult"> | Date | string
+  }
+
+  export type ManualDiagnosticsResultOrderByWithRelationInput = {
+    id?: SortOrder
+    diagnoseId?: SortOrder
+    employeeId?: SortOrderInput | SortOrder
+    smc?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrderInput | SortOrder
+    imei2?: SortOrderInput | SortOrder
+    screenTouch?: SortOrder
+    screenSpot?: SortOrder
+    screenLines?: SortOrder
+    screenPhysical?: SortOrder
+    screenDiscolor?: SortOrder
+    screenBubble?: SortOrder
+    frontCamera?: SortOrder
+    backCamera?: SortOrder
+    audioJack?: SortOrder
+    wifi?: SortOrder
+    gps?: SortOrder
+    bluetooth?: SortOrder
+    volumeButton?: SortOrder
+    flashLight?: SortOrder
+    fcImageBlurred?: SortOrder
+    bcImageBlurred?: SortOrder
+    vibrator?: SortOrder
+    battery?: SortOrder
+    speaker?: SortOrder
+    microphone?: SortOrder
+    fingerprint?: SortOrder
+    proximity?: SortOrder
+    chargingPort?: SortOrder
+    powerButton?: SortOrder
+    faceLock?: SortOrder
+    copyScreen?: SortOrder
+    sim?: SortOrder
+    physicalScratch?: SortOrder
+    physicalDent?: SortOrder
+    physicalPanel?: SortOrder
+    physicalBent?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ManualDiagnosticsResultWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    diagnoseId?: string
+    AND?: ManualDiagnosticsResultWhereInput | ManualDiagnosticsResultWhereInput[]
+    OR?: ManualDiagnosticsResultWhereInput[]
+    NOT?: ManualDiagnosticsResultWhereInput | ManualDiagnosticsResultWhereInput[]
+    employeeId?: StringNullableFilter<"ManualDiagnosticsResult"> | string | null
+    smc?: StringFilter<"ManualDiagnosticsResult"> | string
+    variant?: StringFilter<"ManualDiagnosticsResult"> | string
+    imei1?: StringNullableFilter<"ManualDiagnosticsResult"> | string | null
+    imei2?: StringNullableFilter<"ManualDiagnosticsResult"> | string | null
+    screenTouch?: StringFilter<"ManualDiagnosticsResult"> | string
+    screenSpot?: StringFilter<"ManualDiagnosticsResult"> | string
+    screenLines?: StringFilter<"ManualDiagnosticsResult"> | string
+    screenPhysical?: StringFilter<"ManualDiagnosticsResult"> | string
+    screenDiscolor?: StringFilter<"ManualDiagnosticsResult"> | string
+    screenBubble?: StringFilter<"ManualDiagnosticsResult"> | string
+    frontCamera?: StringFilter<"ManualDiagnosticsResult"> | string
+    backCamera?: StringFilter<"ManualDiagnosticsResult"> | string
+    audioJack?: StringFilter<"ManualDiagnosticsResult"> | string
+    wifi?: StringFilter<"ManualDiagnosticsResult"> | string
+    gps?: StringFilter<"ManualDiagnosticsResult"> | string
+    bluetooth?: StringFilter<"ManualDiagnosticsResult"> | string
+    volumeButton?: StringFilter<"ManualDiagnosticsResult"> | string
+    flashLight?: StringFilter<"ManualDiagnosticsResult"> | string
+    fcImageBlurred?: StringFilter<"ManualDiagnosticsResult"> | string
+    bcImageBlurred?: StringFilter<"ManualDiagnosticsResult"> | string
+    vibrator?: StringFilter<"ManualDiagnosticsResult"> | string
+    battery?: StringFilter<"ManualDiagnosticsResult"> | string
+    speaker?: StringFilter<"ManualDiagnosticsResult"> | string
+    microphone?: StringFilter<"ManualDiagnosticsResult"> | string
+    fingerprint?: StringFilter<"ManualDiagnosticsResult"> | string
+    proximity?: StringFilter<"ManualDiagnosticsResult"> | string
+    chargingPort?: StringFilter<"ManualDiagnosticsResult"> | string
+    powerButton?: StringFilter<"ManualDiagnosticsResult"> | string
+    faceLock?: StringFilter<"ManualDiagnosticsResult"> | string
+    copyScreen?: StringFilter<"ManualDiagnosticsResult"> | string
+    sim?: StringFilter<"ManualDiagnosticsResult"> | string
+    physicalScratch?: StringFilter<"ManualDiagnosticsResult"> | string
+    physicalDent?: StringFilter<"ManualDiagnosticsResult"> | string
+    physicalPanel?: StringFilter<"ManualDiagnosticsResult"> | string
+    physicalBent?: StringFilter<"ManualDiagnosticsResult"> | string
+    createdAt?: DateTimeFilter<"ManualDiagnosticsResult"> | Date | string
+    updatedAt?: DateTimeFilter<"ManualDiagnosticsResult"> | Date | string
+  }, "id" | "diagnoseId">
+
+  export type ManualDiagnosticsResultOrderByWithAggregationInput = {
+    id?: SortOrder
+    diagnoseId?: SortOrder
+    employeeId?: SortOrderInput | SortOrder
+    smc?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrderInput | SortOrder
+    imei2?: SortOrderInput | SortOrder
+    screenTouch?: SortOrder
+    screenSpot?: SortOrder
+    screenLines?: SortOrder
+    screenPhysical?: SortOrder
+    screenDiscolor?: SortOrder
+    screenBubble?: SortOrder
+    frontCamera?: SortOrder
+    backCamera?: SortOrder
+    audioJack?: SortOrder
+    wifi?: SortOrder
+    gps?: SortOrder
+    bluetooth?: SortOrder
+    volumeButton?: SortOrder
+    flashLight?: SortOrder
+    fcImageBlurred?: SortOrder
+    bcImageBlurred?: SortOrder
+    vibrator?: SortOrder
+    battery?: SortOrder
+    speaker?: SortOrder
+    microphone?: SortOrder
+    fingerprint?: SortOrder
+    proximity?: SortOrder
+    chargingPort?: SortOrder
+    powerButton?: SortOrder
+    faceLock?: SortOrder
+    copyScreen?: SortOrder
+    sim?: SortOrder
+    physicalScratch?: SortOrder
+    physicalDent?: SortOrder
+    physicalPanel?: SortOrder
+    physicalBent?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ManualDiagnosticsResultCountOrderByAggregateInput
+    _max?: ManualDiagnosticsResultMaxOrderByAggregateInput
+    _min?: ManualDiagnosticsResultMinOrderByAggregateInput
+  }
+
+  export type ManualDiagnosticsResultScalarWhereWithAggregatesInput = {
+    AND?: ManualDiagnosticsResultScalarWhereWithAggregatesInput | ManualDiagnosticsResultScalarWhereWithAggregatesInput[]
+    OR?: ManualDiagnosticsResultScalarWhereWithAggregatesInput[]
+    NOT?: ManualDiagnosticsResultScalarWhereWithAggregatesInput | ManualDiagnosticsResultScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    diagnoseId?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    employeeId?: StringNullableWithAggregatesFilter<"ManualDiagnosticsResult"> | string | null
+    smc?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    variant?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    imei1?: StringNullableWithAggregatesFilter<"ManualDiagnosticsResult"> | string | null
+    imei2?: StringNullableWithAggregatesFilter<"ManualDiagnosticsResult"> | string | null
+    screenTouch?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    screenSpot?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    screenLines?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    screenPhysical?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    screenDiscolor?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    screenBubble?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    frontCamera?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    backCamera?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    audioJack?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    wifi?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    gps?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    bluetooth?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    volumeButton?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    flashLight?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    fcImageBlurred?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    bcImageBlurred?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    vibrator?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    battery?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    speaker?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    microphone?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    fingerprint?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    proximity?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    chargingPort?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    powerButton?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    faceLock?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    copyScreen?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    sim?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    physicalScratch?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    physicalDent?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    physicalPanel?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    physicalBent?: StringWithAggregatesFilter<"ManualDiagnosticsResult"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"ManualDiagnosticsResult"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ManualDiagnosticsResult"> | Date | string
+  }
+
+  export type DeclarationWhereInput = {
+    AND?: DeclarationWhereInput | DeclarationWhereInput[]
+    OR?: DeclarationWhereInput[]
+    NOT?: DeclarationWhereInput | DeclarationWhereInput[]
+    id?: StringFilter<"Declaration"> | string
+    orderId?: StringFilter<"Declaration"> | string
+    brand?: StringFilter<"Declaration"> | string
+    model?: StringFilter<"Declaration"> | string
+    smc?: StringFilter<"Declaration"> | string
+    variant?: StringFilter<"Declaration"> | string
+    imei1?: StringNullableFilter<"Declaration"> | string | null
+    imei2?: StringNullableFilter<"Declaration"> | string | null
+    bluetooth?: StringNullableFilter<"Declaration"> | string | null
+    gps?: StringNullableFilter<"Declaration"> | string | null
+    wifi?: StringNullableFilter<"Declaration"> | string | null
+    proximity?: StringNullableFilter<"Declaration"> | string | null
+    multiTouch?: StringNullableFilter<"Declaration"> | string | null
+    screenCalibration?: StringNullableFilter<"Declaration"> | string | null
+    speaker?: StringNullableFilter<"Declaration"> | string | null
+    earReceiver?: StringNullableFilter<"Declaration"> | string | null
+    microphone?: StringNullableFilter<"Declaration"> | string | null
+    frontCamera?: StringNullableFilter<"Declaration"> | string | null
+    backCamera?: StringNullableFilter<"Declaration"> | string | null
+    sim?: StringNullableFilter<"Declaration"> | string | null
+    fingerprint?: StringNullableFilter<"Declaration"> | string | null
+    chargingPort?: StringNullableFilter<"Declaration"> | string | null
+    audioJack?: StringNullableFilter<"Declaration"> | string | null
+    isAccepted?: BoolFilter<"Declaration"> | boolean
+    createdAt?: DateTimeFilter<"Declaration"> | Date | string
+    updatedAt?: DateTimeFilter<"Declaration"> | Date | string
+  }
+
+  export type DeclarationOrderByWithRelationInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    brand?: SortOrder
+    model?: SortOrder
+    smc?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrderInput | SortOrder
+    imei2?: SortOrderInput | SortOrder
+    bluetooth?: SortOrderInput | SortOrder
+    gps?: SortOrderInput | SortOrder
+    wifi?: SortOrderInput | SortOrder
+    proximity?: SortOrderInput | SortOrder
+    multiTouch?: SortOrderInput | SortOrder
+    screenCalibration?: SortOrderInput | SortOrder
+    speaker?: SortOrderInput | SortOrder
+    earReceiver?: SortOrderInput | SortOrder
+    microphone?: SortOrderInput | SortOrder
+    frontCamera?: SortOrderInput | SortOrder
+    backCamera?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
+    fingerprint?: SortOrderInput | SortOrder
+    chargingPort?: SortOrderInput | SortOrder
+    audioJack?: SortOrderInput | SortOrder
+    isAccepted?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DeclarationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    orderId?: string
+    AND?: DeclarationWhereInput | DeclarationWhereInput[]
+    OR?: DeclarationWhereInput[]
+    NOT?: DeclarationWhereInput | DeclarationWhereInput[]
+    brand?: StringFilter<"Declaration"> | string
+    model?: StringFilter<"Declaration"> | string
+    smc?: StringFilter<"Declaration"> | string
+    variant?: StringFilter<"Declaration"> | string
+    imei1?: StringNullableFilter<"Declaration"> | string | null
+    imei2?: StringNullableFilter<"Declaration"> | string | null
+    bluetooth?: StringNullableFilter<"Declaration"> | string | null
+    gps?: StringNullableFilter<"Declaration"> | string | null
+    wifi?: StringNullableFilter<"Declaration"> | string | null
+    proximity?: StringNullableFilter<"Declaration"> | string | null
+    multiTouch?: StringNullableFilter<"Declaration"> | string | null
+    screenCalibration?: StringNullableFilter<"Declaration"> | string | null
+    speaker?: StringNullableFilter<"Declaration"> | string | null
+    earReceiver?: StringNullableFilter<"Declaration"> | string | null
+    microphone?: StringNullableFilter<"Declaration"> | string | null
+    frontCamera?: StringNullableFilter<"Declaration"> | string | null
+    backCamera?: StringNullableFilter<"Declaration"> | string | null
+    sim?: StringNullableFilter<"Declaration"> | string | null
+    fingerprint?: StringNullableFilter<"Declaration"> | string | null
+    chargingPort?: StringNullableFilter<"Declaration"> | string | null
+    audioJack?: StringNullableFilter<"Declaration"> | string | null
+    isAccepted?: BoolFilter<"Declaration"> | boolean
+    createdAt?: DateTimeFilter<"Declaration"> | Date | string
+    updatedAt?: DateTimeFilter<"Declaration"> | Date | string
+  }, "id" | "orderId">
+
+  export type DeclarationOrderByWithAggregationInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    brand?: SortOrder
+    model?: SortOrder
+    smc?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrderInput | SortOrder
+    imei2?: SortOrderInput | SortOrder
+    bluetooth?: SortOrderInput | SortOrder
+    gps?: SortOrderInput | SortOrder
+    wifi?: SortOrderInput | SortOrder
+    proximity?: SortOrderInput | SortOrder
+    multiTouch?: SortOrderInput | SortOrder
+    screenCalibration?: SortOrderInput | SortOrder
+    speaker?: SortOrderInput | SortOrder
+    earReceiver?: SortOrderInput | SortOrder
+    microphone?: SortOrderInput | SortOrder
+    frontCamera?: SortOrderInput | SortOrder
+    backCamera?: SortOrderInput | SortOrder
+    sim?: SortOrderInput | SortOrder
+    fingerprint?: SortOrderInput | SortOrder
+    chargingPort?: SortOrderInput | SortOrder
+    audioJack?: SortOrderInput | SortOrder
+    isAccepted?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DeclarationCountOrderByAggregateInput
+    _max?: DeclarationMaxOrderByAggregateInput
+    _min?: DeclarationMinOrderByAggregateInput
+  }
+
+  export type DeclarationScalarWhereWithAggregatesInput = {
+    AND?: DeclarationScalarWhereWithAggregatesInput | DeclarationScalarWhereWithAggregatesInput[]
+    OR?: DeclarationScalarWhereWithAggregatesInput[]
+    NOT?: DeclarationScalarWhereWithAggregatesInput | DeclarationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Declaration"> | string
+    orderId?: StringWithAggregatesFilter<"Declaration"> | string
+    brand?: StringWithAggregatesFilter<"Declaration"> | string
+    model?: StringWithAggregatesFilter<"Declaration"> | string
+    smc?: StringWithAggregatesFilter<"Declaration"> | string
+    variant?: StringWithAggregatesFilter<"Declaration"> | string
+    imei1?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    imei2?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    bluetooth?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    gps?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    wifi?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    proximity?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    multiTouch?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    screenCalibration?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    speaker?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    earReceiver?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    microphone?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    frontCamera?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    backCamera?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    sim?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    fingerprint?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    chargingPort?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    audioJack?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    isAccepted?: BoolWithAggregatesFilter<"Declaration"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Declaration"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Declaration"> | Date | string
   }
 
   export type AddressWhereInput = {
@@ -34717,6 +38079,510 @@ export namespace Prisma {
     deviceTestId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type ManualDiagnosticsResultCreateInput = {
+    id?: string
+    diagnoseId: string
+    employeeId?: string | null
+    smc: string
+    variant: string
+    imei1?: string | null
+    imei2?: string | null
+    screenTouch: string
+    screenSpot: string
+    screenLines: string
+    screenPhysical: string
+    screenDiscolor: string
+    screenBubble: string
+    frontCamera: string
+    backCamera: string
+    audioJack: string
+    wifi: string
+    gps: string
+    bluetooth: string
+    volumeButton: string
+    flashLight: string
+    fcImageBlurred: string
+    bcImageBlurred: string
+    vibrator: string
+    battery: string
+    speaker: string
+    microphone: string
+    fingerprint: string
+    proximity: string
+    chargingPort: string
+    powerButton: string
+    faceLock: string
+    copyScreen: string
+    sim: string
+    physicalScratch: string
+    physicalDent: string
+    physicalPanel: string
+    physicalBent: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ManualDiagnosticsResultUncheckedCreateInput = {
+    id?: string
+    diagnoseId: string
+    employeeId?: string | null
+    smc: string
+    variant: string
+    imei1?: string | null
+    imei2?: string | null
+    screenTouch: string
+    screenSpot: string
+    screenLines: string
+    screenPhysical: string
+    screenDiscolor: string
+    screenBubble: string
+    frontCamera: string
+    backCamera: string
+    audioJack: string
+    wifi: string
+    gps: string
+    bluetooth: string
+    volumeButton: string
+    flashLight: string
+    fcImageBlurred: string
+    bcImageBlurred: string
+    vibrator: string
+    battery: string
+    speaker: string
+    microphone: string
+    fingerprint: string
+    proximity: string
+    chargingPort: string
+    powerButton: string
+    faceLock: string
+    copyScreen: string
+    sim: string
+    physicalScratch: string
+    physicalDent: string
+    physicalPanel: string
+    physicalBent: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ManualDiagnosticsResultUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    diagnoseId?: StringFieldUpdateOperationsInput | string
+    employeeId?: NullableStringFieldUpdateOperationsInput | string | null
+    smc?: StringFieldUpdateOperationsInput | string
+    variant?: StringFieldUpdateOperationsInput | string
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    screenTouch?: StringFieldUpdateOperationsInput | string
+    screenSpot?: StringFieldUpdateOperationsInput | string
+    screenLines?: StringFieldUpdateOperationsInput | string
+    screenPhysical?: StringFieldUpdateOperationsInput | string
+    screenDiscolor?: StringFieldUpdateOperationsInput | string
+    screenBubble?: StringFieldUpdateOperationsInput | string
+    frontCamera?: StringFieldUpdateOperationsInput | string
+    backCamera?: StringFieldUpdateOperationsInput | string
+    audioJack?: StringFieldUpdateOperationsInput | string
+    wifi?: StringFieldUpdateOperationsInput | string
+    gps?: StringFieldUpdateOperationsInput | string
+    bluetooth?: StringFieldUpdateOperationsInput | string
+    volumeButton?: StringFieldUpdateOperationsInput | string
+    flashLight?: StringFieldUpdateOperationsInput | string
+    fcImageBlurred?: StringFieldUpdateOperationsInput | string
+    bcImageBlurred?: StringFieldUpdateOperationsInput | string
+    vibrator?: StringFieldUpdateOperationsInput | string
+    battery?: StringFieldUpdateOperationsInput | string
+    speaker?: StringFieldUpdateOperationsInput | string
+    microphone?: StringFieldUpdateOperationsInput | string
+    fingerprint?: StringFieldUpdateOperationsInput | string
+    proximity?: StringFieldUpdateOperationsInput | string
+    chargingPort?: StringFieldUpdateOperationsInput | string
+    powerButton?: StringFieldUpdateOperationsInput | string
+    faceLock?: StringFieldUpdateOperationsInput | string
+    copyScreen?: StringFieldUpdateOperationsInput | string
+    sim?: StringFieldUpdateOperationsInput | string
+    physicalScratch?: StringFieldUpdateOperationsInput | string
+    physicalDent?: StringFieldUpdateOperationsInput | string
+    physicalPanel?: StringFieldUpdateOperationsInput | string
+    physicalBent?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ManualDiagnosticsResultUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    diagnoseId?: StringFieldUpdateOperationsInput | string
+    employeeId?: NullableStringFieldUpdateOperationsInput | string | null
+    smc?: StringFieldUpdateOperationsInput | string
+    variant?: StringFieldUpdateOperationsInput | string
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    screenTouch?: StringFieldUpdateOperationsInput | string
+    screenSpot?: StringFieldUpdateOperationsInput | string
+    screenLines?: StringFieldUpdateOperationsInput | string
+    screenPhysical?: StringFieldUpdateOperationsInput | string
+    screenDiscolor?: StringFieldUpdateOperationsInput | string
+    screenBubble?: StringFieldUpdateOperationsInput | string
+    frontCamera?: StringFieldUpdateOperationsInput | string
+    backCamera?: StringFieldUpdateOperationsInput | string
+    audioJack?: StringFieldUpdateOperationsInput | string
+    wifi?: StringFieldUpdateOperationsInput | string
+    gps?: StringFieldUpdateOperationsInput | string
+    bluetooth?: StringFieldUpdateOperationsInput | string
+    volumeButton?: StringFieldUpdateOperationsInput | string
+    flashLight?: StringFieldUpdateOperationsInput | string
+    fcImageBlurred?: StringFieldUpdateOperationsInput | string
+    bcImageBlurred?: StringFieldUpdateOperationsInput | string
+    vibrator?: StringFieldUpdateOperationsInput | string
+    battery?: StringFieldUpdateOperationsInput | string
+    speaker?: StringFieldUpdateOperationsInput | string
+    microphone?: StringFieldUpdateOperationsInput | string
+    fingerprint?: StringFieldUpdateOperationsInput | string
+    proximity?: StringFieldUpdateOperationsInput | string
+    chargingPort?: StringFieldUpdateOperationsInput | string
+    powerButton?: StringFieldUpdateOperationsInput | string
+    faceLock?: StringFieldUpdateOperationsInput | string
+    copyScreen?: StringFieldUpdateOperationsInput | string
+    sim?: StringFieldUpdateOperationsInput | string
+    physicalScratch?: StringFieldUpdateOperationsInput | string
+    physicalDent?: StringFieldUpdateOperationsInput | string
+    physicalPanel?: StringFieldUpdateOperationsInput | string
+    physicalBent?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ManualDiagnosticsResultCreateManyInput = {
+    id?: string
+    diagnoseId: string
+    employeeId?: string | null
+    smc: string
+    variant: string
+    imei1?: string | null
+    imei2?: string | null
+    screenTouch: string
+    screenSpot: string
+    screenLines: string
+    screenPhysical: string
+    screenDiscolor: string
+    screenBubble: string
+    frontCamera: string
+    backCamera: string
+    audioJack: string
+    wifi: string
+    gps: string
+    bluetooth: string
+    volumeButton: string
+    flashLight: string
+    fcImageBlurred: string
+    bcImageBlurred: string
+    vibrator: string
+    battery: string
+    speaker: string
+    microphone: string
+    fingerprint: string
+    proximity: string
+    chargingPort: string
+    powerButton: string
+    faceLock: string
+    copyScreen: string
+    sim: string
+    physicalScratch: string
+    physicalDent: string
+    physicalPanel: string
+    physicalBent: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ManualDiagnosticsResultUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    diagnoseId?: StringFieldUpdateOperationsInput | string
+    employeeId?: NullableStringFieldUpdateOperationsInput | string | null
+    smc?: StringFieldUpdateOperationsInput | string
+    variant?: StringFieldUpdateOperationsInput | string
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    screenTouch?: StringFieldUpdateOperationsInput | string
+    screenSpot?: StringFieldUpdateOperationsInput | string
+    screenLines?: StringFieldUpdateOperationsInput | string
+    screenPhysical?: StringFieldUpdateOperationsInput | string
+    screenDiscolor?: StringFieldUpdateOperationsInput | string
+    screenBubble?: StringFieldUpdateOperationsInput | string
+    frontCamera?: StringFieldUpdateOperationsInput | string
+    backCamera?: StringFieldUpdateOperationsInput | string
+    audioJack?: StringFieldUpdateOperationsInput | string
+    wifi?: StringFieldUpdateOperationsInput | string
+    gps?: StringFieldUpdateOperationsInput | string
+    bluetooth?: StringFieldUpdateOperationsInput | string
+    volumeButton?: StringFieldUpdateOperationsInput | string
+    flashLight?: StringFieldUpdateOperationsInput | string
+    fcImageBlurred?: StringFieldUpdateOperationsInput | string
+    bcImageBlurred?: StringFieldUpdateOperationsInput | string
+    vibrator?: StringFieldUpdateOperationsInput | string
+    battery?: StringFieldUpdateOperationsInput | string
+    speaker?: StringFieldUpdateOperationsInput | string
+    microphone?: StringFieldUpdateOperationsInput | string
+    fingerprint?: StringFieldUpdateOperationsInput | string
+    proximity?: StringFieldUpdateOperationsInput | string
+    chargingPort?: StringFieldUpdateOperationsInput | string
+    powerButton?: StringFieldUpdateOperationsInput | string
+    faceLock?: StringFieldUpdateOperationsInput | string
+    copyScreen?: StringFieldUpdateOperationsInput | string
+    sim?: StringFieldUpdateOperationsInput | string
+    physicalScratch?: StringFieldUpdateOperationsInput | string
+    physicalDent?: StringFieldUpdateOperationsInput | string
+    physicalPanel?: StringFieldUpdateOperationsInput | string
+    physicalBent?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ManualDiagnosticsResultUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    diagnoseId?: StringFieldUpdateOperationsInput | string
+    employeeId?: NullableStringFieldUpdateOperationsInput | string | null
+    smc?: StringFieldUpdateOperationsInput | string
+    variant?: StringFieldUpdateOperationsInput | string
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    screenTouch?: StringFieldUpdateOperationsInput | string
+    screenSpot?: StringFieldUpdateOperationsInput | string
+    screenLines?: StringFieldUpdateOperationsInput | string
+    screenPhysical?: StringFieldUpdateOperationsInput | string
+    screenDiscolor?: StringFieldUpdateOperationsInput | string
+    screenBubble?: StringFieldUpdateOperationsInput | string
+    frontCamera?: StringFieldUpdateOperationsInput | string
+    backCamera?: StringFieldUpdateOperationsInput | string
+    audioJack?: StringFieldUpdateOperationsInput | string
+    wifi?: StringFieldUpdateOperationsInput | string
+    gps?: StringFieldUpdateOperationsInput | string
+    bluetooth?: StringFieldUpdateOperationsInput | string
+    volumeButton?: StringFieldUpdateOperationsInput | string
+    flashLight?: StringFieldUpdateOperationsInput | string
+    fcImageBlurred?: StringFieldUpdateOperationsInput | string
+    bcImageBlurred?: StringFieldUpdateOperationsInput | string
+    vibrator?: StringFieldUpdateOperationsInput | string
+    battery?: StringFieldUpdateOperationsInput | string
+    speaker?: StringFieldUpdateOperationsInput | string
+    microphone?: StringFieldUpdateOperationsInput | string
+    fingerprint?: StringFieldUpdateOperationsInput | string
+    proximity?: StringFieldUpdateOperationsInput | string
+    chargingPort?: StringFieldUpdateOperationsInput | string
+    powerButton?: StringFieldUpdateOperationsInput | string
+    faceLock?: StringFieldUpdateOperationsInput | string
+    copyScreen?: StringFieldUpdateOperationsInput | string
+    sim?: StringFieldUpdateOperationsInput | string
+    physicalScratch?: StringFieldUpdateOperationsInput | string
+    physicalDent?: StringFieldUpdateOperationsInput | string
+    physicalPanel?: StringFieldUpdateOperationsInput | string
+    physicalBent?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DeclarationCreateInput = {
+    id?: string
+    orderId: string
+    brand: string
+    model: string
+    smc: string
+    variant: string
+    imei1?: string | null
+    imei2?: string | null
+    bluetooth?: string | null
+    gps?: string | null
+    wifi?: string | null
+    proximity?: string | null
+    multiTouch?: string | null
+    screenCalibration?: string | null
+    speaker?: string | null
+    earReceiver?: string | null
+    microphone?: string | null
+    frontCamera?: string | null
+    backCamera?: string | null
+    sim?: string | null
+    fingerprint?: string | null
+    chargingPort?: string | null
+    audioJack?: string | null
+    isAccepted?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DeclarationUncheckedCreateInput = {
+    id?: string
+    orderId: string
+    brand: string
+    model: string
+    smc: string
+    variant: string
+    imei1?: string | null
+    imei2?: string | null
+    bluetooth?: string | null
+    gps?: string | null
+    wifi?: string | null
+    proximity?: string | null
+    multiTouch?: string | null
+    screenCalibration?: string | null
+    speaker?: string | null
+    earReceiver?: string | null
+    microphone?: string | null
+    frontCamera?: string | null
+    backCamera?: string | null
+    sim?: string | null
+    fingerprint?: string | null
+    chargingPort?: string | null
+    audioJack?: string | null
+    isAccepted?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DeclarationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    brand?: StringFieldUpdateOperationsInput | string
+    model?: StringFieldUpdateOperationsInput | string
+    smc?: StringFieldUpdateOperationsInput | string
+    variant?: StringFieldUpdateOperationsInput | string
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    bluetooth?: NullableStringFieldUpdateOperationsInput | string | null
+    gps?: NullableStringFieldUpdateOperationsInput | string | null
+    wifi?: NullableStringFieldUpdateOperationsInput | string | null
+    proximity?: NullableStringFieldUpdateOperationsInput | string | null
+    multiTouch?: NullableStringFieldUpdateOperationsInput | string | null
+    screenCalibration?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: NullableStringFieldUpdateOperationsInput | string | null
+    earReceiver?: NullableStringFieldUpdateOperationsInput | string | null
+    microphone?: NullableStringFieldUpdateOperationsInput | string | null
+    frontCamera?: NullableStringFieldUpdateOperationsInput | string | null
+    backCamera?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
+    fingerprint?: NullableStringFieldUpdateOperationsInput | string | null
+    chargingPort?: NullableStringFieldUpdateOperationsInput | string | null
+    audioJack?: NullableStringFieldUpdateOperationsInput | string | null
+    isAccepted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DeclarationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    brand?: StringFieldUpdateOperationsInput | string
+    model?: StringFieldUpdateOperationsInput | string
+    smc?: StringFieldUpdateOperationsInput | string
+    variant?: StringFieldUpdateOperationsInput | string
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    bluetooth?: NullableStringFieldUpdateOperationsInput | string | null
+    gps?: NullableStringFieldUpdateOperationsInput | string | null
+    wifi?: NullableStringFieldUpdateOperationsInput | string | null
+    proximity?: NullableStringFieldUpdateOperationsInput | string | null
+    multiTouch?: NullableStringFieldUpdateOperationsInput | string | null
+    screenCalibration?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: NullableStringFieldUpdateOperationsInput | string | null
+    earReceiver?: NullableStringFieldUpdateOperationsInput | string | null
+    microphone?: NullableStringFieldUpdateOperationsInput | string | null
+    frontCamera?: NullableStringFieldUpdateOperationsInput | string | null
+    backCamera?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
+    fingerprint?: NullableStringFieldUpdateOperationsInput | string | null
+    chargingPort?: NullableStringFieldUpdateOperationsInput | string | null
+    audioJack?: NullableStringFieldUpdateOperationsInput | string | null
+    isAccepted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DeclarationCreateManyInput = {
+    id?: string
+    orderId: string
+    brand: string
+    model: string
+    smc: string
+    variant: string
+    imei1?: string | null
+    imei2?: string | null
+    bluetooth?: string | null
+    gps?: string | null
+    wifi?: string | null
+    proximity?: string | null
+    multiTouch?: string | null
+    screenCalibration?: string | null
+    speaker?: string | null
+    earReceiver?: string | null
+    microphone?: string | null
+    frontCamera?: string | null
+    backCamera?: string | null
+    sim?: string | null
+    fingerprint?: string | null
+    chargingPort?: string | null
+    audioJack?: string | null
+    isAccepted?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DeclarationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    brand?: StringFieldUpdateOperationsInput | string
+    model?: StringFieldUpdateOperationsInput | string
+    smc?: StringFieldUpdateOperationsInput | string
+    variant?: StringFieldUpdateOperationsInput | string
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    bluetooth?: NullableStringFieldUpdateOperationsInput | string | null
+    gps?: NullableStringFieldUpdateOperationsInput | string | null
+    wifi?: NullableStringFieldUpdateOperationsInput | string | null
+    proximity?: NullableStringFieldUpdateOperationsInput | string | null
+    multiTouch?: NullableStringFieldUpdateOperationsInput | string | null
+    screenCalibration?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: NullableStringFieldUpdateOperationsInput | string | null
+    earReceiver?: NullableStringFieldUpdateOperationsInput | string | null
+    microphone?: NullableStringFieldUpdateOperationsInput | string | null
+    frontCamera?: NullableStringFieldUpdateOperationsInput | string | null
+    backCamera?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
+    fingerprint?: NullableStringFieldUpdateOperationsInput | string | null
+    chargingPort?: NullableStringFieldUpdateOperationsInput | string | null
+    audioJack?: NullableStringFieldUpdateOperationsInput | string | null
+    isAccepted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DeclarationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    brand?: StringFieldUpdateOperationsInput | string
+    model?: StringFieldUpdateOperationsInput | string
+    smc?: StringFieldUpdateOperationsInput | string
+    variant?: StringFieldUpdateOperationsInput | string
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    bluetooth?: NullableStringFieldUpdateOperationsInput | string | null
+    gps?: NullableStringFieldUpdateOperationsInput | string | null
+    wifi?: NullableStringFieldUpdateOperationsInput | string | null
+    proximity?: NullableStringFieldUpdateOperationsInput | string | null
+    multiTouch?: NullableStringFieldUpdateOperationsInput | string | null
+    screenCalibration?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: NullableStringFieldUpdateOperationsInput | string | null
+    earReceiver?: NullableStringFieldUpdateOperationsInput | string | null
+    microphone?: NullableStringFieldUpdateOperationsInput | string | null
+    frontCamera?: NullableStringFieldUpdateOperationsInput | string | null
+    backCamera?: NullableStringFieldUpdateOperationsInput | string | null
+    sim?: NullableStringFieldUpdateOperationsInput | string | null
+    fingerprint?: NullableStringFieldUpdateOperationsInput | string | null
+    chargingPort?: NullableStringFieldUpdateOperationsInput | string | null
+    audioJack?: NullableStringFieldUpdateOperationsInput | string | null
+    isAccepted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type AddressCreateInput = {
     id?: string
     streetAddress: string
@@ -36087,6 +39953,222 @@ export namespace Prisma {
     message?: SortOrder
     timestamp?: SortOrder
     deviceTestId?: SortOrder
+  }
+
+  export type ManualDiagnosticsResultCountOrderByAggregateInput = {
+    id?: SortOrder
+    diagnoseId?: SortOrder
+    employeeId?: SortOrder
+    smc?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrder
+    imei2?: SortOrder
+    screenTouch?: SortOrder
+    screenSpot?: SortOrder
+    screenLines?: SortOrder
+    screenPhysical?: SortOrder
+    screenDiscolor?: SortOrder
+    screenBubble?: SortOrder
+    frontCamera?: SortOrder
+    backCamera?: SortOrder
+    audioJack?: SortOrder
+    wifi?: SortOrder
+    gps?: SortOrder
+    bluetooth?: SortOrder
+    volumeButton?: SortOrder
+    flashLight?: SortOrder
+    fcImageBlurred?: SortOrder
+    bcImageBlurred?: SortOrder
+    vibrator?: SortOrder
+    battery?: SortOrder
+    speaker?: SortOrder
+    microphone?: SortOrder
+    fingerprint?: SortOrder
+    proximity?: SortOrder
+    chargingPort?: SortOrder
+    powerButton?: SortOrder
+    faceLock?: SortOrder
+    copyScreen?: SortOrder
+    sim?: SortOrder
+    physicalScratch?: SortOrder
+    physicalDent?: SortOrder
+    physicalPanel?: SortOrder
+    physicalBent?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ManualDiagnosticsResultMaxOrderByAggregateInput = {
+    id?: SortOrder
+    diagnoseId?: SortOrder
+    employeeId?: SortOrder
+    smc?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrder
+    imei2?: SortOrder
+    screenTouch?: SortOrder
+    screenSpot?: SortOrder
+    screenLines?: SortOrder
+    screenPhysical?: SortOrder
+    screenDiscolor?: SortOrder
+    screenBubble?: SortOrder
+    frontCamera?: SortOrder
+    backCamera?: SortOrder
+    audioJack?: SortOrder
+    wifi?: SortOrder
+    gps?: SortOrder
+    bluetooth?: SortOrder
+    volumeButton?: SortOrder
+    flashLight?: SortOrder
+    fcImageBlurred?: SortOrder
+    bcImageBlurred?: SortOrder
+    vibrator?: SortOrder
+    battery?: SortOrder
+    speaker?: SortOrder
+    microphone?: SortOrder
+    fingerprint?: SortOrder
+    proximity?: SortOrder
+    chargingPort?: SortOrder
+    powerButton?: SortOrder
+    faceLock?: SortOrder
+    copyScreen?: SortOrder
+    sim?: SortOrder
+    physicalScratch?: SortOrder
+    physicalDent?: SortOrder
+    physicalPanel?: SortOrder
+    physicalBent?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ManualDiagnosticsResultMinOrderByAggregateInput = {
+    id?: SortOrder
+    diagnoseId?: SortOrder
+    employeeId?: SortOrder
+    smc?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrder
+    imei2?: SortOrder
+    screenTouch?: SortOrder
+    screenSpot?: SortOrder
+    screenLines?: SortOrder
+    screenPhysical?: SortOrder
+    screenDiscolor?: SortOrder
+    screenBubble?: SortOrder
+    frontCamera?: SortOrder
+    backCamera?: SortOrder
+    audioJack?: SortOrder
+    wifi?: SortOrder
+    gps?: SortOrder
+    bluetooth?: SortOrder
+    volumeButton?: SortOrder
+    flashLight?: SortOrder
+    fcImageBlurred?: SortOrder
+    bcImageBlurred?: SortOrder
+    vibrator?: SortOrder
+    battery?: SortOrder
+    speaker?: SortOrder
+    microphone?: SortOrder
+    fingerprint?: SortOrder
+    proximity?: SortOrder
+    chargingPort?: SortOrder
+    powerButton?: SortOrder
+    faceLock?: SortOrder
+    copyScreen?: SortOrder
+    sim?: SortOrder
+    physicalScratch?: SortOrder
+    physicalDent?: SortOrder
+    physicalPanel?: SortOrder
+    physicalBent?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DeclarationCountOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    brand?: SortOrder
+    model?: SortOrder
+    smc?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrder
+    imei2?: SortOrder
+    bluetooth?: SortOrder
+    gps?: SortOrder
+    wifi?: SortOrder
+    proximity?: SortOrder
+    multiTouch?: SortOrder
+    screenCalibration?: SortOrder
+    speaker?: SortOrder
+    earReceiver?: SortOrder
+    microphone?: SortOrder
+    frontCamera?: SortOrder
+    backCamera?: SortOrder
+    sim?: SortOrder
+    fingerprint?: SortOrder
+    chargingPort?: SortOrder
+    audioJack?: SortOrder
+    isAccepted?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DeclarationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    brand?: SortOrder
+    model?: SortOrder
+    smc?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrder
+    imei2?: SortOrder
+    bluetooth?: SortOrder
+    gps?: SortOrder
+    wifi?: SortOrder
+    proximity?: SortOrder
+    multiTouch?: SortOrder
+    screenCalibration?: SortOrder
+    speaker?: SortOrder
+    earReceiver?: SortOrder
+    microphone?: SortOrder
+    frontCamera?: SortOrder
+    backCamera?: SortOrder
+    sim?: SortOrder
+    fingerprint?: SortOrder
+    chargingPort?: SortOrder
+    audioJack?: SortOrder
+    isAccepted?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DeclarationMinOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    brand?: SortOrder
+    model?: SortOrder
+    smc?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrder
+    imei2?: SortOrder
+    bluetooth?: SortOrder
+    gps?: SortOrder
+    wifi?: SortOrder
+    proximity?: SortOrder
+    multiTouch?: SortOrder
+    screenCalibration?: SortOrder
+    speaker?: SortOrder
+    earReceiver?: SortOrder
+    microphone?: SortOrder
+    frontCamera?: SortOrder
+    backCamera?: SortOrder
+    sim?: SortOrder
+    fingerprint?: SortOrder
+    chargingPort?: SortOrder
+    audioJack?: SortOrder
+    isAccepted?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type StoreScalarRelationFilter = {

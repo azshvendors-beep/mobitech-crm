@@ -44,7 +44,8 @@ export async function middleware(request: NextRequest) {
     "/auth/reset-password",
     // Public API routes
     "/api/auth/(.*)", // All auth endpoints
-    "/api/v2/add-device-data", 
+    "/api/v2/add-device-data",
+
     "/api/v2/check-employee-id", // Example API route
     "/api/v2/verify-employee-selfie", // Example API route
     "/api/v3/get-individual-model-data", // Example API route
@@ -69,8 +70,9 @@ export async function middleware(request: NextRequest) {
     "/contact",
     "/privacy-policy",
     "/terms-of-service",
-    "/blocked", 
-    "/mdt"
+    "/blocked",
+    "/mdt",
+    "/declaration/(.*)",
     // Add blocked route page to unprotected paths
   ];
 
@@ -103,8 +105,10 @@ export async function middleware(request: NextRequest) {
   }
 
   // Handle regular page routes
-  const isPublicPath = unprotectedPaths.some(
-    (prefix) => path === prefix || path.startsWith(`${prefix}/`)
+  const isPublicPath = unprotectedPaths.some((prefix) =>
+    path === prefix || 
+    path.startsWith(`${prefix}/`) ||
+    path.match(new RegExp(`^${prefix.replace(/\(.*\)/, ".*")}$`))
   );
 
   if (isPublicPath) {

@@ -2957,17 +2957,7 @@ const RegisterPickup = () => {
                             /> */}
                           </div>
                         )}
-                        {/* {(paymentStatus === "not_paid" ||
-                          paymentStatus === "exchange") && (
-                          <div className="space-y-4">
-                            <Input
-                              type="number"
-                              placeholder="Enter Final Amount"
-                              value={finalAmount}
-                              onChange={(e) => setFinalAmount(e.target.value)}
-                            />
-                          </div>
-                        )} */}
+                        
                       </div>
                       {/* After Payment Details */}
                       <div className="space-y-4 mt-6">

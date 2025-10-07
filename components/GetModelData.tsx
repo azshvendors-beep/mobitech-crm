@@ -10,7 +10,7 @@ export function useModelData(modelId: string | null) {
     if (!modelId) return;
     setMobileDataLoading(true);
     setMobileDataError(null);
-    fetch("/api/v3/get-individual-model-data", {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-individual-model-data`, {
       method: "POST",
       body: JSON.stringify({ model: modelId }),
     })

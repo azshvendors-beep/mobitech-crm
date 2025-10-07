@@ -6,12 +6,17 @@ export function useModelData(modelId: string | null) {
   const [mobileData, setMobileData] = useState<any>(null);
   const [mobileDataError, setMobileDataError] = useState<any>(null);
 
+  console.log("Fetching model data for:", modelId);
+
   useEffect(() => {
     if (!modelId) return;
     setMobileDataLoading(true);
     setMobileDataError(null);
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-individual-model-data`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ model: modelId }),
     })
       .then((res) => {

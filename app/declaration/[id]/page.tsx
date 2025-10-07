@@ -89,7 +89,7 @@ const DeclarationPage = () => {
         }
         const data = await res.json();
         setAgreementData(data);
-        console.log(data);
+       
         setIsLoading(false);
       })
       .catch((error) => {
@@ -99,10 +99,12 @@ const DeclarationPage = () => {
       });
   }, [orderId]);
 
-  // Only call useModelData at top level, pass null if not available
-  const smc = agreementData?.smc || null;
+  // Only call useModelData after agreementData is loaded
+  const smc = (agreementData && !isLoading && agreementData.smc) ? agreementData.smc : null;
+
+ 
   const { mobileData, mobileDataLoading } = useModelData(smc);
-  console.log("Mobile Data:", mobileData);
+
 
   // Check if user scrolled to bottom of sheet
   const handleScroll = () => {

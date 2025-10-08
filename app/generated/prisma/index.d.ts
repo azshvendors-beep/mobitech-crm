@@ -148,6 +148,11 @@ export type CustomModelBrand = $Result.DefaultSelection<Prisma.$CustomModelBrand
  * 
  */
 export type CustomModel = $Result.DefaultSelection<Prisma.$CustomModelPayload>
+/**
+ * Model DoorstepPickup
+ * 
+ */
+export type DoorstepPickup = $Result.DefaultSelection<Prisma.$DoorstepPickupPayload>
 
 /**
  * Enums
@@ -569,6 +574,16 @@ export class PrismaClient<
     * ```
     */
   get customModel(): Prisma.CustomModelDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.doorstepPickup`: Exposes CRUD operations for the **DoorstepPickup** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DoorstepPickups
+    * const doorstepPickups = await prisma.doorstepPickup.findMany()
+    * ```
+    */
+  get doorstepPickup(): Prisma.DoorstepPickupDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1035,7 +1050,8 @@ export namespace Prisma {
     Address: 'Address',
     Otp: 'Otp',
     CustomModelBrand: 'CustomModelBrand',
-    CustomModel: 'CustomModel'
+    CustomModel: 'CustomModel',
+    DoorstepPickup: 'DoorstepPickup'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1054,7 +1070,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "admin" | "manager" | "technician" | "fieldExecutive" | "salesExecutive" | "store" | "bankDetails" | "session" | "notification" | "deviceTest" | "connectivityTestResult" | "deviceTestResult" | "simTestResult" | "screenTest" | "audioTest" | "proximitySensorTest" | "cameraTest" | "fingerprintTest" | "usbTest" | "audioJackTest" | "manualDiagnosticsResult" | "declaration" | "address" | "otp" | "customModelBrand" | "customModel"
+      modelProps: "user" | "admin" | "manager" | "technician" | "fieldExecutive" | "salesExecutive" | "store" | "bankDetails" | "session" | "notification" | "deviceTest" | "connectivityTestResult" | "deviceTestResult" | "simTestResult" | "screenTest" | "audioTest" | "proximitySensorTest" | "cameraTest" | "fingerprintTest" | "usbTest" | "audioJackTest" | "manualDiagnosticsResult" | "declaration" | "address" | "otp" | "customModelBrand" | "customModel" | "doorstepPickup"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3056,6 +3072,80 @@ export namespace Prisma {
           }
         }
       }
+      DoorstepPickup: {
+        payload: Prisma.$DoorstepPickupPayload<ExtArgs>
+        fields: Prisma.DoorstepPickupFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DoorstepPickupFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DoorstepPickupFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload>
+          }
+          findFirst: {
+            args: Prisma.DoorstepPickupFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DoorstepPickupFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload>
+          }
+          findMany: {
+            args: Prisma.DoorstepPickupFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload>[]
+          }
+          create: {
+            args: Prisma.DoorstepPickupCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload>
+          }
+          createMany: {
+            args: Prisma.DoorstepPickupCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DoorstepPickupCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload>[]
+          }
+          delete: {
+            args: Prisma.DoorstepPickupDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload>
+          }
+          update: {
+            args: Prisma.DoorstepPickupUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload>
+          }
+          deleteMany: {
+            args: Prisma.DoorstepPickupDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DoorstepPickupUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DoorstepPickupUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload>[]
+          }
+          upsert: {
+            args: Prisma.DoorstepPickupUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DoorstepPickupPayload>
+          }
+          aggregate: {
+            args: Prisma.DoorstepPickupAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDoorstepPickup>
+          }
+          groupBy: {
+            args: Prisma.DoorstepPickupGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DoorstepPickupGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DoorstepPickupCountArgs<ExtArgs>
+            result: $Utils.Optional<DoorstepPickupCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3175,6 +3265,7 @@ export namespace Prisma {
     otp?: OtpOmit
     customModelBrand?: CustomModelBrandOmit
     customModel?: CustomModelOmit
+    doorstepPickup?: DoorstepPickupOmit
   }
 
   /* Types for Logging */
@@ -3287,14 +3378,14 @@ export namespace Prisma {
 
   export type DeviceTestCountOutputType = {
     connectivityTestResults: number
-    simTestResults: number
     deviceTestResults: number
+    simTestResults: number
   }
 
   export type DeviceTestCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     connectivityTestResults?: boolean | DeviceTestCountOutputTypeCountConnectivityTestResultsArgs
-    simTestResults?: boolean | DeviceTestCountOutputTypeCountSimTestResultsArgs
     deviceTestResults?: boolean | DeviceTestCountOutputTypeCountDeviceTestResultsArgs
+    simTestResults?: boolean | DeviceTestCountOutputTypeCountSimTestResultsArgs
   }
 
   // Custom InputTypes
@@ -3318,15 +3409,15 @@ export namespace Prisma {
   /**
    * DeviceTestCountOutputType without action
    */
-  export type DeviceTestCountOutputTypeCountSimTestResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SimTestResultWhereInput
+  export type DeviceTestCountOutputTypeCountDeviceTestResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeviceTestResultWhereInput
   }
 
   /**
    * DeviceTestCountOutputType without action
    */
-  export type DeviceTestCountOutputTypeCountDeviceTestResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DeviceTestResultWhereInput
+  export type DeviceTestCountOutputTypeCountSimTestResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SimTestResultWhereInput
   }
 
 
@@ -3405,14 +3496,14 @@ export namespace Prisma {
     VehicleBackImage: string | null
     role: $Enums.Role | null
     storeId: string | null
-    mfaEnabled: boolean | null
-    mfaSecret: string | null
-    mfaVerified: boolean | null
     createdBy: string | null
     isAdmin: boolean | null
     status: $Enums.UserStatus | null
     createdAt: Date | null
     updatedAt: Date | null
+    mfaEnabled: boolean | null
+    mfaSecret: string | null
+    mfaVerified: boolean | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -3433,14 +3524,14 @@ export namespace Prisma {
     VehicleBackImage: string | null
     role: $Enums.Role | null
     storeId: string | null
-    mfaEnabled: boolean | null
-    mfaSecret: string | null
-    mfaVerified: boolean | null
     createdBy: string | null
     isAdmin: boolean | null
     status: $Enums.UserStatus | null
     createdAt: Date | null
     updatedAt: Date | null
+    mfaEnabled: boolean | null
+    mfaSecret: string | null
+    mfaVerified: boolean | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -3461,14 +3552,14 @@ export namespace Prisma {
     VehicleBackImage: number
     role: number
     storeId: number
-    mfaEnabled: number
-    mfaSecret: number
-    mfaVerified: number
     createdBy: number
     isAdmin: number
     status: number
     createdAt: number
     updatedAt: number
+    mfaEnabled: number
+    mfaSecret: number
+    mfaVerified: number
     _all: number
   }
 
@@ -3501,14 +3592,14 @@ export namespace Prisma {
     VehicleBackImage?: true
     role?: true
     storeId?: true
-    mfaEnabled?: true
-    mfaSecret?: true
-    mfaVerified?: true
     createdBy?: true
     isAdmin?: true
     status?: true
     createdAt?: true
     updatedAt?: true
+    mfaEnabled?: true
+    mfaSecret?: true
+    mfaVerified?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -3529,14 +3620,14 @@ export namespace Prisma {
     VehicleBackImage?: true
     role?: true
     storeId?: true
-    mfaEnabled?: true
-    mfaSecret?: true
-    mfaVerified?: true
     createdBy?: true
     isAdmin?: true
     status?: true
     createdAt?: true
     updatedAt?: true
+    mfaEnabled?: true
+    mfaSecret?: true
+    mfaVerified?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -3557,14 +3648,14 @@ export namespace Prisma {
     VehicleBackImage?: true
     role?: true
     storeId?: true
-    mfaEnabled?: true
-    mfaSecret?: true
-    mfaVerified?: true
     createdBy?: true
     isAdmin?: true
     status?: true
     createdAt?: true
     updatedAt?: true
+    mfaEnabled?: true
+    mfaSecret?: true
+    mfaVerified?: true
     _all?: true
   }
 
@@ -3672,14 +3763,14 @@ export namespace Prisma {
     VehicleBackImage: string | null
     role: $Enums.Role | null
     storeId: string | null
-    mfaEnabled: boolean
-    mfaSecret: string | null
-    mfaVerified: boolean
     createdBy: string | null
     isAdmin: boolean
     status: $Enums.UserStatus
     createdAt: Date
     updatedAt: Date
+    mfaEnabled: boolean
+    mfaSecret: string | null
+    mfaVerified: boolean
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -3719,21 +3810,21 @@ export namespace Prisma {
     VehicleBackImage?: boolean
     role?: boolean
     storeId?: boolean
-    mfaEnabled?: boolean
-    mfaSecret?: boolean
-    mfaVerified?: boolean
     createdBy?: boolean
     isAdmin?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    sessions?: boolean | User$sessionsArgs<ExtArgs>
-    manager?: boolean | User$managerArgs<ExtArgs>
-    technician?: boolean | User$technicianArgs<ExtArgs>
-    fieldExecutive?: boolean | User$fieldExecutiveArgs<ExtArgs>
-    salesExecutive?: boolean | User$salesExecutiveArgs<ExtArgs>
-    store?: boolean | User$storeArgs<ExtArgs>
+    mfaEnabled?: boolean
+    mfaSecret?: boolean
+    mfaVerified?: boolean
     admin?: boolean | User$adminArgs<ExtArgs>
+    fieldExecutive?: boolean | User$fieldExecutiveArgs<ExtArgs>
+    manager?: boolean | User$managerArgs<ExtArgs>
+    salesExecutive?: boolean | User$salesExecutiveArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
+    store?: boolean | User$storeArgs<ExtArgs>
+    technician?: boolean | User$technicianArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3755,14 +3846,14 @@ export namespace Prisma {
     VehicleBackImage?: boolean
     role?: boolean
     storeId?: boolean
-    mfaEnabled?: boolean
-    mfaSecret?: boolean
-    mfaVerified?: boolean
     createdBy?: boolean
     isAdmin?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mfaEnabled?: boolean
+    mfaSecret?: boolean
+    mfaVerified?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3783,14 +3874,14 @@ export namespace Prisma {
     VehicleBackImage?: boolean
     role?: boolean
     storeId?: boolean
-    mfaEnabled?: boolean
-    mfaSecret?: boolean
-    mfaVerified?: boolean
     createdBy?: boolean
     isAdmin?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mfaEnabled?: boolean
+    mfaSecret?: boolean
+    mfaVerified?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -3811,25 +3902,25 @@ export namespace Prisma {
     VehicleBackImage?: boolean
     role?: boolean
     storeId?: boolean
-    mfaEnabled?: boolean
-    mfaSecret?: boolean
-    mfaVerified?: boolean
     createdBy?: boolean
     isAdmin?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mfaEnabled?: boolean
+    mfaSecret?: boolean
+    mfaVerified?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "phone" | "phoneVerified" | "salary" | "payoutDate" | "password" | "email" | "dateOfJoining" | "dateOfTermination" | "profileImage" | "aadharFrontImage" | "aadharBackImage" | "qualificationImage" | "VehicleFrontImage" | "VehicleBackImage" | "role" | "storeId" | "mfaEnabled" | "mfaSecret" | "mfaVerified" | "createdBy" | "isAdmin" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "phone" | "phoneVerified" | "salary" | "payoutDate" | "password" | "email" | "dateOfJoining" | "dateOfTermination" | "profileImage" | "aadharFrontImage" | "aadharBackImage" | "qualificationImage" | "VehicleFrontImage" | "VehicleBackImage" | "role" | "storeId" | "createdBy" | "isAdmin" | "status" | "createdAt" | "updatedAt" | "mfaEnabled" | "mfaSecret" | "mfaVerified", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sessions?: boolean | User$sessionsArgs<ExtArgs>
-    manager?: boolean | User$managerArgs<ExtArgs>
-    technician?: boolean | User$technicianArgs<ExtArgs>
-    fieldExecutive?: boolean | User$fieldExecutiveArgs<ExtArgs>
-    salesExecutive?: boolean | User$salesExecutiveArgs<ExtArgs>
-    store?: boolean | User$storeArgs<ExtArgs>
     admin?: boolean | User$adminArgs<ExtArgs>
+    fieldExecutive?: boolean | User$fieldExecutiveArgs<ExtArgs>
+    manager?: boolean | User$managerArgs<ExtArgs>
+    salesExecutive?: boolean | User$salesExecutiveArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
+    store?: boolean | User$storeArgs<ExtArgs>
+    technician?: boolean | User$technicianArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3838,13 +3929,13 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      sessions: Prisma.$SessionPayload<ExtArgs>[]
-      manager: Prisma.$ManagerPayload<ExtArgs> | null
-      technician: Prisma.$TechnicianPayload<ExtArgs> | null
-      fieldExecutive: Prisma.$FieldExecutivePayload<ExtArgs> | null
-      salesExecutive: Prisma.$SalesExecutivePayload<ExtArgs> | null
-      store: Prisma.$StorePayload<ExtArgs> | null
       admin: Prisma.$AdminPayload<ExtArgs> | null
+      fieldExecutive: Prisma.$FieldExecutivePayload<ExtArgs> | null
+      manager: Prisma.$ManagerPayload<ExtArgs> | null
+      salesExecutive: Prisma.$SalesExecutivePayload<ExtArgs> | null
+      sessions: Prisma.$SessionPayload<ExtArgs>[]
+      store: Prisma.$StorePayload<ExtArgs> | null
+      technician: Prisma.$TechnicianPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3864,14 +3955,14 @@ export namespace Prisma {
       VehicleBackImage: string | null
       role: $Enums.Role | null
       storeId: string | null
-      mfaEnabled: boolean
-      mfaSecret: string | null
-      mfaVerified: boolean
       createdBy: string | null
       isAdmin: boolean
       status: $Enums.UserStatus
       createdAt: Date
       updatedAt: Date
+      mfaEnabled: boolean
+      mfaSecret: string | null
+      mfaVerified: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -4266,13 +4357,13 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    manager<T extends User$managerArgs<ExtArgs> = {}>(args?: Subset<T, User$managerArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    technician<T extends User$technicianArgs<ExtArgs> = {}>(args?: Subset<T, User$technicianArgs<ExtArgs>>): Prisma__TechnicianClient<$Result.GetResult<Prisma.$TechnicianPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    fieldExecutive<T extends User$fieldExecutiveArgs<ExtArgs> = {}>(args?: Subset<T, User$fieldExecutiveArgs<ExtArgs>>): Prisma__FieldExecutiveClient<$Result.GetResult<Prisma.$FieldExecutivePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    salesExecutive<T extends User$salesExecutiveArgs<ExtArgs> = {}>(args?: Subset<T, User$salesExecutiveArgs<ExtArgs>>): Prisma__SalesExecutiveClient<$Result.GetResult<Prisma.$SalesExecutivePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    store<T extends User$storeArgs<ExtArgs> = {}>(args?: Subset<T, User$storeArgs<ExtArgs>>): Prisma__StoreClient<$Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     admin<T extends User$adminArgs<ExtArgs> = {}>(args?: Subset<T, User$adminArgs<ExtArgs>>): Prisma__AdminClient<$Result.GetResult<Prisma.$AdminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    fieldExecutive<T extends User$fieldExecutiveArgs<ExtArgs> = {}>(args?: Subset<T, User$fieldExecutiveArgs<ExtArgs>>): Prisma__FieldExecutiveClient<$Result.GetResult<Prisma.$FieldExecutivePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    manager<T extends User$managerArgs<ExtArgs> = {}>(args?: Subset<T, User$managerArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    salesExecutive<T extends User$salesExecutiveArgs<ExtArgs> = {}>(args?: Subset<T, User$salesExecutiveArgs<ExtArgs>>): Prisma__SalesExecutiveClient<$Result.GetResult<Prisma.$SalesExecutivePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    store<T extends User$storeArgs<ExtArgs> = {}>(args?: Subset<T, User$storeArgs<ExtArgs>>): Prisma__StoreClient<$Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    technician<T extends User$technicianArgs<ExtArgs> = {}>(args?: Subset<T, User$technicianArgs<ExtArgs>>): Prisma__TechnicianClient<$Result.GetResult<Prisma.$TechnicianPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4319,14 +4410,14 @@ export namespace Prisma {
     readonly VehicleBackImage: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'Role'>
     readonly storeId: FieldRef<"User", 'String'>
-    readonly mfaEnabled: FieldRef<"User", 'Boolean'>
-    readonly mfaSecret: FieldRef<"User", 'String'>
-    readonly mfaVerified: FieldRef<"User", 'Boolean'>
     readonly createdBy: FieldRef<"User", 'String'>
     readonly isAdmin: FieldRef<"User", 'Boolean'>
     readonly status: FieldRef<"User", 'UserStatus'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
+    readonly mfaEnabled: FieldRef<"User", 'Boolean'>
+    readonly mfaSecret: FieldRef<"User", 'String'>
+    readonly mfaVerified: FieldRef<"User", 'Boolean'>
   }
     
 
@@ -4715,6 +4806,82 @@ export namespace Prisma {
   }
 
   /**
+   * User.admin
+   */
+  export type User$adminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Admin
+     */
+    select?: AdminSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Admin
+     */
+    omit?: AdminOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdminInclude<ExtArgs> | null
+    where?: AdminWhereInput
+  }
+
+  /**
+   * User.fieldExecutive
+   */
+  export type User$fieldExecutiveArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FieldExecutive
+     */
+    select?: FieldExecutiveSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FieldExecutive
+     */
+    omit?: FieldExecutiveOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FieldExecutiveInclude<ExtArgs> | null
+    where?: FieldExecutiveWhereInput
+  }
+
+  /**
+   * User.manager
+   */
+  export type User$managerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Manager
+     */
+    select?: ManagerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Manager
+     */
+    omit?: ManagerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ManagerInclude<ExtArgs> | null
+    where?: ManagerWhereInput
+  }
+
+  /**
+   * User.salesExecutive
+   */
+  export type User$salesExecutiveArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalesExecutive
+     */
+    select?: SalesExecutiveSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalesExecutive
+     */
+    omit?: SalesExecutiveOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalesExecutiveInclude<ExtArgs> | null
+    where?: SalesExecutiveWhereInput
+  }
+
+  /**
    * User.sessions
    */
   export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4739,82 +4906,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.manager
-   */
-  export type User$managerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Manager
-     */
-    select?: ManagerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Manager
-     */
-    omit?: ManagerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ManagerInclude<ExtArgs> | null
-    where?: ManagerWhereInput
-  }
-
-  /**
-   * User.technician
-   */
-  export type User$technicianArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Technician
-     */
-    select?: TechnicianSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Technician
-     */
-    omit?: TechnicianOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TechnicianInclude<ExtArgs> | null
-    where?: TechnicianWhereInput
-  }
-
-  /**
-   * User.fieldExecutive
-   */
-  export type User$fieldExecutiveArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the FieldExecutive
-     */
-    select?: FieldExecutiveSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the FieldExecutive
-     */
-    omit?: FieldExecutiveOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FieldExecutiveInclude<ExtArgs> | null
-    where?: FieldExecutiveWhereInput
-  }
-
-  /**
-   * User.salesExecutive
-   */
-  export type User$salesExecutiveArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SalesExecutive
-     */
-    select?: SalesExecutiveSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SalesExecutive
-     */
-    omit?: SalesExecutiveOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SalesExecutiveInclude<ExtArgs> | null
-    where?: SalesExecutiveWhereInput
-  }
-
-  /**
    * User.store
    */
   export type User$storeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4834,22 +4925,22 @@ export namespace Prisma {
   }
 
   /**
-   * User.admin
+   * User.technician
    */
-  export type User$adminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$technicianArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Admin
+     * Select specific fields to fetch from the Technician
      */
-    select?: AdminSelect<ExtArgs> | null
+    select?: TechnicianSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Admin
+     * Omit specific fields from the Technician
      */
-    omit?: AdminOmit<ExtArgs> | null
+    omit?: TechnicianOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdminInclude<ExtArgs> | null
-    where?: AdminWhereInput
+    include?: TechnicianInclude<ExtArgs> | null
+    where?: TechnicianWhereInput
   }
 
   /**
@@ -6080,8 +6171,8 @@ export namespace Prisma {
     lastName?: boolean
     employeeId?: boolean
     aadharId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     bankDetails?: boolean | Manager$bankDetailsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["manager"]>
 
   export type ManagerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6112,8 +6203,8 @@ export namespace Prisma {
 
   export type ManagerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "firstName" | "lastName" | "employeeId" | "aadharId", ExtArgs["result"]["manager"]>
   export type ManagerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     bankDetails?: boolean | Manager$bankDetailsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type ManagerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -6125,8 +6216,8 @@ export namespace Prisma {
   export type $ManagerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Manager"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       bankDetails: Prisma.$BankDetailsPayload<ExtArgs> | null
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       userId: string
@@ -6528,8 +6619,8 @@ export namespace Prisma {
    */
   export interface Prisma__ManagerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     bankDetails<T extends Manager$bankDetailsArgs<ExtArgs> = {}>(args?: Subset<T, Manager$bankDetailsArgs<ExtArgs>>): Prisma__BankDetailsClient<$Result.GetResult<Prisma.$BankDetailsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7161,8 +7252,8 @@ export namespace Prisma {
     lastName?: boolean
     employeeId?: boolean
     aadharId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     bankDetails?: boolean | Technician$bankDetailsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["technician"]>
 
   export type TechnicianSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7193,8 +7284,8 @@ export namespace Prisma {
 
   export type TechnicianOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "firstName" | "lastName" | "employeeId" | "aadharId", ExtArgs["result"]["technician"]>
   export type TechnicianInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     bankDetails?: boolean | Technician$bankDetailsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type TechnicianIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -7206,8 +7297,8 @@ export namespace Prisma {
   export type $TechnicianPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Technician"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       bankDetails: Prisma.$BankDetailsPayload<ExtArgs> | null
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       userId: string
@@ -7609,8 +7700,8 @@ export namespace Prisma {
    */
   export interface Prisma__TechnicianClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     bankDetails<T extends Technician$bankDetailsArgs<ExtArgs> = {}>(args?: Subset<T, Technician$bankDetailsArgs<ExtArgs>>): Prisma__BankDetailsClient<$Result.GetResult<Prisma.$BankDetailsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8242,8 +8333,8 @@ export namespace Prisma {
     lastName?: boolean
     employeeId?: boolean
     aadharId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     bankDetails?: boolean | FieldExecutive$bankDetailsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["fieldExecutive"]>
 
   export type FieldExecutiveSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -8274,8 +8365,8 @@ export namespace Prisma {
 
   export type FieldExecutiveOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "firstName" | "lastName" | "employeeId" | "aadharId", ExtArgs["result"]["fieldExecutive"]>
   export type FieldExecutiveInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     bankDetails?: boolean | FieldExecutive$bankDetailsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type FieldExecutiveIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -8287,8 +8378,8 @@ export namespace Prisma {
   export type $FieldExecutivePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "FieldExecutive"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       bankDetails: Prisma.$BankDetailsPayload<ExtArgs> | null
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       userId: string
@@ -8690,8 +8781,8 @@ export namespace Prisma {
    */
   export interface Prisma__FieldExecutiveClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     bankDetails<T extends FieldExecutive$bankDetailsArgs<ExtArgs> = {}>(args?: Subset<T, FieldExecutive$bankDetailsArgs<ExtArgs>>): Prisma__BankDetailsClient<$Result.GetResult<Prisma.$BankDetailsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9323,8 +9414,8 @@ export namespace Prisma {
     lastName?: boolean
     employeeId?: boolean
     aadharId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     bankDetails?: boolean | SalesExecutive$bankDetailsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["salesExecutive"]>
 
   export type SalesExecutiveSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -9355,8 +9446,8 @@ export namespace Prisma {
 
   export type SalesExecutiveOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "firstName" | "lastName" | "employeeId" | "aadharId", ExtArgs["result"]["salesExecutive"]>
   export type SalesExecutiveInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     bankDetails?: boolean | SalesExecutive$bankDetailsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type SalesExecutiveIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -9368,8 +9459,8 @@ export namespace Prisma {
   export type $SalesExecutivePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "SalesExecutive"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       bankDetails: Prisma.$BankDetailsPayload<ExtArgs> | null
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       userId: string
@@ -9771,8 +9862,8 @@ export namespace Prisma {
    */
   export interface Prisma__SalesExecutiveClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     bankDetails<T extends SalesExecutive$bankDetailsArgs<ExtArgs> = {}>(args?: Subset<T, SalesExecutive$bankDetailsArgs<ExtArgs>>): Prisma__BankDetailsClient<$Result.GetResult<Prisma.$BankDetailsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10428,9 +10519,9 @@ export namespace Prisma {
     ownerEmail?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     address?: boolean | Store$addressArgs<ExtArgs>
     bankDetails?: boolean | Store$bankDetailsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["store"]>
 
   export type StoreSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -10470,9 +10561,9 @@ export namespace Prisma {
 
   export type StoreOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "storeId" | "storeName" | "ownerName" | "ownerPhone" | "ownerEmail" | "createdAt" | "updatedAt", ExtArgs["result"]["store"]>
   export type StoreInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     address?: boolean | Store$addressArgs<ExtArgs>
     bankDetails?: boolean | Store$bankDetailsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type StoreIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -10484,9 +10575,9 @@ export namespace Prisma {
   export type $StorePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Store"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       address: Prisma.$AddressPayload<ExtArgs> | null
       bankDetails: Prisma.$BankDetailsPayload<ExtArgs> | null
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       userId: string
@@ -10891,9 +10982,9 @@ export namespace Prisma {
    */
   export interface Prisma__StoreClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     address<T extends Store$addressArgs<ExtArgs> = {}>(args?: Subset<T, Store$addressArgs<ExtArgs>>): Prisma__AddressClient<$Result.GetResult<Prisma.$AddressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     bankDetails<T extends Store$bankDetailsArgs<ExtArgs> = {}>(args?: Subset<T, Store$bankDetailsArgs<ExtArgs>>): Prisma__BankDetailsClient<$Result.GetResult<Prisma.$BankDetailsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11595,11 +11686,11 @@ export namespace Prisma {
     fieldExecId?: boolean
     salesExecId?: boolean
     storeId?: boolean
-    manager?: boolean | BankDetails$managerArgs<ExtArgs>
-    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
     fieldExecutive?: boolean | BankDetails$fieldExecutiveArgs<ExtArgs>
+    manager?: boolean | BankDetails$managerArgs<ExtArgs>
     salesExecutive?: boolean | BankDetails$salesExecutiveArgs<ExtArgs>
     store?: boolean | BankDetails$storeArgs<ExtArgs>
+    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
   }, ExtArgs["result"]["bankDetails"]>
 
   export type BankDetailsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11614,11 +11705,11 @@ export namespace Prisma {
     fieldExecId?: boolean
     salesExecId?: boolean
     storeId?: boolean
-    manager?: boolean | BankDetails$managerArgs<ExtArgs>
-    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
     fieldExecutive?: boolean | BankDetails$fieldExecutiveArgs<ExtArgs>
+    manager?: boolean | BankDetails$managerArgs<ExtArgs>
     salesExecutive?: boolean | BankDetails$salesExecutiveArgs<ExtArgs>
     store?: boolean | BankDetails$storeArgs<ExtArgs>
+    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
   }, ExtArgs["result"]["bankDetails"]>
 
   export type BankDetailsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11633,11 +11724,11 @@ export namespace Prisma {
     fieldExecId?: boolean
     salesExecId?: boolean
     storeId?: boolean
-    manager?: boolean | BankDetails$managerArgs<ExtArgs>
-    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
     fieldExecutive?: boolean | BankDetails$fieldExecutiveArgs<ExtArgs>
+    manager?: boolean | BankDetails$managerArgs<ExtArgs>
     salesExecutive?: boolean | BankDetails$salesExecutiveArgs<ExtArgs>
     store?: boolean | BankDetails$storeArgs<ExtArgs>
+    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
   }, ExtArgs["result"]["bankDetails"]>
 
   export type BankDetailsSelectScalar = {
@@ -11656,35 +11747,35 @@ export namespace Prisma {
 
   export type BankDetailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "accountNumber" | "ifsc" | "bankName" | "beneficiaryName" | "upiId" | "managerId" | "technicianId" | "fieldExecId" | "salesExecId" | "storeId", ExtArgs["result"]["bankDetails"]>
   export type BankDetailsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    manager?: boolean | BankDetails$managerArgs<ExtArgs>
-    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
     fieldExecutive?: boolean | BankDetails$fieldExecutiveArgs<ExtArgs>
+    manager?: boolean | BankDetails$managerArgs<ExtArgs>
     salesExecutive?: boolean | BankDetails$salesExecutiveArgs<ExtArgs>
     store?: boolean | BankDetails$storeArgs<ExtArgs>
+    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
   }
   export type BankDetailsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    manager?: boolean | BankDetails$managerArgs<ExtArgs>
-    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
     fieldExecutive?: boolean | BankDetails$fieldExecutiveArgs<ExtArgs>
+    manager?: boolean | BankDetails$managerArgs<ExtArgs>
     salesExecutive?: boolean | BankDetails$salesExecutiveArgs<ExtArgs>
     store?: boolean | BankDetails$storeArgs<ExtArgs>
+    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
   }
   export type BankDetailsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    manager?: boolean | BankDetails$managerArgs<ExtArgs>
-    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
     fieldExecutive?: boolean | BankDetails$fieldExecutiveArgs<ExtArgs>
+    manager?: boolean | BankDetails$managerArgs<ExtArgs>
     salesExecutive?: boolean | BankDetails$salesExecutiveArgs<ExtArgs>
     store?: boolean | BankDetails$storeArgs<ExtArgs>
+    technician?: boolean | BankDetails$technicianArgs<ExtArgs>
   }
 
   export type $BankDetailsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "BankDetails"
     objects: {
-      manager: Prisma.$ManagerPayload<ExtArgs> | null
-      technician: Prisma.$TechnicianPayload<ExtArgs> | null
       fieldExecutive: Prisma.$FieldExecutivePayload<ExtArgs> | null
+      manager: Prisma.$ManagerPayload<ExtArgs> | null
       salesExecutive: Prisma.$SalesExecutivePayload<ExtArgs> | null
       store: Prisma.$StorePayload<ExtArgs> | null
+      technician: Prisma.$TechnicianPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -12092,11 +12183,11 @@ export namespace Prisma {
    */
   export interface Prisma__BankDetailsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    manager<T extends BankDetails$managerArgs<ExtArgs> = {}>(args?: Subset<T, BankDetails$managerArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    technician<T extends BankDetails$technicianArgs<ExtArgs> = {}>(args?: Subset<T, BankDetails$technicianArgs<ExtArgs>>): Prisma__TechnicianClient<$Result.GetResult<Prisma.$TechnicianPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     fieldExecutive<T extends BankDetails$fieldExecutiveArgs<ExtArgs> = {}>(args?: Subset<T, BankDetails$fieldExecutiveArgs<ExtArgs>>): Prisma__FieldExecutiveClient<$Result.GetResult<Prisma.$FieldExecutivePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    manager<T extends BankDetails$managerArgs<ExtArgs> = {}>(args?: Subset<T, BankDetails$managerArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     salesExecutive<T extends BankDetails$salesExecutiveArgs<ExtArgs> = {}>(args?: Subset<T, BankDetails$salesExecutiveArgs<ExtArgs>>): Prisma__SalesExecutiveClient<$Result.GetResult<Prisma.$SalesExecutivePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     store<T extends BankDetails$storeArgs<ExtArgs> = {}>(args?: Subset<T, BankDetails$storeArgs<ExtArgs>>): Prisma__StoreClient<$Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    technician<T extends BankDetails$technicianArgs<ExtArgs> = {}>(args?: Subset<T, BankDetails$technicianArgs<ExtArgs>>): Prisma__TechnicianClient<$Result.GetResult<Prisma.$TechnicianPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12533,44 +12624,6 @@ export namespace Prisma {
   }
 
   /**
-   * BankDetails.manager
-   */
-  export type BankDetails$managerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Manager
-     */
-    select?: ManagerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Manager
-     */
-    omit?: ManagerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ManagerInclude<ExtArgs> | null
-    where?: ManagerWhereInput
-  }
-
-  /**
-   * BankDetails.technician
-   */
-  export type BankDetails$technicianArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Technician
-     */
-    select?: TechnicianSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Technician
-     */
-    omit?: TechnicianOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TechnicianInclude<ExtArgs> | null
-    where?: TechnicianWhereInput
-  }
-
-  /**
    * BankDetails.fieldExecutive
    */
   export type BankDetails$fieldExecutiveArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12587,6 +12640,25 @@ export namespace Prisma {
      */
     include?: FieldExecutiveInclude<ExtArgs> | null
     where?: FieldExecutiveWhereInput
+  }
+
+  /**
+   * BankDetails.manager
+   */
+  export type BankDetails$managerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Manager
+     */
+    select?: ManagerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Manager
+     */
+    omit?: ManagerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ManagerInclude<ExtArgs> | null
+    where?: ManagerWhereInput
   }
 
   /**
@@ -12625,6 +12697,25 @@ export namespace Prisma {
      */
     include?: StoreInclude<ExtArgs> | null
     where?: StoreWhereInput
+  }
+
+  /**
+   * BankDetails.technician
+   */
+  export type BankDetails$technicianArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technician
+     */
+    select?: TechnicianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technician
+     */
+    omit?: TechnicianOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnicianInclude<ExtArgs> | null
+    where?: TechnicianWhereInput
   }
 
   /**
@@ -15033,16 +15124,16 @@ export namespace Prisma {
     imei1?: boolean
     imei2?: boolean
     createdAt?: boolean
-    connectivityTestResults?: boolean | DeviceTest$connectivityTestResultsArgs<ExtArgs>
-    simTestResults?: boolean | DeviceTest$simTestResultsArgs<ExtArgs>
-    deviceTestResults?: boolean | DeviceTest$deviceTestResultsArgs<ExtArgs>
-    screenTest?: boolean | DeviceTest$screenTestArgs<ExtArgs>
-    audioTest?: boolean | DeviceTest$audioTestArgs<ExtArgs>
-    proximitySensorTest?: boolean | DeviceTest$proximitySensorTestArgs<ExtArgs>
-    cameraTest?: boolean | DeviceTest$cameraTestArgs<ExtArgs>
-    fingerprintTest?: boolean | DeviceTest$fingerprintTestArgs<ExtArgs>
-    usbTest?: boolean | DeviceTest$usbTestArgs<ExtArgs>
     audioJackTest?: boolean | DeviceTest$audioJackTestArgs<ExtArgs>
+    audioTest?: boolean | DeviceTest$audioTestArgs<ExtArgs>
+    cameraTest?: boolean | DeviceTest$cameraTestArgs<ExtArgs>
+    connectivityTestResults?: boolean | DeviceTest$connectivityTestResultsArgs<ExtArgs>
+    deviceTestResults?: boolean | DeviceTest$deviceTestResultsArgs<ExtArgs>
+    fingerprintTest?: boolean | DeviceTest$fingerprintTestArgs<ExtArgs>
+    proximitySensorTest?: boolean | DeviceTest$proximitySensorTestArgs<ExtArgs>
+    screenTest?: boolean | DeviceTest$screenTestArgs<ExtArgs>
+    simTestResults?: boolean | DeviceTest$simTestResultsArgs<ExtArgs>
+    usbTest?: boolean | DeviceTest$usbTestArgs<ExtArgs>
     _count?: boolean | DeviceTestCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["deviceTest"]>
 
@@ -15084,16 +15175,16 @@ export namespace Prisma {
 
   export type DeviceTestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "testId" | "employeeId" | "imageUrl" | "expiresAt" | "device" | "imei1" | "imei2" | "createdAt", ExtArgs["result"]["deviceTest"]>
   export type DeviceTestInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    connectivityTestResults?: boolean | DeviceTest$connectivityTestResultsArgs<ExtArgs>
-    simTestResults?: boolean | DeviceTest$simTestResultsArgs<ExtArgs>
-    deviceTestResults?: boolean | DeviceTest$deviceTestResultsArgs<ExtArgs>
-    screenTest?: boolean | DeviceTest$screenTestArgs<ExtArgs>
-    audioTest?: boolean | DeviceTest$audioTestArgs<ExtArgs>
-    proximitySensorTest?: boolean | DeviceTest$proximitySensorTestArgs<ExtArgs>
-    cameraTest?: boolean | DeviceTest$cameraTestArgs<ExtArgs>
-    fingerprintTest?: boolean | DeviceTest$fingerprintTestArgs<ExtArgs>
-    usbTest?: boolean | DeviceTest$usbTestArgs<ExtArgs>
     audioJackTest?: boolean | DeviceTest$audioJackTestArgs<ExtArgs>
+    audioTest?: boolean | DeviceTest$audioTestArgs<ExtArgs>
+    cameraTest?: boolean | DeviceTest$cameraTestArgs<ExtArgs>
+    connectivityTestResults?: boolean | DeviceTest$connectivityTestResultsArgs<ExtArgs>
+    deviceTestResults?: boolean | DeviceTest$deviceTestResultsArgs<ExtArgs>
+    fingerprintTest?: boolean | DeviceTest$fingerprintTestArgs<ExtArgs>
+    proximitySensorTest?: boolean | DeviceTest$proximitySensorTestArgs<ExtArgs>
+    screenTest?: boolean | DeviceTest$screenTestArgs<ExtArgs>
+    simTestResults?: boolean | DeviceTest$simTestResultsArgs<ExtArgs>
+    usbTest?: boolean | DeviceTest$usbTestArgs<ExtArgs>
     _count?: boolean | DeviceTestCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type DeviceTestIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -15102,16 +15193,16 @@ export namespace Prisma {
   export type $DeviceTestPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "DeviceTest"
     objects: {
-      connectivityTestResults: Prisma.$ConnectivityTestResultPayload<ExtArgs>[]
-      simTestResults: Prisma.$SimTestResultPayload<ExtArgs>[]
-      deviceTestResults: Prisma.$DeviceTestResultPayload<ExtArgs>[]
-      screenTest: Prisma.$ScreenTestPayload<ExtArgs> | null
-      audioTest: Prisma.$AudioTestPayload<ExtArgs> | null
-      proximitySensorTest: Prisma.$ProximitySensorTestPayload<ExtArgs> | null
-      cameraTest: Prisma.$CameraTestPayload<ExtArgs> | null
-      fingerprintTest: Prisma.$FingerprintTestPayload<ExtArgs> | null
-      usbTest: Prisma.$UsbTestPayload<ExtArgs> | null
       audioJackTest: Prisma.$AudioJackTestPayload<ExtArgs> | null
+      audioTest: Prisma.$AudioTestPayload<ExtArgs> | null
+      cameraTest: Prisma.$CameraTestPayload<ExtArgs> | null
+      connectivityTestResults: Prisma.$ConnectivityTestResultPayload<ExtArgs>[]
+      deviceTestResults: Prisma.$DeviceTestResultPayload<ExtArgs>[]
+      fingerprintTest: Prisma.$FingerprintTestPayload<ExtArgs> | null
+      proximitySensorTest: Prisma.$ProximitySensorTestPayload<ExtArgs> | null
+      screenTest: Prisma.$ScreenTestPayload<ExtArgs> | null
+      simTestResults: Prisma.$SimTestResultPayload<ExtArgs>[]
+      usbTest: Prisma.$UsbTestPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -15517,16 +15608,16 @@ export namespace Prisma {
    */
   export interface Prisma__DeviceTestClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    connectivityTestResults<T extends DeviceTest$connectivityTestResultsArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$connectivityTestResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConnectivityTestResultPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    simTestResults<T extends DeviceTest$simTestResultsArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$simTestResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SimTestResultPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    deviceTestResults<T extends DeviceTest$deviceTestResultsArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$deviceTestResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceTestResultPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    screenTest<T extends DeviceTest$screenTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$screenTestArgs<ExtArgs>>): Prisma__ScreenTestClient<$Result.GetResult<Prisma.$ScreenTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    audioTest<T extends DeviceTest$audioTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$audioTestArgs<ExtArgs>>): Prisma__AudioTestClient<$Result.GetResult<Prisma.$AudioTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    proximitySensorTest<T extends DeviceTest$proximitySensorTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$proximitySensorTestArgs<ExtArgs>>): Prisma__ProximitySensorTestClient<$Result.GetResult<Prisma.$ProximitySensorTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    cameraTest<T extends DeviceTest$cameraTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$cameraTestArgs<ExtArgs>>): Prisma__CameraTestClient<$Result.GetResult<Prisma.$CameraTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    fingerprintTest<T extends DeviceTest$fingerprintTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$fingerprintTestArgs<ExtArgs>>): Prisma__FingerprintTestClient<$Result.GetResult<Prisma.$FingerprintTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    usbTest<T extends DeviceTest$usbTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$usbTestArgs<ExtArgs>>): Prisma__UsbTestClient<$Result.GetResult<Prisma.$UsbTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     audioJackTest<T extends DeviceTest$audioJackTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$audioJackTestArgs<ExtArgs>>): Prisma__AudioJackTestClient<$Result.GetResult<Prisma.$AudioJackTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    audioTest<T extends DeviceTest$audioTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$audioTestArgs<ExtArgs>>): Prisma__AudioTestClient<$Result.GetResult<Prisma.$AudioTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    cameraTest<T extends DeviceTest$cameraTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$cameraTestArgs<ExtArgs>>): Prisma__CameraTestClient<$Result.GetResult<Prisma.$CameraTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    connectivityTestResults<T extends DeviceTest$connectivityTestResultsArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$connectivityTestResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConnectivityTestResultPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    deviceTestResults<T extends DeviceTest$deviceTestResultsArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$deviceTestResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceTestResultPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    fingerprintTest<T extends DeviceTest$fingerprintTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$fingerprintTestArgs<ExtArgs>>): Prisma__FingerprintTestClient<$Result.GetResult<Prisma.$FingerprintTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    proximitySensorTest<T extends DeviceTest$proximitySensorTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$proximitySensorTestArgs<ExtArgs>>): Prisma__ProximitySensorTestClient<$Result.GetResult<Prisma.$ProximitySensorTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    screenTest<T extends DeviceTest$screenTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$screenTestArgs<ExtArgs>>): Prisma__ScreenTestClient<$Result.GetResult<Prisma.$ScreenTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    simTestResults<T extends DeviceTest$simTestResultsArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$simTestResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SimTestResultPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    usbTest<T extends DeviceTest$usbTestArgs<ExtArgs> = {}>(args?: Subset<T, DeviceTest$usbTestArgs<ExtArgs>>): Prisma__UsbTestClient<$Result.GetResult<Prisma.$UsbTestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -15953,6 +16044,63 @@ export namespace Prisma {
   }
 
   /**
+   * DeviceTest.audioJackTest
+   */
+  export type DeviceTest$audioJackTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AudioJackTest
+     */
+    select?: AudioJackTestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AudioJackTest
+     */
+    omit?: AudioJackTestOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AudioJackTestInclude<ExtArgs> | null
+    where?: AudioJackTestWhereInput
+  }
+
+  /**
+   * DeviceTest.audioTest
+   */
+  export type DeviceTest$audioTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AudioTest
+     */
+    select?: AudioTestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AudioTest
+     */
+    omit?: AudioTestOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AudioTestInclude<ExtArgs> | null
+    where?: AudioTestWhereInput
+  }
+
+  /**
+   * DeviceTest.cameraTest
+   */
+  export type DeviceTest$cameraTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CameraTest
+     */
+    select?: CameraTestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CameraTest
+     */
+    omit?: CameraTestOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CameraTestInclude<ExtArgs> | null
+    where?: CameraTestWhereInput
+  }
+
+  /**
    * DeviceTest.connectivityTestResults
    */
   export type DeviceTest$connectivityTestResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -15974,30 +16122,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ConnectivityTestResultScalarFieldEnum | ConnectivityTestResultScalarFieldEnum[]
-  }
-
-  /**
-   * DeviceTest.simTestResults
-   */
-  export type DeviceTest$simTestResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SimTestResult
-     */
-    select?: SimTestResultSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SimTestResult
-     */
-    omit?: SimTestResultOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SimTestResultInclude<ExtArgs> | null
-    where?: SimTestResultWhereInput
-    orderBy?: SimTestResultOrderByWithRelationInput | SimTestResultOrderByWithRelationInput[]
-    cursor?: SimTestResultWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: SimTestResultScalarFieldEnum | SimTestResultScalarFieldEnum[]
   }
 
   /**
@@ -16025,41 +16149,22 @@ export namespace Prisma {
   }
 
   /**
-   * DeviceTest.screenTest
+   * DeviceTest.fingerprintTest
    */
-  export type DeviceTest$screenTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DeviceTest$fingerprintTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ScreenTest
+     * Select specific fields to fetch from the FingerprintTest
      */
-    select?: ScreenTestSelect<ExtArgs> | null
+    select?: FingerprintTestSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ScreenTest
+     * Omit specific fields from the FingerprintTest
      */
-    omit?: ScreenTestOmit<ExtArgs> | null
+    omit?: FingerprintTestOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ScreenTestInclude<ExtArgs> | null
-    where?: ScreenTestWhereInput
-  }
-
-  /**
-   * DeviceTest.audioTest
-   */
-  export type DeviceTest$audioTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AudioTest
-     */
-    select?: AudioTestSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AudioTest
-     */
-    omit?: AudioTestOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AudioTestInclude<ExtArgs> | null
-    where?: AudioTestWhereInput
+    include?: FingerprintTestInclude<ExtArgs> | null
+    where?: FingerprintTestWhereInput
   }
 
   /**
@@ -16082,41 +16187,46 @@ export namespace Prisma {
   }
 
   /**
-   * DeviceTest.cameraTest
+   * DeviceTest.screenTest
    */
-  export type DeviceTest$cameraTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DeviceTest$screenTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CameraTest
+     * Select specific fields to fetch from the ScreenTest
      */
-    select?: CameraTestSelect<ExtArgs> | null
+    select?: ScreenTestSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CameraTest
+     * Omit specific fields from the ScreenTest
      */
-    omit?: CameraTestOmit<ExtArgs> | null
+    omit?: ScreenTestOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CameraTestInclude<ExtArgs> | null
-    where?: CameraTestWhereInput
+    include?: ScreenTestInclude<ExtArgs> | null
+    where?: ScreenTestWhereInput
   }
 
   /**
-   * DeviceTest.fingerprintTest
+   * DeviceTest.simTestResults
    */
-  export type DeviceTest$fingerprintTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DeviceTest$simTestResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FingerprintTest
+     * Select specific fields to fetch from the SimTestResult
      */
-    select?: FingerprintTestSelect<ExtArgs> | null
+    select?: SimTestResultSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FingerprintTest
+     * Omit specific fields from the SimTestResult
      */
-    omit?: FingerprintTestOmit<ExtArgs> | null
+    omit?: SimTestResultOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FingerprintTestInclude<ExtArgs> | null
-    where?: FingerprintTestWhereInput
+    include?: SimTestResultInclude<ExtArgs> | null
+    where?: SimTestResultWhereInput
+    orderBy?: SimTestResultOrderByWithRelationInput | SimTestResultOrderByWithRelationInput[]
+    cursor?: SimTestResultWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SimTestResultScalarFieldEnum | SimTestResultScalarFieldEnum[]
   }
 
   /**
@@ -16136,25 +16246,6 @@ export namespace Prisma {
      */
     include?: UsbTestInclude<ExtArgs> | null
     where?: UsbTestWhereInput
-  }
-
-  /**
-   * DeviceTest.audioJackTest
-   */
-  export type DeviceTest$audioJackTestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AudioJackTest
-     */
-    select?: AudioJackTestSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AudioJackTest
-     */
-    omit?: AudioJackTestOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AudioJackTestInclude<ExtArgs> | null
-    where?: AudioJackTestWhereInput
   }
 
   /**
@@ -28271,8 +28362,6 @@ export namespace Prisma {
   export type DeclarationMinAggregateOutputType = {
     id: string | null
     orderId: string | null
-    brand: string | null
-    model: string | null
     smc: string | null
     variant: string | null
     imei1: string | null
@@ -28295,13 +28384,12 @@ export namespace Prisma {
     isAccepted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    finalAmount: string | null
   }
 
   export type DeclarationMaxAggregateOutputType = {
     id: string | null
     orderId: string | null
-    brand: string | null
-    model: string | null
     smc: string | null
     variant: string | null
     imei1: string | null
@@ -28324,13 +28412,12 @@ export namespace Prisma {
     isAccepted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    finalAmount: string | null
   }
 
   export type DeclarationCountAggregateOutputType = {
     id: number
     orderId: number
-    brand: number
-    model: number
     smc: number
     variant: number
     imei1: number
@@ -28353,6 +28440,7 @@ export namespace Prisma {
     isAccepted: number
     createdAt: number
     updatedAt: number
+    finalAmount: number
     _all: number
   }
 
@@ -28360,8 +28448,6 @@ export namespace Prisma {
   export type DeclarationMinAggregateInputType = {
     id?: true
     orderId?: true
-    brand?: true
-    model?: true
     smc?: true
     variant?: true
     imei1?: true
@@ -28384,13 +28470,12 @@ export namespace Prisma {
     isAccepted?: true
     createdAt?: true
     updatedAt?: true
+    finalAmount?: true
   }
 
   export type DeclarationMaxAggregateInputType = {
     id?: true
     orderId?: true
-    brand?: true
-    model?: true
     smc?: true
     variant?: true
     imei1?: true
@@ -28413,13 +28498,12 @@ export namespace Prisma {
     isAccepted?: true
     createdAt?: true
     updatedAt?: true
+    finalAmount?: true
   }
 
   export type DeclarationCountAggregateInputType = {
     id?: true
     orderId?: true
-    brand?: true
-    model?: true
     smc?: true
     variant?: true
     imei1?: true
@@ -28442,6 +28526,7 @@ export namespace Prisma {
     isAccepted?: true
     createdAt?: true
     updatedAt?: true
+    finalAmount?: true
     _all?: true
   }
 
@@ -28520,8 +28605,6 @@ export namespace Prisma {
   export type DeclarationGroupByOutputType = {
     id: string
     orderId: string
-    brand: string
-    model: string
     smc: string
     variant: string
     imei1: string | null
@@ -28544,6 +28627,7 @@ export namespace Prisma {
     isAccepted: boolean
     createdAt: Date
     updatedAt: Date
+    finalAmount: string | null
     _count: DeclarationCountAggregateOutputType | null
     _min: DeclarationMinAggregateOutputType | null
     _max: DeclarationMaxAggregateOutputType | null
@@ -28566,8 +28650,6 @@ export namespace Prisma {
   export type DeclarationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     orderId?: boolean
-    brand?: boolean
-    model?: boolean
     smc?: boolean
     variant?: boolean
     imei1?: boolean
@@ -28590,13 +28672,12 @@ export namespace Prisma {
     isAccepted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    finalAmount?: boolean
   }, ExtArgs["result"]["declaration"]>
 
   export type DeclarationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     orderId?: boolean
-    brand?: boolean
-    model?: boolean
     smc?: boolean
     variant?: boolean
     imei1?: boolean
@@ -28619,13 +28700,12 @@ export namespace Prisma {
     isAccepted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    finalAmount?: boolean
   }, ExtArgs["result"]["declaration"]>
 
   export type DeclarationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     orderId?: boolean
-    brand?: boolean
-    model?: boolean
     smc?: boolean
     variant?: boolean
     imei1?: boolean
@@ -28648,13 +28728,12 @@ export namespace Prisma {
     isAccepted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    finalAmount?: boolean
   }, ExtArgs["result"]["declaration"]>
 
   export type DeclarationSelectScalar = {
     id?: boolean
     orderId?: boolean
-    brand?: boolean
-    model?: boolean
     smc?: boolean
     variant?: boolean
     imei1?: boolean
@@ -28677,9 +28756,10 @@ export namespace Prisma {
     isAccepted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    finalAmount?: boolean
   }
 
-  export type DeclarationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "brand" | "model" | "smc" | "variant" | "imei1" | "imei2" | "bluetooth" | "gps" | "wifi" | "proximity" | "multiTouch" | "screenCalibration" | "speaker" | "earReceiver" | "microphone" | "frontCamera" | "backCamera" | "sim" | "fingerprint" | "chargingPort" | "audioJack" | "isAccepted" | "createdAt" | "updatedAt", ExtArgs["result"]["declaration"]>
+  export type DeclarationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "smc" | "variant" | "imei1" | "imei2" | "bluetooth" | "gps" | "wifi" | "proximity" | "multiTouch" | "screenCalibration" | "speaker" | "earReceiver" | "microphone" | "frontCamera" | "backCamera" | "sim" | "fingerprint" | "chargingPort" | "audioJack" | "isAccepted" | "createdAt" | "updatedAt" | "finalAmount", ExtArgs["result"]["declaration"]>
 
   export type $DeclarationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Declaration"
@@ -28687,8 +28767,6 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       orderId: string
-      brand: string
-      model: string
       smc: string
       variant: string
       imei1: string | null
@@ -28711,6 +28789,7 @@ export namespace Prisma {
       isAccepted: boolean
       createdAt: Date
       updatedAt: Date
+      finalAmount: string | null
     }, ExtArgs["result"]["declaration"]>
     composites: {}
   }
@@ -29136,8 +29215,6 @@ export namespace Prisma {
   interface DeclarationFieldRefs {
     readonly id: FieldRef<"Declaration", 'String'>
     readonly orderId: FieldRef<"Declaration", 'String'>
-    readonly brand: FieldRef<"Declaration", 'String'>
-    readonly model: FieldRef<"Declaration", 'String'>
     readonly smc: FieldRef<"Declaration", 'String'>
     readonly variant: FieldRef<"Declaration", 'String'>
     readonly imei1: FieldRef<"Declaration", 'String'>
@@ -29160,6 +29237,7 @@ export namespace Prisma {
     readonly isAccepted: FieldRef<"Declaration", 'Boolean'>
     readonly createdAt: FieldRef<"Declaration", 'DateTime'>
     readonly updatedAt: FieldRef<"Declaration", 'DateTime'>
+    readonly finalAmount: FieldRef<"Declaration", 'String'>
   }
     
 
@@ -33846,6 +33924,1872 @@ export namespace Prisma {
 
 
   /**
+   * Model DoorstepPickup
+   */
+
+  export type AggregateDoorstepPickup = {
+    _count: DoorstepPickupCountAggregateOutputType | null
+    _avg: DoorstepPickupAvgAggregateOutputType | null
+    _sum: DoorstepPickupSumAggregateOutputType | null
+    _min: DoorstepPickupMinAggregateOutputType | null
+    _max: DoorstepPickupMaxAggregateOutputType | null
+  }
+
+  export type DoorstepPickupAvgAggregateOutputType = {
+    finalAmount: Decimal | null
+    sellingAmount: Decimal | null
+  }
+
+  export type DoorstepPickupSumAggregateOutputType = {
+    finalAmount: Decimal | null
+    sellingAmount: Decimal | null
+  }
+
+  export type DoorstepPickupMinAggregateOutputType = {
+    id: string | null
+    orderId: string | null
+    variant: string | null
+    imei1: string | null
+    imei2: string | null
+    deviceFrontImage: string | null
+    deviceBackImage: string | null
+    diagnosticsProcess: string | null
+    diagnosticsProcessInit: string | null
+    qcReportInit: string | null
+    qcReport: string | null
+    repairRequired: string | null
+    repairStatus: string | null
+    accessories: string | null
+    deviceAge: string | null
+    warrantyType: string | null
+    hasGstBill: string | null
+    gstInvoice: string | null
+    boxImeiMatch: string | null
+    customerName: string | null
+    mobileNumber: string | null
+    addressProofType: string | null
+    aadharNumber: string | null
+    address: string | null
+    fullAddress: string | null
+    aadharFrontImage: string | null
+    aadharBackImage: string | null
+    epicNumber: string | null
+    voterIdFrontImage: string | null
+    voterIdBackImage: string | null
+    isAadharVerified: boolean | null
+    voterIdVerified: boolean | null
+    customerSignature: string | null
+    deviceReset: string | null
+    deviceStartScreenImage: string | null
+    customerProofImage: string | null
+    customerDeclaration: string | null
+    cashPaymentReceiptImage: string | null
+    paymentMode: string | null
+    exchangeModel: string | null
+    newModelIMEI: string | null
+    remarks: string | null
+    finalAmount: Decimal | null
+    sellingAmount: Decimal | null
+    upiId: string | null
+    upiBeneficiaryName: string | null
+    isUpiVerified: boolean | null
+    isUpiSaved: boolean | null
+    bankName: string | null
+    accountNumber: string | null
+    confirmAccountNumber: string | null
+    ifscCode: string | null
+    bankBeneficiaryName: string | null
+    isBankDetailsVerified: boolean | null
+    isBankDetailsSaved: boolean | null
+    paymentStatus: string | null
+    utrrrnnumber: string | null
+    paidBy: string | null
+    purchaserBankName: string | null
+    purchaserPaymentMode: string | null
+    isMobileNumberVerified: boolean | null
+    isDeclarationSigned: boolean | null
+    phoneVerified: boolean | null
+    repairDate: Date | null
+    assignedBC: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DoorstepPickupMaxAggregateOutputType = {
+    id: string | null
+    orderId: string | null
+    variant: string | null
+    imei1: string | null
+    imei2: string | null
+    deviceFrontImage: string | null
+    deviceBackImage: string | null
+    diagnosticsProcess: string | null
+    diagnosticsProcessInit: string | null
+    qcReportInit: string | null
+    qcReport: string | null
+    repairRequired: string | null
+    repairStatus: string | null
+    accessories: string | null
+    deviceAge: string | null
+    warrantyType: string | null
+    hasGstBill: string | null
+    gstInvoice: string | null
+    boxImeiMatch: string | null
+    customerName: string | null
+    mobileNumber: string | null
+    addressProofType: string | null
+    aadharNumber: string | null
+    address: string | null
+    fullAddress: string | null
+    aadharFrontImage: string | null
+    aadharBackImage: string | null
+    epicNumber: string | null
+    voterIdFrontImage: string | null
+    voterIdBackImage: string | null
+    isAadharVerified: boolean | null
+    voterIdVerified: boolean | null
+    customerSignature: string | null
+    deviceReset: string | null
+    deviceStartScreenImage: string | null
+    customerProofImage: string | null
+    customerDeclaration: string | null
+    cashPaymentReceiptImage: string | null
+    paymentMode: string | null
+    exchangeModel: string | null
+    newModelIMEI: string | null
+    remarks: string | null
+    finalAmount: Decimal | null
+    sellingAmount: Decimal | null
+    upiId: string | null
+    upiBeneficiaryName: string | null
+    isUpiVerified: boolean | null
+    isUpiSaved: boolean | null
+    bankName: string | null
+    accountNumber: string | null
+    confirmAccountNumber: string | null
+    ifscCode: string | null
+    bankBeneficiaryName: string | null
+    isBankDetailsVerified: boolean | null
+    isBankDetailsSaved: boolean | null
+    paymentStatus: string | null
+    utrrrnnumber: string | null
+    paidBy: string | null
+    purchaserBankName: string | null
+    purchaserPaymentMode: string | null
+    isMobileNumberVerified: boolean | null
+    isDeclarationSigned: boolean | null
+    phoneVerified: boolean | null
+    repairDate: Date | null
+    assignedBC: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DoorstepPickupCountAggregateOutputType = {
+    id: number
+    orderId: number
+    variant: number
+    imei1: number
+    imei2: number
+    deviceFrontImage: number
+    deviceBackImage: number
+    diagnosticsProcess: number
+    mbdgReport: number
+    diagnosticsProcessInit: number
+    qcReportInit: number
+    qcReport: number
+    repairRequired: number
+    repairStatus: number
+    accessories: number
+    deviceAge: number
+    warrantyType: number
+    hasGstBill: number
+    gstInvoice: number
+    boxImeiMatch: number
+    customerName: number
+    mobileNumber: number
+    addressProofType: number
+    aadharNumber: number
+    address: number
+    fullAddress: number
+    aadharFrontImage: number
+    aadharBackImage: number
+    epicNumber: number
+    voterIdFrontImage: number
+    voterIdBackImage: number
+    isAadharVerified: number
+    voterIdVerified: number
+    customerSignature: number
+    deviceReset: number
+    deviceStartScreenImage: number
+    customerProofImage: number
+    customerDeclaration: number
+    cashPaymentReceiptImage: number
+    paymentMode: number
+    exchangeModel: number
+    newModelIMEI: number
+    manualQcReport: number
+    remarks: number
+    finalAmount: number
+    sellingAmount: number
+    upiId: number
+    upiBeneficiaryName: number
+    isUpiVerified: number
+    isUpiSaved: number
+    bankName: number
+    accountNumber: number
+    confirmAccountNumber: number
+    ifscCode: number
+    bankBeneficiaryName: number
+    isBankDetailsVerified: number
+    isBankDetailsSaved: number
+    paymentStatus: number
+    utrrrnnumber: number
+    paidBy: number
+    purchaserBankName: number
+    purchaserPaymentMode: number
+    isMobileNumberVerified: number
+    isDeclarationSigned: number
+    phoneVerified: number
+    repairParts: number
+    repairDate: number
+    assignedBC: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DoorstepPickupAvgAggregateInputType = {
+    finalAmount?: true
+    sellingAmount?: true
+  }
+
+  export type DoorstepPickupSumAggregateInputType = {
+    finalAmount?: true
+    sellingAmount?: true
+  }
+
+  export type DoorstepPickupMinAggregateInputType = {
+    id?: true
+    orderId?: true
+    variant?: true
+    imei1?: true
+    imei2?: true
+    deviceFrontImage?: true
+    deviceBackImage?: true
+    diagnosticsProcess?: true
+    diagnosticsProcessInit?: true
+    qcReportInit?: true
+    qcReport?: true
+    repairRequired?: true
+    repairStatus?: true
+    accessories?: true
+    deviceAge?: true
+    warrantyType?: true
+    hasGstBill?: true
+    gstInvoice?: true
+    boxImeiMatch?: true
+    customerName?: true
+    mobileNumber?: true
+    addressProofType?: true
+    aadharNumber?: true
+    address?: true
+    fullAddress?: true
+    aadharFrontImage?: true
+    aadharBackImage?: true
+    epicNumber?: true
+    voterIdFrontImage?: true
+    voterIdBackImage?: true
+    isAadharVerified?: true
+    voterIdVerified?: true
+    customerSignature?: true
+    deviceReset?: true
+    deviceStartScreenImage?: true
+    customerProofImage?: true
+    customerDeclaration?: true
+    cashPaymentReceiptImage?: true
+    paymentMode?: true
+    exchangeModel?: true
+    newModelIMEI?: true
+    remarks?: true
+    finalAmount?: true
+    sellingAmount?: true
+    upiId?: true
+    upiBeneficiaryName?: true
+    isUpiVerified?: true
+    isUpiSaved?: true
+    bankName?: true
+    accountNumber?: true
+    confirmAccountNumber?: true
+    ifscCode?: true
+    bankBeneficiaryName?: true
+    isBankDetailsVerified?: true
+    isBankDetailsSaved?: true
+    paymentStatus?: true
+    utrrrnnumber?: true
+    paidBy?: true
+    purchaserBankName?: true
+    purchaserPaymentMode?: true
+    isMobileNumberVerified?: true
+    isDeclarationSigned?: true
+    phoneVerified?: true
+    repairDate?: true
+    assignedBC?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DoorstepPickupMaxAggregateInputType = {
+    id?: true
+    orderId?: true
+    variant?: true
+    imei1?: true
+    imei2?: true
+    deviceFrontImage?: true
+    deviceBackImage?: true
+    diagnosticsProcess?: true
+    diagnosticsProcessInit?: true
+    qcReportInit?: true
+    qcReport?: true
+    repairRequired?: true
+    repairStatus?: true
+    accessories?: true
+    deviceAge?: true
+    warrantyType?: true
+    hasGstBill?: true
+    gstInvoice?: true
+    boxImeiMatch?: true
+    customerName?: true
+    mobileNumber?: true
+    addressProofType?: true
+    aadharNumber?: true
+    address?: true
+    fullAddress?: true
+    aadharFrontImage?: true
+    aadharBackImage?: true
+    epicNumber?: true
+    voterIdFrontImage?: true
+    voterIdBackImage?: true
+    isAadharVerified?: true
+    voterIdVerified?: true
+    customerSignature?: true
+    deviceReset?: true
+    deviceStartScreenImage?: true
+    customerProofImage?: true
+    customerDeclaration?: true
+    cashPaymentReceiptImage?: true
+    paymentMode?: true
+    exchangeModel?: true
+    newModelIMEI?: true
+    remarks?: true
+    finalAmount?: true
+    sellingAmount?: true
+    upiId?: true
+    upiBeneficiaryName?: true
+    isUpiVerified?: true
+    isUpiSaved?: true
+    bankName?: true
+    accountNumber?: true
+    confirmAccountNumber?: true
+    ifscCode?: true
+    bankBeneficiaryName?: true
+    isBankDetailsVerified?: true
+    isBankDetailsSaved?: true
+    paymentStatus?: true
+    utrrrnnumber?: true
+    paidBy?: true
+    purchaserBankName?: true
+    purchaserPaymentMode?: true
+    isMobileNumberVerified?: true
+    isDeclarationSigned?: true
+    phoneVerified?: true
+    repairDate?: true
+    assignedBC?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DoorstepPickupCountAggregateInputType = {
+    id?: true
+    orderId?: true
+    variant?: true
+    imei1?: true
+    imei2?: true
+    deviceFrontImage?: true
+    deviceBackImage?: true
+    diagnosticsProcess?: true
+    mbdgReport?: true
+    diagnosticsProcessInit?: true
+    qcReportInit?: true
+    qcReport?: true
+    repairRequired?: true
+    repairStatus?: true
+    accessories?: true
+    deviceAge?: true
+    warrantyType?: true
+    hasGstBill?: true
+    gstInvoice?: true
+    boxImeiMatch?: true
+    customerName?: true
+    mobileNumber?: true
+    addressProofType?: true
+    aadharNumber?: true
+    address?: true
+    fullAddress?: true
+    aadharFrontImage?: true
+    aadharBackImage?: true
+    epicNumber?: true
+    voterIdFrontImage?: true
+    voterIdBackImage?: true
+    isAadharVerified?: true
+    voterIdVerified?: true
+    customerSignature?: true
+    deviceReset?: true
+    deviceStartScreenImage?: true
+    customerProofImage?: true
+    customerDeclaration?: true
+    cashPaymentReceiptImage?: true
+    paymentMode?: true
+    exchangeModel?: true
+    newModelIMEI?: true
+    manualQcReport?: true
+    remarks?: true
+    finalAmount?: true
+    sellingAmount?: true
+    upiId?: true
+    upiBeneficiaryName?: true
+    isUpiVerified?: true
+    isUpiSaved?: true
+    bankName?: true
+    accountNumber?: true
+    confirmAccountNumber?: true
+    ifscCode?: true
+    bankBeneficiaryName?: true
+    isBankDetailsVerified?: true
+    isBankDetailsSaved?: true
+    paymentStatus?: true
+    utrrrnnumber?: true
+    paidBy?: true
+    purchaserBankName?: true
+    purchaserPaymentMode?: true
+    isMobileNumberVerified?: true
+    isDeclarationSigned?: true
+    phoneVerified?: true
+    repairParts?: true
+    repairDate?: true
+    assignedBC?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DoorstepPickupAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DoorstepPickup to aggregate.
+     */
+    where?: DoorstepPickupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DoorstepPickups to fetch.
+     */
+    orderBy?: DoorstepPickupOrderByWithRelationInput | DoorstepPickupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DoorstepPickupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DoorstepPickups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DoorstepPickups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DoorstepPickups
+    **/
+    _count?: true | DoorstepPickupCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DoorstepPickupAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DoorstepPickupSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DoorstepPickupMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DoorstepPickupMaxAggregateInputType
+  }
+
+  export type GetDoorstepPickupAggregateType<T extends DoorstepPickupAggregateArgs> = {
+        [P in keyof T & keyof AggregateDoorstepPickup]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDoorstepPickup[P]>
+      : GetScalarType<T[P], AggregateDoorstepPickup[P]>
+  }
+
+
+
+
+  export type DoorstepPickupGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DoorstepPickupWhereInput
+    orderBy?: DoorstepPickupOrderByWithAggregationInput | DoorstepPickupOrderByWithAggregationInput[]
+    by: DoorstepPickupScalarFieldEnum[] | DoorstepPickupScalarFieldEnum
+    having?: DoorstepPickupScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DoorstepPickupCountAggregateInputType | true
+    _avg?: DoorstepPickupAvgAggregateInputType
+    _sum?: DoorstepPickupSumAggregateInputType
+    _min?: DoorstepPickupMinAggregateInputType
+    _max?: DoorstepPickupMaxAggregateInputType
+  }
+
+  export type DoorstepPickupGroupByOutputType = {
+    id: string
+    orderId: string | null
+    variant: string | null
+    imei1: string | null
+    imei2: string | null
+    deviceFrontImage: string | null
+    deviceBackImage: string | null
+    diagnosticsProcess: string | null
+    mbdgReport: JsonValue | null
+    diagnosticsProcessInit: string | null
+    qcReportInit: string | null
+    qcReport: string | null
+    repairRequired: string | null
+    repairStatus: string | null
+    accessories: string | null
+    deviceAge: string | null
+    warrantyType: string | null
+    hasGstBill: string | null
+    gstInvoice: string | null
+    boxImeiMatch: string | null
+    customerName: string | null
+    mobileNumber: string | null
+    addressProofType: string | null
+    aadharNumber: string | null
+    address: string | null
+    fullAddress: string | null
+    aadharFrontImage: string | null
+    aadharBackImage: string | null
+    epicNumber: string | null
+    voterIdFrontImage: string | null
+    voterIdBackImage: string | null
+    isAadharVerified: boolean | null
+    voterIdVerified: boolean | null
+    customerSignature: string | null
+    deviceReset: string | null
+    deviceStartScreenImage: string | null
+    customerProofImage: string | null
+    customerDeclaration: string | null
+    cashPaymentReceiptImage: string | null
+    paymentMode: string | null
+    exchangeModel: string | null
+    newModelIMEI: string | null
+    manualQcReport: JsonValue | null
+    remarks: string | null
+    finalAmount: Decimal | null
+    sellingAmount: Decimal | null
+    upiId: string | null
+    upiBeneficiaryName: string | null
+    isUpiVerified: boolean | null
+    isUpiSaved: boolean | null
+    bankName: string | null
+    accountNumber: string | null
+    confirmAccountNumber: string | null
+    ifscCode: string | null
+    bankBeneficiaryName: string | null
+    isBankDetailsVerified: boolean | null
+    isBankDetailsSaved: boolean | null
+    paymentStatus: string | null
+    utrrrnnumber: string | null
+    paidBy: string | null
+    purchaserBankName: string | null
+    purchaserPaymentMode: string | null
+    isMobileNumberVerified: boolean | null
+    isDeclarationSigned: boolean | null
+    phoneVerified: boolean | null
+    repairParts: JsonValue | null
+    repairDate: Date | null
+    assignedBC: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: DoorstepPickupCountAggregateOutputType | null
+    _avg: DoorstepPickupAvgAggregateOutputType | null
+    _sum: DoorstepPickupSumAggregateOutputType | null
+    _min: DoorstepPickupMinAggregateOutputType | null
+    _max: DoorstepPickupMaxAggregateOutputType | null
+  }
+
+  type GetDoorstepPickupGroupByPayload<T extends DoorstepPickupGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DoorstepPickupGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DoorstepPickupGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DoorstepPickupGroupByOutputType[P]>
+            : GetScalarType<T[P], DoorstepPickupGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DoorstepPickupSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    deviceFrontImage?: boolean
+    deviceBackImage?: boolean
+    diagnosticsProcess?: boolean
+    mbdgReport?: boolean
+    diagnosticsProcessInit?: boolean
+    qcReportInit?: boolean
+    qcReport?: boolean
+    repairRequired?: boolean
+    repairStatus?: boolean
+    accessories?: boolean
+    deviceAge?: boolean
+    warrantyType?: boolean
+    hasGstBill?: boolean
+    gstInvoice?: boolean
+    boxImeiMatch?: boolean
+    customerName?: boolean
+    mobileNumber?: boolean
+    addressProofType?: boolean
+    aadharNumber?: boolean
+    address?: boolean
+    fullAddress?: boolean
+    aadharFrontImage?: boolean
+    aadharBackImage?: boolean
+    epicNumber?: boolean
+    voterIdFrontImage?: boolean
+    voterIdBackImage?: boolean
+    isAadharVerified?: boolean
+    voterIdVerified?: boolean
+    customerSignature?: boolean
+    deviceReset?: boolean
+    deviceStartScreenImage?: boolean
+    customerProofImage?: boolean
+    customerDeclaration?: boolean
+    cashPaymentReceiptImage?: boolean
+    paymentMode?: boolean
+    exchangeModel?: boolean
+    newModelIMEI?: boolean
+    manualQcReport?: boolean
+    remarks?: boolean
+    finalAmount?: boolean
+    sellingAmount?: boolean
+    upiId?: boolean
+    upiBeneficiaryName?: boolean
+    isUpiVerified?: boolean
+    isUpiSaved?: boolean
+    bankName?: boolean
+    accountNumber?: boolean
+    confirmAccountNumber?: boolean
+    ifscCode?: boolean
+    bankBeneficiaryName?: boolean
+    isBankDetailsVerified?: boolean
+    isBankDetailsSaved?: boolean
+    paymentStatus?: boolean
+    utrrrnnumber?: boolean
+    paidBy?: boolean
+    purchaserBankName?: boolean
+    purchaserPaymentMode?: boolean
+    isMobileNumberVerified?: boolean
+    isDeclarationSigned?: boolean
+    phoneVerified?: boolean
+    repairParts?: boolean
+    repairDate?: boolean
+    assignedBC?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["doorstepPickup"]>
+
+  export type DoorstepPickupSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    deviceFrontImage?: boolean
+    deviceBackImage?: boolean
+    diagnosticsProcess?: boolean
+    mbdgReport?: boolean
+    diagnosticsProcessInit?: boolean
+    qcReportInit?: boolean
+    qcReport?: boolean
+    repairRequired?: boolean
+    repairStatus?: boolean
+    accessories?: boolean
+    deviceAge?: boolean
+    warrantyType?: boolean
+    hasGstBill?: boolean
+    gstInvoice?: boolean
+    boxImeiMatch?: boolean
+    customerName?: boolean
+    mobileNumber?: boolean
+    addressProofType?: boolean
+    aadharNumber?: boolean
+    address?: boolean
+    fullAddress?: boolean
+    aadharFrontImage?: boolean
+    aadharBackImage?: boolean
+    epicNumber?: boolean
+    voterIdFrontImage?: boolean
+    voterIdBackImage?: boolean
+    isAadharVerified?: boolean
+    voterIdVerified?: boolean
+    customerSignature?: boolean
+    deviceReset?: boolean
+    deviceStartScreenImage?: boolean
+    customerProofImage?: boolean
+    customerDeclaration?: boolean
+    cashPaymentReceiptImage?: boolean
+    paymentMode?: boolean
+    exchangeModel?: boolean
+    newModelIMEI?: boolean
+    manualQcReport?: boolean
+    remarks?: boolean
+    finalAmount?: boolean
+    sellingAmount?: boolean
+    upiId?: boolean
+    upiBeneficiaryName?: boolean
+    isUpiVerified?: boolean
+    isUpiSaved?: boolean
+    bankName?: boolean
+    accountNumber?: boolean
+    confirmAccountNumber?: boolean
+    ifscCode?: boolean
+    bankBeneficiaryName?: boolean
+    isBankDetailsVerified?: boolean
+    isBankDetailsSaved?: boolean
+    paymentStatus?: boolean
+    utrrrnnumber?: boolean
+    paidBy?: boolean
+    purchaserBankName?: boolean
+    purchaserPaymentMode?: boolean
+    isMobileNumberVerified?: boolean
+    isDeclarationSigned?: boolean
+    phoneVerified?: boolean
+    repairParts?: boolean
+    repairDate?: boolean
+    assignedBC?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["doorstepPickup"]>
+
+  export type DoorstepPickupSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    deviceFrontImage?: boolean
+    deviceBackImage?: boolean
+    diagnosticsProcess?: boolean
+    mbdgReport?: boolean
+    diagnosticsProcessInit?: boolean
+    qcReportInit?: boolean
+    qcReport?: boolean
+    repairRequired?: boolean
+    repairStatus?: boolean
+    accessories?: boolean
+    deviceAge?: boolean
+    warrantyType?: boolean
+    hasGstBill?: boolean
+    gstInvoice?: boolean
+    boxImeiMatch?: boolean
+    customerName?: boolean
+    mobileNumber?: boolean
+    addressProofType?: boolean
+    aadharNumber?: boolean
+    address?: boolean
+    fullAddress?: boolean
+    aadharFrontImage?: boolean
+    aadharBackImage?: boolean
+    epicNumber?: boolean
+    voterIdFrontImage?: boolean
+    voterIdBackImage?: boolean
+    isAadharVerified?: boolean
+    voterIdVerified?: boolean
+    customerSignature?: boolean
+    deviceReset?: boolean
+    deviceStartScreenImage?: boolean
+    customerProofImage?: boolean
+    customerDeclaration?: boolean
+    cashPaymentReceiptImage?: boolean
+    paymentMode?: boolean
+    exchangeModel?: boolean
+    newModelIMEI?: boolean
+    manualQcReport?: boolean
+    remarks?: boolean
+    finalAmount?: boolean
+    sellingAmount?: boolean
+    upiId?: boolean
+    upiBeneficiaryName?: boolean
+    isUpiVerified?: boolean
+    isUpiSaved?: boolean
+    bankName?: boolean
+    accountNumber?: boolean
+    confirmAccountNumber?: boolean
+    ifscCode?: boolean
+    bankBeneficiaryName?: boolean
+    isBankDetailsVerified?: boolean
+    isBankDetailsSaved?: boolean
+    paymentStatus?: boolean
+    utrrrnnumber?: boolean
+    paidBy?: boolean
+    purchaserBankName?: boolean
+    purchaserPaymentMode?: boolean
+    isMobileNumberVerified?: boolean
+    isDeclarationSigned?: boolean
+    phoneVerified?: boolean
+    repairParts?: boolean
+    repairDate?: boolean
+    assignedBC?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["doorstepPickup"]>
+
+  export type DoorstepPickupSelectScalar = {
+    id?: boolean
+    orderId?: boolean
+    variant?: boolean
+    imei1?: boolean
+    imei2?: boolean
+    deviceFrontImage?: boolean
+    deviceBackImage?: boolean
+    diagnosticsProcess?: boolean
+    mbdgReport?: boolean
+    diagnosticsProcessInit?: boolean
+    qcReportInit?: boolean
+    qcReport?: boolean
+    repairRequired?: boolean
+    repairStatus?: boolean
+    accessories?: boolean
+    deviceAge?: boolean
+    warrantyType?: boolean
+    hasGstBill?: boolean
+    gstInvoice?: boolean
+    boxImeiMatch?: boolean
+    customerName?: boolean
+    mobileNumber?: boolean
+    addressProofType?: boolean
+    aadharNumber?: boolean
+    address?: boolean
+    fullAddress?: boolean
+    aadharFrontImage?: boolean
+    aadharBackImage?: boolean
+    epicNumber?: boolean
+    voterIdFrontImage?: boolean
+    voterIdBackImage?: boolean
+    isAadharVerified?: boolean
+    voterIdVerified?: boolean
+    customerSignature?: boolean
+    deviceReset?: boolean
+    deviceStartScreenImage?: boolean
+    customerProofImage?: boolean
+    customerDeclaration?: boolean
+    cashPaymentReceiptImage?: boolean
+    paymentMode?: boolean
+    exchangeModel?: boolean
+    newModelIMEI?: boolean
+    manualQcReport?: boolean
+    remarks?: boolean
+    finalAmount?: boolean
+    sellingAmount?: boolean
+    upiId?: boolean
+    upiBeneficiaryName?: boolean
+    isUpiVerified?: boolean
+    isUpiSaved?: boolean
+    bankName?: boolean
+    accountNumber?: boolean
+    confirmAccountNumber?: boolean
+    ifscCode?: boolean
+    bankBeneficiaryName?: boolean
+    isBankDetailsVerified?: boolean
+    isBankDetailsSaved?: boolean
+    paymentStatus?: boolean
+    utrrrnnumber?: boolean
+    paidBy?: boolean
+    purchaserBankName?: boolean
+    purchaserPaymentMode?: boolean
+    isMobileNumberVerified?: boolean
+    isDeclarationSigned?: boolean
+    phoneVerified?: boolean
+    repairParts?: boolean
+    repairDate?: boolean
+    assignedBC?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DoorstepPickupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "variant" | "imei1" | "imei2" | "deviceFrontImage" | "deviceBackImage" | "diagnosticsProcess" | "mbdgReport" | "diagnosticsProcessInit" | "qcReportInit" | "qcReport" | "repairRequired" | "repairStatus" | "accessories" | "deviceAge" | "warrantyType" | "hasGstBill" | "gstInvoice" | "boxImeiMatch" | "customerName" | "mobileNumber" | "addressProofType" | "aadharNumber" | "address" | "fullAddress" | "aadharFrontImage" | "aadharBackImage" | "epicNumber" | "voterIdFrontImage" | "voterIdBackImage" | "isAadharVerified" | "voterIdVerified" | "customerSignature" | "deviceReset" | "deviceStartScreenImage" | "customerProofImage" | "customerDeclaration" | "cashPaymentReceiptImage" | "paymentMode" | "exchangeModel" | "newModelIMEI" | "manualQcReport" | "remarks" | "finalAmount" | "sellingAmount" | "upiId" | "upiBeneficiaryName" | "isUpiVerified" | "isUpiSaved" | "bankName" | "accountNumber" | "confirmAccountNumber" | "ifscCode" | "bankBeneficiaryName" | "isBankDetailsVerified" | "isBankDetailsSaved" | "paymentStatus" | "utrrrnnumber" | "paidBy" | "purchaserBankName" | "purchaserPaymentMode" | "isMobileNumberVerified" | "isDeclarationSigned" | "phoneVerified" | "repairParts" | "repairDate" | "assignedBC" | "createdAt" | "updatedAt", ExtArgs["result"]["doorstepPickup"]>
+
+  export type $DoorstepPickupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DoorstepPickup"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      orderId: string | null
+      variant: string | null
+      imei1: string | null
+      imei2: string | null
+      deviceFrontImage: string | null
+      deviceBackImage: string | null
+      diagnosticsProcess: string | null
+      mbdgReport: Prisma.JsonValue | null
+      diagnosticsProcessInit: string | null
+      qcReportInit: string | null
+      qcReport: string | null
+      repairRequired: string | null
+      repairStatus: string | null
+      accessories: string | null
+      deviceAge: string | null
+      warrantyType: string | null
+      hasGstBill: string | null
+      gstInvoice: string | null
+      boxImeiMatch: string | null
+      customerName: string | null
+      mobileNumber: string | null
+      addressProofType: string | null
+      aadharNumber: string | null
+      address: string | null
+      fullAddress: string | null
+      aadharFrontImage: string | null
+      aadharBackImage: string | null
+      epicNumber: string | null
+      voterIdFrontImage: string | null
+      voterIdBackImage: string | null
+      isAadharVerified: boolean | null
+      voterIdVerified: boolean | null
+      customerSignature: string | null
+      deviceReset: string | null
+      deviceStartScreenImage: string | null
+      customerProofImage: string | null
+      customerDeclaration: string | null
+      cashPaymentReceiptImage: string | null
+      paymentMode: string | null
+      exchangeModel: string | null
+      newModelIMEI: string | null
+      manualQcReport: Prisma.JsonValue | null
+      remarks: string | null
+      finalAmount: Prisma.Decimal | null
+      sellingAmount: Prisma.Decimal | null
+      upiId: string | null
+      upiBeneficiaryName: string | null
+      isUpiVerified: boolean | null
+      isUpiSaved: boolean | null
+      bankName: string | null
+      accountNumber: string | null
+      confirmAccountNumber: string | null
+      ifscCode: string | null
+      bankBeneficiaryName: string | null
+      isBankDetailsVerified: boolean | null
+      isBankDetailsSaved: boolean | null
+      paymentStatus: string | null
+      utrrrnnumber: string | null
+      paidBy: string | null
+      purchaserBankName: string | null
+      purchaserPaymentMode: string | null
+      isMobileNumberVerified: boolean | null
+      isDeclarationSigned: boolean | null
+      phoneVerified: boolean | null
+      repairParts: Prisma.JsonValue | null
+      repairDate: Date | null
+      assignedBC: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["doorstepPickup"]>
+    composites: {}
+  }
+
+  type DoorstepPickupGetPayload<S extends boolean | null | undefined | DoorstepPickupDefaultArgs> = $Result.GetResult<Prisma.$DoorstepPickupPayload, S>
+
+  type DoorstepPickupCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DoorstepPickupFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DoorstepPickupCountAggregateInputType | true
+    }
+
+  export interface DoorstepPickupDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DoorstepPickup'], meta: { name: 'DoorstepPickup' } }
+    /**
+     * Find zero or one DoorstepPickup that matches the filter.
+     * @param {DoorstepPickupFindUniqueArgs} args - Arguments to find a DoorstepPickup
+     * @example
+     * // Get one DoorstepPickup
+     * const doorstepPickup = await prisma.doorstepPickup.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DoorstepPickupFindUniqueArgs>(args: SelectSubset<T, DoorstepPickupFindUniqueArgs<ExtArgs>>): Prisma__DoorstepPickupClient<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one DoorstepPickup that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DoorstepPickupFindUniqueOrThrowArgs} args - Arguments to find a DoorstepPickup
+     * @example
+     * // Get one DoorstepPickup
+     * const doorstepPickup = await prisma.doorstepPickup.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DoorstepPickupFindUniqueOrThrowArgs>(args: SelectSubset<T, DoorstepPickupFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DoorstepPickupClient<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DoorstepPickup that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DoorstepPickupFindFirstArgs} args - Arguments to find a DoorstepPickup
+     * @example
+     * // Get one DoorstepPickup
+     * const doorstepPickup = await prisma.doorstepPickup.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DoorstepPickupFindFirstArgs>(args?: SelectSubset<T, DoorstepPickupFindFirstArgs<ExtArgs>>): Prisma__DoorstepPickupClient<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DoorstepPickup that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DoorstepPickupFindFirstOrThrowArgs} args - Arguments to find a DoorstepPickup
+     * @example
+     * // Get one DoorstepPickup
+     * const doorstepPickup = await prisma.doorstepPickup.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DoorstepPickupFindFirstOrThrowArgs>(args?: SelectSubset<T, DoorstepPickupFindFirstOrThrowArgs<ExtArgs>>): Prisma__DoorstepPickupClient<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more DoorstepPickups that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DoorstepPickupFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DoorstepPickups
+     * const doorstepPickups = await prisma.doorstepPickup.findMany()
+     * 
+     * // Get first 10 DoorstepPickups
+     * const doorstepPickups = await prisma.doorstepPickup.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const doorstepPickupWithIdOnly = await prisma.doorstepPickup.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DoorstepPickupFindManyArgs>(args?: SelectSubset<T, DoorstepPickupFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a DoorstepPickup.
+     * @param {DoorstepPickupCreateArgs} args - Arguments to create a DoorstepPickup.
+     * @example
+     * // Create one DoorstepPickup
+     * const DoorstepPickup = await prisma.doorstepPickup.create({
+     *   data: {
+     *     // ... data to create a DoorstepPickup
+     *   }
+     * })
+     * 
+     */
+    create<T extends DoorstepPickupCreateArgs>(args: SelectSubset<T, DoorstepPickupCreateArgs<ExtArgs>>): Prisma__DoorstepPickupClient<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many DoorstepPickups.
+     * @param {DoorstepPickupCreateManyArgs} args - Arguments to create many DoorstepPickups.
+     * @example
+     * // Create many DoorstepPickups
+     * const doorstepPickup = await prisma.doorstepPickup.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DoorstepPickupCreateManyArgs>(args?: SelectSubset<T, DoorstepPickupCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DoorstepPickups and returns the data saved in the database.
+     * @param {DoorstepPickupCreateManyAndReturnArgs} args - Arguments to create many DoorstepPickups.
+     * @example
+     * // Create many DoorstepPickups
+     * const doorstepPickup = await prisma.doorstepPickup.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DoorstepPickups and only return the `id`
+     * const doorstepPickupWithIdOnly = await prisma.doorstepPickup.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DoorstepPickupCreateManyAndReturnArgs>(args?: SelectSubset<T, DoorstepPickupCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a DoorstepPickup.
+     * @param {DoorstepPickupDeleteArgs} args - Arguments to delete one DoorstepPickup.
+     * @example
+     * // Delete one DoorstepPickup
+     * const DoorstepPickup = await prisma.doorstepPickup.delete({
+     *   where: {
+     *     // ... filter to delete one DoorstepPickup
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DoorstepPickupDeleteArgs>(args: SelectSubset<T, DoorstepPickupDeleteArgs<ExtArgs>>): Prisma__DoorstepPickupClient<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one DoorstepPickup.
+     * @param {DoorstepPickupUpdateArgs} args - Arguments to update one DoorstepPickup.
+     * @example
+     * // Update one DoorstepPickup
+     * const doorstepPickup = await prisma.doorstepPickup.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DoorstepPickupUpdateArgs>(args: SelectSubset<T, DoorstepPickupUpdateArgs<ExtArgs>>): Prisma__DoorstepPickupClient<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more DoorstepPickups.
+     * @param {DoorstepPickupDeleteManyArgs} args - Arguments to filter DoorstepPickups to delete.
+     * @example
+     * // Delete a few DoorstepPickups
+     * const { count } = await prisma.doorstepPickup.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DoorstepPickupDeleteManyArgs>(args?: SelectSubset<T, DoorstepPickupDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DoorstepPickups.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DoorstepPickupUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DoorstepPickups
+     * const doorstepPickup = await prisma.doorstepPickup.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DoorstepPickupUpdateManyArgs>(args: SelectSubset<T, DoorstepPickupUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DoorstepPickups and returns the data updated in the database.
+     * @param {DoorstepPickupUpdateManyAndReturnArgs} args - Arguments to update many DoorstepPickups.
+     * @example
+     * // Update many DoorstepPickups
+     * const doorstepPickup = await prisma.doorstepPickup.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more DoorstepPickups and only return the `id`
+     * const doorstepPickupWithIdOnly = await prisma.doorstepPickup.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DoorstepPickupUpdateManyAndReturnArgs>(args: SelectSubset<T, DoorstepPickupUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one DoorstepPickup.
+     * @param {DoorstepPickupUpsertArgs} args - Arguments to update or create a DoorstepPickup.
+     * @example
+     * // Update or create a DoorstepPickup
+     * const doorstepPickup = await prisma.doorstepPickup.upsert({
+     *   create: {
+     *     // ... data to create a DoorstepPickup
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DoorstepPickup we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DoorstepPickupUpsertArgs>(args: SelectSubset<T, DoorstepPickupUpsertArgs<ExtArgs>>): Prisma__DoorstepPickupClient<$Result.GetResult<Prisma.$DoorstepPickupPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of DoorstepPickups.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DoorstepPickupCountArgs} args - Arguments to filter DoorstepPickups to count.
+     * @example
+     * // Count the number of DoorstepPickups
+     * const count = await prisma.doorstepPickup.count({
+     *   where: {
+     *     // ... the filter for the DoorstepPickups we want to count
+     *   }
+     * })
+    **/
+    count<T extends DoorstepPickupCountArgs>(
+      args?: Subset<T, DoorstepPickupCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DoorstepPickupCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DoorstepPickup.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DoorstepPickupAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DoorstepPickupAggregateArgs>(args: Subset<T, DoorstepPickupAggregateArgs>): Prisma.PrismaPromise<GetDoorstepPickupAggregateType<T>>
+
+    /**
+     * Group by DoorstepPickup.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DoorstepPickupGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DoorstepPickupGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DoorstepPickupGroupByArgs['orderBy'] }
+        : { orderBy?: DoorstepPickupGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DoorstepPickupGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDoorstepPickupGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DoorstepPickup model
+   */
+  readonly fields: DoorstepPickupFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DoorstepPickup.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DoorstepPickupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DoorstepPickup model
+   */
+  interface DoorstepPickupFieldRefs {
+    readonly id: FieldRef<"DoorstepPickup", 'String'>
+    readonly orderId: FieldRef<"DoorstepPickup", 'String'>
+    readonly variant: FieldRef<"DoorstepPickup", 'String'>
+    readonly imei1: FieldRef<"DoorstepPickup", 'String'>
+    readonly imei2: FieldRef<"DoorstepPickup", 'String'>
+    readonly deviceFrontImage: FieldRef<"DoorstepPickup", 'String'>
+    readonly deviceBackImage: FieldRef<"DoorstepPickup", 'String'>
+    readonly diagnosticsProcess: FieldRef<"DoorstepPickup", 'String'>
+    readonly mbdgReport: FieldRef<"DoorstepPickup", 'Json'>
+    readonly diagnosticsProcessInit: FieldRef<"DoorstepPickup", 'String'>
+    readonly qcReportInit: FieldRef<"DoorstepPickup", 'String'>
+    readonly qcReport: FieldRef<"DoorstepPickup", 'String'>
+    readonly repairRequired: FieldRef<"DoorstepPickup", 'String'>
+    readonly repairStatus: FieldRef<"DoorstepPickup", 'String'>
+    readonly accessories: FieldRef<"DoorstepPickup", 'String'>
+    readonly deviceAge: FieldRef<"DoorstepPickup", 'String'>
+    readonly warrantyType: FieldRef<"DoorstepPickup", 'String'>
+    readonly hasGstBill: FieldRef<"DoorstepPickup", 'String'>
+    readonly gstInvoice: FieldRef<"DoorstepPickup", 'String'>
+    readonly boxImeiMatch: FieldRef<"DoorstepPickup", 'String'>
+    readonly customerName: FieldRef<"DoorstepPickup", 'String'>
+    readonly mobileNumber: FieldRef<"DoorstepPickup", 'String'>
+    readonly addressProofType: FieldRef<"DoorstepPickup", 'String'>
+    readonly aadharNumber: FieldRef<"DoorstepPickup", 'String'>
+    readonly address: FieldRef<"DoorstepPickup", 'String'>
+    readonly fullAddress: FieldRef<"DoorstepPickup", 'String'>
+    readonly aadharFrontImage: FieldRef<"DoorstepPickup", 'String'>
+    readonly aadharBackImage: FieldRef<"DoorstepPickup", 'String'>
+    readonly epicNumber: FieldRef<"DoorstepPickup", 'String'>
+    readonly voterIdFrontImage: FieldRef<"DoorstepPickup", 'String'>
+    readonly voterIdBackImage: FieldRef<"DoorstepPickup", 'String'>
+    readonly isAadharVerified: FieldRef<"DoorstepPickup", 'Boolean'>
+    readonly voterIdVerified: FieldRef<"DoorstepPickup", 'Boolean'>
+    readonly customerSignature: FieldRef<"DoorstepPickup", 'String'>
+    readonly deviceReset: FieldRef<"DoorstepPickup", 'String'>
+    readonly deviceStartScreenImage: FieldRef<"DoorstepPickup", 'String'>
+    readonly customerProofImage: FieldRef<"DoorstepPickup", 'String'>
+    readonly customerDeclaration: FieldRef<"DoorstepPickup", 'String'>
+    readonly cashPaymentReceiptImage: FieldRef<"DoorstepPickup", 'String'>
+    readonly paymentMode: FieldRef<"DoorstepPickup", 'String'>
+    readonly exchangeModel: FieldRef<"DoorstepPickup", 'String'>
+    readonly newModelIMEI: FieldRef<"DoorstepPickup", 'String'>
+    readonly manualQcReport: FieldRef<"DoorstepPickup", 'Json'>
+    readonly remarks: FieldRef<"DoorstepPickup", 'String'>
+    readonly finalAmount: FieldRef<"DoorstepPickup", 'Decimal'>
+    readonly sellingAmount: FieldRef<"DoorstepPickup", 'Decimal'>
+    readonly upiId: FieldRef<"DoorstepPickup", 'String'>
+    readonly upiBeneficiaryName: FieldRef<"DoorstepPickup", 'String'>
+    readonly isUpiVerified: FieldRef<"DoorstepPickup", 'Boolean'>
+    readonly isUpiSaved: FieldRef<"DoorstepPickup", 'Boolean'>
+    readonly bankName: FieldRef<"DoorstepPickup", 'String'>
+    readonly accountNumber: FieldRef<"DoorstepPickup", 'String'>
+    readonly confirmAccountNumber: FieldRef<"DoorstepPickup", 'String'>
+    readonly ifscCode: FieldRef<"DoorstepPickup", 'String'>
+    readonly bankBeneficiaryName: FieldRef<"DoorstepPickup", 'String'>
+    readonly isBankDetailsVerified: FieldRef<"DoorstepPickup", 'Boolean'>
+    readonly isBankDetailsSaved: FieldRef<"DoorstepPickup", 'Boolean'>
+    readonly paymentStatus: FieldRef<"DoorstepPickup", 'String'>
+    readonly utrrrnnumber: FieldRef<"DoorstepPickup", 'String'>
+    readonly paidBy: FieldRef<"DoorstepPickup", 'String'>
+    readonly purchaserBankName: FieldRef<"DoorstepPickup", 'String'>
+    readonly purchaserPaymentMode: FieldRef<"DoorstepPickup", 'String'>
+    readonly isMobileNumberVerified: FieldRef<"DoorstepPickup", 'Boolean'>
+    readonly isDeclarationSigned: FieldRef<"DoorstepPickup", 'Boolean'>
+    readonly phoneVerified: FieldRef<"DoorstepPickup", 'Boolean'>
+    readonly repairParts: FieldRef<"DoorstepPickup", 'Json'>
+    readonly repairDate: FieldRef<"DoorstepPickup", 'DateTime'>
+    readonly assignedBC: FieldRef<"DoorstepPickup", 'String'>
+    readonly createdAt: FieldRef<"DoorstepPickup", 'DateTime'>
+    readonly updatedAt: FieldRef<"DoorstepPickup", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DoorstepPickup findUnique
+   */
+  export type DoorstepPickupFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * Filter, which DoorstepPickup to fetch.
+     */
+    where: DoorstepPickupWhereUniqueInput
+  }
+
+  /**
+   * DoorstepPickup findUniqueOrThrow
+   */
+  export type DoorstepPickupFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * Filter, which DoorstepPickup to fetch.
+     */
+    where: DoorstepPickupWhereUniqueInput
+  }
+
+  /**
+   * DoorstepPickup findFirst
+   */
+  export type DoorstepPickupFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * Filter, which DoorstepPickup to fetch.
+     */
+    where?: DoorstepPickupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DoorstepPickups to fetch.
+     */
+    orderBy?: DoorstepPickupOrderByWithRelationInput | DoorstepPickupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DoorstepPickups.
+     */
+    cursor?: DoorstepPickupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DoorstepPickups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DoorstepPickups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DoorstepPickups.
+     */
+    distinct?: DoorstepPickupScalarFieldEnum | DoorstepPickupScalarFieldEnum[]
+  }
+
+  /**
+   * DoorstepPickup findFirstOrThrow
+   */
+  export type DoorstepPickupFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * Filter, which DoorstepPickup to fetch.
+     */
+    where?: DoorstepPickupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DoorstepPickups to fetch.
+     */
+    orderBy?: DoorstepPickupOrderByWithRelationInput | DoorstepPickupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DoorstepPickups.
+     */
+    cursor?: DoorstepPickupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DoorstepPickups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DoorstepPickups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DoorstepPickups.
+     */
+    distinct?: DoorstepPickupScalarFieldEnum | DoorstepPickupScalarFieldEnum[]
+  }
+
+  /**
+   * DoorstepPickup findMany
+   */
+  export type DoorstepPickupFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * Filter, which DoorstepPickups to fetch.
+     */
+    where?: DoorstepPickupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DoorstepPickups to fetch.
+     */
+    orderBy?: DoorstepPickupOrderByWithRelationInput | DoorstepPickupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DoorstepPickups.
+     */
+    cursor?: DoorstepPickupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DoorstepPickups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DoorstepPickups.
+     */
+    skip?: number
+    distinct?: DoorstepPickupScalarFieldEnum | DoorstepPickupScalarFieldEnum[]
+  }
+
+  /**
+   * DoorstepPickup create
+   */
+  export type DoorstepPickupCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * The data needed to create a DoorstepPickup.
+     */
+    data: XOR<DoorstepPickupCreateInput, DoorstepPickupUncheckedCreateInput>
+  }
+
+  /**
+   * DoorstepPickup createMany
+   */
+  export type DoorstepPickupCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DoorstepPickups.
+     */
+    data: DoorstepPickupCreateManyInput | DoorstepPickupCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * DoorstepPickup createManyAndReturn
+   */
+  export type DoorstepPickupCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * The data used to create many DoorstepPickups.
+     */
+    data: DoorstepPickupCreateManyInput | DoorstepPickupCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * DoorstepPickup update
+   */
+  export type DoorstepPickupUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * The data needed to update a DoorstepPickup.
+     */
+    data: XOR<DoorstepPickupUpdateInput, DoorstepPickupUncheckedUpdateInput>
+    /**
+     * Choose, which DoorstepPickup to update.
+     */
+    where: DoorstepPickupWhereUniqueInput
+  }
+
+  /**
+   * DoorstepPickup updateMany
+   */
+  export type DoorstepPickupUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DoorstepPickups.
+     */
+    data: XOR<DoorstepPickupUpdateManyMutationInput, DoorstepPickupUncheckedUpdateManyInput>
+    /**
+     * Filter which DoorstepPickups to update
+     */
+    where?: DoorstepPickupWhereInput
+    /**
+     * Limit how many DoorstepPickups to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DoorstepPickup updateManyAndReturn
+   */
+  export type DoorstepPickupUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * The data used to update DoorstepPickups.
+     */
+    data: XOR<DoorstepPickupUpdateManyMutationInput, DoorstepPickupUncheckedUpdateManyInput>
+    /**
+     * Filter which DoorstepPickups to update
+     */
+    where?: DoorstepPickupWhereInput
+    /**
+     * Limit how many DoorstepPickups to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DoorstepPickup upsert
+   */
+  export type DoorstepPickupUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * The filter to search for the DoorstepPickup to update in case it exists.
+     */
+    where: DoorstepPickupWhereUniqueInput
+    /**
+     * In case the DoorstepPickup found by the `where` argument doesn't exist, create a new DoorstepPickup with this data.
+     */
+    create: XOR<DoorstepPickupCreateInput, DoorstepPickupUncheckedCreateInput>
+    /**
+     * In case the DoorstepPickup was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DoorstepPickupUpdateInput, DoorstepPickupUncheckedUpdateInput>
+  }
+
+  /**
+   * DoorstepPickup delete
+   */
+  export type DoorstepPickupDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+    /**
+     * Filter which DoorstepPickup to delete.
+     */
+    where: DoorstepPickupWhereUniqueInput
+  }
+
+  /**
+   * DoorstepPickup deleteMany
+   */
+  export type DoorstepPickupDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DoorstepPickups to delete
+     */
+    where?: DoorstepPickupWhereInput
+    /**
+     * Limit how many DoorstepPickups to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * DoorstepPickup without action
+   */
+  export type DoorstepPickupDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DoorstepPickup
+     */
+    select?: DoorstepPickupSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DoorstepPickup
+     */
+    omit?: DoorstepPickupOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -33877,14 +35821,14 @@ export namespace Prisma {
     VehicleBackImage: 'VehicleBackImage',
     role: 'role',
     storeId: 'storeId',
-    mfaEnabled: 'mfaEnabled',
-    mfaSecret: 'mfaSecret',
-    mfaVerified: 'mfaVerified',
     createdBy: 'createdBy',
     isAdmin: 'isAdmin',
     status: 'status',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    mfaEnabled: 'mfaEnabled',
+    mfaSecret: 'mfaSecret',
+    mfaVerified: 'mfaVerified'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -34183,8 +36127,6 @@ export namespace Prisma {
   export const DeclarationScalarFieldEnum: {
     id: 'id',
     orderId: 'orderId',
-    brand: 'brand',
-    model: 'model',
     smc: 'smc',
     variant: 'variant',
     imei1: 'imei1',
@@ -34206,7 +36148,8 @@ export namespace Prisma {
     audioJack: 'audioJack',
     isAccepted: 'isAccepted',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    finalAmount: 'finalAmount'
   };
 
   export type DeclarationScalarFieldEnum = (typeof DeclarationScalarFieldEnum)[keyof typeof DeclarationScalarFieldEnum]
@@ -34264,6 +36207,82 @@ export namespace Prisma {
   export type CustomModelScalarFieldEnum = (typeof CustomModelScalarFieldEnum)[keyof typeof CustomModelScalarFieldEnum]
 
 
+  export const DoorstepPickupScalarFieldEnum: {
+    id: 'id',
+    orderId: 'orderId',
+    variant: 'variant',
+    imei1: 'imei1',
+    imei2: 'imei2',
+    deviceFrontImage: 'deviceFrontImage',
+    deviceBackImage: 'deviceBackImage',
+    diagnosticsProcess: 'diagnosticsProcess',
+    mbdgReport: 'mbdgReport',
+    diagnosticsProcessInit: 'diagnosticsProcessInit',
+    qcReportInit: 'qcReportInit',
+    qcReport: 'qcReport',
+    repairRequired: 'repairRequired',
+    repairStatus: 'repairStatus',
+    accessories: 'accessories',
+    deviceAge: 'deviceAge',
+    warrantyType: 'warrantyType',
+    hasGstBill: 'hasGstBill',
+    gstInvoice: 'gstInvoice',
+    boxImeiMatch: 'boxImeiMatch',
+    customerName: 'customerName',
+    mobileNumber: 'mobileNumber',
+    addressProofType: 'addressProofType',
+    aadharNumber: 'aadharNumber',
+    address: 'address',
+    fullAddress: 'fullAddress',
+    aadharFrontImage: 'aadharFrontImage',
+    aadharBackImage: 'aadharBackImage',
+    epicNumber: 'epicNumber',
+    voterIdFrontImage: 'voterIdFrontImage',
+    voterIdBackImage: 'voterIdBackImage',
+    isAadharVerified: 'isAadharVerified',
+    voterIdVerified: 'voterIdVerified',
+    customerSignature: 'customerSignature',
+    deviceReset: 'deviceReset',
+    deviceStartScreenImage: 'deviceStartScreenImage',
+    customerProofImage: 'customerProofImage',
+    customerDeclaration: 'customerDeclaration',
+    cashPaymentReceiptImage: 'cashPaymentReceiptImage',
+    paymentMode: 'paymentMode',
+    exchangeModel: 'exchangeModel',
+    newModelIMEI: 'newModelIMEI',
+    manualQcReport: 'manualQcReport',
+    remarks: 'remarks',
+    finalAmount: 'finalAmount',
+    sellingAmount: 'sellingAmount',
+    upiId: 'upiId',
+    upiBeneficiaryName: 'upiBeneficiaryName',
+    isUpiVerified: 'isUpiVerified',
+    isUpiSaved: 'isUpiSaved',
+    bankName: 'bankName',
+    accountNumber: 'accountNumber',
+    confirmAccountNumber: 'confirmAccountNumber',
+    ifscCode: 'ifscCode',
+    bankBeneficiaryName: 'bankBeneficiaryName',
+    isBankDetailsVerified: 'isBankDetailsVerified',
+    isBankDetailsSaved: 'isBankDetailsSaved',
+    paymentStatus: 'paymentStatus',
+    utrrrnnumber: 'utrrrnnumber',
+    paidBy: 'paidBy',
+    purchaserBankName: 'purchaserBankName',
+    purchaserPaymentMode: 'purchaserPaymentMode',
+    isMobileNumberVerified: 'isMobileNumberVerified',
+    isDeclarationSigned: 'isDeclarationSigned',
+    phoneVerified: 'phoneVerified',
+    repairParts: 'repairParts',
+    repairDate: 'repairDate',
+    assignedBC: 'assignedBC',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DoorstepPickupScalarFieldEnum = (typeof DoorstepPickupScalarFieldEnum)[keyof typeof DoorstepPickupScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -34277,6 +36296,14 @@ export namespace Prisma {
   };
 
   export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
   export const QueryMode: {
@@ -34452,21 +36479,21 @@ export namespace Prisma {
     VehicleBackImage?: StringNullableFilter<"User"> | string | null
     role?: EnumRoleNullableFilter<"User"> | $Enums.Role | null
     storeId?: StringNullableFilter<"User"> | string | null
-    mfaEnabled?: BoolFilter<"User"> | boolean
-    mfaSecret?: StringNullableFilter<"User"> | string | null
-    mfaVerified?: BoolFilter<"User"> | boolean
     createdBy?: StringNullableFilter<"User"> | string | null
     isAdmin?: BoolFilter<"User"> | boolean
     status?: EnumUserStatusFilter<"User"> | $Enums.UserStatus
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    sessions?: SessionListRelationFilter
-    manager?: XOR<ManagerNullableScalarRelationFilter, ManagerWhereInput> | null
-    technician?: XOR<TechnicianNullableScalarRelationFilter, TechnicianWhereInput> | null
-    fieldExecutive?: XOR<FieldExecutiveNullableScalarRelationFilter, FieldExecutiveWhereInput> | null
-    salesExecutive?: XOR<SalesExecutiveNullableScalarRelationFilter, SalesExecutiveWhereInput> | null
-    store?: XOR<StoreNullableScalarRelationFilter, StoreWhereInput> | null
+    mfaEnabled?: BoolFilter<"User"> | boolean
+    mfaSecret?: StringNullableFilter<"User"> | string | null
+    mfaVerified?: BoolFilter<"User"> | boolean
     admin?: XOR<AdminNullableScalarRelationFilter, AdminWhereInput> | null
+    fieldExecutive?: XOR<FieldExecutiveNullableScalarRelationFilter, FieldExecutiveWhereInput> | null
+    manager?: XOR<ManagerNullableScalarRelationFilter, ManagerWhereInput> | null
+    salesExecutive?: XOR<SalesExecutiveNullableScalarRelationFilter, SalesExecutiveWhereInput> | null
+    sessions?: SessionListRelationFilter
+    store?: XOR<StoreNullableScalarRelationFilter, StoreWhereInput> | null
+    technician?: XOR<TechnicianNullableScalarRelationFilter, TechnicianWhereInput> | null
   }
 
   export type UserOrderByWithRelationInput = {
@@ -34487,21 +36514,21 @@ export namespace Prisma {
     VehicleBackImage?: SortOrderInput | SortOrder
     role?: SortOrderInput | SortOrder
     storeId?: SortOrderInput | SortOrder
-    mfaEnabled?: SortOrder
-    mfaSecret?: SortOrderInput | SortOrder
-    mfaVerified?: SortOrder
     createdBy?: SortOrderInput | SortOrder
     isAdmin?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    sessions?: SessionOrderByRelationAggregateInput
-    manager?: ManagerOrderByWithRelationInput
-    technician?: TechnicianOrderByWithRelationInput
-    fieldExecutive?: FieldExecutiveOrderByWithRelationInput
-    salesExecutive?: SalesExecutiveOrderByWithRelationInput
-    store?: StoreOrderByWithRelationInput
+    mfaEnabled?: SortOrder
+    mfaSecret?: SortOrderInput | SortOrder
+    mfaVerified?: SortOrder
     admin?: AdminOrderByWithRelationInput
+    fieldExecutive?: FieldExecutiveOrderByWithRelationInput
+    manager?: ManagerOrderByWithRelationInput
+    salesExecutive?: SalesExecutiveOrderByWithRelationInput
+    sessions?: SessionOrderByRelationAggregateInput
+    store?: StoreOrderByWithRelationInput
+    technician?: TechnicianOrderByWithRelationInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -34525,21 +36552,21 @@ export namespace Prisma {
     VehicleBackImage?: StringNullableFilter<"User"> | string | null
     role?: EnumRoleNullableFilter<"User"> | $Enums.Role | null
     storeId?: StringNullableFilter<"User"> | string | null
-    mfaEnabled?: BoolFilter<"User"> | boolean
-    mfaSecret?: StringNullableFilter<"User"> | string | null
-    mfaVerified?: BoolFilter<"User"> | boolean
     createdBy?: StringNullableFilter<"User"> | string | null
     isAdmin?: BoolFilter<"User"> | boolean
     status?: EnumUserStatusFilter<"User"> | $Enums.UserStatus
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    sessions?: SessionListRelationFilter
-    manager?: XOR<ManagerNullableScalarRelationFilter, ManagerWhereInput> | null
-    technician?: XOR<TechnicianNullableScalarRelationFilter, TechnicianWhereInput> | null
-    fieldExecutive?: XOR<FieldExecutiveNullableScalarRelationFilter, FieldExecutiveWhereInput> | null
-    salesExecutive?: XOR<SalesExecutiveNullableScalarRelationFilter, SalesExecutiveWhereInput> | null
-    store?: XOR<StoreNullableScalarRelationFilter, StoreWhereInput> | null
+    mfaEnabled?: BoolFilter<"User"> | boolean
+    mfaSecret?: StringNullableFilter<"User"> | string | null
+    mfaVerified?: BoolFilter<"User"> | boolean
     admin?: XOR<AdminNullableScalarRelationFilter, AdminWhereInput> | null
+    fieldExecutive?: XOR<FieldExecutiveNullableScalarRelationFilter, FieldExecutiveWhereInput> | null
+    manager?: XOR<ManagerNullableScalarRelationFilter, ManagerWhereInput> | null
+    salesExecutive?: XOR<SalesExecutiveNullableScalarRelationFilter, SalesExecutiveWhereInput> | null
+    sessions?: SessionListRelationFilter
+    store?: XOR<StoreNullableScalarRelationFilter, StoreWhereInput> | null
+    technician?: XOR<TechnicianNullableScalarRelationFilter, TechnicianWhereInput> | null
   }, "id" | "phone">
 
   export type UserOrderByWithAggregationInput = {
@@ -34560,14 +36587,14 @@ export namespace Prisma {
     VehicleBackImage?: SortOrderInput | SortOrder
     role?: SortOrderInput | SortOrder
     storeId?: SortOrderInput | SortOrder
-    mfaEnabled?: SortOrder
-    mfaSecret?: SortOrderInput | SortOrder
-    mfaVerified?: SortOrder
     createdBy?: SortOrderInput | SortOrder
     isAdmin?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mfaEnabled?: SortOrder
+    mfaSecret?: SortOrderInput | SortOrder
+    mfaVerified?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -34596,14 +36623,14 @@ export namespace Prisma {
     VehicleBackImage?: StringNullableWithAggregatesFilter<"User"> | string | null
     role?: EnumRoleNullableWithAggregatesFilter<"User"> | $Enums.Role | null
     storeId?: StringNullableWithAggregatesFilter<"User"> | string | null
-    mfaEnabled?: BoolWithAggregatesFilter<"User"> | boolean
-    mfaSecret?: StringNullableWithAggregatesFilter<"User"> | string | null
-    mfaVerified?: BoolWithAggregatesFilter<"User"> | boolean
     createdBy?: StringNullableWithAggregatesFilter<"User"> | string | null
     isAdmin?: BoolWithAggregatesFilter<"User"> | boolean
     status?: EnumUserStatusWithAggregatesFilter<"User"> | $Enums.UserStatus
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    mfaEnabled?: BoolWithAggregatesFilter<"User"> | boolean
+    mfaSecret?: StringNullableWithAggregatesFilter<"User"> | string | null
+    mfaVerified?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
   export type AdminWhereInput = {
@@ -34665,8 +36692,8 @@ export namespace Prisma {
     lastName?: StringFilter<"Manager"> | string
     employeeId?: StringFilter<"Manager"> | string
     aadharId?: StringFilter<"Manager"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     bankDetails?: XOR<BankDetailsNullableScalarRelationFilter, BankDetailsWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type ManagerOrderByWithRelationInput = {
@@ -34675,8 +36702,8 @@ export namespace Prisma {
     lastName?: SortOrder
     employeeId?: SortOrder
     aadharId?: SortOrder
-    user?: UserOrderByWithRelationInput
     bankDetails?: BankDetailsOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type ManagerWhereUniqueInput = Prisma.AtLeast<{
@@ -34688,8 +36715,8 @@ export namespace Prisma {
     NOT?: ManagerWhereInput | ManagerWhereInput[]
     firstName?: StringFilter<"Manager"> | string
     lastName?: StringFilter<"Manager"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     bankDetails?: XOR<BankDetailsNullableScalarRelationFilter, BankDetailsWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "userId" | "employeeId" | "aadharId">
 
   export type ManagerOrderByWithAggregationInput = {
@@ -34723,8 +36750,8 @@ export namespace Prisma {
     lastName?: StringFilter<"Technician"> | string
     employeeId?: StringFilter<"Technician"> | string
     aadharId?: StringFilter<"Technician"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     bankDetails?: XOR<BankDetailsNullableScalarRelationFilter, BankDetailsWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type TechnicianOrderByWithRelationInput = {
@@ -34733,8 +36760,8 @@ export namespace Prisma {
     lastName?: SortOrder
     employeeId?: SortOrder
     aadharId?: SortOrder
-    user?: UserOrderByWithRelationInput
     bankDetails?: BankDetailsOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type TechnicianWhereUniqueInput = Prisma.AtLeast<{
@@ -34746,8 +36773,8 @@ export namespace Prisma {
     NOT?: TechnicianWhereInput | TechnicianWhereInput[]
     firstName?: StringFilter<"Technician"> | string
     lastName?: StringFilter<"Technician"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     bankDetails?: XOR<BankDetailsNullableScalarRelationFilter, BankDetailsWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "userId" | "employeeId" | "aadharId">
 
   export type TechnicianOrderByWithAggregationInput = {
@@ -34781,8 +36808,8 @@ export namespace Prisma {
     lastName?: StringFilter<"FieldExecutive"> | string
     employeeId?: StringFilter<"FieldExecutive"> | string
     aadharId?: StringFilter<"FieldExecutive"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     bankDetails?: XOR<BankDetailsNullableScalarRelationFilter, BankDetailsWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type FieldExecutiveOrderByWithRelationInput = {
@@ -34791,8 +36818,8 @@ export namespace Prisma {
     lastName?: SortOrder
     employeeId?: SortOrder
     aadharId?: SortOrder
-    user?: UserOrderByWithRelationInput
     bankDetails?: BankDetailsOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type FieldExecutiveWhereUniqueInput = Prisma.AtLeast<{
@@ -34804,8 +36831,8 @@ export namespace Prisma {
     NOT?: FieldExecutiveWhereInput | FieldExecutiveWhereInput[]
     firstName?: StringFilter<"FieldExecutive"> | string
     lastName?: StringFilter<"FieldExecutive"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     bankDetails?: XOR<BankDetailsNullableScalarRelationFilter, BankDetailsWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "userId" | "employeeId" | "aadharId">
 
   export type FieldExecutiveOrderByWithAggregationInput = {
@@ -34839,8 +36866,8 @@ export namespace Prisma {
     lastName?: StringFilter<"SalesExecutive"> | string
     employeeId?: StringFilter<"SalesExecutive"> | string
     aadharId?: StringFilter<"SalesExecutive"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     bankDetails?: XOR<BankDetailsNullableScalarRelationFilter, BankDetailsWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type SalesExecutiveOrderByWithRelationInput = {
@@ -34849,8 +36876,8 @@ export namespace Prisma {
     lastName?: SortOrder
     employeeId?: SortOrder
     aadharId?: SortOrder
-    user?: UserOrderByWithRelationInput
     bankDetails?: BankDetailsOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type SalesExecutiveWhereUniqueInput = Prisma.AtLeast<{
@@ -34862,8 +36889,8 @@ export namespace Prisma {
     NOT?: SalesExecutiveWhereInput | SalesExecutiveWhereInput[]
     firstName?: StringFilter<"SalesExecutive"> | string
     lastName?: StringFilter<"SalesExecutive"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     bankDetails?: XOR<BankDetailsNullableScalarRelationFilter, BankDetailsWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "userId" | "employeeId" | "aadharId">
 
   export type SalesExecutiveOrderByWithAggregationInput = {
@@ -34900,9 +36927,9 @@ export namespace Prisma {
     ownerEmail?: StringFilter<"Store"> | string
     createdAt?: DateTimeFilter<"Store"> | Date | string
     updatedAt?: DateTimeFilter<"Store"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     address?: XOR<AddressNullableScalarRelationFilter, AddressWhereInput> | null
     bankDetails?: XOR<BankDetailsNullableScalarRelationFilter, BankDetailsWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type StoreOrderByWithRelationInput = {
@@ -34914,9 +36941,9 @@ export namespace Prisma {
     ownerEmail?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
     address?: AddressOrderByWithRelationInput
     bankDetails?: BankDetailsOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type StoreWhereUniqueInput = Prisma.AtLeast<{
@@ -34931,9 +36958,9 @@ export namespace Prisma {
     ownerEmail?: StringFilter<"Store"> | string
     createdAt?: DateTimeFilter<"Store"> | Date | string
     updatedAt?: DateTimeFilter<"Store"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     address?: XOR<AddressNullableScalarRelationFilter, AddressWhereInput> | null
     bankDetails?: XOR<BankDetailsNullableScalarRelationFilter, BankDetailsWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "userId" | "storeId">
 
   export type StoreOrderByWithAggregationInput = {
@@ -34979,11 +37006,11 @@ export namespace Prisma {
     fieldExecId?: StringNullableFilter<"BankDetails"> | string | null
     salesExecId?: StringNullableFilter<"BankDetails"> | string | null
     storeId?: StringNullableFilter<"BankDetails"> | string | null
-    manager?: XOR<ManagerNullableScalarRelationFilter, ManagerWhereInput> | null
-    technician?: XOR<TechnicianNullableScalarRelationFilter, TechnicianWhereInput> | null
     fieldExecutive?: XOR<FieldExecutiveNullableScalarRelationFilter, FieldExecutiveWhereInput> | null
+    manager?: XOR<ManagerNullableScalarRelationFilter, ManagerWhereInput> | null
     salesExecutive?: XOR<SalesExecutiveNullableScalarRelationFilter, SalesExecutiveWhereInput> | null
     store?: XOR<StoreNullableScalarRelationFilter, StoreWhereInput> | null
+    technician?: XOR<TechnicianNullableScalarRelationFilter, TechnicianWhereInput> | null
   }
 
   export type BankDetailsOrderByWithRelationInput = {
@@ -34998,11 +37025,11 @@ export namespace Prisma {
     fieldExecId?: SortOrderInput | SortOrder
     salesExecId?: SortOrderInput | SortOrder
     storeId?: SortOrderInput | SortOrder
-    manager?: ManagerOrderByWithRelationInput
-    technician?: TechnicianOrderByWithRelationInput
     fieldExecutive?: FieldExecutiveOrderByWithRelationInput
+    manager?: ManagerOrderByWithRelationInput
     salesExecutive?: SalesExecutiveOrderByWithRelationInput
     store?: StoreOrderByWithRelationInput
+    technician?: TechnicianOrderByWithRelationInput
   }
 
   export type BankDetailsWhereUniqueInput = Prisma.AtLeast<{
@@ -35020,11 +37047,11 @@ export namespace Prisma {
     bankName?: StringNullableFilter<"BankDetails"> | string | null
     beneficiaryName?: StringNullableFilter<"BankDetails"> | string | null
     upiId?: StringNullableFilter<"BankDetails"> | string | null
-    manager?: XOR<ManagerNullableScalarRelationFilter, ManagerWhereInput> | null
-    technician?: XOR<TechnicianNullableScalarRelationFilter, TechnicianWhereInput> | null
     fieldExecutive?: XOR<FieldExecutiveNullableScalarRelationFilter, FieldExecutiveWhereInput> | null
+    manager?: XOR<ManagerNullableScalarRelationFilter, ManagerWhereInput> | null
     salesExecutive?: XOR<SalesExecutiveNullableScalarRelationFilter, SalesExecutiveWhereInput> | null
     store?: XOR<StoreNullableScalarRelationFilter, StoreWhereInput> | null
+    technician?: XOR<TechnicianNullableScalarRelationFilter, TechnicianWhereInput> | null
   }, "id" | "managerId" | "technicianId" | "fieldExecId" | "salesExecId" | "storeId">
 
   export type BankDetailsOrderByWithAggregationInput = {
@@ -35223,16 +37250,16 @@ export namespace Prisma {
     imei1?: StringNullableFilter<"DeviceTest"> | string | null
     imei2?: StringNullableFilter<"DeviceTest"> | string | null
     createdAt?: DateTimeFilter<"DeviceTest"> | Date | string
-    connectivityTestResults?: ConnectivityTestResultListRelationFilter
-    simTestResults?: SimTestResultListRelationFilter
-    deviceTestResults?: DeviceTestResultListRelationFilter
-    screenTest?: XOR<ScreenTestNullableScalarRelationFilter, ScreenTestWhereInput> | null
-    audioTest?: XOR<AudioTestNullableScalarRelationFilter, AudioTestWhereInput> | null
-    proximitySensorTest?: XOR<ProximitySensorTestNullableScalarRelationFilter, ProximitySensorTestWhereInput> | null
-    cameraTest?: XOR<CameraTestNullableScalarRelationFilter, CameraTestWhereInput> | null
-    fingerprintTest?: XOR<FingerprintTestNullableScalarRelationFilter, FingerprintTestWhereInput> | null
-    usbTest?: XOR<UsbTestNullableScalarRelationFilter, UsbTestWhereInput> | null
     audioJackTest?: XOR<AudioJackTestNullableScalarRelationFilter, AudioJackTestWhereInput> | null
+    audioTest?: XOR<AudioTestNullableScalarRelationFilter, AudioTestWhereInput> | null
+    cameraTest?: XOR<CameraTestNullableScalarRelationFilter, CameraTestWhereInput> | null
+    connectivityTestResults?: ConnectivityTestResultListRelationFilter
+    deviceTestResults?: DeviceTestResultListRelationFilter
+    fingerprintTest?: XOR<FingerprintTestNullableScalarRelationFilter, FingerprintTestWhereInput> | null
+    proximitySensorTest?: XOR<ProximitySensorTestNullableScalarRelationFilter, ProximitySensorTestWhereInput> | null
+    screenTest?: XOR<ScreenTestNullableScalarRelationFilter, ScreenTestWhereInput> | null
+    simTestResults?: SimTestResultListRelationFilter
+    usbTest?: XOR<UsbTestNullableScalarRelationFilter, UsbTestWhereInput> | null
   }
 
   export type DeviceTestOrderByWithRelationInput = {
@@ -35245,16 +37272,16 @@ export namespace Prisma {
     imei1?: SortOrderInput | SortOrder
     imei2?: SortOrderInput | SortOrder
     createdAt?: SortOrder
-    connectivityTestResults?: ConnectivityTestResultOrderByRelationAggregateInput
-    simTestResults?: SimTestResultOrderByRelationAggregateInput
-    deviceTestResults?: DeviceTestResultOrderByRelationAggregateInput
-    screenTest?: ScreenTestOrderByWithRelationInput
-    audioTest?: AudioTestOrderByWithRelationInput
-    proximitySensorTest?: ProximitySensorTestOrderByWithRelationInput
-    cameraTest?: CameraTestOrderByWithRelationInput
-    fingerprintTest?: FingerprintTestOrderByWithRelationInput
-    usbTest?: UsbTestOrderByWithRelationInput
     audioJackTest?: AudioJackTestOrderByWithRelationInput
+    audioTest?: AudioTestOrderByWithRelationInput
+    cameraTest?: CameraTestOrderByWithRelationInput
+    connectivityTestResults?: ConnectivityTestResultOrderByRelationAggregateInput
+    deviceTestResults?: DeviceTestResultOrderByRelationAggregateInput
+    fingerprintTest?: FingerprintTestOrderByWithRelationInput
+    proximitySensorTest?: ProximitySensorTestOrderByWithRelationInput
+    screenTest?: ScreenTestOrderByWithRelationInput
+    simTestResults?: SimTestResultOrderByRelationAggregateInput
+    usbTest?: UsbTestOrderByWithRelationInput
   }
 
   export type DeviceTestWhereUniqueInput = Prisma.AtLeast<{
@@ -35270,16 +37297,16 @@ export namespace Prisma {
     imei1?: StringNullableFilter<"DeviceTest"> | string | null
     imei2?: StringNullableFilter<"DeviceTest"> | string | null
     createdAt?: DateTimeFilter<"DeviceTest"> | Date | string
-    connectivityTestResults?: ConnectivityTestResultListRelationFilter
-    simTestResults?: SimTestResultListRelationFilter
-    deviceTestResults?: DeviceTestResultListRelationFilter
-    screenTest?: XOR<ScreenTestNullableScalarRelationFilter, ScreenTestWhereInput> | null
-    audioTest?: XOR<AudioTestNullableScalarRelationFilter, AudioTestWhereInput> | null
-    proximitySensorTest?: XOR<ProximitySensorTestNullableScalarRelationFilter, ProximitySensorTestWhereInput> | null
-    cameraTest?: XOR<CameraTestNullableScalarRelationFilter, CameraTestWhereInput> | null
-    fingerprintTest?: XOR<FingerprintTestNullableScalarRelationFilter, FingerprintTestWhereInput> | null
-    usbTest?: XOR<UsbTestNullableScalarRelationFilter, UsbTestWhereInput> | null
     audioJackTest?: XOR<AudioJackTestNullableScalarRelationFilter, AudioJackTestWhereInput> | null
+    audioTest?: XOR<AudioTestNullableScalarRelationFilter, AudioTestWhereInput> | null
+    cameraTest?: XOR<CameraTestNullableScalarRelationFilter, CameraTestWhereInput> | null
+    connectivityTestResults?: ConnectivityTestResultListRelationFilter
+    deviceTestResults?: DeviceTestResultListRelationFilter
+    fingerprintTest?: XOR<FingerprintTestNullableScalarRelationFilter, FingerprintTestWhereInput> | null
+    proximitySensorTest?: XOR<ProximitySensorTestNullableScalarRelationFilter, ProximitySensorTestWhereInput> | null
+    screenTest?: XOR<ScreenTestNullableScalarRelationFilter, ScreenTestWhereInput> | null
+    simTestResults?: SimTestResultListRelationFilter
+    usbTest?: XOR<UsbTestNullableScalarRelationFilter, UsbTestWhereInput> | null
   }, "id" | "testId">
 
   export type DeviceTestOrderByWithAggregationInput = {
@@ -36115,8 +38142,6 @@ export namespace Prisma {
     NOT?: DeclarationWhereInput | DeclarationWhereInput[]
     id?: StringFilter<"Declaration"> | string
     orderId?: StringFilter<"Declaration"> | string
-    brand?: StringFilter<"Declaration"> | string
-    model?: StringFilter<"Declaration"> | string
     smc?: StringFilter<"Declaration"> | string
     variant?: StringFilter<"Declaration"> | string
     imei1?: StringNullableFilter<"Declaration"> | string | null
@@ -36139,13 +38164,12 @@ export namespace Prisma {
     isAccepted?: BoolFilter<"Declaration"> | boolean
     createdAt?: DateTimeFilter<"Declaration"> | Date | string
     updatedAt?: DateTimeFilter<"Declaration"> | Date | string
+    finalAmount?: StringNullableFilter<"Declaration"> | string | null
   }
 
   export type DeclarationOrderByWithRelationInput = {
     id?: SortOrder
     orderId?: SortOrder
-    brand?: SortOrder
-    model?: SortOrder
     smc?: SortOrder
     variant?: SortOrder
     imei1?: SortOrderInput | SortOrder
@@ -36168,6 +38192,7 @@ export namespace Prisma {
     isAccepted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    finalAmount?: SortOrderInput | SortOrder
   }
 
   export type DeclarationWhereUniqueInput = Prisma.AtLeast<{
@@ -36176,8 +38201,6 @@ export namespace Prisma {
     AND?: DeclarationWhereInput | DeclarationWhereInput[]
     OR?: DeclarationWhereInput[]
     NOT?: DeclarationWhereInput | DeclarationWhereInput[]
-    brand?: StringFilter<"Declaration"> | string
-    model?: StringFilter<"Declaration"> | string
     smc?: StringFilter<"Declaration"> | string
     variant?: StringFilter<"Declaration"> | string
     imei1?: StringNullableFilter<"Declaration"> | string | null
@@ -36200,13 +38223,12 @@ export namespace Prisma {
     isAccepted?: BoolFilter<"Declaration"> | boolean
     createdAt?: DateTimeFilter<"Declaration"> | Date | string
     updatedAt?: DateTimeFilter<"Declaration"> | Date | string
+    finalAmount?: StringNullableFilter<"Declaration"> | string | null
   }, "id" | "orderId">
 
   export type DeclarationOrderByWithAggregationInput = {
     id?: SortOrder
     orderId?: SortOrder
-    brand?: SortOrder
-    model?: SortOrder
     smc?: SortOrder
     variant?: SortOrder
     imei1?: SortOrderInput | SortOrder
@@ -36229,6 +38251,7 @@ export namespace Prisma {
     isAccepted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    finalAmount?: SortOrderInput | SortOrder
     _count?: DeclarationCountOrderByAggregateInput
     _max?: DeclarationMaxOrderByAggregateInput
     _min?: DeclarationMinOrderByAggregateInput
@@ -36240,8 +38263,6 @@ export namespace Prisma {
     NOT?: DeclarationScalarWhereWithAggregatesInput | DeclarationScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Declaration"> | string
     orderId?: StringWithAggregatesFilter<"Declaration"> | string
-    brand?: StringWithAggregatesFilter<"Declaration"> | string
-    model?: StringWithAggregatesFilter<"Declaration"> | string
     smc?: StringWithAggregatesFilter<"Declaration"> | string
     variant?: StringWithAggregatesFilter<"Declaration"> | string
     imei1?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
@@ -36264,6 +38285,7 @@ export namespace Prisma {
     isAccepted?: BoolWithAggregatesFilter<"Declaration"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Declaration"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Declaration"> | Date | string
+    finalAmount?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
   }
 
   export type AddressWhereInput = {
@@ -36525,6 +38547,385 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"CustomModel"> | Date | string
   }
 
+  export type DoorstepPickupWhereInput = {
+    AND?: DoorstepPickupWhereInput | DoorstepPickupWhereInput[]
+    OR?: DoorstepPickupWhereInput[]
+    NOT?: DoorstepPickupWhereInput | DoorstepPickupWhereInput[]
+    id?: StringFilter<"DoorstepPickup"> | string
+    orderId?: StringNullableFilter<"DoorstepPickup"> | string | null
+    variant?: StringNullableFilter<"DoorstepPickup"> | string | null
+    imei1?: StringNullableFilter<"DoorstepPickup"> | string | null
+    imei2?: StringNullableFilter<"DoorstepPickup"> | string | null
+    deviceFrontImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    deviceBackImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    diagnosticsProcess?: StringNullableFilter<"DoorstepPickup"> | string | null
+    mbdgReport?: JsonNullableFilter<"DoorstepPickup">
+    diagnosticsProcessInit?: StringNullableFilter<"DoorstepPickup"> | string | null
+    qcReportInit?: StringNullableFilter<"DoorstepPickup"> | string | null
+    qcReport?: StringNullableFilter<"DoorstepPickup"> | string | null
+    repairRequired?: StringNullableFilter<"DoorstepPickup"> | string | null
+    repairStatus?: StringNullableFilter<"DoorstepPickup"> | string | null
+    accessories?: StringNullableFilter<"DoorstepPickup"> | string | null
+    deviceAge?: StringNullableFilter<"DoorstepPickup"> | string | null
+    warrantyType?: StringNullableFilter<"DoorstepPickup"> | string | null
+    hasGstBill?: StringNullableFilter<"DoorstepPickup"> | string | null
+    gstInvoice?: StringNullableFilter<"DoorstepPickup"> | string | null
+    boxImeiMatch?: StringNullableFilter<"DoorstepPickup"> | string | null
+    customerName?: StringNullableFilter<"DoorstepPickup"> | string | null
+    mobileNumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    addressProofType?: StringNullableFilter<"DoorstepPickup"> | string | null
+    aadharNumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    address?: StringNullableFilter<"DoorstepPickup"> | string | null
+    fullAddress?: StringNullableFilter<"DoorstepPickup"> | string | null
+    aadharFrontImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    aadharBackImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    epicNumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    voterIdFrontImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    voterIdBackImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    isAadharVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    voterIdVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    customerSignature?: StringNullableFilter<"DoorstepPickup"> | string | null
+    deviceReset?: StringNullableFilter<"DoorstepPickup"> | string | null
+    deviceStartScreenImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    customerProofImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    customerDeclaration?: StringNullableFilter<"DoorstepPickup"> | string | null
+    cashPaymentReceiptImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    paymentMode?: StringNullableFilter<"DoorstepPickup"> | string | null
+    exchangeModel?: StringNullableFilter<"DoorstepPickup"> | string | null
+    newModelIMEI?: StringNullableFilter<"DoorstepPickup"> | string | null
+    manualQcReport?: JsonNullableFilter<"DoorstepPickup">
+    remarks?: StringNullableFilter<"DoorstepPickup"> | string | null
+    finalAmount?: DecimalNullableFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
+    sellingAmount?: DecimalNullableFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
+    upiId?: StringNullableFilter<"DoorstepPickup"> | string | null
+    upiBeneficiaryName?: StringNullableFilter<"DoorstepPickup"> | string | null
+    isUpiVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    isUpiSaved?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    bankName?: StringNullableFilter<"DoorstepPickup"> | string | null
+    accountNumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    confirmAccountNumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    ifscCode?: StringNullableFilter<"DoorstepPickup"> | string | null
+    bankBeneficiaryName?: StringNullableFilter<"DoorstepPickup"> | string | null
+    isBankDetailsVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    isBankDetailsSaved?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    paymentStatus?: StringNullableFilter<"DoorstepPickup"> | string | null
+    utrrrnnumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    paidBy?: StringNullableFilter<"DoorstepPickup"> | string | null
+    purchaserBankName?: StringNullableFilter<"DoorstepPickup"> | string | null
+    purchaserPaymentMode?: StringNullableFilter<"DoorstepPickup"> | string | null
+    isMobileNumberVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    isDeclarationSigned?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    phoneVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    repairParts?: JsonNullableFilter<"DoorstepPickup">
+    repairDate?: DateTimeNullableFilter<"DoorstepPickup"> | Date | string | null
+    assignedBC?: StringNullableFilter<"DoorstepPickup"> | string | null
+    createdAt?: DateTimeFilter<"DoorstepPickup"> | Date | string
+    updatedAt?: DateTimeFilter<"DoorstepPickup"> | Date | string
+  }
+
+  export type DoorstepPickupOrderByWithRelationInput = {
+    id?: SortOrder
+    orderId?: SortOrderInput | SortOrder
+    variant?: SortOrderInput | SortOrder
+    imei1?: SortOrderInput | SortOrder
+    imei2?: SortOrderInput | SortOrder
+    deviceFrontImage?: SortOrderInput | SortOrder
+    deviceBackImage?: SortOrderInput | SortOrder
+    diagnosticsProcess?: SortOrderInput | SortOrder
+    mbdgReport?: SortOrderInput | SortOrder
+    diagnosticsProcessInit?: SortOrderInput | SortOrder
+    qcReportInit?: SortOrderInput | SortOrder
+    qcReport?: SortOrderInput | SortOrder
+    repairRequired?: SortOrderInput | SortOrder
+    repairStatus?: SortOrderInput | SortOrder
+    accessories?: SortOrderInput | SortOrder
+    deviceAge?: SortOrderInput | SortOrder
+    warrantyType?: SortOrderInput | SortOrder
+    hasGstBill?: SortOrderInput | SortOrder
+    gstInvoice?: SortOrderInput | SortOrder
+    boxImeiMatch?: SortOrderInput | SortOrder
+    customerName?: SortOrderInput | SortOrder
+    mobileNumber?: SortOrderInput | SortOrder
+    addressProofType?: SortOrderInput | SortOrder
+    aadharNumber?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    fullAddress?: SortOrderInput | SortOrder
+    aadharFrontImage?: SortOrderInput | SortOrder
+    aadharBackImage?: SortOrderInput | SortOrder
+    epicNumber?: SortOrderInput | SortOrder
+    voterIdFrontImage?: SortOrderInput | SortOrder
+    voterIdBackImage?: SortOrderInput | SortOrder
+    isAadharVerified?: SortOrderInput | SortOrder
+    voterIdVerified?: SortOrderInput | SortOrder
+    customerSignature?: SortOrderInput | SortOrder
+    deviceReset?: SortOrderInput | SortOrder
+    deviceStartScreenImage?: SortOrderInput | SortOrder
+    customerProofImage?: SortOrderInput | SortOrder
+    customerDeclaration?: SortOrderInput | SortOrder
+    cashPaymentReceiptImage?: SortOrderInput | SortOrder
+    paymentMode?: SortOrderInput | SortOrder
+    exchangeModel?: SortOrderInput | SortOrder
+    newModelIMEI?: SortOrderInput | SortOrder
+    manualQcReport?: SortOrderInput | SortOrder
+    remarks?: SortOrderInput | SortOrder
+    finalAmount?: SortOrderInput | SortOrder
+    sellingAmount?: SortOrderInput | SortOrder
+    upiId?: SortOrderInput | SortOrder
+    upiBeneficiaryName?: SortOrderInput | SortOrder
+    isUpiVerified?: SortOrderInput | SortOrder
+    isUpiSaved?: SortOrderInput | SortOrder
+    bankName?: SortOrderInput | SortOrder
+    accountNumber?: SortOrderInput | SortOrder
+    confirmAccountNumber?: SortOrderInput | SortOrder
+    ifscCode?: SortOrderInput | SortOrder
+    bankBeneficiaryName?: SortOrderInput | SortOrder
+    isBankDetailsVerified?: SortOrderInput | SortOrder
+    isBankDetailsSaved?: SortOrderInput | SortOrder
+    paymentStatus?: SortOrderInput | SortOrder
+    utrrrnnumber?: SortOrderInput | SortOrder
+    paidBy?: SortOrderInput | SortOrder
+    purchaserBankName?: SortOrderInput | SortOrder
+    purchaserPaymentMode?: SortOrderInput | SortOrder
+    isMobileNumberVerified?: SortOrderInput | SortOrder
+    isDeclarationSigned?: SortOrderInput | SortOrder
+    phoneVerified?: SortOrderInput | SortOrder
+    repairParts?: SortOrderInput | SortOrder
+    repairDate?: SortOrderInput | SortOrder
+    assignedBC?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DoorstepPickupWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DoorstepPickupWhereInput | DoorstepPickupWhereInput[]
+    OR?: DoorstepPickupWhereInput[]
+    NOT?: DoorstepPickupWhereInput | DoorstepPickupWhereInput[]
+    orderId?: StringNullableFilter<"DoorstepPickup"> | string | null
+    variant?: StringNullableFilter<"DoorstepPickup"> | string | null
+    imei1?: StringNullableFilter<"DoorstepPickup"> | string | null
+    imei2?: StringNullableFilter<"DoorstepPickup"> | string | null
+    deviceFrontImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    deviceBackImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    diagnosticsProcess?: StringNullableFilter<"DoorstepPickup"> | string | null
+    mbdgReport?: JsonNullableFilter<"DoorstepPickup">
+    diagnosticsProcessInit?: StringNullableFilter<"DoorstepPickup"> | string | null
+    qcReportInit?: StringNullableFilter<"DoorstepPickup"> | string | null
+    qcReport?: StringNullableFilter<"DoorstepPickup"> | string | null
+    repairRequired?: StringNullableFilter<"DoorstepPickup"> | string | null
+    repairStatus?: StringNullableFilter<"DoorstepPickup"> | string | null
+    accessories?: StringNullableFilter<"DoorstepPickup"> | string | null
+    deviceAge?: StringNullableFilter<"DoorstepPickup"> | string | null
+    warrantyType?: StringNullableFilter<"DoorstepPickup"> | string | null
+    hasGstBill?: StringNullableFilter<"DoorstepPickup"> | string | null
+    gstInvoice?: StringNullableFilter<"DoorstepPickup"> | string | null
+    boxImeiMatch?: StringNullableFilter<"DoorstepPickup"> | string | null
+    customerName?: StringNullableFilter<"DoorstepPickup"> | string | null
+    mobileNumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    addressProofType?: StringNullableFilter<"DoorstepPickup"> | string | null
+    aadharNumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    address?: StringNullableFilter<"DoorstepPickup"> | string | null
+    fullAddress?: StringNullableFilter<"DoorstepPickup"> | string | null
+    aadharFrontImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    aadharBackImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    epicNumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    voterIdFrontImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    voterIdBackImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    isAadharVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    voterIdVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    customerSignature?: StringNullableFilter<"DoorstepPickup"> | string | null
+    deviceReset?: StringNullableFilter<"DoorstepPickup"> | string | null
+    deviceStartScreenImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    customerProofImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    customerDeclaration?: StringNullableFilter<"DoorstepPickup"> | string | null
+    cashPaymentReceiptImage?: StringNullableFilter<"DoorstepPickup"> | string | null
+    paymentMode?: StringNullableFilter<"DoorstepPickup"> | string | null
+    exchangeModel?: StringNullableFilter<"DoorstepPickup"> | string | null
+    newModelIMEI?: StringNullableFilter<"DoorstepPickup"> | string | null
+    manualQcReport?: JsonNullableFilter<"DoorstepPickup">
+    remarks?: StringNullableFilter<"DoorstepPickup"> | string | null
+    finalAmount?: DecimalNullableFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
+    sellingAmount?: DecimalNullableFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
+    upiId?: StringNullableFilter<"DoorstepPickup"> | string | null
+    upiBeneficiaryName?: StringNullableFilter<"DoorstepPickup"> | string | null
+    isUpiVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    isUpiSaved?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    bankName?: StringNullableFilter<"DoorstepPickup"> | string | null
+    accountNumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    confirmAccountNumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    ifscCode?: StringNullableFilter<"DoorstepPickup"> | string | null
+    bankBeneficiaryName?: StringNullableFilter<"DoorstepPickup"> | string | null
+    isBankDetailsVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    isBankDetailsSaved?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    paymentStatus?: StringNullableFilter<"DoorstepPickup"> | string | null
+    utrrrnnumber?: StringNullableFilter<"DoorstepPickup"> | string | null
+    paidBy?: StringNullableFilter<"DoorstepPickup"> | string | null
+    purchaserBankName?: StringNullableFilter<"DoorstepPickup"> | string | null
+    purchaserPaymentMode?: StringNullableFilter<"DoorstepPickup"> | string | null
+    isMobileNumberVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    isDeclarationSigned?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    phoneVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    repairParts?: JsonNullableFilter<"DoorstepPickup">
+    repairDate?: DateTimeNullableFilter<"DoorstepPickup"> | Date | string | null
+    assignedBC?: StringNullableFilter<"DoorstepPickup"> | string | null
+    createdAt?: DateTimeFilter<"DoorstepPickup"> | Date | string
+    updatedAt?: DateTimeFilter<"DoorstepPickup"> | Date | string
+  }, "id">
+
+  export type DoorstepPickupOrderByWithAggregationInput = {
+    id?: SortOrder
+    orderId?: SortOrderInput | SortOrder
+    variant?: SortOrderInput | SortOrder
+    imei1?: SortOrderInput | SortOrder
+    imei2?: SortOrderInput | SortOrder
+    deviceFrontImage?: SortOrderInput | SortOrder
+    deviceBackImage?: SortOrderInput | SortOrder
+    diagnosticsProcess?: SortOrderInput | SortOrder
+    mbdgReport?: SortOrderInput | SortOrder
+    diagnosticsProcessInit?: SortOrderInput | SortOrder
+    qcReportInit?: SortOrderInput | SortOrder
+    qcReport?: SortOrderInput | SortOrder
+    repairRequired?: SortOrderInput | SortOrder
+    repairStatus?: SortOrderInput | SortOrder
+    accessories?: SortOrderInput | SortOrder
+    deviceAge?: SortOrderInput | SortOrder
+    warrantyType?: SortOrderInput | SortOrder
+    hasGstBill?: SortOrderInput | SortOrder
+    gstInvoice?: SortOrderInput | SortOrder
+    boxImeiMatch?: SortOrderInput | SortOrder
+    customerName?: SortOrderInput | SortOrder
+    mobileNumber?: SortOrderInput | SortOrder
+    addressProofType?: SortOrderInput | SortOrder
+    aadharNumber?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    fullAddress?: SortOrderInput | SortOrder
+    aadharFrontImage?: SortOrderInput | SortOrder
+    aadharBackImage?: SortOrderInput | SortOrder
+    epicNumber?: SortOrderInput | SortOrder
+    voterIdFrontImage?: SortOrderInput | SortOrder
+    voterIdBackImage?: SortOrderInput | SortOrder
+    isAadharVerified?: SortOrderInput | SortOrder
+    voterIdVerified?: SortOrderInput | SortOrder
+    customerSignature?: SortOrderInput | SortOrder
+    deviceReset?: SortOrderInput | SortOrder
+    deviceStartScreenImage?: SortOrderInput | SortOrder
+    customerProofImage?: SortOrderInput | SortOrder
+    customerDeclaration?: SortOrderInput | SortOrder
+    cashPaymentReceiptImage?: SortOrderInput | SortOrder
+    paymentMode?: SortOrderInput | SortOrder
+    exchangeModel?: SortOrderInput | SortOrder
+    newModelIMEI?: SortOrderInput | SortOrder
+    manualQcReport?: SortOrderInput | SortOrder
+    remarks?: SortOrderInput | SortOrder
+    finalAmount?: SortOrderInput | SortOrder
+    sellingAmount?: SortOrderInput | SortOrder
+    upiId?: SortOrderInput | SortOrder
+    upiBeneficiaryName?: SortOrderInput | SortOrder
+    isUpiVerified?: SortOrderInput | SortOrder
+    isUpiSaved?: SortOrderInput | SortOrder
+    bankName?: SortOrderInput | SortOrder
+    accountNumber?: SortOrderInput | SortOrder
+    confirmAccountNumber?: SortOrderInput | SortOrder
+    ifscCode?: SortOrderInput | SortOrder
+    bankBeneficiaryName?: SortOrderInput | SortOrder
+    isBankDetailsVerified?: SortOrderInput | SortOrder
+    isBankDetailsSaved?: SortOrderInput | SortOrder
+    paymentStatus?: SortOrderInput | SortOrder
+    utrrrnnumber?: SortOrderInput | SortOrder
+    paidBy?: SortOrderInput | SortOrder
+    purchaserBankName?: SortOrderInput | SortOrder
+    purchaserPaymentMode?: SortOrderInput | SortOrder
+    isMobileNumberVerified?: SortOrderInput | SortOrder
+    isDeclarationSigned?: SortOrderInput | SortOrder
+    phoneVerified?: SortOrderInput | SortOrder
+    repairParts?: SortOrderInput | SortOrder
+    repairDate?: SortOrderInput | SortOrder
+    assignedBC?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DoorstepPickupCountOrderByAggregateInput
+    _avg?: DoorstepPickupAvgOrderByAggregateInput
+    _max?: DoorstepPickupMaxOrderByAggregateInput
+    _min?: DoorstepPickupMinOrderByAggregateInput
+    _sum?: DoorstepPickupSumOrderByAggregateInput
+  }
+
+  export type DoorstepPickupScalarWhereWithAggregatesInput = {
+    AND?: DoorstepPickupScalarWhereWithAggregatesInput | DoorstepPickupScalarWhereWithAggregatesInput[]
+    OR?: DoorstepPickupScalarWhereWithAggregatesInput[]
+    NOT?: DoorstepPickupScalarWhereWithAggregatesInput | DoorstepPickupScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"DoorstepPickup"> | string
+    orderId?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    variant?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    imei1?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    imei2?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    deviceFrontImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    deviceBackImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    diagnosticsProcess?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    mbdgReport?: JsonNullableWithAggregatesFilter<"DoorstepPickup">
+    diagnosticsProcessInit?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    qcReportInit?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    qcReport?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    repairRequired?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    repairStatus?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    accessories?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    deviceAge?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    warrantyType?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    hasGstBill?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    gstInvoice?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    boxImeiMatch?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    customerName?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    mobileNumber?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    addressProofType?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    aadharNumber?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    address?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    fullAddress?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    aadharFrontImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    aadharBackImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    epicNumber?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    voterIdFrontImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    voterIdBackImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    isAadharVerified?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
+    voterIdVerified?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
+    customerSignature?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    deviceReset?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    deviceStartScreenImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    customerProofImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    customerDeclaration?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    cashPaymentReceiptImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    paymentMode?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    exchangeModel?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    newModelIMEI?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    manualQcReport?: JsonNullableWithAggregatesFilter<"DoorstepPickup">
+    remarks?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    finalAmount?: DecimalNullableWithAggregatesFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
+    sellingAmount?: DecimalNullableWithAggregatesFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
+    upiId?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    upiBeneficiaryName?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    isUpiVerified?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
+    isUpiSaved?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
+    bankName?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    accountNumber?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    confirmAccountNumber?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    ifscCode?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    bankBeneficiaryName?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    isBankDetailsVerified?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
+    isBankDetailsSaved?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
+    paymentStatus?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    utrrrnnumber?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    paidBy?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    purchaserBankName?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    purchaserPaymentMode?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    isMobileNumberVerified?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
+    isDeclarationSigned?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
+    phoneVerified?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
+    repairParts?: JsonNullableWithAggregatesFilter<"DoorstepPickup">
+    repairDate?: DateTimeNullableWithAggregatesFilter<"DoorstepPickup"> | Date | string | null
+    assignedBC?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"DoorstepPickup"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"DoorstepPickup"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     phone: string
@@ -36543,21 +38944,21 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    manager?: ManagerCreateNestedOneWithoutUserInput
-    technician?: TechnicianCreateNestedOneWithoutUserInput
-    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
-    salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
-    store?: StoreCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
     admin?: AdminCreateNestedOneWithoutUserInput
+    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
+    manager?: ManagerCreateNestedOneWithoutUserInput
+    salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    store?: StoreCreateNestedOneWithoutUserInput
+    technician?: TechnicianCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -36578,21 +38979,21 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
-    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
-    fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
-    salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
-    store?: StoreUncheckedCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
     admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
+    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
+    salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    store?: StoreUncheckedCreateNestedOneWithoutUserInput
+    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -36613,21 +39014,21 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    manager?: ManagerUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUpdateOneWithoutUserNestedInput
-    fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
-    salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
-    store?: StoreUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     admin?: AdminUpdateOneWithoutUserNestedInput
+    fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
+    manager?: ManagerUpdateOneWithoutUserNestedInput
+    salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    store?: StoreUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -36648,21 +39049,21 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
-    fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
-    salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
-    store?: StoreUncheckedUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
+    fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
+    salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    store?: StoreUncheckedUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -36683,14 +39084,14 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
@@ -36711,14 +39112,14 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -36739,14 +39140,14 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type AdminCreateInput = {
@@ -36802,8 +39203,8 @@ export namespace Prisma {
     lastName: string
     employeeId: string
     aadharId: string
-    user: UserCreateNestedOneWithoutManagerInput
     bankDetails?: BankDetailsCreateNestedOneWithoutManagerInput
+    user: UserCreateNestedOneWithoutManagerInput
   }
 
   export type ManagerUncheckedCreateInput = {
@@ -36820,8 +39221,8 @@ export namespace Prisma {
     lastName?: StringFieldUpdateOperationsInput | string
     employeeId?: StringFieldUpdateOperationsInput | string
     aadharId?: StringFieldUpdateOperationsInput | string
-    user?: UserUpdateOneRequiredWithoutManagerNestedInput
     bankDetails?: BankDetailsUpdateOneWithoutManagerNestedInput
+    user?: UserUpdateOneRequiredWithoutManagerNestedInput
   }
 
   export type ManagerUncheckedUpdateInput = {
@@ -36861,8 +39262,8 @@ export namespace Prisma {
     lastName: string
     employeeId: string
     aadharId: string
-    user: UserCreateNestedOneWithoutTechnicianInput
     bankDetails?: BankDetailsCreateNestedOneWithoutTechnicianInput
+    user: UserCreateNestedOneWithoutTechnicianInput
   }
 
   export type TechnicianUncheckedCreateInput = {
@@ -36879,8 +39280,8 @@ export namespace Prisma {
     lastName?: StringFieldUpdateOperationsInput | string
     employeeId?: StringFieldUpdateOperationsInput | string
     aadharId?: StringFieldUpdateOperationsInput | string
-    user?: UserUpdateOneRequiredWithoutTechnicianNestedInput
     bankDetails?: BankDetailsUpdateOneWithoutTechnicianNestedInput
+    user?: UserUpdateOneRequiredWithoutTechnicianNestedInput
   }
 
   export type TechnicianUncheckedUpdateInput = {
@@ -36920,8 +39321,8 @@ export namespace Prisma {
     lastName: string
     employeeId: string
     aadharId: string
-    user: UserCreateNestedOneWithoutFieldExecutiveInput
     bankDetails?: BankDetailsCreateNestedOneWithoutFieldExecutiveInput
+    user: UserCreateNestedOneWithoutFieldExecutiveInput
   }
 
   export type FieldExecutiveUncheckedCreateInput = {
@@ -36938,8 +39339,8 @@ export namespace Prisma {
     lastName?: StringFieldUpdateOperationsInput | string
     employeeId?: StringFieldUpdateOperationsInput | string
     aadharId?: StringFieldUpdateOperationsInput | string
-    user?: UserUpdateOneRequiredWithoutFieldExecutiveNestedInput
     bankDetails?: BankDetailsUpdateOneWithoutFieldExecutiveNestedInput
+    user?: UserUpdateOneRequiredWithoutFieldExecutiveNestedInput
   }
 
   export type FieldExecutiveUncheckedUpdateInput = {
@@ -36979,8 +39380,8 @@ export namespace Prisma {
     lastName: string
     employeeId: string
     aadharId: string
-    user: UserCreateNestedOneWithoutSalesExecutiveInput
     bankDetails?: BankDetailsCreateNestedOneWithoutSalesExecutiveInput
+    user: UserCreateNestedOneWithoutSalesExecutiveInput
   }
 
   export type SalesExecutiveUncheckedCreateInput = {
@@ -36997,8 +39398,8 @@ export namespace Prisma {
     lastName?: StringFieldUpdateOperationsInput | string
     employeeId?: StringFieldUpdateOperationsInput | string
     aadharId?: StringFieldUpdateOperationsInput | string
-    user?: UserUpdateOneRequiredWithoutSalesExecutiveNestedInput
     bankDetails?: BankDetailsUpdateOneWithoutSalesExecutiveNestedInput
+    user?: UserUpdateOneRequiredWithoutSalesExecutiveNestedInput
   }
 
   export type SalesExecutiveUncheckedUpdateInput = {
@@ -37041,9 +39442,9 @@ export namespace Prisma {
     ownerEmail: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutStoreInput
     address?: AddressCreateNestedOneWithoutStoreInput
     bankDetails?: BankDetailsCreateNestedOneWithoutStoreInput
+    user: UserCreateNestedOneWithoutStoreInput
   }
 
   export type StoreUncheckedCreateInput = {
@@ -37067,9 +39468,9 @@ export namespace Prisma {
     ownerEmail?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutStoreNestedInput
     address?: AddressUpdateOneWithoutStoreNestedInput
     bankDetails?: BankDetailsUpdateOneWithoutStoreNestedInput
+    user?: UserUpdateOneRequiredWithoutStoreNestedInput
   }
 
   export type StoreUncheckedUpdateInput = {
@@ -37124,11 +39525,11 @@ export namespace Prisma {
     bankName?: string | null
     beneficiaryName?: string | null
     upiId?: string | null
-    manager?: ManagerCreateNestedOneWithoutBankDetailsInput
-    technician?: TechnicianCreateNestedOneWithoutBankDetailsInput
     fieldExecutive?: FieldExecutiveCreateNestedOneWithoutBankDetailsInput
+    manager?: ManagerCreateNestedOneWithoutBankDetailsInput
     salesExecutive?: SalesExecutiveCreateNestedOneWithoutBankDetailsInput
     store?: StoreCreateNestedOneWithoutBankDetailsInput
+    technician?: TechnicianCreateNestedOneWithoutBankDetailsInput
   }
 
   export type BankDetailsUncheckedCreateInput = {
@@ -37152,11 +39553,11 @@ export namespace Prisma {
     bankName?: NullableStringFieldUpdateOperationsInput | string | null
     beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
     upiId?: NullableStringFieldUpdateOperationsInput | string | null
-    manager?: ManagerUpdateOneWithoutBankDetailsNestedInput
-    technician?: TechnicianUpdateOneWithoutBankDetailsNestedInput
     fieldExecutive?: FieldExecutiveUpdateOneWithoutBankDetailsNestedInput
+    manager?: ManagerUpdateOneWithoutBankDetailsNestedInput
     salesExecutive?: SalesExecutiveUpdateOneWithoutBankDetailsNestedInput
     store?: StoreUpdateOneWithoutBankDetailsNestedInput
+    technician?: TechnicianUpdateOneWithoutBankDetailsNestedInput
   }
 
   export type BankDetailsUncheckedUpdateInput = {
@@ -37387,16 +39788,16 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestUncheckedCreateInput = {
@@ -37409,16 +39810,16 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestUpdateInput = {
@@ -37431,16 +39832,16 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestUncheckedUpdateInput = {
@@ -37453,16 +39854,16 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestCreateManyInput = {
@@ -38383,8 +40784,6 @@ export namespace Prisma {
   export type DeclarationCreateInput = {
     id?: string
     orderId: string
-    brand: string
-    model: string
     smc: string
     variant: string
     imei1?: string | null
@@ -38407,13 +40806,12 @@ export namespace Prisma {
     isAccepted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    finalAmount?: string | null
   }
 
   export type DeclarationUncheckedCreateInput = {
     id?: string
     orderId: string
-    brand: string
-    model: string
     smc: string
     variant: string
     imei1?: string | null
@@ -38436,13 +40834,12 @@ export namespace Prisma {
     isAccepted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    finalAmount?: string | null
   }
 
   export type DeclarationUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     orderId?: StringFieldUpdateOperationsInput | string
-    brand?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
     smc?: StringFieldUpdateOperationsInput | string
     variant?: StringFieldUpdateOperationsInput | string
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
@@ -38465,13 +40862,12 @@ export namespace Prisma {
     isAccepted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DeclarationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     orderId?: StringFieldUpdateOperationsInput | string
-    brand?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
     smc?: StringFieldUpdateOperationsInput | string
     variant?: StringFieldUpdateOperationsInput | string
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
@@ -38494,13 +40890,12 @@ export namespace Prisma {
     isAccepted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DeclarationCreateManyInput = {
     id?: string
     orderId: string
-    brand: string
-    model: string
     smc: string
     variant: string
     imei1?: string | null
@@ -38523,13 +40918,12 @@ export namespace Prisma {
     isAccepted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    finalAmount?: string | null
   }
 
   export type DeclarationUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     orderId?: StringFieldUpdateOperationsInput | string
-    brand?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
     smc?: StringFieldUpdateOperationsInput | string
     variant?: StringFieldUpdateOperationsInput | string
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
@@ -38552,13 +40946,12 @@ export namespace Prisma {
     isAccepted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DeclarationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     orderId?: StringFieldUpdateOperationsInput | string
-    brand?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
     smc?: StringFieldUpdateOperationsInput | string
     variant?: StringFieldUpdateOperationsInput | string
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
@@ -38581,6 +40974,7 @@ export namespace Prisma {
     isAccepted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AddressCreateInput = {
@@ -38865,6 +41259,517 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type DoorstepPickupCreateInput = {
+    id?: string
+    orderId?: string | null
+    variant?: string | null
+    imei1?: string | null
+    imei2?: string | null
+    deviceFrontImage?: string | null
+    deviceBackImage?: string | null
+    diagnosticsProcess?: string | null
+    mbdgReport?: NullableJsonNullValueInput | InputJsonValue
+    diagnosticsProcessInit?: string | null
+    qcReportInit?: string | null
+    qcReport?: string | null
+    repairRequired?: string | null
+    repairStatus?: string | null
+    accessories?: string | null
+    deviceAge?: string | null
+    warrantyType?: string | null
+    hasGstBill?: string | null
+    gstInvoice?: string | null
+    boxImeiMatch?: string | null
+    customerName?: string | null
+    mobileNumber?: string | null
+    addressProofType?: string | null
+    aadharNumber?: string | null
+    address?: string | null
+    fullAddress?: string | null
+    aadharFrontImage?: string | null
+    aadharBackImage?: string | null
+    epicNumber?: string | null
+    voterIdFrontImage?: string | null
+    voterIdBackImage?: string | null
+    isAadharVerified?: boolean | null
+    voterIdVerified?: boolean | null
+    customerSignature?: string | null
+    deviceReset?: string | null
+    deviceStartScreenImage?: string | null
+    customerProofImage?: string | null
+    customerDeclaration?: string | null
+    cashPaymentReceiptImage?: string | null
+    paymentMode?: string | null
+    exchangeModel?: string | null
+    newModelIMEI?: string | null
+    manualQcReport?: NullableJsonNullValueInput | InputJsonValue
+    remarks?: string | null
+    finalAmount?: Decimal | DecimalJsLike | number | string | null
+    sellingAmount?: Decimal | DecimalJsLike | number | string | null
+    upiId?: string | null
+    upiBeneficiaryName?: string | null
+    isUpiVerified?: boolean | null
+    isUpiSaved?: boolean | null
+    bankName?: string | null
+    accountNumber?: string | null
+    confirmAccountNumber?: string | null
+    ifscCode?: string | null
+    bankBeneficiaryName?: string | null
+    isBankDetailsVerified?: boolean | null
+    isBankDetailsSaved?: boolean | null
+    paymentStatus?: string | null
+    utrrrnnumber?: string | null
+    paidBy?: string | null
+    purchaserBankName?: string | null
+    purchaserPaymentMode?: string | null
+    isMobileNumberVerified?: boolean | null
+    isDeclarationSigned?: boolean | null
+    phoneVerified?: boolean | null
+    repairParts?: NullableJsonNullValueInput | InputJsonValue
+    repairDate?: Date | string | null
+    assignedBC?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DoorstepPickupUncheckedCreateInput = {
+    id?: string
+    orderId?: string | null
+    variant?: string | null
+    imei1?: string | null
+    imei2?: string | null
+    deviceFrontImage?: string | null
+    deviceBackImage?: string | null
+    diagnosticsProcess?: string | null
+    mbdgReport?: NullableJsonNullValueInput | InputJsonValue
+    diagnosticsProcessInit?: string | null
+    qcReportInit?: string | null
+    qcReport?: string | null
+    repairRequired?: string | null
+    repairStatus?: string | null
+    accessories?: string | null
+    deviceAge?: string | null
+    warrantyType?: string | null
+    hasGstBill?: string | null
+    gstInvoice?: string | null
+    boxImeiMatch?: string | null
+    customerName?: string | null
+    mobileNumber?: string | null
+    addressProofType?: string | null
+    aadharNumber?: string | null
+    address?: string | null
+    fullAddress?: string | null
+    aadharFrontImage?: string | null
+    aadharBackImage?: string | null
+    epicNumber?: string | null
+    voterIdFrontImage?: string | null
+    voterIdBackImage?: string | null
+    isAadharVerified?: boolean | null
+    voterIdVerified?: boolean | null
+    customerSignature?: string | null
+    deviceReset?: string | null
+    deviceStartScreenImage?: string | null
+    customerProofImage?: string | null
+    customerDeclaration?: string | null
+    cashPaymentReceiptImage?: string | null
+    paymentMode?: string | null
+    exchangeModel?: string | null
+    newModelIMEI?: string | null
+    manualQcReport?: NullableJsonNullValueInput | InputJsonValue
+    remarks?: string | null
+    finalAmount?: Decimal | DecimalJsLike | number | string | null
+    sellingAmount?: Decimal | DecimalJsLike | number | string | null
+    upiId?: string | null
+    upiBeneficiaryName?: string | null
+    isUpiVerified?: boolean | null
+    isUpiSaved?: boolean | null
+    bankName?: string | null
+    accountNumber?: string | null
+    confirmAccountNumber?: string | null
+    ifscCode?: string | null
+    bankBeneficiaryName?: string | null
+    isBankDetailsVerified?: boolean | null
+    isBankDetailsSaved?: boolean | null
+    paymentStatus?: string | null
+    utrrrnnumber?: string | null
+    paidBy?: string | null
+    purchaserBankName?: string | null
+    purchaserPaymentMode?: string | null
+    isMobileNumberVerified?: boolean | null
+    isDeclarationSigned?: boolean | null
+    phoneVerified?: boolean | null
+    repairParts?: NullableJsonNullValueInput | InputJsonValue
+    repairDate?: Date | string | null
+    assignedBC?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DoorstepPickupUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: NullableStringFieldUpdateOperationsInput | string | null
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    diagnosticsProcess?: NullableStringFieldUpdateOperationsInput | string | null
+    mbdgReport?: NullableJsonNullValueInput | InputJsonValue
+    diagnosticsProcessInit?: NullableStringFieldUpdateOperationsInput | string | null
+    qcReportInit?: NullableStringFieldUpdateOperationsInput | string | null
+    qcReport?: NullableStringFieldUpdateOperationsInput | string | null
+    repairRequired?: NullableStringFieldUpdateOperationsInput | string | null
+    repairStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    accessories?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceAge?: NullableStringFieldUpdateOperationsInput | string | null
+    warrantyType?: NullableStringFieldUpdateOperationsInput | string | null
+    hasGstBill?: NullableStringFieldUpdateOperationsInput | string | null
+    gstInvoice?: NullableStringFieldUpdateOperationsInput | string | null
+    boxImeiMatch?: NullableStringFieldUpdateOperationsInput | string | null
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    mobileNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    addressProofType?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    epicNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    voterIdFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    voterIdBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    isAadharVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    voterIdVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    customerSignature?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceReset?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceStartScreenImage?: NullableStringFieldUpdateOperationsInput | string | null
+    customerProofImage?: NullableStringFieldUpdateOperationsInput | string | null
+    customerDeclaration?: NullableStringFieldUpdateOperationsInput | string | null
+    cashPaymentReceiptImage?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentMode?: NullableStringFieldUpdateOperationsInput | string | null
+    exchangeModel?: NullableStringFieldUpdateOperationsInput | string | null
+    newModelIMEI?: NullableStringFieldUpdateOperationsInput | string | null
+    manualQcReport?: NullableJsonNullValueInput | InputJsonValue
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    finalAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    sellingAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    upiBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    isUpiVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isUpiSaved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    confirmAccountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifscCode?: NullableStringFieldUpdateOperationsInput | string | null
+    bankBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    isBankDetailsVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isBankDetailsSaved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    paymentStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    utrrrnnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    paidBy?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaserBankName?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaserPaymentMode?: NullableStringFieldUpdateOperationsInput | string | null
+    isMobileNumberVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isDeclarationSigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    repairParts?: NullableJsonNullValueInput | InputJsonValue
+    repairDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedBC?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DoorstepPickupUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: NullableStringFieldUpdateOperationsInput | string | null
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    diagnosticsProcess?: NullableStringFieldUpdateOperationsInput | string | null
+    mbdgReport?: NullableJsonNullValueInput | InputJsonValue
+    diagnosticsProcessInit?: NullableStringFieldUpdateOperationsInput | string | null
+    qcReportInit?: NullableStringFieldUpdateOperationsInput | string | null
+    qcReport?: NullableStringFieldUpdateOperationsInput | string | null
+    repairRequired?: NullableStringFieldUpdateOperationsInput | string | null
+    repairStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    accessories?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceAge?: NullableStringFieldUpdateOperationsInput | string | null
+    warrantyType?: NullableStringFieldUpdateOperationsInput | string | null
+    hasGstBill?: NullableStringFieldUpdateOperationsInput | string | null
+    gstInvoice?: NullableStringFieldUpdateOperationsInput | string | null
+    boxImeiMatch?: NullableStringFieldUpdateOperationsInput | string | null
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    mobileNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    addressProofType?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    epicNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    voterIdFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    voterIdBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    isAadharVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    voterIdVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    customerSignature?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceReset?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceStartScreenImage?: NullableStringFieldUpdateOperationsInput | string | null
+    customerProofImage?: NullableStringFieldUpdateOperationsInput | string | null
+    customerDeclaration?: NullableStringFieldUpdateOperationsInput | string | null
+    cashPaymentReceiptImage?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentMode?: NullableStringFieldUpdateOperationsInput | string | null
+    exchangeModel?: NullableStringFieldUpdateOperationsInput | string | null
+    newModelIMEI?: NullableStringFieldUpdateOperationsInput | string | null
+    manualQcReport?: NullableJsonNullValueInput | InputJsonValue
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    finalAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    sellingAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    upiBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    isUpiVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isUpiSaved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    confirmAccountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifscCode?: NullableStringFieldUpdateOperationsInput | string | null
+    bankBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    isBankDetailsVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isBankDetailsSaved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    paymentStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    utrrrnnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    paidBy?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaserBankName?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaserPaymentMode?: NullableStringFieldUpdateOperationsInput | string | null
+    isMobileNumberVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isDeclarationSigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    repairParts?: NullableJsonNullValueInput | InputJsonValue
+    repairDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedBC?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DoorstepPickupCreateManyInput = {
+    id?: string
+    orderId?: string | null
+    variant?: string | null
+    imei1?: string | null
+    imei2?: string | null
+    deviceFrontImage?: string | null
+    deviceBackImage?: string | null
+    diagnosticsProcess?: string | null
+    mbdgReport?: NullableJsonNullValueInput | InputJsonValue
+    diagnosticsProcessInit?: string | null
+    qcReportInit?: string | null
+    qcReport?: string | null
+    repairRequired?: string | null
+    repairStatus?: string | null
+    accessories?: string | null
+    deviceAge?: string | null
+    warrantyType?: string | null
+    hasGstBill?: string | null
+    gstInvoice?: string | null
+    boxImeiMatch?: string | null
+    customerName?: string | null
+    mobileNumber?: string | null
+    addressProofType?: string | null
+    aadharNumber?: string | null
+    address?: string | null
+    fullAddress?: string | null
+    aadharFrontImage?: string | null
+    aadharBackImage?: string | null
+    epicNumber?: string | null
+    voterIdFrontImage?: string | null
+    voterIdBackImage?: string | null
+    isAadharVerified?: boolean | null
+    voterIdVerified?: boolean | null
+    customerSignature?: string | null
+    deviceReset?: string | null
+    deviceStartScreenImage?: string | null
+    customerProofImage?: string | null
+    customerDeclaration?: string | null
+    cashPaymentReceiptImage?: string | null
+    paymentMode?: string | null
+    exchangeModel?: string | null
+    newModelIMEI?: string | null
+    manualQcReport?: NullableJsonNullValueInput | InputJsonValue
+    remarks?: string | null
+    finalAmount?: Decimal | DecimalJsLike | number | string | null
+    sellingAmount?: Decimal | DecimalJsLike | number | string | null
+    upiId?: string | null
+    upiBeneficiaryName?: string | null
+    isUpiVerified?: boolean | null
+    isUpiSaved?: boolean | null
+    bankName?: string | null
+    accountNumber?: string | null
+    confirmAccountNumber?: string | null
+    ifscCode?: string | null
+    bankBeneficiaryName?: string | null
+    isBankDetailsVerified?: boolean | null
+    isBankDetailsSaved?: boolean | null
+    paymentStatus?: string | null
+    utrrrnnumber?: string | null
+    paidBy?: string | null
+    purchaserBankName?: string | null
+    purchaserPaymentMode?: string | null
+    isMobileNumberVerified?: boolean | null
+    isDeclarationSigned?: boolean | null
+    phoneVerified?: boolean | null
+    repairParts?: NullableJsonNullValueInput | InputJsonValue
+    repairDate?: Date | string | null
+    assignedBC?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DoorstepPickupUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: NullableStringFieldUpdateOperationsInput | string | null
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    diagnosticsProcess?: NullableStringFieldUpdateOperationsInput | string | null
+    mbdgReport?: NullableJsonNullValueInput | InputJsonValue
+    diagnosticsProcessInit?: NullableStringFieldUpdateOperationsInput | string | null
+    qcReportInit?: NullableStringFieldUpdateOperationsInput | string | null
+    qcReport?: NullableStringFieldUpdateOperationsInput | string | null
+    repairRequired?: NullableStringFieldUpdateOperationsInput | string | null
+    repairStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    accessories?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceAge?: NullableStringFieldUpdateOperationsInput | string | null
+    warrantyType?: NullableStringFieldUpdateOperationsInput | string | null
+    hasGstBill?: NullableStringFieldUpdateOperationsInput | string | null
+    gstInvoice?: NullableStringFieldUpdateOperationsInput | string | null
+    boxImeiMatch?: NullableStringFieldUpdateOperationsInput | string | null
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    mobileNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    addressProofType?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    epicNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    voterIdFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    voterIdBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    isAadharVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    voterIdVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    customerSignature?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceReset?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceStartScreenImage?: NullableStringFieldUpdateOperationsInput | string | null
+    customerProofImage?: NullableStringFieldUpdateOperationsInput | string | null
+    customerDeclaration?: NullableStringFieldUpdateOperationsInput | string | null
+    cashPaymentReceiptImage?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentMode?: NullableStringFieldUpdateOperationsInput | string | null
+    exchangeModel?: NullableStringFieldUpdateOperationsInput | string | null
+    newModelIMEI?: NullableStringFieldUpdateOperationsInput | string | null
+    manualQcReport?: NullableJsonNullValueInput | InputJsonValue
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    finalAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    sellingAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    upiBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    isUpiVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isUpiSaved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    confirmAccountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifscCode?: NullableStringFieldUpdateOperationsInput | string | null
+    bankBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    isBankDetailsVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isBankDetailsSaved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    paymentStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    utrrrnnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    paidBy?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaserBankName?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaserPaymentMode?: NullableStringFieldUpdateOperationsInput | string | null
+    isMobileNumberVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isDeclarationSigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    repairParts?: NullableJsonNullValueInput | InputJsonValue
+    repairDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedBC?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DoorstepPickupUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: NullableStringFieldUpdateOperationsInput | string | null
+    imei1?: NullableStringFieldUpdateOperationsInput | string | null
+    imei2?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    diagnosticsProcess?: NullableStringFieldUpdateOperationsInput | string | null
+    mbdgReport?: NullableJsonNullValueInput | InputJsonValue
+    diagnosticsProcessInit?: NullableStringFieldUpdateOperationsInput | string | null
+    qcReportInit?: NullableStringFieldUpdateOperationsInput | string | null
+    qcReport?: NullableStringFieldUpdateOperationsInput | string | null
+    repairRequired?: NullableStringFieldUpdateOperationsInput | string | null
+    repairStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    accessories?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceAge?: NullableStringFieldUpdateOperationsInput | string | null
+    warrantyType?: NullableStringFieldUpdateOperationsInput | string | null
+    hasGstBill?: NullableStringFieldUpdateOperationsInput | string | null
+    gstInvoice?: NullableStringFieldUpdateOperationsInput | string | null
+    boxImeiMatch?: NullableStringFieldUpdateOperationsInput | string | null
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    mobileNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    addressProofType?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    epicNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    voterIdFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    voterIdBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    isAadharVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    voterIdVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    customerSignature?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceReset?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceStartScreenImage?: NullableStringFieldUpdateOperationsInput | string | null
+    customerProofImage?: NullableStringFieldUpdateOperationsInput | string | null
+    customerDeclaration?: NullableStringFieldUpdateOperationsInput | string | null
+    cashPaymentReceiptImage?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentMode?: NullableStringFieldUpdateOperationsInput | string | null
+    exchangeModel?: NullableStringFieldUpdateOperationsInput | string | null
+    newModelIMEI?: NullableStringFieldUpdateOperationsInput | string | null
+    manualQcReport?: NullableJsonNullValueInput | InputJsonValue
+    remarks?: NullableStringFieldUpdateOperationsInput | string | null
+    finalAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    sellingAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    upiBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    isUpiVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isUpiSaved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    confirmAccountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifscCode?: NullableStringFieldUpdateOperationsInput | string | null
+    bankBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    isBankDetailsVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isBankDetailsSaved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    paymentStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    utrrrnnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    paidBy?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaserBankName?: NullableStringFieldUpdateOperationsInput | string | null
+    purchaserPaymentMode?: NullableStringFieldUpdateOperationsInput | string | null
+    isMobileNumberVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isDeclarationSigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    repairParts?: NullableJsonNullValueInput | InputJsonValue
+    repairDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedBC?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -38963,20 +41868,9 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type SessionListRelationFilter = {
-    every?: SessionWhereInput
-    some?: SessionWhereInput
-    none?: SessionWhereInput
-  }
-
-  export type ManagerNullableScalarRelationFilter = {
-    is?: ManagerWhereInput | null
-    isNot?: ManagerWhereInput | null
-  }
-
-  export type TechnicianNullableScalarRelationFilter = {
-    is?: TechnicianWhereInput | null
-    isNot?: TechnicianWhereInput | null
+  export type AdminNullableScalarRelationFilter = {
+    is?: AdminWhereInput | null
+    isNot?: AdminWhereInput | null
   }
 
   export type FieldExecutiveNullableScalarRelationFilter = {
@@ -38984,9 +41878,20 @@ export namespace Prisma {
     isNot?: FieldExecutiveWhereInput | null
   }
 
+  export type ManagerNullableScalarRelationFilter = {
+    is?: ManagerWhereInput | null
+    isNot?: ManagerWhereInput | null
+  }
+
   export type SalesExecutiveNullableScalarRelationFilter = {
     is?: SalesExecutiveWhereInput | null
     isNot?: SalesExecutiveWhereInput | null
+  }
+
+  export type SessionListRelationFilter = {
+    every?: SessionWhereInput
+    some?: SessionWhereInput
+    none?: SessionWhereInput
   }
 
   export type StoreNullableScalarRelationFilter = {
@@ -38994,9 +41899,9 @@ export namespace Prisma {
     isNot?: StoreWhereInput | null
   }
 
-  export type AdminNullableScalarRelationFilter = {
-    is?: AdminWhereInput | null
-    isNot?: AdminWhereInput | null
+  export type TechnicianNullableScalarRelationFilter = {
+    is?: TechnicianWhereInput | null
+    isNot?: TechnicianWhereInput | null
   }
 
   export type SortOrderInput = {
@@ -39026,14 +41931,14 @@ export namespace Prisma {
     VehicleBackImage?: SortOrder
     role?: SortOrder
     storeId?: SortOrder
-    mfaEnabled?: SortOrder
-    mfaSecret?: SortOrder
-    mfaVerified?: SortOrder
     createdBy?: SortOrder
     isAdmin?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mfaEnabled?: SortOrder
+    mfaSecret?: SortOrder
+    mfaVerified?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -39059,14 +41964,14 @@ export namespace Prisma {
     VehicleBackImage?: SortOrder
     role?: SortOrder
     storeId?: SortOrder
-    mfaEnabled?: SortOrder
-    mfaSecret?: SortOrder
-    mfaVerified?: SortOrder
     createdBy?: SortOrder
     isAdmin?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mfaEnabled?: SortOrder
+    mfaSecret?: SortOrder
+    mfaVerified?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -39087,14 +41992,14 @@ export namespace Prisma {
     VehicleBackImage?: SortOrder
     role?: SortOrder
     storeId?: SortOrder
-    mfaEnabled?: SortOrder
-    mfaSecret?: SortOrder
-    mfaVerified?: SortOrder
     createdBy?: SortOrder
     isAdmin?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mfaEnabled?: SortOrder
+    mfaSecret?: SortOrder
+    mfaVerified?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -39573,16 +42478,25 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type AudioJackTestNullableScalarRelationFilter = {
+    is?: AudioJackTestWhereInput | null
+    isNot?: AudioJackTestWhereInput | null
+  }
+
+  export type AudioTestNullableScalarRelationFilter = {
+    is?: AudioTestWhereInput | null
+    isNot?: AudioTestWhereInput | null
+  }
+
+  export type CameraTestNullableScalarRelationFilter = {
+    is?: CameraTestWhereInput | null
+    isNot?: CameraTestWhereInput | null
+  }
+
   export type ConnectivityTestResultListRelationFilter = {
     every?: ConnectivityTestResultWhereInput
     some?: ConnectivityTestResultWhereInput
     none?: ConnectivityTestResultWhereInput
-  }
-
-  export type SimTestResultListRelationFilter = {
-    every?: SimTestResultWhereInput
-    some?: SimTestResultWhereInput
-    none?: SimTestResultWhereInput
   }
 
   export type DeviceTestResultListRelationFilter = {
@@ -39591,14 +42505,9 @@ export namespace Prisma {
     none?: DeviceTestResultWhereInput
   }
 
-  export type ScreenTestNullableScalarRelationFilter = {
-    is?: ScreenTestWhereInput | null
-    isNot?: ScreenTestWhereInput | null
-  }
-
-  export type AudioTestNullableScalarRelationFilter = {
-    is?: AudioTestWhereInput | null
-    isNot?: AudioTestWhereInput | null
+  export type FingerprintTestNullableScalarRelationFilter = {
+    is?: FingerprintTestWhereInput | null
+    isNot?: FingerprintTestWhereInput | null
   }
 
   export type ProximitySensorTestNullableScalarRelationFilter = {
@@ -39606,14 +42515,15 @@ export namespace Prisma {
     isNot?: ProximitySensorTestWhereInput | null
   }
 
-  export type CameraTestNullableScalarRelationFilter = {
-    is?: CameraTestWhereInput | null
-    isNot?: CameraTestWhereInput | null
+  export type ScreenTestNullableScalarRelationFilter = {
+    is?: ScreenTestWhereInput | null
+    isNot?: ScreenTestWhereInput | null
   }
 
-  export type FingerprintTestNullableScalarRelationFilter = {
-    is?: FingerprintTestWhereInput | null
-    isNot?: FingerprintTestWhereInput | null
+  export type SimTestResultListRelationFilter = {
+    every?: SimTestResultWhereInput
+    some?: SimTestResultWhereInput
+    none?: SimTestResultWhereInput
   }
 
   export type UsbTestNullableScalarRelationFilter = {
@@ -39621,20 +42531,15 @@ export namespace Prisma {
     isNot?: UsbTestWhereInput | null
   }
 
-  export type AudioJackTestNullableScalarRelationFilter = {
-    is?: AudioJackTestWhereInput | null
-    isNot?: AudioJackTestWhereInput | null
-  }
-
   export type ConnectivityTestResultOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type SimTestResultOrderByRelationAggregateInput = {
+  export type DeviceTestResultOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type DeviceTestResultOrderByRelationAggregateInput = {
+  export type SimTestResultOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -40087,8 +42992,6 @@ export namespace Prisma {
   export type DeclarationCountOrderByAggregateInput = {
     id?: SortOrder
     orderId?: SortOrder
-    brand?: SortOrder
-    model?: SortOrder
     smc?: SortOrder
     variant?: SortOrder
     imei1?: SortOrder
@@ -40111,13 +43014,12 @@ export namespace Prisma {
     isAccepted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    finalAmount?: SortOrder
   }
 
   export type DeclarationMaxOrderByAggregateInput = {
     id?: SortOrder
     orderId?: SortOrder
-    brand?: SortOrder
-    model?: SortOrder
     smc?: SortOrder
     variant?: SortOrder
     imei1?: SortOrder
@@ -40140,13 +43042,12 @@ export namespace Prisma {
     isAccepted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    finalAmount?: SortOrder
   }
 
   export type DeclarationMinOrderByAggregateInput = {
     id?: SortOrder
     orderId?: SortOrder
-    brand?: SortOrder
-    model?: SortOrder
     smc?: SortOrder
     variant?: SortOrder
     imei1?: SortOrder
@@ -40169,6 +43070,7 @@ export namespace Prisma {
     isAccepted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    finalAmount?: SortOrder
   }
 
   export type StoreScalarRelationFilter = {
@@ -40345,24 +43247,283 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
 
-  export type SessionCreateNestedManyWithoutUserInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type ManagerCreateNestedOneWithoutUserInput = {
-    create?: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutUserInput
-    connect?: ManagerWhereUniqueInput
+  export type DoorstepPickupCountOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrder
+    imei2?: SortOrder
+    deviceFrontImage?: SortOrder
+    deviceBackImage?: SortOrder
+    diagnosticsProcess?: SortOrder
+    mbdgReport?: SortOrder
+    diagnosticsProcessInit?: SortOrder
+    qcReportInit?: SortOrder
+    qcReport?: SortOrder
+    repairRequired?: SortOrder
+    repairStatus?: SortOrder
+    accessories?: SortOrder
+    deviceAge?: SortOrder
+    warrantyType?: SortOrder
+    hasGstBill?: SortOrder
+    gstInvoice?: SortOrder
+    boxImeiMatch?: SortOrder
+    customerName?: SortOrder
+    mobileNumber?: SortOrder
+    addressProofType?: SortOrder
+    aadharNumber?: SortOrder
+    address?: SortOrder
+    fullAddress?: SortOrder
+    aadharFrontImage?: SortOrder
+    aadharBackImage?: SortOrder
+    epicNumber?: SortOrder
+    voterIdFrontImage?: SortOrder
+    voterIdBackImage?: SortOrder
+    isAadharVerified?: SortOrder
+    voterIdVerified?: SortOrder
+    customerSignature?: SortOrder
+    deviceReset?: SortOrder
+    deviceStartScreenImage?: SortOrder
+    customerProofImage?: SortOrder
+    customerDeclaration?: SortOrder
+    cashPaymentReceiptImage?: SortOrder
+    paymentMode?: SortOrder
+    exchangeModel?: SortOrder
+    newModelIMEI?: SortOrder
+    manualQcReport?: SortOrder
+    remarks?: SortOrder
+    finalAmount?: SortOrder
+    sellingAmount?: SortOrder
+    upiId?: SortOrder
+    upiBeneficiaryName?: SortOrder
+    isUpiVerified?: SortOrder
+    isUpiSaved?: SortOrder
+    bankName?: SortOrder
+    accountNumber?: SortOrder
+    confirmAccountNumber?: SortOrder
+    ifscCode?: SortOrder
+    bankBeneficiaryName?: SortOrder
+    isBankDetailsVerified?: SortOrder
+    isBankDetailsSaved?: SortOrder
+    paymentStatus?: SortOrder
+    utrrrnnumber?: SortOrder
+    paidBy?: SortOrder
+    purchaserBankName?: SortOrder
+    purchaserPaymentMode?: SortOrder
+    isMobileNumberVerified?: SortOrder
+    isDeclarationSigned?: SortOrder
+    phoneVerified?: SortOrder
+    repairParts?: SortOrder
+    repairDate?: SortOrder
+    assignedBC?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type TechnicianCreateNestedOneWithoutUserInput = {
-    create?: XOR<TechnicianCreateWithoutUserInput, TechnicianUncheckedCreateWithoutUserInput>
-    connectOrCreate?: TechnicianCreateOrConnectWithoutUserInput
-    connect?: TechnicianWhereUniqueInput
+  export type DoorstepPickupAvgOrderByAggregateInput = {
+    finalAmount?: SortOrder
+    sellingAmount?: SortOrder
+  }
+
+  export type DoorstepPickupMaxOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrder
+    imei2?: SortOrder
+    deviceFrontImage?: SortOrder
+    deviceBackImage?: SortOrder
+    diagnosticsProcess?: SortOrder
+    diagnosticsProcessInit?: SortOrder
+    qcReportInit?: SortOrder
+    qcReport?: SortOrder
+    repairRequired?: SortOrder
+    repairStatus?: SortOrder
+    accessories?: SortOrder
+    deviceAge?: SortOrder
+    warrantyType?: SortOrder
+    hasGstBill?: SortOrder
+    gstInvoice?: SortOrder
+    boxImeiMatch?: SortOrder
+    customerName?: SortOrder
+    mobileNumber?: SortOrder
+    addressProofType?: SortOrder
+    aadharNumber?: SortOrder
+    address?: SortOrder
+    fullAddress?: SortOrder
+    aadharFrontImage?: SortOrder
+    aadharBackImage?: SortOrder
+    epicNumber?: SortOrder
+    voterIdFrontImage?: SortOrder
+    voterIdBackImage?: SortOrder
+    isAadharVerified?: SortOrder
+    voterIdVerified?: SortOrder
+    customerSignature?: SortOrder
+    deviceReset?: SortOrder
+    deviceStartScreenImage?: SortOrder
+    customerProofImage?: SortOrder
+    customerDeclaration?: SortOrder
+    cashPaymentReceiptImage?: SortOrder
+    paymentMode?: SortOrder
+    exchangeModel?: SortOrder
+    newModelIMEI?: SortOrder
+    remarks?: SortOrder
+    finalAmount?: SortOrder
+    sellingAmount?: SortOrder
+    upiId?: SortOrder
+    upiBeneficiaryName?: SortOrder
+    isUpiVerified?: SortOrder
+    isUpiSaved?: SortOrder
+    bankName?: SortOrder
+    accountNumber?: SortOrder
+    confirmAccountNumber?: SortOrder
+    ifscCode?: SortOrder
+    bankBeneficiaryName?: SortOrder
+    isBankDetailsVerified?: SortOrder
+    isBankDetailsSaved?: SortOrder
+    paymentStatus?: SortOrder
+    utrrrnnumber?: SortOrder
+    paidBy?: SortOrder
+    purchaserBankName?: SortOrder
+    purchaserPaymentMode?: SortOrder
+    isMobileNumberVerified?: SortOrder
+    isDeclarationSigned?: SortOrder
+    phoneVerified?: SortOrder
+    repairDate?: SortOrder
+    assignedBC?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DoorstepPickupMinOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    variant?: SortOrder
+    imei1?: SortOrder
+    imei2?: SortOrder
+    deviceFrontImage?: SortOrder
+    deviceBackImage?: SortOrder
+    diagnosticsProcess?: SortOrder
+    diagnosticsProcessInit?: SortOrder
+    qcReportInit?: SortOrder
+    qcReport?: SortOrder
+    repairRequired?: SortOrder
+    repairStatus?: SortOrder
+    accessories?: SortOrder
+    deviceAge?: SortOrder
+    warrantyType?: SortOrder
+    hasGstBill?: SortOrder
+    gstInvoice?: SortOrder
+    boxImeiMatch?: SortOrder
+    customerName?: SortOrder
+    mobileNumber?: SortOrder
+    addressProofType?: SortOrder
+    aadharNumber?: SortOrder
+    address?: SortOrder
+    fullAddress?: SortOrder
+    aadharFrontImage?: SortOrder
+    aadharBackImage?: SortOrder
+    epicNumber?: SortOrder
+    voterIdFrontImage?: SortOrder
+    voterIdBackImage?: SortOrder
+    isAadharVerified?: SortOrder
+    voterIdVerified?: SortOrder
+    customerSignature?: SortOrder
+    deviceReset?: SortOrder
+    deviceStartScreenImage?: SortOrder
+    customerProofImage?: SortOrder
+    customerDeclaration?: SortOrder
+    cashPaymentReceiptImage?: SortOrder
+    paymentMode?: SortOrder
+    exchangeModel?: SortOrder
+    newModelIMEI?: SortOrder
+    remarks?: SortOrder
+    finalAmount?: SortOrder
+    sellingAmount?: SortOrder
+    upiId?: SortOrder
+    upiBeneficiaryName?: SortOrder
+    isUpiVerified?: SortOrder
+    isUpiSaved?: SortOrder
+    bankName?: SortOrder
+    accountNumber?: SortOrder
+    confirmAccountNumber?: SortOrder
+    ifscCode?: SortOrder
+    bankBeneficiaryName?: SortOrder
+    isBankDetailsVerified?: SortOrder
+    isBankDetailsSaved?: SortOrder
+    paymentStatus?: SortOrder
+    utrrrnnumber?: SortOrder
+    paidBy?: SortOrder
+    purchaserBankName?: SortOrder
+    purchaserPaymentMode?: SortOrder
+    isMobileNumberVerified?: SortOrder
+    isDeclarationSigned?: SortOrder
+    phoneVerified?: SortOrder
+    repairDate?: SortOrder
+    assignedBC?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DoorstepPickupSumOrderByAggregateInput = {
+    finalAmount?: SortOrder
+    sellingAmount?: SortOrder
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type AdminCreateNestedOneWithoutUserInput = {
+    create?: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
+    connectOrCreate?: AdminCreateOrConnectWithoutUserInput
+    connect?: AdminWhereUniqueInput
   }
 
   export type FieldExecutiveCreateNestedOneWithoutUserInput = {
@@ -40371,10 +43532,23 @@ export namespace Prisma {
     connect?: FieldExecutiveWhereUniqueInput
   }
 
+  export type ManagerCreateNestedOneWithoutUserInput = {
+    create?: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ManagerCreateOrConnectWithoutUserInput
+    connect?: ManagerWhereUniqueInput
+  }
+
   export type SalesExecutiveCreateNestedOneWithoutUserInput = {
     create?: XOR<SalesExecutiveCreateWithoutUserInput, SalesExecutiveUncheckedCreateWithoutUserInput>
     connectOrCreate?: SalesExecutiveCreateOrConnectWithoutUserInput
     connect?: SalesExecutiveWhereUniqueInput
+  }
+
+  export type SessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
   export type StoreCreateNestedOneWithoutUserInput = {
@@ -40383,10 +43557,34 @@ export namespace Prisma {
     connect?: StoreWhereUniqueInput
   }
 
-  export type AdminCreateNestedOneWithoutUserInput = {
+  export type TechnicianCreateNestedOneWithoutUserInput = {
+    create?: XOR<TechnicianCreateWithoutUserInput, TechnicianUncheckedCreateWithoutUserInput>
+    connectOrCreate?: TechnicianCreateOrConnectWithoutUserInput
+    connect?: TechnicianWhereUniqueInput
+  }
+
+  export type AdminUncheckedCreateNestedOneWithoutUserInput = {
     create?: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
     connectOrCreate?: AdminCreateOrConnectWithoutUserInput
     connect?: AdminWhereUniqueInput
+  }
+
+  export type FieldExecutiveUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<FieldExecutiveCreateWithoutUserInput, FieldExecutiveUncheckedCreateWithoutUserInput>
+    connectOrCreate?: FieldExecutiveCreateOrConnectWithoutUserInput
+    connect?: FieldExecutiveWhereUniqueInput
+  }
+
+  export type ManagerUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ManagerCreateOrConnectWithoutUserInput
+    connect?: ManagerWhereUniqueInput
+  }
+
+  export type SalesExecutiveUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<SalesExecutiveCreateWithoutUserInput, SalesExecutiveUncheckedCreateWithoutUserInput>
+    connectOrCreate?: SalesExecutiveCreateOrConnectWithoutUserInput
+    connect?: SalesExecutiveWhereUniqueInput
   }
 
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
@@ -40396,40 +43594,16 @@ export namespace Prisma {
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
-  export type ManagerUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutUserInput
-    connect?: ManagerWhereUniqueInput
-  }
-
-  export type TechnicianUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<TechnicianCreateWithoutUserInput, TechnicianUncheckedCreateWithoutUserInput>
-    connectOrCreate?: TechnicianCreateOrConnectWithoutUserInput
-    connect?: TechnicianWhereUniqueInput
-  }
-
-  export type FieldExecutiveUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<FieldExecutiveCreateWithoutUserInput, FieldExecutiveUncheckedCreateWithoutUserInput>
-    connectOrCreate?: FieldExecutiveCreateOrConnectWithoutUserInput
-    connect?: FieldExecutiveWhereUniqueInput
-  }
-
-  export type SalesExecutiveUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<SalesExecutiveCreateWithoutUserInput, SalesExecutiveUncheckedCreateWithoutUserInput>
-    connectOrCreate?: SalesExecutiveCreateOrConnectWithoutUserInput
-    connect?: SalesExecutiveWhereUniqueInput
-  }
-
   export type StoreUncheckedCreateNestedOneWithoutUserInput = {
     create?: XOR<StoreCreateWithoutUserInput, StoreUncheckedCreateWithoutUserInput>
     connectOrCreate?: StoreCreateOrConnectWithoutUserInput
     connect?: StoreWhereUniqueInput
   }
 
-  export type AdminUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
-    connectOrCreate?: AdminCreateOrConnectWithoutUserInput
-    connect?: AdminWhereUniqueInput
+  export type TechnicianUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<TechnicianCreateWithoutUserInput, TechnicianUncheckedCreateWithoutUserInput>
+    connectOrCreate?: TechnicianCreateOrConnectWithoutUserInput
+    connect?: TechnicianWhereUniqueInput
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -40480,6 +43654,46 @@ export namespace Prisma {
     set?: Date | string
   }
 
+  export type AdminUpdateOneWithoutUserNestedInput = {
+    create?: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
+    connectOrCreate?: AdminCreateOrConnectWithoutUserInput
+    upsert?: AdminUpsertWithoutUserInput
+    disconnect?: AdminWhereInput | boolean
+    delete?: AdminWhereInput | boolean
+    connect?: AdminWhereUniqueInput
+    update?: XOR<XOR<AdminUpdateToOneWithWhereWithoutUserInput, AdminUpdateWithoutUserInput>, AdminUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FieldExecutiveUpdateOneWithoutUserNestedInput = {
+    create?: XOR<FieldExecutiveCreateWithoutUserInput, FieldExecutiveUncheckedCreateWithoutUserInput>
+    connectOrCreate?: FieldExecutiveCreateOrConnectWithoutUserInput
+    upsert?: FieldExecutiveUpsertWithoutUserInput
+    disconnect?: FieldExecutiveWhereInput | boolean
+    delete?: FieldExecutiveWhereInput | boolean
+    connect?: FieldExecutiveWhereUniqueInput
+    update?: XOR<XOR<FieldExecutiveUpdateToOneWithWhereWithoutUserInput, FieldExecutiveUpdateWithoutUserInput>, FieldExecutiveUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ManagerUpdateOneWithoutUserNestedInput = {
+    create?: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ManagerCreateOrConnectWithoutUserInput
+    upsert?: ManagerUpsertWithoutUserInput
+    disconnect?: ManagerWhereInput | boolean
+    delete?: ManagerWhereInput | boolean
+    connect?: ManagerWhereUniqueInput
+    update?: XOR<XOR<ManagerUpdateToOneWithWhereWithoutUserInput, ManagerUpdateWithoutUserInput>, ManagerUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SalesExecutiveUpdateOneWithoutUserNestedInput = {
+    create?: XOR<SalesExecutiveCreateWithoutUserInput, SalesExecutiveUncheckedCreateWithoutUserInput>
+    connectOrCreate?: SalesExecutiveCreateOrConnectWithoutUserInput
+    upsert?: SalesExecutiveUpsertWithoutUserInput
+    disconnect?: SalesExecutiveWhereInput | boolean
+    delete?: SalesExecutiveWhereInput | boolean
+    connect?: SalesExecutiveWhereUniqueInput
+    update?: XOR<XOR<SalesExecutiveUpdateToOneWithWhereWithoutUserInput, SalesExecutiveUpdateWithoutUserInput>, SalesExecutiveUncheckedUpdateWithoutUserInput>
+  }
+
   export type SessionUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -40494,14 +43708,14 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
-  export type ManagerUpdateOneWithoutUserNestedInput = {
-    create?: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutUserInput
-    upsert?: ManagerUpsertWithoutUserInput
-    disconnect?: ManagerWhereInput | boolean
-    delete?: ManagerWhereInput | boolean
-    connect?: ManagerWhereUniqueInput
-    update?: XOR<XOR<ManagerUpdateToOneWithWhereWithoutUserInput, ManagerUpdateWithoutUserInput>, ManagerUncheckedUpdateWithoutUserInput>
+  export type StoreUpdateOneWithoutUserNestedInput = {
+    create?: XOR<StoreCreateWithoutUserInput, StoreUncheckedCreateWithoutUserInput>
+    connectOrCreate?: StoreCreateOrConnectWithoutUserInput
+    upsert?: StoreUpsertWithoutUserInput
+    disconnect?: StoreWhereInput | boolean
+    delete?: StoreWhereInput | boolean
+    connect?: StoreWhereUniqueInput
+    update?: XOR<XOR<StoreUpdateToOneWithWhereWithoutUserInput, StoreUpdateWithoutUserInput>, StoreUncheckedUpdateWithoutUserInput>
   }
 
   export type TechnicianUpdateOneWithoutUserNestedInput = {
@@ -40514,7 +43728,17 @@ export namespace Prisma {
     update?: XOR<XOR<TechnicianUpdateToOneWithWhereWithoutUserInput, TechnicianUpdateWithoutUserInput>, TechnicianUncheckedUpdateWithoutUserInput>
   }
 
-  export type FieldExecutiveUpdateOneWithoutUserNestedInput = {
+  export type AdminUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
+    connectOrCreate?: AdminCreateOrConnectWithoutUserInput
+    upsert?: AdminUpsertWithoutUserInput
+    disconnect?: AdminWhereInput | boolean
+    delete?: AdminWhereInput | boolean
+    connect?: AdminWhereUniqueInput
+    update?: XOR<XOR<AdminUpdateToOneWithWhereWithoutUserInput, AdminUpdateWithoutUserInput>, AdminUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput = {
     create?: XOR<FieldExecutiveCreateWithoutUserInput, FieldExecutiveUncheckedCreateWithoutUserInput>
     connectOrCreate?: FieldExecutiveCreateOrConnectWithoutUserInput
     upsert?: FieldExecutiveUpsertWithoutUserInput
@@ -40524,7 +43748,17 @@ export namespace Prisma {
     update?: XOR<XOR<FieldExecutiveUpdateToOneWithWhereWithoutUserInput, FieldExecutiveUpdateWithoutUserInput>, FieldExecutiveUncheckedUpdateWithoutUserInput>
   }
 
-  export type SalesExecutiveUpdateOneWithoutUserNestedInput = {
+  export type ManagerUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ManagerCreateOrConnectWithoutUserInput
+    upsert?: ManagerUpsertWithoutUserInput
+    disconnect?: ManagerWhereInput | boolean
+    delete?: ManagerWhereInput | boolean
+    connect?: ManagerWhereUniqueInput
+    update?: XOR<XOR<ManagerUpdateToOneWithWhereWithoutUserInput, ManagerUpdateWithoutUserInput>, ManagerUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput = {
     create?: XOR<SalesExecutiveCreateWithoutUserInput, SalesExecutiveUncheckedCreateWithoutUserInput>
     connectOrCreate?: SalesExecutiveCreateOrConnectWithoutUserInput
     upsert?: SalesExecutiveUpsertWithoutUserInput
@@ -40532,26 +43766,6 @@ export namespace Prisma {
     delete?: SalesExecutiveWhereInput | boolean
     connect?: SalesExecutiveWhereUniqueInput
     update?: XOR<XOR<SalesExecutiveUpdateToOneWithWhereWithoutUserInput, SalesExecutiveUpdateWithoutUserInput>, SalesExecutiveUncheckedUpdateWithoutUserInput>
-  }
-
-  export type StoreUpdateOneWithoutUserNestedInput = {
-    create?: XOR<StoreCreateWithoutUserInput, StoreUncheckedCreateWithoutUserInput>
-    connectOrCreate?: StoreCreateOrConnectWithoutUserInput
-    upsert?: StoreUpsertWithoutUserInput
-    disconnect?: StoreWhereInput | boolean
-    delete?: StoreWhereInput | boolean
-    connect?: StoreWhereUniqueInput
-    update?: XOR<XOR<StoreUpdateToOneWithWhereWithoutUserInput, StoreUpdateWithoutUserInput>, StoreUncheckedUpdateWithoutUserInput>
-  }
-
-  export type AdminUpdateOneWithoutUserNestedInput = {
-    create?: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
-    connectOrCreate?: AdminCreateOrConnectWithoutUserInput
-    upsert?: AdminUpsertWithoutUserInput
-    disconnect?: AdminWhereInput | boolean
-    delete?: AdminWhereInput | boolean
-    connect?: AdminWhereUniqueInput
-    update?: XOR<XOR<AdminUpdateToOneWithWhereWithoutUserInput, AdminUpdateWithoutUserInput>, AdminUncheckedUpdateWithoutUserInput>
   }
 
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
@@ -40568,46 +43782,6 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
-  export type ManagerUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutUserInput
-    upsert?: ManagerUpsertWithoutUserInput
-    disconnect?: ManagerWhereInput | boolean
-    delete?: ManagerWhereInput | boolean
-    connect?: ManagerWhereUniqueInput
-    update?: XOR<XOR<ManagerUpdateToOneWithWhereWithoutUserInput, ManagerUpdateWithoutUserInput>, ManagerUncheckedUpdateWithoutUserInput>
-  }
-
-  export type TechnicianUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<TechnicianCreateWithoutUserInput, TechnicianUncheckedCreateWithoutUserInput>
-    connectOrCreate?: TechnicianCreateOrConnectWithoutUserInput
-    upsert?: TechnicianUpsertWithoutUserInput
-    disconnect?: TechnicianWhereInput | boolean
-    delete?: TechnicianWhereInput | boolean
-    connect?: TechnicianWhereUniqueInput
-    update?: XOR<XOR<TechnicianUpdateToOneWithWhereWithoutUserInput, TechnicianUpdateWithoutUserInput>, TechnicianUncheckedUpdateWithoutUserInput>
-  }
-
-  export type FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<FieldExecutiveCreateWithoutUserInput, FieldExecutiveUncheckedCreateWithoutUserInput>
-    connectOrCreate?: FieldExecutiveCreateOrConnectWithoutUserInput
-    upsert?: FieldExecutiveUpsertWithoutUserInput
-    disconnect?: FieldExecutiveWhereInput | boolean
-    delete?: FieldExecutiveWhereInput | boolean
-    connect?: FieldExecutiveWhereUniqueInput
-    update?: XOR<XOR<FieldExecutiveUpdateToOneWithWhereWithoutUserInput, FieldExecutiveUpdateWithoutUserInput>, FieldExecutiveUncheckedUpdateWithoutUserInput>
-  }
-
-  export type SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<SalesExecutiveCreateWithoutUserInput, SalesExecutiveUncheckedCreateWithoutUserInput>
-    connectOrCreate?: SalesExecutiveCreateOrConnectWithoutUserInput
-    upsert?: SalesExecutiveUpsertWithoutUserInput
-    disconnect?: SalesExecutiveWhereInput | boolean
-    delete?: SalesExecutiveWhereInput | boolean
-    connect?: SalesExecutiveWhereUniqueInput
-    update?: XOR<XOR<SalesExecutiveUpdateToOneWithWhereWithoutUserInput, SalesExecutiveUpdateWithoutUserInput>, SalesExecutiveUncheckedUpdateWithoutUserInput>
-  }
-
   export type StoreUncheckedUpdateOneWithoutUserNestedInput = {
     create?: XOR<StoreCreateWithoutUserInput, StoreUncheckedCreateWithoutUserInput>
     connectOrCreate?: StoreCreateOrConnectWithoutUserInput
@@ -40618,14 +43792,14 @@ export namespace Prisma {
     update?: XOR<XOR<StoreUpdateToOneWithWhereWithoutUserInput, StoreUpdateWithoutUserInput>, StoreUncheckedUpdateWithoutUserInput>
   }
 
-  export type AdminUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
-    connectOrCreate?: AdminCreateOrConnectWithoutUserInput
-    upsert?: AdminUpsertWithoutUserInput
-    disconnect?: AdminWhereInput | boolean
-    delete?: AdminWhereInput | boolean
-    connect?: AdminWhereUniqueInput
-    update?: XOR<XOR<AdminUpdateToOneWithWhereWithoutUserInput, AdminUpdateWithoutUserInput>, AdminUncheckedUpdateWithoutUserInput>
+  export type TechnicianUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<TechnicianCreateWithoutUserInput, TechnicianUncheckedCreateWithoutUserInput>
+    connectOrCreate?: TechnicianCreateOrConnectWithoutUserInput
+    upsert?: TechnicianUpsertWithoutUserInput
+    disconnect?: TechnicianWhereInput | boolean
+    delete?: TechnicianWhereInput | boolean
+    connect?: TechnicianWhereUniqueInput
+    update?: XOR<XOR<TechnicianUpdateToOneWithWhereWithoutUserInput, TechnicianUpdateWithoutUserInput>, TechnicianUncheckedUpdateWithoutUserInput>
   }
 
   export type UserCreateNestedOneWithoutAdminInput = {
@@ -40642,30 +43816,22 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAdminInput, UserUpdateWithoutAdminInput>, UserUncheckedUpdateWithoutAdminInput>
   }
 
-  export type UserCreateNestedOneWithoutManagerInput = {
-    create?: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput>
-    connectOrCreate?: UserCreateOrConnectWithoutManagerInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type BankDetailsCreateNestedOneWithoutManagerInput = {
     create?: XOR<BankDetailsCreateWithoutManagerInput, BankDetailsUncheckedCreateWithoutManagerInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutManagerInput
     connect?: BankDetailsWhereUniqueInput
   }
 
+  export type UserCreateNestedOneWithoutManagerInput = {
+    create?: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput>
+    connectOrCreate?: UserCreateOrConnectWithoutManagerInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type BankDetailsUncheckedCreateNestedOneWithoutManagerInput = {
     create?: XOR<BankDetailsCreateWithoutManagerInput, BankDetailsUncheckedCreateWithoutManagerInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutManagerInput
     connect?: BankDetailsWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutManagerNestedInput = {
-    create?: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput>
-    connectOrCreate?: UserCreateOrConnectWithoutManagerInput
-    upsert?: UserUpsertWithoutManagerInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutManagerInput, UserUpdateWithoutManagerInput>, UserUncheckedUpdateWithoutManagerInput>
   }
 
   export type BankDetailsUpdateOneWithoutManagerNestedInput = {
@@ -40678,6 +43844,14 @@ export namespace Prisma {
     update?: XOR<XOR<BankDetailsUpdateToOneWithWhereWithoutManagerInput, BankDetailsUpdateWithoutManagerInput>, BankDetailsUncheckedUpdateWithoutManagerInput>
   }
 
+  export type UserUpdateOneRequiredWithoutManagerNestedInput = {
+    create?: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput>
+    connectOrCreate?: UserCreateOrConnectWithoutManagerInput
+    upsert?: UserUpsertWithoutManagerInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutManagerInput, UserUpdateWithoutManagerInput>, UserUncheckedUpdateWithoutManagerInput>
+  }
+
   export type BankDetailsUncheckedUpdateOneWithoutManagerNestedInput = {
     create?: XOR<BankDetailsCreateWithoutManagerInput, BankDetailsUncheckedCreateWithoutManagerInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutManagerInput
@@ -40688,30 +43862,22 @@ export namespace Prisma {
     update?: XOR<XOR<BankDetailsUpdateToOneWithWhereWithoutManagerInput, BankDetailsUpdateWithoutManagerInput>, BankDetailsUncheckedUpdateWithoutManagerInput>
   }
 
-  export type UserCreateNestedOneWithoutTechnicianInput = {
-    create?: XOR<UserCreateWithoutTechnicianInput, UserUncheckedCreateWithoutTechnicianInput>
-    connectOrCreate?: UserCreateOrConnectWithoutTechnicianInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type BankDetailsCreateNestedOneWithoutTechnicianInput = {
     create?: XOR<BankDetailsCreateWithoutTechnicianInput, BankDetailsUncheckedCreateWithoutTechnicianInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutTechnicianInput
     connect?: BankDetailsWhereUniqueInput
   }
 
+  export type UserCreateNestedOneWithoutTechnicianInput = {
+    create?: XOR<UserCreateWithoutTechnicianInput, UserUncheckedCreateWithoutTechnicianInput>
+    connectOrCreate?: UserCreateOrConnectWithoutTechnicianInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type BankDetailsUncheckedCreateNestedOneWithoutTechnicianInput = {
     create?: XOR<BankDetailsCreateWithoutTechnicianInput, BankDetailsUncheckedCreateWithoutTechnicianInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutTechnicianInput
     connect?: BankDetailsWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutTechnicianNestedInput = {
-    create?: XOR<UserCreateWithoutTechnicianInput, UserUncheckedCreateWithoutTechnicianInput>
-    connectOrCreate?: UserCreateOrConnectWithoutTechnicianInput
-    upsert?: UserUpsertWithoutTechnicianInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTechnicianInput, UserUpdateWithoutTechnicianInput>, UserUncheckedUpdateWithoutTechnicianInput>
   }
 
   export type BankDetailsUpdateOneWithoutTechnicianNestedInput = {
@@ -40724,6 +43890,14 @@ export namespace Prisma {
     update?: XOR<XOR<BankDetailsUpdateToOneWithWhereWithoutTechnicianInput, BankDetailsUpdateWithoutTechnicianInput>, BankDetailsUncheckedUpdateWithoutTechnicianInput>
   }
 
+  export type UserUpdateOneRequiredWithoutTechnicianNestedInput = {
+    create?: XOR<UserCreateWithoutTechnicianInput, UserUncheckedCreateWithoutTechnicianInput>
+    connectOrCreate?: UserCreateOrConnectWithoutTechnicianInput
+    upsert?: UserUpsertWithoutTechnicianInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTechnicianInput, UserUpdateWithoutTechnicianInput>, UserUncheckedUpdateWithoutTechnicianInput>
+  }
+
   export type BankDetailsUncheckedUpdateOneWithoutTechnicianNestedInput = {
     create?: XOR<BankDetailsCreateWithoutTechnicianInput, BankDetailsUncheckedCreateWithoutTechnicianInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutTechnicianInput
@@ -40734,30 +43908,22 @@ export namespace Prisma {
     update?: XOR<XOR<BankDetailsUpdateToOneWithWhereWithoutTechnicianInput, BankDetailsUpdateWithoutTechnicianInput>, BankDetailsUncheckedUpdateWithoutTechnicianInput>
   }
 
-  export type UserCreateNestedOneWithoutFieldExecutiveInput = {
-    create?: XOR<UserCreateWithoutFieldExecutiveInput, UserUncheckedCreateWithoutFieldExecutiveInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFieldExecutiveInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type BankDetailsCreateNestedOneWithoutFieldExecutiveInput = {
     create?: XOR<BankDetailsCreateWithoutFieldExecutiveInput, BankDetailsUncheckedCreateWithoutFieldExecutiveInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutFieldExecutiveInput
     connect?: BankDetailsWhereUniqueInput
   }
 
+  export type UserCreateNestedOneWithoutFieldExecutiveInput = {
+    create?: XOR<UserCreateWithoutFieldExecutiveInput, UserUncheckedCreateWithoutFieldExecutiveInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFieldExecutiveInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type BankDetailsUncheckedCreateNestedOneWithoutFieldExecutiveInput = {
     create?: XOR<BankDetailsCreateWithoutFieldExecutiveInput, BankDetailsUncheckedCreateWithoutFieldExecutiveInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutFieldExecutiveInput
     connect?: BankDetailsWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutFieldExecutiveNestedInput = {
-    create?: XOR<UserCreateWithoutFieldExecutiveInput, UserUncheckedCreateWithoutFieldExecutiveInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFieldExecutiveInput
-    upsert?: UserUpsertWithoutFieldExecutiveInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFieldExecutiveInput, UserUpdateWithoutFieldExecutiveInput>, UserUncheckedUpdateWithoutFieldExecutiveInput>
   }
 
   export type BankDetailsUpdateOneWithoutFieldExecutiveNestedInput = {
@@ -40770,6 +43936,14 @@ export namespace Prisma {
     update?: XOR<XOR<BankDetailsUpdateToOneWithWhereWithoutFieldExecutiveInput, BankDetailsUpdateWithoutFieldExecutiveInput>, BankDetailsUncheckedUpdateWithoutFieldExecutiveInput>
   }
 
+  export type UserUpdateOneRequiredWithoutFieldExecutiveNestedInput = {
+    create?: XOR<UserCreateWithoutFieldExecutiveInput, UserUncheckedCreateWithoutFieldExecutiveInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFieldExecutiveInput
+    upsert?: UserUpsertWithoutFieldExecutiveInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFieldExecutiveInput, UserUpdateWithoutFieldExecutiveInput>, UserUncheckedUpdateWithoutFieldExecutiveInput>
+  }
+
   export type BankDetailsUncheckedUpdateOneWithoutFieldExecutiveNestedInput = {
     create?: XOR<BankDetailsCreateWithoutFieldExecutiveInput, BankDetailsUncheckedCreateWithoutFieldExecutiveInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutFieldExecutiveInput
@@ -40780,30 +43954,22 @@ export namespace Prisma {
     update?: XOR<XOR<BankDetailsUpdateToOneWithWhereWithoutFieldExecutiveInput, BankDetailsUpdateWithoutFieldExecutiveInput>, BankDetailsUncheckedUpdateWithoutFieldExecutiveInput>
   }
 
-  export type UserCreateNestedOneWithoutSalesExecutiveInput = {
-    create?: XOR<UserCreateWithoutSalesExecutiveInput, UserUncheckedCreateWithoutSalesExecutiveInput>
-    connectOrCreate?: UserCreateOrConnectWithoutSalesExecutiveInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type BankDetailsCreateNestedOneWithoutSalesExecutiveInput = {
     create?: XOR<BankDetailsCreateWithoutSalesExecutiveInput, BankDetailsUncheckedCreateWithoutSalesExecutiveInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutSalesExecutiveInput
     connect?: BankDetailsWhereUniqueInput
   }
 
+  export type UserCreateNestedOneWithoutSalesExecutiveInput = {
+    create?: XOR<UserCreateWithoutSalesExecutiveInput, UserUncheckedCreateWithoutSalesExecutiveInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSalesExecutiveInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type BankDetailsUncheckedCreateNestedOneWithoutSalesExecutiveInput = {
     create?: XOR<BankDetailsCreateWithoutSalesExecutiveInput, BankDetailsUncheckedCreateWithoutSalesExecutiveInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutSalesExecutiveInput
     connect?: BankDetailsWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutSalesExecutiveNestedInput = {
-    create?: XOR<UserCreateWithoutSalesExecutiveInput, UserUncheckedCreateWithoutSalesExecutiveInput>
-    connectOrCreate?: UserCreateOrConnectWithoutSalesExecutiveInput
-    upsert?: UserUpsertWithoutSalesExecutiveInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSalesExecutiveInput, UserUpdateWithoutSalesExecutiveInput>, UserUncheckedUpdateWithoutSalesExecutiveInput>
   }
 
   export type BankDetailsUpdateOneWithoutSalesExecutiveNestedInput = {
@@ -40816,6 +43982,14 @@ export namespace Prisma {
     update?: XOR<XOR<BankDetailsUpdateToOneWithWhereWithoutSalesExecutiveInput, BankDetailsUpdateWithoutSalesExecutiveInput>, BankDetailsUncheckedUpdateWithoutSalesExecutiveInput>
   }
 
+  export type UserUpdateOneRequiredWithoutSalesExecutiveNestedInput = {
+    create?: XOR<UserCreateWithoutSalesExecutiveInput, UserUncheckedCreateWithoutSalesExecutiveInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSalesExecutiveInput
+    upsert?: UserUpsertWithoutSalesExecutiveInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSalesExecutiveInput, UserUpdateWithoutSalesExecutiveInput>, UserUncheckedUpdateWithoutSalesExecutiveInput>
+  }
+
   export type BankDetailsUncheckedUpdateOneWithoutSalesExecutiveNestedInput = {
     create?: XOR<BankDetailsCreateWithoutSalesExecutiveInput, BankDetailsUncheckedCreateWithoutSalesExecutiveInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutSalesExecutiveInput
@@ -40824,12 +43998,6 @@ export namespace Prisma {
     delete?: BankDetailsWhereInput | boolean
     connect?: BankDetailsWhereUniqueInput
     update?: XOR<XOR<BankDetailsUpdateToOneWithWhereWithoutSalesExecutiveInput, BankDetailsUpdateWithoutSalesExecutiveInput>, BankDetailsUncheckedUpdateWithoutSalesExecutiveInput>
-  }
-
-  export type UserCreateNestedOneWithoutStoreInput = {
-    create?: XOR<UserCreateWithoutStoreInput, UserUncheckedCreateWithoutStoreInput>
-    connectOrCreate?: UserCreateOrConnectWithoutStoreInput
-    connect?: UserWhereUniqueInput
   }
 
   export type AddressCreateNestedOneWithoutStoreInput = {
@@ -40844,6 +44012,12 @@ export namespace Prisma {
     connect?: BankDetailsWhereUniqueInput
   }
 
+  export type UserCreateNestedOneWithoutStoreInput = {
+    create?: XOR<UserCreateWithoutStoreInput, UserUncheckedCreateWithoutStoreInput>
+    connectOrCreate?: UserCreateOrConnectWithoutStoreInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type AddressUncheckedCreateNestedOneWithoutStoreInput = {
     create?: XOR<AddressCreateWithoutStoreInput, AddressUncheckedCreateWithoutStoreInput>
     connectOrCreate?: AddressCreateOrConnectWithoutStoreInput
@@ -40854,14 +44028,6 @@ export namespace Prisma {
     create?: XOR<BankDetailsCreateWithoutStoreInput, BankDetailsUncheckedCreateWithoutStoreInput>
     connectOrCreate?: BankDetailsCreateOrConnectWithoutStoreInput
     connect?: BankDetailsWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutStoreNestedInput = {
-    create?: XOR<UserCreateWithoutStoreInput, UserUncheckedCreateWithoutStoreInput>
-    connectOrCreate?: UserCreateOrConnectWithoutStoreInput
-    upsert?: UserUpsertWithoutStoreInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutStoreInput, UserUpdateWithoutStoreInput>, UserUncheckedUpdateWithoutStoreInput>
   }
 
   export type AddressUpdateOneWithoutStoreNestedInput = {
@@ -40884,6 +44050,14 @@ export namespace Prisma {
     update?: XOR<XOR<BankDetailsUpdateToOneWithWhereWithoutStoreInput, BankDetailsUpdateWithoutStoreInput>, BankDetailsUncheckedUpdateWithoutStoreInput>
   }
 
+  export type UserUpdateOneRequiredWithoutStoreNestedInput = {
+    create?: XOR<UserCreateWithoutStoreInput, UserUncheckedCreateWithoutStoreInput>
+    connectOrCreate?: UserCreateOrConnectWithoutStoreInput
+    upsert?: UserUpsertWithoutStoreInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutStoreInput, UserUpdateWithoutStoreInput>, UserUncheckedUpdateWithoutStoreInput>
+  }
+
   export type AddressUncheckedUpdateOneWithoutStoreNestedInput = {
     create?: XOR<AddressCreateWithoutStoreInput, AddressUncheckedCreateWithoutStoreInput>
     connectOrCreate?: AddressCreateOrConnectWithoutStoreInput
@@ -40904,22 +44078,16 @@ export namespace Prisma {
     update?: XOR<XOR<BankDetailsUpdateToOneWithWhereWithoutStoreInput, BankDetailsUpdateWithoutStoreInput>, BankDetailsUncheckedUpdateWithoutStoreInput>
   }
 
-  export type ManagerCreateNestedOneWithoutBankDetailsInput = {
-    create?: XOR<ManagerCreateWithoutBankDetailsInput, ManagerUncheckedCreateWithoutBankDetailsInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutBankDetailsInput
-    connect?: ManagerWhereUniqueInput
-  }
-
-  export type TechnicianCreateNestedOneWithoutBankDetailsInput = {
-    create?: XOR<TechnicianCreateWithoutBankDetailsInput, TechnicianUncheckedCreateWithoutBankDetailsInput>
-    connectOrCreate?: TechnicianCreateOrConnectWithoutBankDetailsInput
-    connect?: TechnicianWhereUniqueInput
-  }
-
   export type FieldExecutiveCreateNestedOneWithoutBankDetailsInput = {
     create?: XOR<FieldExecutiveCreateWithoutBankDetailsInput, FieldExecutiveUncheckedCreateWithoutBankDetailsInput>
     connectOrCreate?: FieldExecutiveCreateOrConnectWithoutBankDetailsInput
     connect?: FieldExecutiveWhereUniqueInput
+  }
+
+  export type ManagerCreateNestedOneWithoutBankDetailsInput = {
+    create?: XOR<ManagerCreateWithoutBankDetailsInput, ManagerUncheckedCreateWithoutBankDetailsInput>
+    connectOrCreate?: ManagerCreateOrConnectWithoutBankDetailsInput
+    connect?: ManagerWhereUniqueInput
   }
 
   export type SalesExecutiveCreateNestedOneWithoutBankDetailsInput = {
@@ -40934,24 +44102,10 @@ export namespace Prisma {
     connect?: StoreWhereUniqueInput
   }
 
-  export type ManagerUpdateOneWithoutBankDetailsNestedInput = {
-    create?: XOR<ManagerCreateWithoutBankDetailsInput, ManagerUncheckedCreateWithoutBankDetailsInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutBankDetailsInput
-    upsert?: ManagerUpsertWithoutBankDetailsInput
-    disconnect?: ManagerWhereInput | boolean
-    delete?: ManagerWhereInput | boolean
-    connect?: ManagerWhereUniqueInput
-    update?: XOR<XOR<ManagerUpdateToOneWithWhereWithoutBankDetailsInput, ManagerUpdateWithoutBankDetailsInput>, ManagerUncheckedUpdateWithoutBankDetailsInput>
-  }
-
-  export type TechnicianUpdateOneWithoutBankDetailsNestedInput = {
+  export type TechnicianCreateNestedOneWithoutBankDetailsInput = {
     create?: XOR<TechnicianCreateWithoutBankDetailsInput, TechnicianUncheckedCreateWithoutBankDetailsInput>
     connectOrCreate?: TechnicianCreateOrConnectWithoutBankDetailsInput
-    upsert?: TechnicianUpsertWithoutBankDetailsInput
-    disconnect?: TechnicianWhereInput | boolean
-    delete?: TechnicianWhereInput | boolean
     connect?: TechnicianWhereUniqueInput
-    update?: XOR<XOR<TechnicianUpdateToOneWithWhereWithoutBankDetailsInput, TechnicianUpdateWithoutBankDetailsInput>, TechnicianUncheckedUpdateWithoutBankDetailsInput>
   }
 
   export type FieldExecutiveUpdateOneWithoutBankDetailsNestedInput = {
@@ -40962,6 +44116,16 @@ export namespace Prisma {
     delete?: FieldExecutiveWhereInput | boolean
     connect?: FieldExecutiveWhereUniqueInput
     update?: XOR<XOR<FieldExecutiveUpdateToOneWithWhereWithoutBankDetailsInput, FieldExecutiveUpdateWithoutBankDetailsInput>, FieldExecutiveUncheckedUpdateWithoutBankDetailsInput>
+  }
+
+  export type ManagerUpdateOneWithoutBankDetailsNestedInput = {
+    create?: XOR<ManagerCreateWithoutBankDetailsInput, ManagerUncheckedCreateWithoutBankDetailsInput>
+    connectOrCreate?: ManagerCreateOrConnectWithoutBankDetailsInput
+    upsert?: ManagerUpsertWithoutBankDetailsInput
+    disconnect?: ManagerWhereInput | boolean
+    delete?: ManagerWhereInput | boolean
+    connect?: ManagerWhereUniqueInput
+    update?: XOR<XOR<ManagerUpdateToOneWithWhereWithoutBankDetailsInput, ManagerUpdateWithoutBankDetailsInput>, ManagerUncheckedUpdateWithoutBankDetailsInput>
   }
 
   export type SalesExecutiveUpdateOneWithoutBankDetailsNestedInput = {
@@ -40982,6 +44146,16 @@ export namespace Prisma {
     delete?: StoreWhereInput | boolean
     connect?: StoreWhereUniqueInput
     update?: XOR<XOR<StoreUpdateToOneWithWhereWithoutBankDetailsInput, StoreUpdateWithoutBankDetailsInput>, StoreUncheckedUpdateWithoutBankDetailsInput>
+  }
+
+  export type TechnicianUpdateOneWithoutBankDetailsNestedInput = {
+    create?: XOR<TechnicianCreateWithoutBankDetailsInput, TechnicianUncheckedCreateWithoutBankDetailsInput>
+    connectOrCreate?: TechnicianCreateOrConnectWithoutBankDetailsInput
+    upsert?: TechnicianUpsertWithoutBankDetailsInput
+    disconnect?: TechnicianWhereInput | boolean
+    delete?: TechnicianWhereInput | boolean
+    connect?: TechnicianWhereUniqueInput
+    update?: XOR<XOR<TechnicianUpdateToOneWithWhereWithoutBankDetailsInput, TechnicianUpdateWithoutBankDetailsInput>, TechnicianUncheckedUpdateWithoutBankDetailsInput>
   }
 
   export type UserCreateNestedOneWithoutSessionsInput = {
@@ -41006,18 +44180,29 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
   }
 
+  export type AudioJackTestCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<AudioJackTestCreateWithoutDeviceTestInput, AudioJackTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: AudioJackTestCreateOrConnectWithoutDeviceTestInput
+    connect?: AudioJackTestWhereUniqueInput
+  }
+
+  export type AudioTestCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<AudioTestCreateWithoutDeviceTestInput, AudioTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: AudioTestCreateOrConnectWithoutDeviceTestInput
+    connect?: AudioTestWhereUniqueInput
+  }
+
+  export type CameraTestCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: CameraTestCreateOrConnectWithoutDeviceTestInput
+    connect?: CameraTestWhereUniqueInput
+  }
+
   export type ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput = {
     create?: XOR<ConnectivityTestResultCreateWithoutDeviceTestInput, ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput> | ConnectivityTestResultCreateWithoutDeviceTestInput[] | ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput[]
     connectOrCreate?: ConnectivityTestResultCreateOrConnectWithoutDeviceTestInput | ConnectivityTestResultCreateOrConnectWithoutDeviceTestInput[]
     createMany?: ConnectivityTestResultCreateManyDeviceTestInputEnvelope
     connect?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
-  }
-
-  export type SimTestResultCreateNestedManyWithoutDeviceTestInput = {
-    create?: XOR<SimTestResultCreateWithoutDeviceTestInput, SimTestResultUncheckedCreateWithoutDeviceTestInput> | SimTestResultCreateWithoutDeviceTestInput[] | SimTestResultUncheckedCreateWithoutDeviceTestInput[]
-    connectOrCreate?: SimTestResultCreateOrConnectWithoutDeviceTestInput | SimTestResultCreateOrConnectWithoutDeviceTestInput[]
-    createMany?: SimTestResultCreateManyDeviceTestInputEnvelope
-    connect?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
   }
 
   export type DeviceTestResultCreateNestedManyWithoutDeviceTestInput = {
@@ -41027,16 +44212,10 @@ export namespace Prisma {
     connect?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
   }
 
-  export type ScreenTestCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: ScreenTestCreateOrConnectWithoutDeviceTestInput
-    connect?: ScreenTestWhereUniqueInput
-  }
-
-  export type AudioTestCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<AudioTestCreateWithoutDeviceTestInput, AudioTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: AudioTestCreateOrConnectWithoutDeviceTestInput
-    connect?: AudioTestWhereUniqueInput
+  export type FingerprintTestCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<FingerprintTestCreateWithoutDeviceTestInput, FingerprintTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: FingerprintTestCreateOrConnectWithoutDeviceTestInput
+    connect?: FingerprintTestWhereUniqueInput
   }
 
   export type ProximitySensorTestCreateNestedOneWithoutDeviceTestInput = {
@@ -41045,82 +44224,20 @@ export namespace Prisma {
     connect?: ProximitySensorTestWhereUniqueInput
   }
 
-  export type CameraTestCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: CameraTestCreateOrConnectWithoutDeviceTestInput
-    connect?: CameraTestWhereUniqueInput
+  export type ScreenTestCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: ScreenTestCreateOrConnectWithoutDeviceTestInput
+    connect?: ScreenTestWhereUniqueInput
   }
 
-  export type FingerprintTestCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<FingerprintTestCreateWithoutDeviceTestInput, FingerprintTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: FingerprintTestCreateOrConnectWithoutDeviceTestInput
-    connect?: FingerprintTestWhereUniqueInput
-  }
-
-  export type UsbTestCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<UsbTestCreateWithoutDeviceTestInput, UsbTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: UsbTestCreateOrConnectWithoutDeviceTestInput
-    connect?: UsbTestWhereUniqueInput
-  }
-
-  export type AudioJackTestCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<AudioJackTestCreateWithoutDeviceTestInput, AudioJackTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: AudioJackTestCreateOrConnectWithoutDeviceTestInput
-    connect?: AudioJackTestWhereUniqueInput
-  }
-
-  export type ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput = {
-    create?: XOR<ConnectivityTestResultCreateWithoutDeviceTestInput, ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput> | ConnectivityTestResultCreateWithoutDeviceTestInput[] | ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput[]
-    connectOrCreate?: ConnectivityTestResultCreateOrConnectWithoutDeviceTestInput | ConnectivityTestResultCreateOrConnectWithoutDeviceTestInput[]
-    createMany?: ConnectivityTestResultCreateManyDeviceTestInputEnvelope
-    connect?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
-  }
-
-  export type SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput = {
+  export type SimTestResultCreateNestedManyWithoutDeviceTestInput = {
     create?: XOR<SimTestResultCreateWithoutDeviceTestInput, SimTestResultUncheckedCreateWithoutDeviceTestInput> | SimTestResultCreateWithoutDeviceTestInput[] | SimTestResultUncheckedCreateWithoutDeviceTestInput[]
     connectOrCreate?: SimTestResultCreateOrConnectWithoutDeviceTestInput | SimTestResultCreateOrConnectWithoutDeviceTestInput[]
     createMany?: SimTestResultCreateManyDeviceTestInputEnvelope
     connect?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
   }
 
-  export type DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput = {
-    create?: XOR<DeviceTestResultCreateWithoutDeviceTestInput, DeviceTestResultUncheckedCreateWithoutDeviceTestInput> | DeviceTestResultCreateWithoutDeviceTestInput[] | DeviceTestResultUncheckedCreateWithoutDeviceTestInput[]
-    connectOrCreate?: DeviceTestResultCreateOrConnectWithoutDeviceTestInput | DeviceTestResultCreateOrConnectWithoutDeviceTestInput[]
-    createMany?: DeviceTestResultCreateManyDeviceTestInputEnvelope
-    connect?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
-  }
-
-  export type ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: ScreenTestCreateOrConnectWithoutDeviceTestInput
-    connect?: ScreenTestWhereUniqueInput
-  }
-
-  export type AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<AudioTestCreateWithoutDeviceTestInput, AudioTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: AudioTestCreateOrConnectWithoutDeviceTestInput
-    connect?: AudioTestWhereUniqueInput
-  }
-
-  export type ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<ProximitySensorTestCreateWithoutDeviceTestInput, ProximitySensorTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: ProximitySensorTestCreateOrConnectWithoutDeviceTestInput
-    connect?: ProximitySensorTestWhereUniqueInput
-  }
-
-  export type CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: CameraTestCreateOrConnectWithoutDeviceTestInput
-    connect?: CameraTestWhereUniqueInput
-  }
-
-  export type FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
-    create?: XOR<FingerprintTestCreateWithoutDeviceTestInput, FingerprintTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: FingerprintTestCreateOrConnectWithoutDeviceTestInput
-    connect?: FingerprintTestWhereUniqueInput
-  }
-
-  export type UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
+  export type UsbTestCreateNestedOneWithoutDeviceTestInput = {
     create?: XOR<UsbTestCreateWithoutDeviceTestInput, UsbTestUncheckedCreateWithoutDeviceTestInput>
     connectOrCreate?: UsbTestCreateOrConnectWithoutDeviceTestInput
     connect?: UsbTestWhereUniqueInput
@@ -41130,6 +44247,93 @@ export namespace Prisma {
     create?: XOR<AudioJackTestCreateWithoutDeviceTestInput, AudioJackTestUncheckedCreateWithoutDeviceTestInput>
     connectOrCreate?: AudioJackTestCreateOrConnectWithoutDeviceTestInput
     connect?: AudioJackTestWhereUniqueInput
+  }
+
+  export type AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<AudioTestCreateWithoutDeviceTestInput, AudioTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: AudioTestCreateOrConnectWithoutDeviceTestInput
+    connect?: AudioTestWhereUniqueInput
+  }
+
+  export type CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: CameraTestCreateOrConnectWithoutDeviceTestInput
+    connect?: CameraTestWhereUniqueInput
+  }
+
+  export type ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput = {
+    create?: XOR<ConnectivityTestResultCreateWithoutDeviceTestInput, ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput> | ConnectivityTestResultCreateWithoutDeviceTestInput[] | ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput[]
+    connectOrCreate?: ConnectivityTestResultCreateOrConnectWithoutDeviceTestInput | ConnectivityTestResultCreateOrConnectWithoutDeviceTestInput[]
+    createMany?: ConnectivityTestResultCreateManyDeviceTestInputEnvelope
+    connect?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
+  }
+
+  export type DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput = {
+    create?: XOR<DeviceTestResultCreateWithoutDeviceTestInput, DeviceTestResultUncheckedCreateWithoutDeviceTestInput> | DeviceTestResultCreateWithoutDeviceTestInput[] | DeviceTestResultUncheckedCreateWithoutDeviceTestInput[]
+    connectOrCreate?: DeviceTestResultCreateOrConnectWithoutDeviceTestInput | DeviceTestResultCreateOrConnectWithoutDeviceTestInput[]
+    createMany?: DeviceTestResultCreateManyDeviceTestInputEnvelope
+    connect?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
+  }
+
+  export type FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<FingerprintTestCreateWithoutDeviceTestInput, FingerprintTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: FingerprintTestCreateOrConnectWithoutDeviceTestInput
+    connect?: FingerprintTestWhereUniqueInput
+  }
+
+  export type ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<ProximitySensorTestCreateWithoutDeviceTestInput, ProximitySensorTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: ProximitySensorTestCreateOrConnectWithoutDeviceTestInput
+    connect?: ProximitySensorTestWhereUniqueInput
+  }
+
+  export type ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: ScreenTestCreateOrConnectWithoutDeviceTestInput
+    connect?: ScreenTestWhereUniqueInput
+  }
+
+  export type SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput = {
+    create?: XOR<SimTestResultCreateWithoutDeviceTestInput, SimTestResultUncheckedCreateWithoutDeviceTestInput> | SimTestResultCreateWithoutDeviceTestInput[] | SimTestResultUncheckedCreateWithoutDeviceTestInput[]
+    connectOrCreate?: SimTestResultCreateOrConnectWithoutDeviceTestInput | SimTestResultCreateOrConnectWithoutDeviceTestInput[]
+    createMany?: SimTestResultCreateManyDeviceTestInputEnvelope
+    connect?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
+  }
+
+  export type UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput = {
+    create?: XOR<UsbTestCreateWithoutDeviceTestInput, UsbTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: UsbTestCreateOrConnectWithoutDeviceTestInput
+    connect?: UsbTestWhereUniqueInput
+  }
+
+  export type AudioJackTestUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<AudioJackTestCreateWithoutDeviceTestInput, AudioJackTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: AudioJackTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: AudioJackTestUpsertWithoutDeviceTestInput
+    disconnect?: AudioJackTestWhereInput | boolean
+    delete?: AudioJackTestWhereInput | boolean
+    connect?: AudioJackTestWhereUniqueInput
+    update?: XOR<XOR<AudioJackTestUpdateToOneWithWhereWithoutDeviceTestInput, AudioJackTestUpdateWithoutDeviceTestInput>, AudioJackTestUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type AudioTestUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<AudioTestCreateWithoutDeviceTestInput, AudioTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: AudioTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: AudioTestUpsertWithoutDeviceTestInput
+    disconnect?: AudioTestWhereInput | boolean
+    delete?: AudioTestWhereInput | boolean
+    connect?: AudioTestWhereUniqueInput
+    update?: XOR<XOR<AudioTestUpdateToOneWithWhereWithoutDeviceTestInput, AudioTestUpdateWithoutDeviceTestInput>, AudioTestUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type CameraTestUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: CameraTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: CameraTestUpsertWithoutDeviceTestInput
+    disconnect?: CameraTestWhereInput | boolean
+    delete?: CameraTestWhereInput | boolean
+    connect?: CameraTestWhereUniqueInput
+    update?: XOR<XOR<CameraTestUpdateToOneWithWhereWithoutDeviceTestInput, CameraTestUpdateWithoutDeviceTestInput>, CameraTestUncheckedUpdateWithoutDeviceTestInput>
   }
 
   export type ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput = {
@@ -41146,20 +44350,6 @@ export namespace Prisma {
     deleteMany?: ConnectivityTestResultScalarWhereInput | ConnectivityTestResultScalarWhereInput[]
   }
 
-  export type SimTestResultUpdateManyWithoutDeviceTestNestedInput = {
-    create?: XOR<SimTestResultCreateWithoutDeviceTestInput, SimTestResultUncheckedCreateWithoutDeviceTestInput> | SimTestResultCreateWithoutDeviceTestInput[] | SimTestResultUncheckedCreateWithoutDeviceTestInput[]
-    connectOrCreate?: SimTestResultCreateOrConnectWithoutDeviceTestInput | SimTestResultCreateOrConnectWithoutDeviceTestInput[]
-    upsert?: SimTestResultUpsertWithWhereUniqueWithoutDeviceTestInput | SimTestResultUpsertWithWhereUniqueWithoutDeviceTestInput[]
-    createMany?: SimTestResultCreateManyDeviceTestInputEnvelope
-    set?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
-    disconnect?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
-    delete?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
-    connect?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
-    update?: SimTestResultUpdateWithWhereUniqueWithoutDeviceTestInput | SimTestResultUpdateWithWhereUniqueWithoutDeviceTestInput[]
-    updateMany?: SimTestResultUpdateManyWithWhereWithoutDeviceTestInput | SimTestResultUpdateManyWithWhereWithoutDeviceTestInput[]
-    deleteMany?: SimTestResultScalarWhereInput | SimTestResultScalarWhereInput[]
-  }
-
   export type DeviceTestResultUpdateManyWithoutDeviceTestNestedInput = {
     create?: XOR<DeviceTestResultCreateWithoutDeviceTestInput, DeviceTestResultUncheckedCreateWithoutDeviceTestInput> | DeviceTestResultCreateWithoutDeviceTestInput[] | DeviceTestResultUncheckedCreateWithoutDeviceTestInput[]
     connectOrCreate?: DeviceTestResultCreateOrConnectWithoutDeviceTestInput | DeviceTestResultCreateOrConnectWithoutDeviceTestInput[]
@@ -41174,24 +44364,14 @@ export namespace Prisma {
     deleteMany?: DeviceTestResultScalarWhereInput | DeviceTestResultScalarWhereInput[]
   }
 
-  export type ScreenTestUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: ScreenTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: ScreenTestUpsertWithoutDeviceTestInput
-    disconnect?: ScreenTestWhereInput | boolean
-    delete?: ScreenTestWhereInput | boolean
-    connect?: ScreenTestWhereUniqueInput
-    update?: XOR<XOR<ScreenTestUpdateToOneWithWhereWithoutDeviceTestInput, ScreenTestUpdateWithoutDeviceTestInput>, ScreenTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type AudioTestUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<AudioTestCreateWithoutDeviceTestInput, AudioTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: AudioTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: AudioTestUpsertWithoutDeviceTestInput
-    disconnect?: AudioTestWhereInput | boolean
-    delete?: AudioTestWhereInput | boolean
-    connect?: AudioTestWhereUniqueInput
-    update?: XOR<XOR<AudioTestUpdateToOneWithWhereWithoutDeviceTestInput, AudioTestUpdateWithoutDeviceTestInput>, AudioTestUncheckedUpdateWithoutDeviceTestInput>
+  export type FingerprintTestUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<FingerprintTestCreateWithoutDeviceTestInput, FingerprintTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: FingerprintTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: FingerprintTestUpsertWithoutDeviceTestInput
+    disconnect?: FingerprintTestWhereInput | boolean
+    delete?: FingerprintTestWhereInput | boolean
+    connect?: FingerprintTestWhereUniqueInput
+    update?: XOR<XOR<FingerprintTestUpdateToOneWithWhereWithoutDeviceTestInput, FingerprintTestUpdateWithoutDeviceTestInput>, FingerprintTestUncheckedUpdateWithoutDeviceTestInput>
   }
 
   export type ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput = {
@@ -41204,61 +44384,17 @@ export namespace Prisma {
     update?: XOR<XOR<ProximitySensorTestUpdateToOneWithWhereWithoutDeviceTestInput, ProximitySensorTestUpdateWithoutDeviceTestInput>, ProximitySensorTestUncheckedUpdateWithoutDeviceTestInput>
   }
 
-  export type CameraTestUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: CameraTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: CameraTestUpsertWithoutDeviceTestInput
-    disconnect?: CameraTestWhereInput | boolean
-    delete?: CameraTestWhereInput | boolean
-    connect?: CameraTestWhereUniqueInput
-    update?: XOR<XOR<CameraTestUpdateToOneWithWhereWithoutDeviceTestInput, CameraTestUpdateWithoutDeviceTestInput>, CameraTestUncheckedUpdateWithoutDeviceTestInput>
+  export type ScreenTestUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: ScreenTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: ScreenTestUpsertWithoutDeviceTestInput
+    disconnect?: ScreenTestWhereInput | boolean
+    delete?: ScreenTestWhereInput | boolean
+    connect?: ScreenTestWhereUniqueInput
+    update?: XOR<XOR<ScreenTestUpdateToOneWithWhereWithoutDeviceTestInput, ScreenTestUpdateWithoutDeviceTestInput>, ScreenTestUncheckedUpdateWithoutDeviceTestInput>
   }
 
-  export type FingerprintTestUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<FingerprintTestCreateWithoutDeviceTestInput, FingerprintTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: FingerprintTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: FingerprintTestUpsertWithoutDeviceTestInput
-    disconnect?: FingerprintTestWhereInput | boolean
-    delete?: FingerprintTestWhereInput | boolean
-    connect?: FingerprintTestWhereUniqueInput
-    update?: XOR<XOR<FingerprintTestUpdateToOneWithWhereWithoutDeviceTestInput, FingerprintTestUpdateWithoutDeviceTestInput>, FingerprintTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type UsbTestUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<UsbTestCreateWithoutDeviceTestInput, UsbTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: UsbTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: UsbTestUpsertWithoutDeviceTestInput
-    disconnect?: UsbTestWhereInput | boolean
-    delete?: UsbTestWhereInput | boolean
-    connect?: UsbTestWhereUniqueInput
-    update?: XOR<XOR<UsbTestUpdateToOneWithWhereWithoutDeviceTestInput, UsbTestUpdateWithoutDeviceTestInput>, UsbTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type AudioJackTestUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<AudioJackTestCreateWithoutDeviceTestInput, AudioJackTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: AudioJackTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: AudioJackTestUpsertWithoutDeviceTestInput
-    disconnect?: AudioJackTestWhereInput | boolean
-    delete?: AudioJackTestWhereInput | boolean
-    connect?: AudioJackTestWhereUniqueInput
-    update?: XOR<XOR<AudioJackTestUpdateToOneWithWhereWithoutDeviceTestInput, AudioJackTestUpdateWithoutDeviceTestInput>, AudioJackTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput = {
-    create?: XOR<ConnectivityTestResultCreateWithoutDeviceTestInput, ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput> | ConnectivityTestResultCreateWithoutDeviceTestInput[] | ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput[]
-    connectOrCreate?: ConnectivityTestResultCreateOrConnectWithoutDeviceTestInput | ConnectivityTestResultCreateOrConnectWithoutDeviceTestInput[]
-    upsert?: ConnectivityTestResultUpsertWithWhereUniqueWithoutDeviceTestInput | ConnectivityTestResultUpsertWithWhereUniqueWithoutDeviceTestInput[]
-    createMany?: ConnectivityTestResultCreateManyDeviceTestInputEnvelope
-    set?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
-    disconnect?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
-    delete?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
-    connect?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
-    update?: ConnectivityTestResultUpdateWithWhereUniqueWithoutDeviceTestInput | ConnectivityTestResultUpdateWithWhereUniqueWithoutDeviceTestInput[]
-    updateMany?: ConnectivityTestResultUpdateManyWithWhereWithoutDeviceTestInput | ConnectivityTestResultUpdateManyWithWhereWithoutDeviceTestInput[]
-    deleteMany?: ConnectivityTestResultScalarWhereInput | ConnectivityTestResultScalarWhereInput[]
-  }
-
-  export type SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput = {
+  export type SimTestResultUpdateManyWithoutDeviceTestNestedInput = {
     create?: XOR<SimTestResultCreateWithoutDeviceTestInput, SimTestResultUncheckedCreateWithoutDeviceTestInput> | SimTestResultCreateWithoutDeviceTestInput[] | SimTestResultUncheckedCreateWithoutDeviceTestInput[]
     connectOrCreate?: SimTestResultCreateOrConnectWithoutDeviceTestInput | SimTestResultCreateOrConnectWithoutDeviceTestInput[]
     upsert?: SimTestResultUpsertWithWhereUniqueWithoutDeviceTestInput | SimTestResultUpsertWithWhereUniqueWithoutDeviceTestInput[]
@@ -41272,71 +44408,7 @@ export namespace Prisma {
     deleteMany?: SimTestResultScalarWhereInput | SimTestResultScalarWhereInput[]
   }
 
-  export type DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput = {
-    create?: XOR<DeviceTestResultCreateWithoutDeviceTestInput, DeviceTestResultUncheckedCreateWithoutDeviceTestInput> | DeviceTestResultCreateWithoutDeviceTestInput[] | DeviceTestResultUncheckedCreateWithoutDeviceTestInput[]
-    connectOrCreate?: DeviceTestResultCreateOrConnectWithoutDeviceTestInput | DeviceTestResultCreateOrConnectWithoutDeviceTestInput[]
-    upsert?: DeviceTestResultUpsertWithWhereUniqueWithoutDeviceTestInput | DeviceTestResultUpsertWithWhereUniqueWithoutDeviceTestInput[]
-    createMany?: DeviceTestResultCreateManyDeviceTestInputEnvelope
-    set?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
-    disconnect?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
-    delete?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
-    connect?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
-    update?: DeviceTestResultUpdateWithWhereUniqueWithoutDeviceTestInput | DeviceTestResultUpdateWithWhereUniqueWithoutDeviceTestInput[]
-    updateMany?: DeviceTestResultUpdateManyWithWhereWithoutDeviceTestInput | DeviceTestResultUpdateManyWithWhereWithoutDeviceTestInput[]
-    deleteMany?: DeviceTestResultScalarWhereInput | DeviceTestResultScalarWhereInput[]
-  }
-
-  export type ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: ScreenTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: ScreenTestUpsertWithoutDeviceTestInput
-    disconnect?: ScreenTestWhereInput | boolean
-    delete?: ScreenTestWhereInput | boolean
-    connect?: ScreenTestWhereUniqueInput
-    update?: XOR<XOR<ScreenTestUpdateToOneWithWhereWithoutDeviceTestInput, ScreenTestUpdateWithoutDeviceTestInput>, ScreenTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<AudioTestCreateWithoutDeviceTestInput, AudioTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: AudioTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: AudioTestUpsertWithoutDeviceTestInput
-    disconnect?: AudioTestWhereInput | boolean
-    delete?: AudioTestWhereInput | boolean
-    connect?: AudioTestWhereUniqueInput
-    update?: XOR<XOR<AudioTestUpdateToOneWithWhereWithoutDeviceTestInput, AudioTestUpdateWithoutDeviceTestInput>, AudioTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<ProximitySensorTestCreateWithoutDeviceTestInput, ProximitySensorTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: ProximitySensorTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: ProximitySensorTestUpsertWithoutDeviceTestInput
-    disconnect?: ProximitySensorTestWhereInput | boolean
-    delete?: ProximitySensorTestWhereInput | boolean
-    connect?: ProximitySensorTestWhereUniqueInput
-    update?: XOR<XOR<ProximitySensorTestUpdateToOneWithWhereWithoutDeviceTestInput, ProximitySensorTestUpdateWithoutDeviceTestInput>, ProximitySensorTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: CameraTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: CameraTestUpsertWithoutDeviceTestInput
-    disconnect?: CameraTestWhereInput | boolean
-    delete?: CameraTestWhereInput | boolean
-    connect?: CameraTestWhereUniqueInput
-    update?: XOR<XOR<CameraTestUpdateToOneWithWhereWithoutDeviceTestInput, CameraTestUpdateWithoutDeviceTestInput>, CameraTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
-    create?: XOR<FingerprintTestCreateWithoutDeviceTestInput, FingerprintTestUncheckedCreateWithoutDeviceTestInput>
-    connectOrCreate?: FingerprintTestCreateOrConnectWithoutDeviceTestInput
-    upsert?: FingerprintTestUpsertWithoutDeviceTestInput
-    disconnect?: FingerprintTestWhereInput | boolean
-    delete?: FingerprintTestWhereInput | boolean
-    connect?: FingerprintTestWhereUniqueInput
-    update?: XOR<XOR<FingerprintTestUpdateToOneWithWhereWithoutDeviceTestInput, FingerprintTestUpdateWithoutDeviceTestInput>, FingerprintTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
+  export type UsbTestUpdateOneWithoutDeviceTestNestedInput = {
     create?: XOR<UsbTestCreateWithoutDeviceTestInput, UsbTestUncheckedCreateWithoutDeviceTestInput>
     connectOrCreate?: UsbTestCreateOrConnectWithoutDeviceTestInput
     upsert?: UsbTestUpsertWithoutDeviceTestInput
@@ -41354,6 +44426,108 @@ export namespace Prisma {
     delete?: AudioJackTestWhereInput | boolean
     connect?: AudioJackTestWhereUniqueInput
     update?: XOR<XOR<AudioJackTestUpdateToOneWithWhereWithoutDeviceTestInput, AudioJackTestUpdateWithoutDeviceTestInput>, AudioJackTestUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<AudioTestCreateWithoutDeviceTestInput, AudioTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: AudioTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: AudioTestUpsertWithoutDeviceTestInput
+    disconnect?: AudioTestWhereInput | boolean
+    delete?: AudioTestWhereInput | boolean
+    connect?: AudioTestWhereUniqueInput
+    update?: XOR<XOR<AudioTestUpdateToOneWithWhereWithoutDeviceTestInput, AudioTestUpdateWithoutDeviceTestInput>, AudioTestUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: CameraTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: CameraTestUpsertWithoutDeviceTestInput
+    disconnect?: CameraTestWhereInput | boolean
+    delete?: CameraTestWhereInput | boolean
+    connect?: CameraTestWhereUniqueInput
+    update?: XOR<XOR<CameraTestUpdateToOneWithWhereWithoutDeviceTestInput, CameraTestUpdateWithoutDeviceTestInput>, CameraTestUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput = {
+    create?: XOR<ConnectivityTestResultCreateWithoutDeviceTestInput, ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput> | ConnectivityTestResultCreateWithoutDeviceTestInput[] | ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput[]
+    connectOrCreate?: ConnectivityTestResultCreateOrConnectWithoutDeviceTestInput | ConnectivityTestResultCreateOrConnectWithoutDeviceTestInput[]
+    upsert?: ConnectivityTestResultUpsertWithWhereUniqueWithoutDeviceTestInput | ConnectivityTestResultUpsertWithWhereUniqueWithoutDeviceTestInput[]
+    createMany?: ConnectivityTestResultCreateManyDeviceTestInputEnvelope
+    set?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
+    disconnect?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
+    delete?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
+    connect?: ConnectivityTestResultWhereUniqueInput | ConnectivityTestResultWhereUniqueInput[]
+    update?: ConnectivityTestResultUpdateWithWhereUniqueWithoutDeviceTestInput | ConnectivityTestResultUpdateWithWhereUniqueWithoutDeviceTestInput[]
+    updateMany?: ConnectivityTestResultUpdateManyWithWhereWithoutDeviceTestInput | ConnectivityTestResultUpdateManyWithWhereWithoutDeviceTestInput[]
+    deleteMany?: ConnectivityTestResultScalarWhereInput | ConnectivityTestResultScalarWhereInput[]
+  }
+
+  export type DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput = {
+    create?: XOR<DeviceTestResultCreateWithoutDeviceTestInput, DeviceTestResultUncheckedCreateWithoutDeviceTestInput> | DeviceTestResultCreateWithoutDeviceTestInput[] | DeviceTestResultUncheckedCreateWithoutDeviceTestInput[]
+    connectOrCreate?: DeviceTestResultCreateOrConnectWithoutDeviceTestInput | DeviceTestResultCreateOrConnectWithoutDeviceTestInput[]
+    upsert?: DeviceTestResultUpsertWithWhereUniqueWithoutDeviceTestInput | DeviceTestResultUpsertWithWhereUniqueWithoutDeviceTestInput[]
+    createMany?: DeviceTestResultCreateManyDeviceTestInputEnvelope
+    set?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
+    disconnect?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
+    delete?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
+    connect?: DeviceTestResultWhereUniqueInput | DeviceTestResultWhereUniqueInput[]
+    update?: DeviceTestResultUpdateWithWhereUniqueWithoutDeviceTestInput | DeviceTestResultUpdateWithWhereUniqueWithoutDeviceTestInput[]
+    updateMany?: DeviceTestResultUpdateManyWithWhereWithoutDeviceTestInput | DeviceTestResultUpdateManyWithWhereWithoutDeviceTestInput[]
+    deleteMany?: DeviceTestResultScalarWhereInput | DeviceTestResultScalarWhereInput[]
+  }
+
+  export type FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<FingerprintTestCreateWithoutDeviceTestInput, FingerprintTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: FingerprintTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: FingerprintTestUpsertWithoutDeviceTestInput
+    disconnect?: FingerprintTestWhereInput | boolean
+    delete?: FingerprintTestWhereInput | boolean
+    connect?: FingerprintTestWhereUniqueInput
+    update?: XOR<XOR<FingerprintTestUpdateToOneWithWhereWithoutDeviceTestInput, FingerprintTestUpdateWithoutDeviceTestInput>, FingerprintTestUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<ProximitySensorTestCreateWithoutDeviceTestInput, ProximitySensorTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: ProximitySensorTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: ProximitySensorTestUpsertWithoutDeviceTestInput
+    disconnect?: ProximitySensorTestWhereInput | boolean
+    delete?: ProximitySensorTestWhereInput | boolean
+    connect?: ProximitySensorTestWhereUniqueInput
+    update?: XOR<XOR<ProximitySensorTestUpdateToOneWithWhereWithoutDeviceTestInput, ProximitySensorTestUpdateWithoutDeviceTestInput>, ProximitySensorTestUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: ScreenTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: ScreenTestUpsertWithoutDeviceTestInput
+    disconnect?: ScreenTestWhereInput | boolean
+    delete?: ScreenTestWhereInput | boolean
+    connect?: ScreenTestWhereUniqueInput
+    update?: XOR<XOR<ScreenTestUpdateToOneWithWhereWithoutDeviceTestInput, ScreenTestUpdateWithoutDeviceTestInput>, ScreenTestUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput = {
+    create?: XOR<SimTestResultCreateWithoutDeviceTestInput, SimTestResultUncheckedCreateWithoutDeviceTestInput> | SimTestResultCreateWithoutDeviceTestInput[] | SimTestResultUncheckedCreateWithoutDeviceTestInput[]
+    connectOrCreate?: SimTestResultCreateOrConnectWithoutDeviceTestInput | SimTestResultCreateOrConnectWithoutDeviceTestInput[]
+    upsert?: SimTestResultUpsertWithWhereUniqueWithoutDeviceTestInput | SimTestResultUpsertWithWhereUniqueWithoutDeviceTestInput[]
+    createMany?: SimTestResultCreateManyDeviceTestInputEnvelope
+    set?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
+    disconnect?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
+    delete?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
+    connect?: SimTestResultWhereUniqueInput | SimTestResultWhereUniqueInput[]
+    update?: SimTestResultUpdateWithWhereUniqueWithoutDeviceTestInput | SimTestResultUpdateWithWhereUniqueWithoutDeviceTestInput[]
+    updateMany?: SimTestResultUpdateManyWithWhereWithoutDeviceTestInput | SimTestResultUpdateManyWithWhereWithoutDeviceTestInput[]
+    deleteMany?: SimTestResultScalarWhereInput | SimTestResultScalarWhereInput[]
+  }
+
+  export type UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput = {
+    create?: XOR<UsbTestCreateWithoutDeviceTestInput, UsbTestUncheckedCreateWithoutDeviceTestInput>
+    connectOrCreate?: UsbTestCreateOrConnectWithoutDeviceTestInput
+    upsert?: UsbTestUpsertWithoutDeviceTestInput
+    disconnect?: UsbTestWhereInput | boolean
+    delete?: UsbTestWhereInput | boolean
+    connect?: UsbTestWhereUniqueInput
+    update?: XOR<XOR<UsbTestUpdateToOneWithWhereWithoutDeviceTestInput, UsbTestUpdateWithoutDeviceTestInput>, UsbTestUncheckedUpdateWithoutDeviceTestInput>
   }
 
   export type DeviceTestCreateNestedOneWithoutConnectivityTestResultsInput = {
@@ -41887,6 +45061,109 @@ export namespace Prisma {
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
   }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type AdminCreateWithoutUserInput = {
+    employeeId: string
+    firstName?: string | null
+    lastName?: string | null
+  }
+
+  export type AdminUncheckedCreateWithoutUserInput = {
+    employeeId: string
+    firstName?: string | null
+    lastName?: string | null
+  }
+
+  export type AdminCreateOrConnectWithoutUserInput = {
+    where: AdminWhereUniqueInput
+    create: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
+  }
+
+  export type FieldExecutiveCreateWithoutUserInput = {
+    firstName: string
+    lastName: string
+    employeeId: string
+    aadharId: string
+    bankDetails?: BankDetailsCreateNestedOneWithoutFieldExecutiveInput
+  }
+
+  export type FieldExecutiveUncheckedCreateWithoutUserInput = {
+    firstName: string
+    lastName: string
+    employeeId: string
+    aadharId: string
+    bankDetails?: BankDetailsUncheckedCreateNestedOneWithoutFieldExecutiveInput
+  }
+
+  export type FieldExecutiveCreateOrConnectWithoutUserInput = {
+    where: FieldExecutiveWhereUniqueInput
+    create: XOR<FieldExecutiveCreateWithoutUserInput, FieldExecutiveUncheckedCreateWithoutUserInput>
+  }
+
+  export type ManagerCreateWithoutUserInput = {
+    firstName: string
+    lastName: string
+    employeeId: string
+    aadharId: string
+    bankDetails?: BankDetailsCreateNestedOneWithoutManagerInput
+  }
+
+  export type ManagerUncheckedCreateWithoutUserInput = {
+    firstName: string
+    lastName: string
+    employeeId: string
+    aadharId: string
+    bankDetails?: BankDetailsUncheckedCreateNestedOneWithoutManagerInput
+  }
+
+  export type ManagerCreateOrConnectWithoutUserInput = {
+    where: ManagerWhereUniqueInput
+    create: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
+  }
+
+  export type SalesExecutiveCreateWithoutUserInput = {
+    firstName: string
+    lastName: string
+    employeeId: string
+    aadharId: string
+    bankDetails?: BankDetailsCreateNestedOneWithoutSalesExecutiveInput
+  }
+
+  export type SalesExecutiveUncheckedCreateWithoutUserInput = {
+    firstName: string
+    lastName: string
+    employeeId: string
+    aadharId: string
+    bankDetails?: BankDetailsUncheckedCreateNestedOneWithoutSalesExecutiveInput
+  }
+
+  export type SalesExecutiveCreateOrConnectWithoutUserInput = {
+    where: SalesExecutiveWhereUniqueInput
+    create: XOR<SalesExecutiveCreateWithoutUserInput, SalesExecutiveUncheckedCreateWithoutUserInput>
+  }
 
   export type SessionCreateWithoutUserInput = {
     id?: string
@@ -41926,90 +45203,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ManagerCreateWithoutUserInput = {
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-    bankDetails?: BankDetailsCreateNestedOneWithoutManagerInput
-  }
-
-  export type ManagerUncheckedCreateWithoutUserInput = {
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-    bankDetails?: BankDetailsUncheckedCreateNestedOneWithoutManagerInput
-  }
-
-  export type ManagerCreateOrConnectWithoutUserInput = {
-    where: ManagerWhereUniqueInput
-    create: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
-  }
-
-  export type TechnicianCreateWithoutUserInput = {
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-    bankDetails?: BankDetailsCreateNestedOneWithoutTechnicianInput
-  }
-
-  export type TechnicianUncheckedCreateWithoutUserInput = {
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-    bankDetails?: BankDetailsUncheckedCreateNestedOneWithoutTechnicianInput
-  }
-
-  export type TechnicianCreateOrConnectWithoutUserInput = {
-    where: TechnicianWhereUniqueInput
-    create: XOR<TechnicianCreateWithoutUserInput, TechnicianUncheckedCreateWithoutUserInput>
-  }
-
-  export type FieldExecutiveCreateWithoutUserInput = {
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-    bankDetails?: BankDetailsCreateNestedOneWithoutFieldExecutiveInput
-  }
-
-  export type FieldExecutiveUncheckedCreateWithoutUserInput = {
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-    bankDetails?: BankDetailsUncheckedCreateNestedOneWithoutFieldExecutiveInput
-  }
-
-  export type FieldExecutiveCreateOrConnectWithoutUserInput = {
-    where: FieldExecutiveWhereUniqueInput
-    create: XOR<FieldExecutiveCreateWithoutUserInput, FieldExecutiveUncheckedCreateWithoutUserInput>
-  }
-
-  export type SalesExecutiveCreateWithoutUserInput = {
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-    bankDetails?: BankDetailsCreateNestedOneWithoutSalesExecutiveInput
-  }
-
-  export type SalesExecutiveUncheckedCreateWithoutUserInput = {
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-    bankDetails?: BankDetailsUncheckedCreateNestedOneWithoutSalesExecutiveInput
-  }
-
-  export type SalesExecutiveCreateOrConnectWithoutUserInput = {
-    where: SalesExecutiveWhereUniqueInput
-    create: XOR<SalesExecutiveCreateWithoutUserInput, SalesExecutiveUncheckedCreateWithoutUserInput>
-  }
-
   export type StoreCreateWithoutUserInput = {
     storeId: string
     storeName: string
@@ -42039,21 +45232,129 @@ export namespace Prisma {
     create: XOR<StoreCreateWithoutUserInput, StoreUncheckedCreateWithoutUserInput>
   }
 
-  export type AdminCreateWithoutUserInput = {
+  export type TechnicianCreateWithoutUserInput = {
+    firstName: string
+    lastName: string
     employeeId: string
-    firstName?: string | null
-    lastName?: string | null
+    aadharId: string
+    bankDetails?: BankDetailsCreateNestedOneWithoutTechnicianInput
   }
 
-  export type AdminUncheckedCreateWithoutUserInput = {
+  export type TechnicianUncheckedCreateWithoutUserInput = {
+    firstName: string
+    lastName: string
     employeeId: string
-    firstName?: string | null
-    lastName?: string | null
+    aadharId: string
+    bankDetails?: BankDetailsUncheckedCreateNestedOneWithoutTechnicianInput
   }
 
-  export type AdminCreateOrConnectWithoutUserInput = {
-    where: AdminWhereUniqueInput
+  export type TechnicianCreateOrConnectWithoutUserInput = {
+    where: TechnicianWhereUniqueInput
+    create: XOR<TechnicianCreateWithoutUserInput, TechnicianUncheckedCreateWithoutUserInput>
+  }
+
+  export type AdminUpsertWithoutUserInput = {
+    update: XOR<AdminUpdateWithoutUserInput, AdminUncheckedUpdateWithoutUserInput>
     create: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
+    where?: AdminWhereInput
+  }
+
+  export type AdminUpdateToOneWithWhereWithoutUserInput = {
+    where?: AdminWhereInput
+    data: XOR<AdminUpdateWithoutUserInput, AdminUncheckedUpdateWithoutUserInput>
+  }
+
+  export type AdminUpdateWithoutUserInput = {
+    employeeId?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type AdminUncheckedUpdateWithoutUserInput = {
+    employeeId?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FieldExecutiveUpsertWithoutUserInput = {
+    update: XOR<FieldExecutiveUpdateWithoutUserInput, FieldExecutiveUncheckedUpdateWithoutUserInput>
+    create: XOR<FieldExecutiveCreateWithoutUserInput, FieldExecutiveUncheckedCreateWithoutUserInput>
+    where?: FieldExecutiveWhereInput
+  }
+
+  export type FieldExecutiveUpdateToOneWithWhereWithoutUserInput = {
+    where?: FieldExecutiveWhereInput
+    data: XOR<FieldExecutiveUpdateWithoutUserInput, FieldExecutiveUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FieldExecutiveUpdateWithoutUserInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    aadharId?: StringFieldUpdateOperationsInput | string
+    bankDetails?: BankDetailsUpdateOneWithoutFieldExecutiveNestedInput
+  }
+
+  export type FieldExecutiveUncheckedUpdateWithoutUserInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    aadharId?: StringFieldUpdateOperationsInput | string
+    bankDetails?: BankDetailsUncheckedUpdateOneWithoutFieldExecutiveNestedInput
+  }
+
+  export type ManagerUpsertWithoutUserInput = {
+    update: XOR<ManagerUpdateWithoutUserInput, ManagerUncheckedUpdateWithoutUserInput>
+    create: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
+    where?: ManagerWhereInput
+  }
+
+  export type ManagerUpdateToOneWithWhereWithoutUserInput = {
+    where?: ManagerWhereInput
+    data: XOR<ManagerUpdateWithoutUserInput, ManagerUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ManagerUpdateWithoutUserInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    aadharId?: StringFieldUpdateOperationsInput | string
+    bankDetails?: BankDetailsUpdateOneWithoutManagerNestedInput
+  }
+
+  export type ManagerUncheckedUpdateWithoutUserInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    aadharId?: StringFieldUpdateOperationsInput | string
+    bankDetails?: BankDetailsUncheckedUpdateOneWithoutManagerNestedInput
+  }
+
+  export type SalesExecutiveUpsertWithoutUserInput = {
+    update: XOR<SalesExecutiveUpdateWithoutUserInput, SalesExecutiveUncheckedUpdateWithoutUserInput>
+    create: XOR<SalesExecutiveCreateWithoutUserInput, SalesExecutiveUncheckedCreateWithoutUserInput>
+    where?: SalesExecutiveWhereInput
+  }
+
+  export type SalesExecutiveUpdateToOneWithWhereWithoutUserInput = {
+    where?: SalesExecutiveWhereInput
+    data: XOR<SalesExecutiveUpdateWithoutUserInput, SalesExecutiveUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SalesExecutiveUpdateWithoutUserInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    aadharId?: StringFieldUpdateOperationsInput | string
+    bankDetails?: BankDetailsUpdateOneWithoutSalesExecutiveNestedInput
+  }
+
+  export type SalesExecutiveUncheckedUpdateWithoutUserInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    aadharId?: StringFieldUpdateOperationsInput | string
+    bankDetails?: BankDetailsUncheckedUpdateOneWithoutSalesExecutiveNestedInput
   }
 
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
@@ -42088,114 +45389,6 @@ export namespace Prisma {
     location?: StringNullableFilter<"Session"> | string | null
     latitude?: FloatNullableFilter<"Session"> | number | null
     longitude?: FloatNullableFilter<"Session"> | number | null
-  }
-
-  export type ManagerUpsertWithoutUserInput = {
-    update: XOR<ManagerUpdateWithoutUserInput, ManagerUncheckedUpdateWithoutUserInput>
-    create: XOR<ManagerCreateWithoutUserInput, ManagerUncheckedCreateWithoutUserInput>
-    where?: ManagerWhereInput
-  }
-
-  export type ManagerUpdateToOneWithWhereWithoutUserInput = {
-    where?: ManagerWhereInput
-    data: XOR<ManagerUpdateWithoutUserInput, ManagerUncheckedUpdateWithoutUserInput>
-  }
-
-  export type ManagerUpdateWithoutUserInput = {
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-    bankDetails?: BankDetailsUpdateOneWithoutManagerNestedInput
-  }
-
-  export type ManagerUncheckedUpdateWithoutUserInput = {
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-    bankDetails?: BankDetailsUncheckedUpdateOneWithoutManagerNestedInput
-  }
-
-  export type TechnicianUpsertWithoutUserInput = {
-    update: XOR<TechnicianUpdateWithoutUserInput, TechnicianUncheckedUpdateWithoutUserInput>
-    create: XOR<TechnicianCreateWithoutUserInput, TechnicianUncheckedCreateWithoutUserInput>
-    where?: TechnicianWhereInput
-  }
-
-  export type TechnicianUpdateToOneWithWhereWithoutUserInput = {
-    where?: TechnicianWhereInput
-    data: XOR<TechnicianUpdateWithoutUserInput, TechnicianUncheckedUpdateWithoutUserInput>
-  }
-
-  export type TechnicianUpdateWithoutUserInput = {
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-    bankDetails?: BankDetailsUpdateOneWithoutTechnicianNestedInput
-  }
-
-  export type TechnicianUncheckedUpdateWithoutUserInput = {
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-    bankDetails?: BankDetailsUncheckedUpdateOneWithoutTechnicianNestedInput
-  }
-
-  export type FieldExecutiveUpsertWithoutUserInput = {
-    update: XOR<FieldExecutiveUpdateWithoutUserInput, FieldExecutiveUncheckedUpdateWithoutUserInput>
-    create: XOR<FieldExecutiveCreateWithoutUserInput, FieldExecutiveUncheckedCreateWithoutUserInput>
-    where?: FieldExecutiveWhereInput
-  }
-
-  export type FieldExecutiveUpdateToOneWithWhereWithoutUserInput = {
-    where?: FieldExecutiveWhereInput
-    data: XOR<FieldExecutiveUpdateWithoutUserInput, FieldExecutiveUncheckedUpdateWithoutUserInput>
-  }
-
-  export type FieldExecutiveUpdateWithoutUserInput = {
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-    bankDetails?: BankDetailsUpdateOneWithoutFieldExecutiveNestedInput
-  }
-
-  export type FieldExecutiveUncheckedUpdateWithoutUserInput = {
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-    bankDetails?: BankDetailsUncheckedUpdateOneWithoutFieldExecutiveNestedInput
-  }
-
-  export type SalesExecutiveUpsertWithoutUserInput = {
-    update: XOR<SalesExecutiveUpdateWithoutUserInput, SalesExecutiveUncheckedUpdateWithoutUserInput>
-    create: XOR<SalesExecutiveCreateWithoutUserInput, SalesExecutiveUncheckedCreateWithoutUserInput>
-    where?: SalesExecutiveWhereInput
-  }
-
-  export type SalesExecutiveUpdateToOneWithWhereWithoutUserInput = {
-    where?: SalesExecutiveWhereInput
-    data: XOR<SalesExecutiveUpdateWithoutUserInput, SalesExecutiveUncheckedUpdateWithoutUserInput>
-  }
-
-  export type SalesExecutiveUpdateWithoutUserInput = {
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-    bankDetails?: BankDetailsUpdateOneWithoutSalesExecutiveNestedInput
-  }
-
-  export type SalesExecutiveUncheckedUpdateWithoutUserInput = {
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-    bankDetails?: BankDetailsUncheckedUpdateOneWithoutSalesExecutiveNestedInput
   }
 
   export type StoreUpsertWithoutUserInput = {
@@ -42233,27 +45426,31 @@ export namespace Prisma {
     bankDetails?: BankDetailsUncheckedUpdateOneWithoutStoreNestedInput
   }
 
-  export type AdminUpsertWithoutUserInput = {
-    update: XOR<AdminUpdateWithoutUserInput, AdminUncheckedUpdateWithoutUserInput>
-    create: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
-    where?: AdminWhereInput
+  export type TechnicianUpsertWithoutUserInput = {
+    update: XOR<TechnicianUpdateWithoutUserInput, TechnicianUncheckedUpdateWithoutUserInput>
+    create: XOR<TechnicianCreateWithoutUserInput, TechnicianUncheckedCreateWithoutUserInput>
+    where?: TechnicianWhereInput
   }
 
-  export type AdminUpdateToOneWithWhereWithoutUserInput = {
-    where?: AdminWhereInput
-    data: XOR<AdminUpdateWithoutUserInput, AdminUncheckedUpdateWithoutUserInput>
+  export type TechnicianUpdateToOneWithWhereWithoutUserInput = {
+    where?: TechnicianWhereInput
+    data: XOR<TechnicianUpdateWithoutUserInput, TechnicianUncheckedUpdateWithoutUserInput>
   }
 
-  export type AdminUpdateWithoutUserInput = {
+  export type TechnicianUpdateWithoutUserInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
     employeeId?: StringFieldUpdateOperationsInput | string
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharId?: StringFieldUpdateOperationsInput | string
+    bankDetails?: BankDetailsUpdateOneWithoutTechnicianNestedInput
   }
 
-  export type AdminUncheckedUpdateWithoutUserInput = {
+  export type TechnicianUncheckedUpdateWithoutUserInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
     employeeId?: StringFieldUpdateOperationsInput | string
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharId?: StringFieldUpdateOperationsInput | string
+    bankDetails?: BankDetailsUncheckedUpdateOneWithoutTechnicianNestedInput
   }
 
   export type UserCreateWithoutAdminInput = {
@@ -42274,20 +45471,20 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    manager?: ManagerCreateNestedOneWithoutUserInput
-    technician?: TechnicianCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
     fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
+    manager?: ManagerCreateNestedOneWithoutUserInput
     salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
     store?: StoreCreateNestedOneWithoutUserInput
+    technician?: TechnicianCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAdminInput = {
@@ -42308,20 +45505,20 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
-    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
     fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
+    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
     salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     store?: StoreUncheckedCreateNestedOneWithoutUserInput
+    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAdminInput = {
@@ -42358,20 +45555,20 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    manager?: ManagerUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
+    manager?: ManagerUpdateOneWithoutUserNestedInput
     salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
     store?: StoreUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAdminInput = {
@@ -42392,20 +45589,51 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
     salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     store?: StoreUncheckedUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type BankDetailsCreateWithoutManagerInput = {
+    id?: string
+    accountNumber?: string | null
+    ifsc?: string | null
+    bankName?: string | null
+    beneficiaryName?: string | null
+    upiId?: string | null
+    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutBankDetailsInput
+    salesExecutive?: SalesExecutiveCreateNestedOneWithoutBankDetailsInput
+    store?: StoreCreateNestedOneWithoutBankDetailsInput
+    technician?: TechnicianCreateNestedOneWithoutBankDetailsInput
+  }
+
+  export type BankDetailsUncheckedCreateWithoutManagerInput = {
+    id?: string
+    accountNumber?: string | null
+    ifsc?: string | null
+    bankName?: string | null
+    beneficiaryName?: string | null
+    upiId?: string | null
+    technicianId?: string | null
+    fieldExecId?: string | null
+    salesExecId?: string | null
+    storeId?: string | null
+  }
+
+  export type BankDetailsCreateOrConnectWithoutManagerInput = {
+    where: BankDetailsWhereUniqueInput
+    create: XOR<BankDetailsCreateWithoutManagerInput, BankDetailsUncheckedCreateWithoutManagerInput>
   }
 
   export type UserCreateWithoutManagerInput = {
@@ -42426,20 +45654,20 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    technician?: TechnicianCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
+    admin?: AdminCreateNestedOneWithoutUserInput
     fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
     salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
     store?: StoreCreateNestedOneWithoutUserInput
-    admin?: AdminCreateNestedOneWithoutUserInput
+    technician?: TechnicianCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutManagerInput = {
@@ -42460,20 +45688,20 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
+    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
     fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
     salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     store?: StoreUncheckedCreateNestedOneWithoutUserInput
-    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutManagerInput = {
@@ -42481,35 +45709,41 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput>
   }
 
-  export type BankDetailsCreateWithoutManagerInput = {
-    id?: string
-    accountNumber?: string | null
-    ifsc?: string | null
-    bankName?: string | null
-    beneficiaryName?: string | null
-    upiId?: string | null
-    technician?: TechnicianCreateNestedOneWithoutBankDetailsInput
-    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutBankDetailsInput
-    salesExecutive?: SalesExecutiveCreateNestedOneWithoutBankDetailsInput
-    store?: StoreCreateNestedOneWithoutBankDetailsInput
-  }
-
-  export type BankDetailsUncheckedCreateWithoutManagerInput = {
-    id?: string
-    accountNumber?: string | null
-    ifsc?: string | null
-    bankName?: string | null
-    beneficiaryName?: string | null
-    upiId?: string | null
-    technicianId?: string | null
-    fieldExecId?: string | null
-    salesExecId?: string | null
-    storeId?: string | null
-  }
-
-  export type BankDetailsCreateOrConnectWithoutManagerInput = {
-    where: BankDetailsWhereUniqueInput
+  export type BankDetailsUpsertWithoutManagerInput = {
+    update: XOR<BankDetailsUpdateWithoutManagerInput, BankDetailsUncheckedUpdateWithoutManagerInput>
     create: XOR<BankDetailsCreateWithoutManagerInput, BankDetailsUncheckedCreateWithoutManagerInput>
+    where?: BankDetailsWhereInput
+  }
+
+  export type BankDetailsUpdateToOneWithWhereWithoutManagerInput = {
+    where?: BankDetailsWhereInput
+    data: XOR<BankDetailsUpdateWithoutManagerInput, BankDetailsUncheckedUpdateWithoutManagerInput>
+  }
+
+  export type BankDetailsUpdateWithoutManagerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldExecutive?: FieldExecutiveUpdateOneWithoutBankDetailsNestedInput
+    salesExecutive?: SalesExecutiveUpdateOneWithoutBankDetailsNestedInput
+    store?: StoreUpdateOneWithoutBankDetailsNestedInput
+    technician?: TechnicianUpdateOneWithoutBankDetailsNestedInput
+  }
+
+  export type BankDetailsUncheckedUpdateWithoutManagerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    technicianId?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldExecId?: NullableStringFieldUpdateOperationsInput | string | null
+    salesExecId?: NullableStringFieldUpdateOperationsInput | string | null
+    storeId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUpsertWithoutManagerInput = {
@@ -42541,20 +45775,20 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    technician?: TechnicianUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
+    admin?: AdminUpdateOneWithoutUserNestedInput
     fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
     salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
     store?: StoreUpdateOneWithoutUserNestedInput
-    admin?: AdminUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutManagerInput = {
@@ -42575,130 +45809,20 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
+    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
     fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
     salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     store?: StoreUncheckedUpdateOneWithoutUserNestedInput
-    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
-  }
-
-  export type BankDetailsUpsertWithoutManagerInput = {
-    update: XOR<BankDetailsUpdateWithoutManagerInput, BankDetailsUncheckedUpdateWithoutManagerInput>
-    create: XOR<BankDetailsCreateWithoutManagerInput, BankDetailsUncheckedCreateWithoutManagerInput>
-    where?: BankDetailsWhereInput
-  }
-
-  export type BankDetailsUpdateToOneWithWhereWithoutManagerInput = {
-    where?: BankDetailsWhereInput
-    data: XOR<BankDetailsUpdateWithoutManagerInput, BankDetailsUncheckedUpdateWithoutManagerInput>
-  }
-
-  export type BankDetailsUpdateWithoutManagerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
-    upiId?: NullableStringFieldUpdateOperationsInput | string | null
-    technician?: TechnicianUpdateOneWithoutBankDetailsNestedInput
-    fieldExecutive?: FieldExecutiveUpdateOneWithoutBankDetailsNestedInput
-    salesExecutive?: SalesExecutiveUpdateOneWithoutBankDetailsNestedInput
-    store?: StoreUpdateOneWithoutBankDetailsNestedInput
-  }
-
-  export type BankDetailsUncheckedUpdateWithoutManagerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
-    upiId?: NullableStringFieldUpdateOperationsInput | string | null
-    technicianId?: NullableStringFieldUpdateOperationsInput | string | null
-    fieldExecId?: NullableStringFieldUpdateOperationsInput | string | null
-    salesExecId?: NullableStringFieldUpdateOperationsInput | string | null
-    storeId?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type UserCreateWithoutTechnicianInput = {
-    id?: string
-    phone: string
-    phoneVerified?: boolean | null
-    salary?: Decimal | DecimalJsLike | number | string | null
-    payoutDate?: number | null
-    password: string
-    email?: string | null
-    dateOfJoining?: Date | string | null
-    dateOfTermination?: Date | string | null
-    profileImage?: string | null
-    aadharFrontImage?: string | null
-    aadharBackImage?: string | null
-    qualificationImage?: string | null
-    VehicleFrontImage?: string | null
-    VehicleBackImage?: string | null
-    role?: $Enums.Role | null
-    storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
-    createdBy?: string | null
-    isAdmin?: boolean
-    status?: $Enums.UserStatus
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    manager?: ManagerCreateNestedOneWithoutUserInput
-    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
-    salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
-    store?: StoreCreateNestedOneWithoutUserInput
-    admin?: AdminCreateNestedOneWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutTechnicianInput = {
-    id?: string
-    phone: string
-    phoneVerified?: boolean | null
-    salary?: Decimal | DecimalJsLike | number | string | null
-    payoutDate?: number | null
-    password: string
-    email?: string | null
-    dateOfJoining?: Date | string | null
-    dateOfTermination?: Date | string | null
-    profileImage?: string | null
-    aadharFrontImage?: string | null
-    aadharBackImage?: string | null
-    qualificationImage?: string | null
-    VehicleFrontImage?: string | null
-    VehicleBackImage?: string | null
-    role?: $Enums.Role | null
-    storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
-    createdBy?: string | null
-    isAdmin?: boolean
-    status?: $Enums.UserStatus
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
-    fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
-    salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
-    store?: StoreUncheckedCreateNestedOneWithoutUserInput
-    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutTechnicianInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutTechnicianInput, UserUncheckedCreateWithoutTechnicianInput>
+    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type BankDetailsCreateWithoutTechnicianInput = {
@@ -42708,8 +45832,8 @@ export namespace Prisma {
     bankName?: string | null
     beneficiaryName?: string | null
     upiId?: string | null
-    manager?: ManagerCreateNestedOneWithoutBankDetailsInput
     fieldExecutive?: FieldExecutiveCreateNestedOneWithoutBankDetailsInput
+    manager?: ManagerCreateNestedOneWithoutBankDetailsInput
     salesExecutive?: SalesExecutiveCreateNestedOneWithoutBankDetailsInput
     store?: StoreCreateNestedOneWithoutBankDetailsInput
   }
@@ -42730,6 +45854,116 @@ export namespace Prisma {
   export type BankDetailsCreateOrConnectWithoutTechnicianInput = {
     where: BankDetailsWhereUniqueInput
     create: XOR<BankDetailsCreateWithoutTechnicianInput, BankDetailsUncheckedCreateWithoutTechnicianInput>
+  }
+
+  export type UserCreateWithoutTechnicianInput = {
+    id?: string
+    phone: string
+    phoneVerified?: boolean | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    payoutDate?: number | null
+    password: string
+    email?: string | null
+    dateOfJoining?: Date | string | null
+    dateOfTermination?: Date | string | null
+    profileImage?: string | null
+    aadharFrontImage?: string | null
+    aadharBackImage?: string | null
+    qualificationImage?: string | null
+    VehicleFrontImage?: string | null
+    VehicleBackImage?: string | null
+    role?: $Enums.Role | null
+    storeId?: string | null
+    createdBy?: string | null
+    isAdmin?: boolean
+    status?: $Enums.UserStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
+    admin?: AdminCreateNestedOneWithoutUserInput
+    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
+    manager?: ManagerCreateNestedOneWithoutUserInput
+    salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    store?: StoreCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutTechnicianInput = {
+    id?: string
+    phone: string
+    phoneVerified?: boolean | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    payoutDate?: number | null
+    password: string
+    email?: string | null
+    dateOfJoining?: Date | string | null
+    dateOfTermination?: Date | string | null
+    profileImage?: string | null
+    aadharFrontImage?: string | null
+    aadharBackImage?: string | null
+    qualificationImage?: string | null
+    VehicleFrontImage?: string | null
+    VehicleBackImage?: string | null
+    role?: $Enums.Role | null
+    storeId?: string | null
+    createdBy?: string | null
+    isAdmin?: boolean
+    status?: $Enums.UserStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
+    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
+    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
+    salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    store?: StoreUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutTechnicianInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutTechnicianInput, UserUncheckedCreateWithoutTechnicianInput>
+  }
+
+  export type BankDetailsUpsertWithoutTechnicianInput = {
+    update: XOR<BankDetailsUpdateWithoutTechnicianInput, BankDetailsUncheckedUpdateWithoutTechnicianInput>
+    create: XOR<BankDetailsCreateWithoutTechnicianInput, BankDetailsUncheckedCreateWithoutTechnicianInput>
+    where?: BankDetailsWhereInput
+  }
+
+  export type BankDetailsUpdateToOneWithWhereWithoutTechnicianInput = {
+    where?: BankDetailsWhereInput
+    data: XOR<BankDetailsUpdateWithoutTechnicianInput, BankDetailsUncheckedUpdateWithoutTechnicianInput>
+  }
+
+  export type BankDetailsUpdateWithoutTechnicianInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldExecutive?: FieldExecutiveUpdateOneWithoutBankDetailsNestedInput
+    manager?: ManagerUpdateOneWithoutBankDetailsNestedInput
+    salesExecutive?: SalesExecutiveUpdateOneWithoutBankDetailsNestedInput
+    store?: StoreUpdateOneWithoutBankDetailsNestedInput
+  }
+
+  export type BankDetailsUncheckedUpdateWithoutTechnicianInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    managerId?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldExecId?: NullableStringFieldUpdateOperationsInput | string | null
+    salesExecId?: NullableStringFieldUpdateOperationsInput | string | null
+    storeId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUpsertWithoutTechnicianInput = {
@@ -42761,20 +45995,20 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    manager?: ManagerUpdateOneWithoutUserNestedInput
-    fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
-    salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
-    store?: StoreUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     admin?: AdminUpdateOneWithoutUserNestedInput
+    fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
+    manager?: ManagerUpdateOneWithoutUserNestedInput
+    salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    store?: StoreUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTechnicianInput = {
@@ -42795,57 +46029,51 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
-    fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
-    salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
-    store?: StoreUncheckedUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
+    fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
+    salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    store?: StoreUncheckedUpdateOneWithoutUserNestedInput
   }
 
-  export type BankDetailsUpsertWithoutTechnicianInput = {
-    update: XOR<BankDetailsUpdateWithoutTechnicianInput, BankDetailsUncheckedUpdateWithoutTechnicianInput>
-    create: XOR<BankDetailsCreateWithoutTechnicianInput, BankDetailsUncheckedCreateWithoutTechnicianInput>
-    where?: BankDetailsWhereInput
+  export type BankDetailsCreateWithoutFieldExecutiveInput = {
+    id?: string
+    accountNumber?: string | null
+    ifsc?: string | null
+    bankName?: string | null
+    beneficiaryName?: string | null
+    upiId?: string | null
+    manager?: ManagerCreateNestedOneWithoutBankDetailsInput
+    salesExecutive?: SalesExecutiveCreateNestedOneWithoutBankDetailsInput
+    store?: StoreCreateNestedOneWithoutBankDetailsInput
+    technician?: TechnicianCreateNestedOneWithoutBankDetailsInput
   }
 
-  export type BankDetailsUpdateToOneWithWhereWithoutTechnicianInput = {
-    where?: BankDetailsWhereInput
-    data: XOR<BankDetailsUpdateWithoutTechnicianInput, BankDetailsUncheckedUpdateWithoutTechnicianInput>
+  export type BankDetailsUncheckedCreateWithoutFieldExecutiveInput = {
+    id?: string
+    accountNumber?: string | null
+    ifsc?: string | null
+    bankName?: string | null
+    beneficiaryName?: string | null
+    upiId?: string | null
+    managerId?: string | null
+    technicianId?: string | null
+    salesExecId?: string | null
+    storeId?: string | null
   }
 
-  export type BankDetailsUpdateWithoutTechnicianInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
-    upiId?: NullableStringFieldUpdateOperationsInput | string | null
-    manager?: ManagerUpdateOneWithoutBankDetailsNestedInput
-    fieldExecutive?: FieldExecutiveUpdateOneWithoutBankDetailsNestedInput
-    salesExecutive?: SalesExecutiveUpdateOneWithoutBankDetailsNestedInput
-    store?: StoreUpdateOneWithoutBankDetailsNestedInput
-  }
-
-  export type BankDetailsUncheckedUpdateWithoutTechnicianInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
-    upiId?: NullableStringFieldUpdateOperationsInput | string | null
-    managerId?: NullableStringFieldUpdateOperationsInput | string | null
-    fieldExecId?: NullableStringFieldUpdateOperationsInput | string | null
-    salesExecId?: NullableStringFieldUpdateOperationsInput | string | null
-    storeId?: NullableStringFieldUpdateOperationsInput | string | null
+  export type BankDetailsCreateOrConnectWithoutFieldExecutiveInput = {
+    where: BankDetailsWhereUniqueInput
+    create: XOR<BankDetailsCreateWithoutFieldExecutiveInput, BankDetailsUncheckedCreateWithoutFieldExecutiveInput>
   }
 
   export type UserCreateWithoutFieldExecutiveInput = {
@@ -42866,20 +46094,20 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    manager?: ManagerCreateNestedOneWithoutUserInput
-    technician?: TechnicianCreateNestedOneWithoutUserInput
-    salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
-    store?: StoreCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
     admin?: AdminCreateNestedOneWithoutUserInput
+    manager?: ManagerCreateNestedOneWithoutUserInput
+    salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    store?: StoreCreateNestedOneWithoutUserInput
+    technician?: TechnicianCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutFieldExecutiveInput = {
@@ -42900,20 +46128,20 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
-    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
-    salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
-    store?: StoreUncheckedCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
     admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
+    salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    store?: StoreUncheckedCreateNestedOneWithoutUserInput
+    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutFieldExecutiveInput = {
@@ -42921,35 +46149,41 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutFieldExecutiveInput, UserUncheckedCreateWithoutFieldExecutiveInput>
   }
 
-  export type BankDetailsCreateWithoutFieldExecutiveInput = {
-    id?: string
-    accountNumber?: string | null
-    ifsc?: string | null
-    bankName?: string | null
-    beneficiaryName?: string | null
-    upiId?: string | null
-    manager?: ManagerCreateNestedOneWithoutBankDetailsInput
-    technician?: TechnicianCreateNestedOneWithoutBankDetailsInput
-    salesExecutive?: SalesExecutiveCreateNestedOneWithoutBankDetailsInput
-    store?: StoreCreateNestedOneWithoutBankDetailsInput
-  }
-
-  export type BankDetailsUncheckedCreateWithoutFieldExecutiveInput = {
-    id?: string
-    accountNumber?: string | null
-    ifsc?: string | null
-    bankName?: string | null
-    beneficiaryName?: string | null
-    upiId?: string | null
-    managerId?: string | null
-    technicianId?: string | null
-    salesExecId?: string | null
-    storeId?: string | null
-  }
-
-  export type BankDetailsCreateOrConnectWithoutFieldExecutiveInput = {
-    where: BankDetailsWhereUniqueInput
+  export type BankDetailsUpsertWithoutFieldExecutiveInput = {
+    update: XOR<BankDetailsUpdateWithoutFieldExecutiveInput, BankDetailsUncheckedUpdateWithoutFieldExecutiveInput>
     create: XOR<BankDetailsCreateWithoutFieldExecutiveInput, BankDetailsUncheckedCreateWithoutFieldExecutiveInput>
+    where?: BankDetailsWhereInput
+  }
+
+  export type BankDetailsUpdateToOneWithWhereWithoutFieldExecutiveInput = {
+    where?: BankDetailsWhereInput
+    data: XOR<BankDetailsUpdateWithoutFieldExecutiveInput, BankDetailsUncheckedUpdateWithoutFieldExecutiveInput>
+  }
+
+  export type BankDetailsUpdateWithoutFieldExecutiveInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    manager?: ManagerUpdateOneWithoutBankDetailsNestedInput
+    salesExecutive?: SalesExecutiveUpdateOneWithoutBankDetailsNestedInput
+    store?: StoreUpdateOneWithoutBankDetailsNestedInput
+    technician?: TechnicianUpdateOneWithoutBankDetailsNestedInput
+  }
+
+  export type BankDetailsUncheckedUpdateWithoutFieldExecutiveInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    managerId?: NullableStringFieldUpdateOperationsInput | string | null
+    technicianId?: NullableStringFieldUpdateOperationsInput | string | null
+    salesExecId?: NullableStringFieldUpdateOperationsInput | string | null
+    storeId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUpsertWithoutFieldExecutiveInput = {
@@ -42981,20 +46215,20 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    manager?: ManagerUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUpdateOneWithoutUserNestedInput
-    salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
-    store?: StoreUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     admin?: AdminUpdateOneWithoutUserNestedInput
+    manager?: ManagerUpdateOneWithoutUserNestedInput
+    salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    store?: StoreUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutFieldExecutiveInput = {
@@ -43015,57 +46249,51 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
-    salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
-    store?: StoreUncheckedUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
+    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
+    salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    store?: StoreUncheckedUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
   }
 
-  export type BankDetailsUpsertWithoutFieldExecutiveInput = {
-    update: XOR<BankDetailsUpdateWithoutFieldExecutiveInput, BankDetailsUncheckedUpdateWithoutFieldExecutiveInput>
-    create: XOR<BankDetailsCreateWithoutFieldExecutiveInput, BankDetailsUncheckedCreateWithoutFieldExecutiveInput>
-    where?: BankDetailsWhereInput
+  export type BankDetailsCreateWithoutSalesExecutiveInput = {
+    id?: string
+    accountNumber?: string | null
+    ifsc?: string | null
+    bankName?: string | null
+    beneficiaryName?: string | null
+    upiId?: string | null
+    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutBankDetailsInput
+    manager?: ManagerCreateNestedOneWithoutBankDetailsInput
+    store?: StoreCreateNestedOneWithoutBankDetailsInput
+    technician?: TechnicianCreateNestedOneWithoutBankDetailsInput
   }
 
-  export type BankDetailsUpdateToOneWithWhereWithoutFieldExecutiveInput = {
-    where?: BankDetailsWhereInput
-    data: XOR<BankDetailsUpdateWithoutFieldExecutiveInput, BankDetailsUncheckedUpdateWithoutFieldExecutiveInput>
+  export type BankDetailsUncheckedCreateWithoutSalesExecutiveInput = {
+    id?: string
+    accountNumber?: string | null
+    ifsc?: string | null
+    bankName?: string | null
+    beneficiaryName?: string | null
+    upiId?: string | null
+    managerId?: string | null
+    technicianId?: string | null
+    fieldExecId?: string | null
+    storeId?: string | null
   }
 
-  export type BankDetailsUpdateWithoutFieldExecutiveInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
-    upiId?: NullableStringFieldUpdateOperationsInput | string | null
-    manager?: ManagerUpdateOneWithoutBankDetailsNestedInput
-    technician?: TechnicianUpdateOneWithoutBankDetailsNestedInput
-    salesExecutive?: SalesExecutiveUpdateOneWithoutBankDetailsNestedInput
-    store?: StoreUpdateOneWithoutBankDetailsNestedInput
-  }
-
-  export type BankDetailsUncheckedUpdateWithoutFieldExecutiveInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
-    upiId?: NullableStringFieldUpdateOperationsInput | string | null
-    managerId?: NullableStringFieldUpdateOperationsInput | string | null
-    technicianId?: NullableStringFieldUpdateOperationsInput | string | null
-    salesExecId?: NullableStringFieldUpdateOperationsInput | string | null
-    storeId?: NullableStringFieldUpdateOperationsInput | string | null
+  export type BankDetailsCreateOrConnectWithoutSalesExecutiveInput = {
+    where: BankDetailsWhereUniqueInput
+    create: XOR<BankDetailsCreateWithoutSalesExecutiveInput, BankDetailsUncheckedCreateWithoutSalesExecutiveInput>
   }
 
   export type UserCreateWithoutSalesExecutiveInput = {
@@ -43086,20 +46314,20 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    manager?: ManagerCreateNestedOneWithoutUserInput
-    technician?: TechnicianCreateNestedOneWithoutUserInput
-    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
-    store?: StoreCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
     admin?: AdminCreateNestedOneWithoutUserInput
+    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
+    manager?: ManagerCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    store?: StoreCreateNestedOneWithoutUserInput
+    technician?: TechnicianCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSalesExecutiveInput = {
@@ -43120,20 +46348,20 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
-    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
-    fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
-    store?: StoreUncheckedCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
     admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
+    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    store?: StoreUncheckedCreateNestedOneWithoutUserInput
+    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSalesExecutiveInput = {
@@ -43141,35 +46369,41 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutSalesExecutiveInput, UserUncheckedCreateWithoutSalesExecutiveInput>
   }
 
-  export type BankDetailsCreateWithoutSalesExecutiveInput = {
-    id?: string
-    accountNumber?: string | null
-    ifsc?: string | null
-    bankName?: string | null
-    beneficiaryName?: string | null
-    upiId?: string | null
-    manager?: ManagerCreateNestedOneWithoutBankDetailsInput
-    technician?: TechnicianCreateNestedOneWithoutBankDetailsInput
-    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutBankDetailsInput
-    store?: StoreCreateNestedOneWithoutBankDetailsInput
-  }
-
-  export type BankDetailsUncheckedCreateWithoutSalesExecutiveInput = {
-    id?: string
-    accountNumber?: string | null
-    ifsc?: string | null
-    bankName?: string | null
-    beneficiaryName?: string | null
-    upiId?: string | null
-    managerId?: string | null
-    technicianId?: string | null
-    fieldExecId?: string | null
-    storeId?: string | null
-  }
-
-  export type BankDetailsCreateOrConnectWithoutSalesExecutiveInput = {
-    where: BankDetailsWhereUniqueInput
+  export type BankDetailsUpsertWithoutSalesExecutiveInput = {
+    update: XOR<BankDetailsUpdateWithoutSalesExecutiveInput, BankDetailsUncheckedUpdateWithoutSalesExecutiveInput>
     create: XOR<BankDetailsCreateWithoutSalesExecutiveInput, BankDetailsUncheckedCreateWithoutSalesExecutiveInput>
+    where?: BankDetailsWhereInput
+  }
+
+  export type BankDetailsUpdateToOneWithWhereWithoutSalesExecutiveInput = {
+    where?: BankDetailsWhereInput
+    data: XOR<BankDetailsUpdateWithoutSalesExecutiveInput, BankDetailsUncheckedUpdateWithoutSalesExecutiveInput>
+  }
+
+  export type BankDetailsUpdateWithoutSalesExecutiveInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldExecutive?: FieldExecutiveUpdateOneWithoutBankDetailsNestedInput
+    manager?: ManagerUpdateOneWithoutBankDetailsNestedInput
+    store?: StoreUpdateOneWithoutBankDetailsNestedInput
+    technician?: TechnicianUpdateOneWithoutBankDetailsNestedInput
+  }
+
+  export type BankDetailsUncheckedUpdateWithoutSalesExecutiveInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
+    bankName?: NullableStringFieldUpdateOperationsInput | string | null
+    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    managerId?: NullableStringFieldUpdateOperationsInput | string | null
+    technicianId?: NullableStringFieldUpdateOperationsInput | string | null
+    fieldExecId?: NullableStringFieldUpdateOperationsInput | string | null
+    storeId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUpsertWithoutSalesExecutiveInput = {
@@ -43201,20 +46435,20 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    manager?: ManagerUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUpdateOneWithoutUserNestedInput
-    fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
-    store?: StoreUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     admin?: AdminUpdateOneWithoutUserNestedInput
+    fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
+    manager?: ManagerUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    store?: StoreUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSalesExecutiveInput = {
@@ -43235,130 +46469,20 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
-    fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
-    store?: StoreUncheckedUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
-  }
-
-  export type BankDetailsUpsertWithoutSalesExecutiveInput = {
-    update: XOR<BankDetailsUpdateWithoutSalesExecutiveInput, BankDetailsUncheckedUpdateWithoutSalesExecutiveInput>
-    create: XOR<BankDetailsCreateWithoutSalesExecutiveInput, BankDetailsUncheckedCreateWithoutSalesExecutiveInput>
-    where?: BankDetailsWhereInput
-  }
-
-  export type BankDetailsUpdateToOneWithWhereWithoutSalesExecutiveInput = {
-    where?: BankDetailsWhereInput
-    data: XOR<BankDetailsUpdateWithoutSalesExecutiveInput, BankDetailsUncheckedUpdateWithoutSalesExecutiveInput>
-  }
-
-  export type BankDetailsUpdateWithoutSalesExecutiveInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
-    upiId?: NullableStringFieldUpdateOperationsInput | string | null
-    manager?: ManagerUpdateOneWithoutBankDetailsNestedInput
-    technician?: TechnicianUpdateOneWithoutBankDetailsNestedInput
-    fieldExecutive?: FieldExecutiveUpdateOneWithoutBankDetailsNestedInput
-    store?: StoreUpdateOneWithoutBankDetailsNestedInput
-  }
-
-  export type BankDetailsUncheckedUpdateWithoutSalesExecutiveInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accountNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    ifsc?: NullableStringFieldUpdateOperationsInput | string | null
-    bankName?: NullableStringFieldUpdateOperationsInput | string | null
-    beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
-    upiId?: NullableStringFieldUpdateOperationsInput | string | null
-    managerId?: NullableStringFieldUpdateOperationsInput | string | null
-    technicianId?: NullableStringFieldUpdateOperationsInput | string | null
-    fieldExecId?: NullableStringFieldUpdateOperationsInput | string | null
-    storeId?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type UserCreateWithoutStoreInput = {
-    id?: string
-    phone: string
-    phoneVerified?: boolean | null
-    salary?: Decimal | DecimalJsLike | number | string | null
-    payoutDate?: number | null
-    password: string
-    email?: string | null
-    dateOfJoining?: Date | string | null
-    dateOfTermination?: Date | string | null
-    profileImage?: string | null
-    aadharFrontImage?: string | null
-    aadharBackImage?: string | null
-    qualificationImage?: string | null
-    VehicleFrontImage?: string | null
-    VehicleBackImage?: string | null
-    role?: $Enums.Role | null
-    storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
-    createdBy?: string | null
-    isAdmin?: boolean
-    status?: $Enums.UserStatus
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    manager?: ManagerCreateNestedOneWithoutUserInput
-    technician?: TechnicianCreateNestedOneWithoutUserInput
-    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
-    salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
-    admin?: AdminCreateNestedOneWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutStoreInput = {
-    id?: string
-    phone: string
-    phoneVerified?: boolean | null
-    salary?: Decimal | DecimalJsLike | number | string | null
-    payoutDate?: number | null
-    password: string
-    email?: string | null
-    dateOfJoining?: Date | string | null
-    dateOfTermination?: Date | string | null
-    profileImage?: string | null
-    aadharFrontImage?: string | null
-    aadharBackImage?: string | null
-    qualificationImage?: string | null
-    VehicleFrontImage?: string | null
-    VehicleBackImage?: string | null
-    role?: $Enums.Role | null
-    storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
-    createdBy?: string | null
-    isAdmin?: boolean
-    status?: $Enums.UserStatus
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
-    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
-    fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
-    salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
-    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutStoreInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutStoreInput, UserUncheckedCreateWithoutStoreInput>
+    fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    store?: StoreUncheckedUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type AddressCreateWithoutStoreInput = {
@@ -43391,10 +46515,10 @@ export namespace Prisma {
     bankName?: string | null
     beneficiaryName?: string | null
     upiId?: string | null
-    manager?: ManagerCreateNestedOneWithoutBankDetailsInput
-    technician?: TechnicianCreateNestedOneWithoutBankDetailsInput
     fieldExecutive?: FieldExecutiveCreateNestedOneWithoutBankDetailsInput
+    manager?: ManagerCreateNestedOneWithoutBankDetailsInput
     salesExecutive?: SalesExecutiveCreateNestedOneWithoutBankDetailsInput
+    technician?: TechnicianCreateNestedOneWithoutBankDetailsInput
   }
 
   export type BankDetailsUncheckedCreateWithoutStoreInput = {
@@ -43415,83 +46539,77 @@ export namespace Prisma {
     create: XOR<BankDetailsCreateWithoutStoreInput, BankDetailsUncheckedCreateWithoutStoreInput>
   }
 
-  export type UserUpsertWithoutStoreInput = {
-    update: XOR<UserUpdateWithoutStoreInput, UserUncheckedUpdateWithoutStoreInput>
+  export type UserCreateWithoutStoreInput = {
+    id?: string
+    phone: string
+    phoneVerified?: boolean | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    payoutDate?: number | null
+    password: string
+    email?: string | null
+    dateOfJoining?: Date | string | null
+    dateOfTermination?: Date | string | null
+    profileImage?: string | null
+    aadharFrontImage?: string | null
+    aadharBackImage?: string | null
+    qualificationImage?: string | null
+    VehicleFrontImage?: string | null
+    VehicleBackImage?: string | null
+    role?: $Enums.Role | null
+    storeId?: string | null
+    createdBy?: string | null
+    isAdmin?: boolean
+    status?: $Enums.UserStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
+    admin?: AdminCreateNestedOneWithoutUserInput
+    fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
+    manager?: ManagerCreateNestedOneWithoutUserInput
+    salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    technician?: TechnicianCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutStoreInput = {
+    id?: string
+    phone: string
+    phoneVerified?: boolean | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    payoutDate?: number | null
+    password: string
+    email?: string | null
+    dateOfJoining?: Date | string | null
+    dateOfTermination?: Date | string | null
+    profileImage?: string | null
+    aadharFrontImage?: string | null
+    aadharBackImage?: string | null
+    qualificationImage?: string | null
+    VehicleFrontImage?: string | null
+    VehicleBackImage?: string | null
+    role?: $Enums.Role | null
+    storeId?: string | null
+    createdBy?: string | null
+    isAdmin?: boolean
+    status?: $Enums.UserStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
+    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
+    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
+    salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutStoreInput = {
+    where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutStoreInput, UserUncheckedCreateWithoutStoreInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutStoreInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutStoreInput, UserUncheckedUpdateWithoutStoreInput>
-  }
-
-  export type UserUpdateWithoutStoreInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    phone?: StringFieldUpdateOperationsInput | string
-    phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    payoutDate?: NullableIntFieldUpdateOperationsInput | number | null
-    password?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    dateOfJoining?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    dateOfTermination?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    profileImage?: NullableStringFieldUpdateOperationsInput | string | null
-    aadharFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
-    aadharBackImage?: NullableStringFieldUpdateOperationsInput | string | null
-    qualificationImage?: NullableStringFieldUpdateOperationsInput | string | null
-    VehicleFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
-    VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
-    storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
-    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
-    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    manager?: ManagerUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUpdateOneWithoutUserNestedInput
-    fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
-    salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
-    admin?: AdminUpdateOneWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutStoreInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    phone?: StringFieldUpdateOperationsInput | string
-    phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    payoutDate?: NullableIntFieldUpdateOperationsInput | number | null
-    password?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    dateOfJoining?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    dateOfTermination?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    profileImage?: NullableStringFieldUpdateOperationsInput | string | null
-    aadharFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
-    aadharBackImage?: NullableStringFieldUpdateOperationsInput | string | null
-    qualificationImage?: NullableStringFieldUpdateOperationsInput | string | null
-    VehicleFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
-    VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
-    storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
-    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
-    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
-    fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
-    salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
-    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type AddressUpsertWithoutStoreInput = {
@@ -43541,10 +46659,10 @@ export namespace Prisma {
     bankName?: NullableStringFieldUpdateOperationsInput | string | null
     beneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
     upiId?: NullableStringFieldUpdateOperationsInput | string | null
-    manager?: ManagerUpdateOneWithoutBankDetailsNestedInput
-    technician?: TechnicianUpdateOneWithoutBankDetailsNestedInput
     fieldExecutive?: FieldExecutiveUpdateOneWithoutBankDetailsNestedInput
+    manager?: ManagerUpdateOneWithoutBankDetailsNestedInput
     salesExecutive?: SalesExecutiveUpdateOneWithoutBankDetailsNestedInput
+    technician?: TechnicianUpdateOneWithoutBankDetailsNestedInput
   }
 
   export type BankDetailsUncheckedUpdateWithoutStoreInput = {
@@ -43560,46 +46678,83 @@ export namespace Prisma {
     salesExecId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ManagerCreateWithoutBankDetailsInput = {
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-    user: UserCreateNestedOneWithoutManagerInput
+  export type UserUpsertWithoutStoreInput = {
+    update: XOR<UserUpdateWithoutStoreInput, UserUncheckedUpdateWithoutStoreInput>
+    create: XOR<UserCreateWithoutStoreInput, UserUncheckedCreateWithoutStoreInput>
+    where?: UserWhereInput
   }
 
-  export type ManagerUncheckedCreateWithoutBankDetailsInput = {
-    userId: string
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
+  export type UserUpdateToOneWithWhereWithoutStoreInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutStoreInput, UserUncheckedUpdateWithoutStoreInput>
   }
 
-  export type ManagerCreateOrConnectWithoutBankDetailsInput = {
-    where: ManagerWhereUniqueInput
-    create: XOR<ManagerCreateWithoutBankDetailsInput, ManagerUncheckedCreateWithoutBankDetailsInput>
+  export type UserUpdateWithoutStoreInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    payoutDate?: NullableIntFieldUpdateOperationsInput | number | null
+    password?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfJoining?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateOfTermination?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    profileImage?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    qualificationImage?: NullableStringFieldUpdateOperationsInput | string | null
+    VehicleFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
+    storeId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
+    admin?: AdminUpdateOneWithoutUserNestedInput
+    fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
+    manager?: ManagerUpdateOneWithoutUserNestedInput
+    salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    technician?: TechnicianUpdateOneWithoutUserNestedInput
   }
 
-  export type TechnicianCreateWithoutBankDetailsInput = {
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-    user: UserCreateNestedOneWithoutTechnicianInput
-  }
-
-  export type TechnicianUncheckedCreateWithoutBankDetailsInput = {
-    userId: string
-    firstName: string
-    lastName: string
-    employeeId: string
-    aadharId: string
-  }
-
-  export type TechnicianCreateOrConnectWithoutBankDetailsInput = {
-    where: TechnicianWhereUniqueInput
-    create: XOR<TechnicianCreateWithoutBankDetailsInput, TechnicianUncheckedCreateWithoutBankDetailsInput>
+  export type UserUncheckedUpdateWithoutStoreInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    payoutDate?: NullableIntFieldUpdateOperationsInput | number | null
+    password?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    dateOfJoining?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateOfTermination?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    profileImage?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    aadharBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    qualificationImage?: NullableStringFieldUpdateOperationsInput | string | null
+    VehicleFrontImage?: NullableStringFieldUpdateOperationsInput | string | null
+    VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
+    storeId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
+    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
+    fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
+    salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type FieldExecutiveCreateWithoutBankDetailsInput = {
@@ -43621,6 +46776,27 @@ export namespace Prisma {
   export type FieldExecutiveCreateOrConnectWithoutBankDetailsInput = {
     where: FieldExecutiveWhereUniqueInput
     create: XOR<FieldExecutiveCreateWithoutBankDetailsInput, FieldExecutiveUncheckedCreateWithoutBankDetailsInput>
+  }
+
+  export type ManagerCreateWithoutBankDetailsInput = {
+    firstName: string
+    lastName: string
+    employeeId: string
+    aadharId: string
+    user: UserCreateNestedOneWithoutManagerInput
+  }
+
+  export type ManagerUncheckedCreateWithoutBankDetailsInput = {
+    userId: string
+    firstName: string
+    lastName: string
+    employeeId: string
+    aadharId: string
+  }
+
+  export type ManagerCreateOrConnectWithoutBankDetailsInput = {
+    where: ManagerWhereUniqueInput
+    create: XOR<ManagerCreateWithoutBankDetailsInput, ManagerUncheckedCreateWithoutBankDetailsInput>
   }
 
   export type SalesExecutiveCreateWithoutBankDetailsInput = {
@@ -43652,8 +46828,8 @@ export namespace Prisma {
     ownerEmail: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutStoreInput
     address?: AddressCreateNestedOneWithoutStoreInput
+    user: UserCreateNestedOneWithoutStoreInput
   }
 
   export type StoreUncheckedCreateWithoutBankDetailsInput = {
@@ -43673,58 +46849,25 @@ export namespace Prisma {
     create: XOR<StoreCreateWithoutBankDetailsInput, StoreUncheckedCreateWithoutBankDetailsInput>
   }
 
-  export type ManagerUpsertWithoutBankDetailsInput = {
-    update: XOR<ManagerUpdateWithoutBankDetailsInput, ManagerUncheckedUpdateWithoutBankDetailsInput>
-    create: XOR<ManagerCreateWithoutBankDetailsInput, ManagerUncheckedCreateWithoutBankDetailsInput>
-    where?: ManagerWhereInput
+  export type TechnicianCreateWithoutBankDetailsInput = {
+    firstName: string
+    lastName: string
+    employeeId: string
+    aadharId: string
+    user: UserCreateNestedOneWithoutTechnicianInput
   }
 
-  export type ManagerUpdateToOneWithWhereWithoutBankDetailsInput = {
-    where?: ManagerWhereInput
-    data: XOR<ManagerUpdateWithoutBankDetailsInput, ManagerUncheckedUpdateWithoutBankDetailsInput>
+  export type TechnicianUncheckedCreateWithoutBankDetailsInput = {
+    userId: string
+    firstName: string
+    lastName: string
+    employeeId: string
+    aadharId: string
   }
 
-  export type ManagerUpdateWithoutBankDetailsInput = {
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-    user?: UserUpdateOneRequiredWithoutManagerNestedInput
-  }
-
-  export type ManagerUncheckedUpdateWithoutBankDetailsInput = {
-    userId?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type TechnicianUpsertWithoutBankDetailsInput = {
-    update: XOR<TechnicianUpdateWithoutBankDetailsInput, TechnicianUncheckedUpdateWithoutBankDetailsInput>
+  export type TechnicianCreateOrConnectWithoutBankDetailsInput = {
+    where: TechnicianWhereUniqueInput
     create: XOR<TechnicianCreateWithoutBankDetailsInput, TechnicianUncheckedCreateWithoutBankDetailsInput>
-    where?: TechnicianWhereInput
-  }
-
-  export type TechnicianUpdateToOneWithWhereWithoutBankDetailsInput = {
-    where?: TechnicianWhereInput
-    data: XOR<TechnicianUpdateWithoutBankDetailsInput, TechnicianUncheckedUpdateWithoutBankDetailsInput>
-  }
-
-  export type TechnicianUpdateWithoutBankDetailsInput = {
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
-    user?: UserUpdateOneRequiredWithoutTechnicianNestedInput
-  }
-
-  export type TechnicianUncheckedUpdateWithoutBankDetailsInput = {
-    userId?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    employeeId?: StringFieldUpdateOperationsInput | string
-    aadharId?: StringFieldUpdateOperationsInput | string
   }
 
   export type FieldExecutiveUpsertWithoutBankDetailsInput = {
@@ -43747,6 +46890,33 @@ export namespace Prisma {
   }
 
   export type FieldExecutiveUncheckedUpdateWithoutBankDetailsInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    aadharId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ManagerUpsertWithoutBankDetailsInput = {
+    update: XOR<ManagerUpdateWithoutBankDetailsInput, ManagerUncheckedUpdateWithoutBankDetailsInput>
+    create: XOR<ManagerCreateWithoutBankDetailsInput, ManagerUncheckedCreateWithoutBankDetailsInput>
+    where?: ManagerWhereInput
+  }
+
+  export type ManagerUpdateToOneWithWhereWithoutBankDetailsInput = {
+    where?: ManagerWhereInput
+    data: XOR<ManagerUpdateWithoutBankDetailsInput, ManagerUncheckedUpdateWithoutBankDetailsInput>
+  }
+
+  export type ManagerUpdateWithoutBankDetailsInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    aadharId?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutManagerNestedInput
+  }
+
+  export type ManagerUncheckedUpdateWithoutBankDetailsInput = {
     userId?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
@@ -43800,8 +46970,8 @@ export namespace Prisma {
     ownerEmail?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutStoreNestedInput
     address?: AddressUpdateOneWithoutStoreNestedInput
+    user?: UserUpdateOneRequiredWithoutStoreNestedInput
   }
 
   export type StoreUncheckedUpdateWithoutBankDetailsInput = {
@@ -43814,6 +46984,33 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     address?: AddressUncheckedUpdateOneWithoutStoreNestedInput
+  }
+
+  export type TechnicianUpsertWithoutBankDetailsInput = {
+    update: XOR<TechnicianUpdateWithoutBankDetailsInput, TechnicianUncheckedUpdateWithoutBankDetailsInput>
+    create: XOR<TechnicianCreateWithoutBankDetailsInput, TechnicianUncheckedCreateWithoutBankDetailsInput>
+    where?: TechnicianWhereInput
+  }
+
+  export type TechnicianUpdateToOneWithWhereWithoutBankDetailsInput = {
+    where?: TechnicianWhereInput
+    data: XOR<TechnicianUpdateWithoutBankDetailsInput, TechnicianUncheckedUpdateWithoutBankDetailsInput>
+  }
+
+  export type TechnicianUpdateWithoutBankDetailsInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    aadharId?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutTechnicianNestedInput
+  }
+
+  export type TechnicianUncheckedUpdateWithoutBankDetailsInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    employeeId?: StringFieldUpdateOperationsInput | string
+    aadharId?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -43834,20 +47031,20 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    manager?: ManagerCreateNestedOneWithoutUserInput
-    technician?: TechnicianCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
+    admin?: AdminCreateNestedOneWithoutUserInput
     fieldExecutive?: FieldExecutiveCreateNestedOneWithoutUserInput
+    manager?: ManagerCreateNestedOneWithoutUserInput
     salesExecutive?: SalesExecutiveCreateNestedOneWithoutUserInput
     store?: StoreCreateNestedOneWithoutUserInput
-    admin?: AdminCreateNestedOneWithoutUserInput
+    technician?: TechnicianCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -43868,20 +47065,20 @@ export namespace Prisma {
     VehicleBackImage?: string | null
     role?: $Enums.Role | null
     storeId?: string | null
-    mfaEnabled?: boolean
-    mfaSecret?: string | null
-    mfaVerified?: boolean
     createdBy?: string | null
     isAdmin?: boolean
     status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
-    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
+    mfaEnabled?: boolean
+    mfaSecret?: string | null
+    mfaVerified?: boolean
+    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
     fieldExecutive?: FieldExecutiveUncheckedCreateNestedOneWithoutUserInput
+    manager?: ManagerUncheckedCreateNestedOneWithoutUserInput
     salesExecutive?: SalesExecutiveUncheckedCreateNestedOneWithoutUserInput
     store?: StoreUncheckedCreateNestedOneWithoutUserInput
-    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    technician?: TechnicianUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -43918,20 +47115,20 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    manager?: ManagerUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
+    admin?: AdminUpdateOneWithoutUserNestedInput
     fieldExecutive?: FieldExecutiveUpdateOneWithoutUserNestedInput
+    manager?: ManagerUpdateOneWithoutUserNestedInput
     salesExecutive?: SalesExecutiveUpdateOneWithoutUserNestedInput
     store?: StoreUpdateOneWithoutUserNestedInput
-    admin?: AdminUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -43952,20 +47149,79 @@ export namespace Prisma {
     VehicleBackImage?: NullableStringFieldUpdateOperationsInput | string | null
     role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     storeId?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
-    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
-    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
     createdBy?: NullableStringFieldUpdateOperationsInput | string | null
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
-    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
+    mfaEnabled?: BoolFieldUpdateOperationsInput | boolean
+    mfaSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    mfaVerified?: BoolFieldUpdateOperationsInput | boolean
+    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
     fieldExecutive?: FieldExecutiveUncheckedUpdateOneWithoutUserNestedInput
+    manager?: ManagerUncheckedUpdateOneWithoutUserNestedInput
     salesExecutive?: SalesExecutiveUncheckedUpdateOneWithoutUserNestedInput
     store?: StoreUncheckedUpdateOneWithoutUserNestedInput
-    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
+    technician?: TechnicianUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type AudioJackTestCreateWithoutDeviceTestInput = {
+    id?: string
+    status: boolean
+    message?: string | null
+    timestamp?: Date | string | null
+  }
+
+  export type AudioJackTestUncheckedCreateWithoutDeviceTestInput = {
+    id?: string
+    status: boolean
+    message?: string | null
+    timestamp?: Date | string | null
+  }
+
+  export type AudioJackTestCreateOrConnectWithoutDeviceTestInput = {
+    where: AudioJackTestWhereUniqueInput
+    create: XOR<AudioJackTestCreateWithoutDeviceTestInput, AudioJackTestUncheckedCreateWithoutDeviceTestInput>
+  }
+
+  export type AudioTestCreateWithoutDeviceTestInput = {
+    id?: string
+    speaker: boolean
+    earReceiver: boolean
+    microphone: boolean
+    timestamp?: Date | string | null
+  }
+
+  export type AudioTestUncheckedCreateWithoutDeviceTestInput = {
+    id?: string
+    speaker: boolean
+    earReceiver: boolean
+    microphone: boolean
+    timestamp?: Date | string | null
+  }
+
+  export type AudioTestCreateOrConnectWithoutDeviceTestInput = {
+    where: AudioTestWhereUniqueInput
+    create: XOR<AudioTestCreateWithoutDeviceTestInput, AudioTestUncheckedCreateWithoutDeviceTestInput>
+  }
+
+  export type CameraTestCreateWithoutDeviceTestInput = {
+    id?: string
+    frontCamera: boolean
+    backCamera: boolean
+    timestamp?: Date | string | null
+  }
+
+  export type CameraTestUncheckedCreateWithoutDeviceTestInput = {
+    id?: string
+    frontCamera: boolean
+    backCamera: boolean
+    timestamp?: Date | string | null
+  }
+
+  export type CameraTestCreateOrConnectWithoutDeviceTestInput = {
+    where: CameraTestWhereUniqueInput
+    create: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
   }
 
   export type ConnectivityTestResultCreateWithoutDeviceTestInput = {
@@ -43991,30 +47247,6 @@ export namespace Prisma {
 
   export type ConnectivityTestResultCreateManyDeviceTestInputEnvelope = {
     data: ConnectivityTestResultCreateManyDeviceTestInput | ConnectivityTestResultCreateManyDeviceTestInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type SimTestResultCreateWithoutDeviceTestInput = {
-    id?: string
-    name: string
-    status: boolean
-    timestamp?: Date | string | null
-  }
-
-  export type SimTestResultUncheckedCreateWithoutDeviceTestInput = {
-    id?: string
-    name: string
-    status: boolean
-    timestamp?: Date | string | null
-  }
-
-  export type SimTestResultCreateOrConnectWithoutDeviceTestInput = {
-    where: SimTestResultWhereUniqueInput
-    create: XOR<SimTestResultCreateWithoutDeviceTestInput, SimTestResultUncheckedCreateWithoutDeviceTestInput>
-  }
-
-  export type SimTestResultCreateManyDeviceTestInputEnvelope = {
-    data: SimTestResultCreateManyDeviceTestInput | SimTestResultCreateManyDeviceTestInput[]
     skipDuplicates?: boolean
   }
 
@@ -44044,46 +47276,23 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ScreenTestCreateWithoutDeviceTestInput = {
+  export type FingerprintTestCreateWithoutDeviceTestInput = {
     id?: string
-    multiTouch: boolean
-    dotCoverage: boolean
-    completed: boolean
+    status: boolean
+    message?: string | null
     timestamp?: Date | string | null
   }
 
-  export type ScreenTestUncheckedCreateWithoutDeviceTestInput = {
+  export type FingerprintTestUncheckedCreateWithoutDeviceTestInput = {
     id?: string
-    multiTouch: boolean
-    dotCoverage: boolean
-    completed: boolean
+    status: boolean
+    message?: string | null
     timestamp?: Date | string | null
   }
 
-  export type ScreenTestCreateOrConnectWithoutDeviceTestInput = {
-    where: ScreenTestWhereUniqueInput
-    create: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
-  }
-
-  export type AudioTestCreateWithoutDeviceTestInput = {
-    id?: string
-    speaker: boolean
-    earReceiver: boolean
-    microphone: boolean
-    timestamp?: Date | string | null
-  }
-
-  export type AudioTestUncheckedCreateWithoutDeviceTestInput = {
-    id?: string
-    speaker: boolean
-    earReceiver: boolean
-    microphone: boolean
-    timestamp?: Date | string | null
-  }
-
-  export type AudioTestCreateOrConnectWithoutDeviceTestInput = {
-    where: AudioTestWhereUniqueInput
-    create: XOR<AudioTestCreateWithoutDeviceTestInput, AudioTestUncheckedCreateWithoutDeviceTestInput>
+  export type FingerprintTestCreateOrConnectWithoutDeviceTestInput = {
+    where: FingerprintTestWhereUniqueInput
+    create: XOR<FingerprintTestCreateWithoutDeviceTestInput, FingerprintTestUncheckedCreateWithoutDeviceTestInput>
   }
 
   export type ProximitySensorTestCreateWithoutDeviceTestInput = {
@@ -44105,42 +47314,49 @@ export namespace Prisma {
     create: XOR<ProximitySensorTestCreateWithoutDeviceTestInput, ProximitySensorTestUncheckedCreateWithoutDeviceTestInput>
   }
 
-  export type CameraTestCreateWithoutDeviceTestInput = {
+  export type ScreenTestCreateWithoutDeviceTestInput = {
     id?: string
-    frontCamera: boolean
-    backCamera: boolean
+    multiTouch: boolean
+    dotCoverage: boolean
+    completed: boolean
     timestamp?: Date | string | null
   }
 
-  export type CameraTestUncheckedCreateWithoutDeviceTestInput = {
+  export type ScreenTestUncheckedCreateWithoutDeviceTestInput = {
     id?: string
-    frontCamera: boolean
-    backCamera: boolean
+    multiTouch: boolean
+    dotCoverage: boolean
+    completed: boolean
     timestamp?: Date | string | null
   }
 
-  export type CameraTestCreateOrConnectWithoutDeviceTestInput = {
-    where: CameraTestWhereUniqueInput
-    create: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
+  export type ScreenTestCreateOrConnectWithoutDeviceTestInput = {
+    where: ScreenTestWhereUniqueInput
+    create: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
   }
 
-  export type FingerprintTestCreateWithoutDeviceTestInput = {
+  export type SimTestResultCreateWithoutDeviceTestInput = {
     id?: string
+    name: string
     status: boolean
-    message?: string | null
     timestamp?: Date | string | null
   }
 
-  export type FingerprintTestUncheckedCreateWithoutDeviceTestInput = {
+  export type SimTestResultUncheckedCreateWithoutDeviceTestInput = {
     id?: string
+    name: string
     status: boolean
-    message?: string | null
     timestamp?: Date | string | null
   }
 
-  export type FingerprintTestCreateOrConnectWithoutDeviceTestInput = {
-    where: FingerprintTestWhereUniqueInput
-    create: XOR<FingerprintTestCreateWithoutDeviceTestInput, FingerprintTestUncheckedCreateWithoutDeviceTestInput>
+  export type SimTestResultCreateOrConnectWithoutDeviceTestInput = {
+    where: SimTestResultWhereUniqueInput
+    create: XOR<SimTestResultCreateWithoutDeviceTestInput, SimTestResultUncheckedCreateWithoutDeviceTestInput>
+  }
+
+  export type SimTestResultCreateManyDeviceTestInputEnvelope = {
+    data: SimTestResultCreateManyDeviceTestInput | SimTestResultCreateManyDeviceTestInput[]
+    skipDuplicates?: boolean
   }
 
   export type UsbTestCreateWithoutDeviceTestInput = {
@@ -44162,132 +47378,28 @@ export namespace Prisma {
     create: XOR<UsbTestCreateWithoutDeviceTestInput, UsbTestUncheckedCreateWithoutDeviceTestInput>
   }
 
-  export type AudioJackTestCreateWithoutDeviceTestInput = {
-    id?: string
-    status: boolean
-    message?: string | null
-    timestamp?: Date | string | null
-  }
-
-  export type AudioJackTestUncheckedCreateWithoutDeviceTestInput = {
-    id?: string
-    status: boolean
-    message?: string | null
-    timestamp?: Date | string | null
-  }
-
-  export type AudioJackTestCreateOrConnectWithoutDeviceTestInput = {
-    where: AudioJackTestWhereUniqueInput
+  export type AudioJackTestUpsertWithoutDeviceTestInput = {
+    update: XOR<AudioJackTestUpdateWithoutDeviceTestInput, AudioJackTestUncheckedUpdateWithoutDeviceTestInput>
     create: XOR<AudioJackTestCreateWithoutDeviceTestInput, AudioJackTestUncheckedCreateWithoutDeviceTestInput>
+    where?: AudioJackTestWhereInput
   }
 
-  export type ConnectivityTestResultUpsertWithWhereUniqueWithoutDeviceTestInput = {
-    where: ConnectivityTestResultWhereUniqueInput
-    update: XOR<ConnectivityTestResultUpdateWithoutDeviceTestInput, ConnectivityTestResultUncheckedUpdateWithoutDeviceTestInput>
-    create: XOR<ConnectivityTestResultCreateWithoutDeviceTestInput, ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput>
+  export type AudioJackTestUpdateToOneWithWhereWithoutDeviceTestInput = {
+    where?: AudioJackTestWhereInput
+    data: XOR<AudioJackTestUpdateWithoutDeviceTestInput, AudioJackTestUncheckedUpdateWithoutDeviceTestInput>
   }
 
-  export type ConnectivityTestResultUpdateWithWhereUniqueWithoutDeviceTestInput = {
-    where: ConnectivityTestResultWhereUniqueInput
-    data: XOR<ConnectivityTestResultUpdateWithoutDeviceTestInput, ConnectivityTestResultUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type ConnectivityTestResultUpdateManyWithWhereWithoutDeviceTestInput = {
-    where: ConnectivityTestResultScalarWhereInput
-    data: XOR<ConnectivityTestResultUpdateManyMutationInput, ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestInput>
-  }
-
-  export type ConnectivityTestResultScalarWhereInput = {
-    AND?: ConnectivityTestResultScalarWhereInput | ConnectivityTestResultScalarWhereInput[]
-    OR?: ConnectivityTestResultScalarWhereInput[]
-    NOT?: ConnectivityTestResultScalarWhereInput | ConnectivityTestResultScalarWhereInput[]
-    id?: StringFilter<"ConnectivityTestResult"> | string
-    name?: StringFilter<"ConnectivityTestResult"> | string
-    status?: BoolFilter<"ConnectivityTestResult"> | boolean
-    message?: StringNullableFilter<"ConnectivityTestResult"> | string | null
-    timestamp?: DateTimeNullableFilter<"ConnectivityTestResult"> | Date | string | null
-    deviceTestId?: StringFilter<"ConnectivityTestResult"> | string
-  }
-
-  export type SimTestResultUpsertWithWhereUniqueWithoutDeviceTestInput = {
-    where: SimTestResultWhereUniqueInput
-    update: XOR<SimTestResultUpdateWithoutDeviceTestInput, SimTestResultUncheckedUpdateWithoutDeviceTestInput>
-    create: XOR<SimTestResultCreateWithoutDeviceTestInput, SimTestResultUncheckedCreateWithoutDeviceTestInput>
-  }
-
-  export type SimTestResultUpdateWithWhereUniqueWithoutDeviceTestInput = {
-    where: SimTestResultWhereUniqueInput
-    data: XOR<SimTestResultUpdateWithoutDeviceTestInput, SimTestResultUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type SimTestResultUpdateManyWithWhereWithoutDeviceTestInput = {
-    where: SimTestResultScalarWhereInput
-    data: XOR<SimTestResultUpdateManyMutationInput, SimTestResultUncheckedUpdateManyWithoutDeviceTestInput>
-  }
-
-  export type SimTestResultScalarWhereInput = {
-    AND?: SimTestResultScalarWhereInput | SimTestResultScalarWhereInput[]
-    OR?: SimTestResultScalarWhereInput[]
-    NOT?: SimTestResultScalarWhereInput | SimTestResultScalarWhereInput[]
-    id?: StringFilter<"SimTestResult"> | string
-    name?: StringFilter<"SimTestResult"> | string
-    status?: BoolFilter<"SimTestResult"> | boolean
-    timestamp?: DateTimeNullableFilter<"SimTestResult"> | Date | string | null
-    deviceTestId?: StringFilter<"SimTestResult"> | string
-  }
-
-  export type DeviceTestResultUpsertWithWhereUniqueWithoutDeviceTestInput = {
-    where: DeviceTestResultWhereUniqueInput
-    update: XOR<DeviceTestResultUpdateWithoutDeviceTestInput, DeviceTestResultUncheckedUpdateWithoutDeviceTestInput>
-    create: XOR<DeviceTestResultCreateWithoutDeviceTestInput, DeviceTestResultUncheckedCreateWithoutDeviceTestInput>
-  }
-
-  export type DeviceTestResultUpdateWithWhereUniqueWithoutDeviceTestInput = {
-    where: DeviceTestResultWhereUniqueInput
-    data: XOR<DeviceTestResultUpdateWithoutDeviceTestInput, DeviceTestResultUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type DeviceTestResultUpdateManyWithWhereWithoutDeviceTestInput = {
-    where: DeviceTestResultScalarWhereInput
-    data: XOR<DeviceTestResultUpdateManyMutationInput, DeviceTestResultUncheckedUpdateManyWithoutDeviceTestInput>
-  }
-
-  export type DeviceTestResultScalarWhereInput = {
-    AND?: DeviceTestResultScalarWhereInput | DeviceTestResultScalarWhereInput[]
-    OR?: DeviceTestResultScalarWhereInput[]
-    NOT?: DeviceTestResultScalarWhereInput | DeviceTestResultScalarWhereInput[]
-    id?: StringFilter<"DeviceTestResult"> | string
-    name?: StringFilter<"DeviceTestResult"> | string
-    status?: BoolFilter<"DeviceTestResult"> | boolean
-    message?: StringNullableFilter<"DeviceTestResult"> | string | null
-    timestamp?: DateTimeNullableFilter<"DeviceTestResult"> | Date | string | null
-    deviceTestId?: StringFilter<"DeviceTestResult"> | string
-  }
-
-  export type ScreenTestUpsertWithoutDeviceTestInput = {
-    update: XOR<ScreenTestUpdateWithoutDeviceTestInput, ScreenTestUncheckedUpdateWithoutDeviceTestInput>
-    create: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
-    where?: ScreenTestWhereInput
-  }
-
-  export type ScreenTestUpdateToOneWithWhereWithoutDeviceTestInput = {
-    where?: ScreenTestWhereInput
-    data: XOR<ScreenTestUpdateWithoutDeviceTestInput, ScreenTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type ScreenTestUpdateWithoutDeviceTestInput = {
+  export type AudioJackTestUpdateWithoutDeviceTestInput = {
     id?: StringFieldUpdateOperationsInput | string
-    multiTouch?: BoolFieldUpdateOperationsInput | boolean
-    dotCoverage?: BoolFieldUpdateOperationsInput | boolean
-    completed?: BoolFieldUpdateOperationsInput | boolean
+    status?: BoolFieldUpdateOperationsInput | boolean
+    message?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type ScreenTestUncheckedUpdateWithoutDeviceTestInput = {
+  export type AudioJackTestUncheckedUpdateWithoutDeviceTestInput = {
     id?: StringFieldUpdateOperationsInput | string
-    multiTouch?: BoolFieldUpdateOperationsInput | boolean
-    dotCoverage?: BoolFieldUpdateOperationsInput | boolean
-    completed?: BoolFieldUpdateOperationsInput | boolean
+    status?: BoolFieldUpdateOperationsInput | boolean
+    message?: NullableStringFieldUpdateOperationsInput | string | null
     timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -44318,31 +47430,6 @@ export namespace Prisma {
     timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type ProximitySensorTestUpsertWithoutDeviceTestInput = {
-    update: XOR<ProximitySensorTestUpdateWithoutDeviceTestInput, ProximitySensorTestUncheckedUpdateWithoutDeviceTestInput>
-    create: XOR<ProximitySensorTestCreateWithoutDeviceTestInput, ProximitySensorTestUncheckedCreateWithoutDeviceTestInput>
-    where?: ProximitySensorTestWhereInput
-  }
-
-  export type ProximitySensorTestUpdateToOneWithWhereWithoutDeviceTestInput = {
-    where?: ProximitySensorTestWhereInput
-    data: XOR<ProximitySensorTestUpdateWithoutDeviceTestInput, ProximitySensorTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type ProximitySensorTestUpdateWithoutDeviceTestInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    message?: NullableStringFieldUpdateOperationsInput | string | null
-    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type ProximitySensorTestUncheckedUpdateWithoutDeviceTestInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    message?: NullableStringFieldUpdateOperationsInput | string | null
-    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
   export type CameraTestUpsertWithoutDeviceTestInput = {
     update: XOR<CameraTestUpdateWithoutDeviceTestInput, CameraTestUncheckedUpdateWithoutDeviceTestInput>
     create: XOR<CameraTestCreateWithoutDeviceTestInput, CameraTestUncheckedCreateWithoutDeviceTestInput>
@@ -44366,6 +47453,62 @@ export namespace Prisma {
     frontCamera?: BoolFieldUpdateOperationsInput | boolean
     backCamera?: BoolFieldUpdateOperationsInput | boolean
     timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ConnectivityTestResultUpsertWithWhereUniqueWithoutDeviceTestInput = {
+    where: ConnectivityTestResultWhereUniqueInput
+    update: XOR<ConnectivityTestResultUpdateWithoutDeviceTestInput, ConnectivityTestResultUncheckedUpdateWithoutDeviceTestInput>
+    create: XOR<ConnectivityTestResultCreateWithoutDeviceTestInput, ConnectivityTestResultUncheckedCreateWithoutDeviceTestInput>
+  }
+
+  export type ConnectivityTestResultUpdateWithWhereUniqueWithoutDeviceTestInput = {
+    where: ConnectivityTestResultWhereUniqueInput
+    data: XOR<ConnectivityTestResultUpdateWithoutDeviceTestInput, ConnectivityTestResultUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type ConnectivityTestResultUpdateManyWithWhereWithoutDeviceTestInput = {
+    where: ConnectivityTestResultScalarWhereInput
+    data: XOR<ConnectivityTestResultUpdateManyMutationInput, ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestInput>
+  }
+
+  export type ConnectivityTestResultScalarWhereInput = {
+    AND?: ConnectivityTestResultScalarWhereInput | ConnectivityTestResultScalarWhereInput[]
+    OR?: ConnectivityTestResultScalarWhereInput[]
+    NOT?: ConnectivityTestResultScalarWhereInput | ConnectivityTestResultScalarWhereInput[]
+    id?: StringFilter<"ConnectivityTestResult"> | string
+    name?: StringFilter<"ConnectivityTestResult"> | string
+    status?: BoolFilter<"ConnectivityTestResult"> | boolean
+    message?: StringNullableFilter<"ConnectivityTestResult"> | string | null
+    timestamp?: DateTimeNullableFilter<"ConnectivityTestResult"> | Date | string | null
+    deviceTestId?: StringFilter<"ConnectivityTestResult"> | string
+  }
+
+  export type DeviceTestResultUpsertWithWhereUniqueWithoutDeviceTestInput = {
+    where: DeviceTestResultWhereUniqueInput
+    update: XOR<DeviceTestResultUpdateWithoutDeviceTestInput, DeviceTestResultUncheckedUpdateWithoutDeviceTestInput>
+    create: XOR<DeviceTestResultCreateWithoutDeviceTestInput, DeviceTestResultUncheckedCreateWithoutDeviceTestInput>
+  }
+
+  export type DeviceTestResultUpdateWithWhereUniqueWithoutDeviceTestInput = {
+    where: DeviceTestResultWhereUniqueInput
+    data: XOR<DeviceTestResultUpdateWithoutDeviceTestInput, DeviceTestResultUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type DeviceTestResultUpdateManyWithWhereWithoutDeviceTestInput = {
+    where: DeviceTestResultScalarWhereInput
+    data: XOR<DeviceTestResultUpdateManyMutationInput, DeviceTestResultUncheckedUpdateManyWithoutDeviceTestInput>
+  }
+
+  export type DeviceTestResultScalarWhereInput = {
+    AND?: DeviceTestResultScalarWhereInput | DeviceTestResultScalarWhereInput[]
+    OR?: DeviceTestResultScalarWhereInput[]
+    NOT?: DeviceTestResultScalarWhereInput | DeviceTestResultScalarWhereInput[]
+    id?: StringFilter<"DeviceTestResult"> | string
+    name?: StringFilter<"DeviceTestResult"> | string
+    status?: BoolFilter<"DeviceTestResult"> | boolean
+    message?: StringNullableFilter<"DeviceTestResult"> | string | null
+    timestamp?: DateTimeNullableFilter<"DeviceTestResult"> | Date | string | null
+    deviceTestId?: StringFilter<"DeviceTestResult"> | string
   }
 
   export type FingerprintTestUpsertWithoutDeviceTestInput = {
@@ -44393,6 +47536,85 @@ export namespace Prisma {
     timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type ProximitySensorTestUpsertWithoutDeviceTestInput = {
+    update: XOR<ProximitySensorTestUpdateWithoutDeviceTestInput, ProximitySensorTestUncheckedUpdateWithoutDeviceTestInput>
+    create: XOR<ProximitySensorTestCreateWithoutDeviceTestInput, ProximitySensorTestUncheckedCreateWithoutDeviceTestInput>
+    where?: ProximitySensorTestWhereInput
+  }
+
+  export type ProximitySensorTestUpdateToOneWithWhereWithoutDeviceTestInput = {
+    where?: ProximitySensorTestWhereInput
+    data: XOR<ProximitySensorTestUpdateWithoutDeviceTestInput, ProximitySensorTestUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type ProximitySensorTestUpdateWithoutDeviceTestInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ProximitySensorTestUncheckedUpdateWithoutDeviceTestInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    message?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ScreenTestUpsertWithoutDeviceTestInput = {
+    update: XOR<ScreenTestUpdateWithoutDeviceTestInput, ScreenTestUncheckedUpdateWithoutDeviceTestInput>
+    create: XOR<ScreenTestCreateWithoutDeviceTestInput, ScreenTestUncheckedCreateWithoutDeviceTestInput>
+    where?: ScreenTestWhereInput
+  }
+
+  export type ScreenTestUpdateToOneWithWhereWithoutDeviceTestInput = {
+    where?: ScreenTestWhereInput
+    data: XOR<ScreenTestUpdateWithoutDeviceTestInput, ScreenTestUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type ScreenTestUpdateWithoutDeviceTestInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    multiTouch?: BoolFieldUpdateOperationsInput | boolean
+    dotCoverage?: BoolFieldUpdateOperationsInput | boolean
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ScreenTestUncheckedUpdateWithoutDeviceTestInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    multiTouch?: BoolFieldUpdateOperationsInput | boolean
+    dotCoverage?: BoolFieldUpdateOperationsInput | boolean
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type SimTestResultUpsertWithWhereUniqueWithoutDeviceTestInput = {
+    where: SimTestResultWhereUniqueInput
+    update: XOR<SimTestResultUpdateWithoutDeviceTestInput, SimTestResultUncheckedUpdateWithoutDeviceTestInput>
+    create: XOR<SimTestResultCreateWithoutDeviceTestInput, SimTestResultUncheckedCreateWithoutDeviceTestInput>
+  }
+
+  export type SimTestResultUpdateWithWhereUniqueWithoutDeviceTestInput = {
+    where: SimTestResultWhereUniqueInput
+    data: XOR<SimTestResultUpdateWithoutDeviceTestInput, SimTestResultUncheckedUpdateWithoutDeviceTestInput>
+  }
+
+  export type SimTestResultUpdateManyWithWhereWithoutDeviceTestInput = {
+    where: SimTestResultScalarWhereInput
+    data: XOR<SimTestResultUpdateManyMutationInput, SimTestResultUncheckedUpdateManyWithoutDeviceTestInput>
+  }
+
+  export type SimTestResultScalarWhereInput = {
+    AND?: SimTestResultScalarWhereInput | SimTestResultScalarWhereInput[]
+    OR?: SimTestResultScalarWhereInput[]
+    NOT?: SimTestResultScalarWhereInput | SimTestResultScalarWhereInput[]
+    id?: StringFilter<"SimTestResult"> | string
+    name?: StringFilter<"SimTestResult"> | string
+    status?: BoolFilter<"SimTestResult"> | boolean
+    timestamp?: DateTimeNullableFilter<"SimTestResult"> | Date | string | null
+    deviceTestId?: StringFilter<"SimTestResult"> | string
+  }
+
   export type UsbTestUpsertWithoutDeviceTestInput = {
     update: XOR<UsbTestUpdateWithoutDeviceTestInput, UsbTestUncheckedUpdateWithoutDeviceTestInput>
     create: XOR<UsbTestCreateWithoutDeviceTestInput, UsbTestUncheckedCreateWithoutDeviceTestInput>
@@ -44418,31 +47640,6 @@ export namespace Prisma {
     timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type AudioJackTestUpsertWithoutDeviceTestInput = {
-    update: XOR<AudioJackTestUpdateWithoutDeviceTestInput, AudioJackTestUncheckedUpdateWithoutDeviceTestInput>
-    create: XOR<AudioJackTestCreateWithoutDeviceTestInput, AudioJackTestUncheckedCreateWithoutDeviceTestInput>
-    where?: AudioJackTestWhereInput
-  }
-
-  export type AudioJackTestUpdateToOneWithWhereWithoutDeviceTestInput = {
-    where?: AudioJackTestWhereInput
-    data: XOR<AudioJackTestUpdateWithoutDeviceTestInput, AudioJackTestUncheckedUpdateWithoutDeviceTestInput>
-  }
-
-  export type AudioJackTestUpdateWithoutDeviceTestInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    message?: NullableStringFieldUpdateOperationsInput | string | null
-    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type AudioJackTestUncheckedUpdateWithoutDeviceTestInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    message?: NullableStringFieldUpdateOperationsInput | string | null
-    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
   export type DeviceTestCreateWithoutConnectivityTestResultsInput = {
     id?: string
     testId: string
@@ -44453,15 +47650,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestUncheckedCreateWithoutConnectivityTestResultsInput = {
@@ -44474,15 +47671,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestCreateOrConnectWithoutConnectivityTestResultsInput = {
@@ -44511,15 +47708,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestUncheckedUpdateWithoutConnectivityTestResultsInput = {
@@ -44532,15 +47729,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestCreateWithoutDeviceTestResultsInput = {
@@ -44553,15 +47750,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestUncheckedCreateWithoutDeviceTestResultsInput = {
@@ -44574,15 +47771,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestCreateOrConnectWithoutDeviceTestResultsInput = {
@@ -44611,15 +47808,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestUncheckedUpdateWithoutDeviceTestResultsInput = {
@@ -44632,15 +47829,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestCreateWithoutSimTestResultsInput = {
@@ -44653,15 +47850,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
+    audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
     connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
     deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
     fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
     usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
-    audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestUncheckedCreateWithoutSimTestResultsInput = {
@@ -44674,15 +47871,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
+    audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
     connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
     deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
     fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
     usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestCreateOrConnectWithoutSimTestResultsInput = {
@@ -44711,15 +47908,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
     connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
     deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
     fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
     usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
-    audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestUncheckedUpdateWithoutSimTestResultsInput = {
@@ -44732,15 +47929,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
     deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestCreateWithoutScreenTestInput = {
@@ -44753,15 +47950,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
-    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestUncheckedCreateWithoutScreenTestInput = {
@@ -44774,15 +47971,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestCreateOrConnectWithoutScreenTestInput = {
@@ -44811,15 +48008,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestUncheckedUpdateWithoutScreenTestInput = {
@@ -44832,15 +48029,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestCreateWithoutAudioTestInput = {
@@ -44853,15 +48050,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestUncheckedCreateWithoutAudioTestInput = {
@@ -44874,15 +48071,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestCreateOrConnectWithoutAudioTestInput = {
@@ -44911,15 +48108,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestUncheckedUpdateWithoutAudioTestInput = {
@@ -44932,15 +48129,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestCreateWithoutProximitySensorTestInput = {
@@ -44953,15 +48150,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
+    audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
     audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
     cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
     fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
     usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
-    audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestUncheckedCreateWithoutProximitySensorTestInput = {
@@ -44974,15 +48171,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
     audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
     cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
     fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
     usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestCreateOrConnectWithoutProximitySensorTestInput = {
@@ -45011,15 +48208,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
+    audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
     audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
     cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
     fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
     usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
-    audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestUncheckedUpdateWithoutProximitySensorTestInput = {
@@ -45032,15 +48229,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
     fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
     usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestCreateWithoutCameraTestInput = {
@@ -45053,15 +48250,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestUncheckedCreateWithoutCameraTestInput = {
@@ -45074,15 +48271,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestCreateOrConnectWithoutCameraTestInput = {
@@ -45111,15 +48308,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestUncheckedUpdateWithoutCameraTestInput = {
@@ -45132,15 +48329,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestCreateWithoutFingerprintTestInput = {
@@ -45153,15 +48350,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestUncheckedCreateWithoutFingerprintTestInput = {
@@ -45174,15 +48371,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
   }
 
   export type DeviceTestCreateOrConnectWithoutFingerprintTestInput = {
@@ -45211,15 +48408,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestUncheckedUpdateWithoutFingerprintTestInput = {
@@ -45232,15 +48429,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestCreateWithoutUsbTestInput = {
@@ -45253,15 +48450,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
   }
 
   export type DeviceTestUncheckedCreateWithoutUsbTestInput = {
@@ -45274,15 +48471,15 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
     audioJackTest?: AudioJackTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
   }
 
   export type DeviceTestCreateOrConnectWithoutUsbTestInput = {
@@ -45311,15 +48508,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestUncheckedUpdateWithoutUsbTestInput = {
@@ -45332,15 +48529,15 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     audioJackTest?: AudioJackTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
   }
 
   export type DeviceTestCreateWithoutAudioJackTestInput = {
@@ -45353,14 +48550,14 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
     audioTest?: AudioTestCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
     cameraTest?: CameraTestCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultCreateNestedManyWithoutDeviceTestInput
     fingerprintTest?: FingerprintTestCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultCreateNestedManyWithoutDeviceTestInput
     usbTest?: UsbTestCreateNestedOneWithoutDeviceTestInput
   }
 
@@ -45374,14 +48571,14 @@ export namespace Prisma {
     imei1?: string | null
     imei2?: string | null
     createdAt?: Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
-    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
     audioTest?: AudioTestUncheckedCreateNestedOneWithoutDeviceTestInput
-    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
     cameraTest?: CameraTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
+    deviceTestResults?: DeviceTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
     fingerprintTest?: FingerprintTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    proximitySensorTest?: ProximitySensorTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    screenTest?: ScreenTestUncheckedCreateNestedOneWithoutDeviceTestInput
+    simTestResults?: SimTestResultUncheckedCreateNestedManyWithoutDeviceTestInput
     usbTest?: UsbTestUncheckedCreateNestedOneWithoutDeviceTestInput
   }
 
@@ -45411,14 +48608,14 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
     audioTest?: AudioTestUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
     cameraTest?: CameraTestUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUpdateManyWithoutDeviceTestNestedInput
     fingerprintTest?: FingerprintTestUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUpdateManyWithoutDeviceTestNestedInput
     usbTest?: UsbTestUpdateOneWithoutDeviceTestNestedInput
   }
 
@@ -45432,14 +48629,14 @@ export namespace Prisma {
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
-    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     audioTest?: AudioTestUncheckedUpdateOneWithoutDeviceTestNestedInput
-    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
     cameraTest?: CameraTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    connectivityTestResults?: ConnectivityTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
+    deviceTestResults?: DeviceTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
     fingerprintTest?: FingerprintTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    proximitySensorTest?: ProximitySensorTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    screenTest?: ScreenTestUncheckedUpdateOneWithoutDeviceTestNestedInput
+    simTestResults?: SimTestResultUncheckedUpdateManyWithoutDeviceTestNestedInput
     usbTest?: UsbTestUncheckedUpdateOneWithoutDeviceTestNestedInput
   }
 
@@ -45451,8 +48648,8 @@ export namespace Prisma {
     ownerEmail: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutStoreInput
     bankDetails?: BankDetailsCreateNestedOneWithoutStoreInput
+    user: UserCreateNestedOneWithoutStoreInput
   }
 
   export type StoreUncheckedCreateWithoutAddressInput = {
@@ -45491,8 +48688,8 @@ export namespace Prisma {
     ownerEmail?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutStoreNestedInput
     bankDetails?: BankDetailsUpdateOneWithoutStoreNestedInput
+    user?: UserUpdateOneRequiredWithoutStoreNestedInput
   }
 
   export type StoreUncheckedUpdateWithoutAddressInput = {
@@ -45684,18 +48881,18 @@ export namespace Prisma {
     timestamp?: Date | string | null
   }
 
-  export type SimTestResultCreateManyDeviceTestInput = {
-    id?: string
-    name: string
-    status: boolean
-    timestamp?: Date | string | null
-  }
-
   export type DeviceTestResultCreateManyDeviceTestInput = {
     id?: string
     name: string
     status: boolean
     message?: string | null
+    timestamp?: Date | string | null
+  }
+
+  export type SimTestResultCreateManyDeviceTestInput = {
+    id?: string
+    name: string
+    status: boolean
     timestamp?: Date | string | null
   }
 
@@ -45723,27 +48920,6 @@ export namespace Prisma {
     timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type SimTestResultUpdateWithoutDeviceTestInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type SimTestResultUncheckedUpdateWithoutDeviceTestInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type SimTestResultUncheckedUpdateManyWithoutDeviceTestInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
   export type DeviceTestResultUpdateWithoutDeviceTestInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -45765,6 +48941,27 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     message?: NullableStringFieldUpdateOperationsInput | string | null
+    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type SimTestResultUpdateWithoutDeviceTestInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type SimTestResultUncheckedUpdateWithoutDeviceTestInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type SimTestResultUncheckedUpdateManyWithoutDeviceTestInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     timestamp?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 

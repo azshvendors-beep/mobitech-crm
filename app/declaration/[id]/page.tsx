@@ -22,7 +22,16 @@ import {
 } from "@/components/ui/alert-dialog";
 import { useModelData } from "@/components/GetModelData";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Input } from "@/components/ui/input";
+import { z } from "zod";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { FileText, IndianRupee } from "lucide-react";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 
 const DeclarationPage = () => {
   const params = useParams();
@@ -65,6 +74,41 @@ const DeclarationPage = () => {
 
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
   const sheetContentRef = useRef<HTMLDivElement>(null);
+  const [phoneSheetOpen, setPhoneSheetOpen] = useState(false);
+  const [phoneError, setPhoneError] = useState<string | null>(null);
+
+  // Zod schema for last4
+  const last4Schema = z.object({ last4: z.string().regex(/^[0-9]{4}$/, "Please enter exactly 4 digits") });
+
+  const { control, handleSubmit, setValue, watch, formState } = useForm({
+    resolver: zodResolver(last4Schema),
+    defaultValues: { last4: "" },
+  });
+
+  const last4 = watch("last4");
+
+  // removed inline handler - Controller will manage input changes
+
+  // Helper: sanitize backend URL from env (strip quotes, fix slashes, remove trailing slash)
+  const sanitizeBackendUrl = (raw?: string | null) => {
+    if (!raw) return "";
+    let u = raw.trim();
+    // strip surrounding single or double quotes
+    if ((u.startsWith("'") && u.endsWith("'")) || (u.startsWith('"') && u.endsWith('"'))) {
+      u = u.slice(1, -1);
+    }
+    // if protocol missing or malformed like 'http:/host', fix it
+    if (!/^https?:\/\//i.test(u)) {
+      // replace any leading protocol with proper double slash
+      u = u.replace(/^https?:\/+/, (m) => m.replace(/\/+$/, "") + "//");
+      if (!/^https?:\/\//i.test(u)) {
+        u = "http://" + u;
+      }
+    }
+    // remove trailing slashes
+    u = u.replace(/\/+$/g, "");
+    return u;
+  };
 
   useEffect(() => {
     // Fetch agreement text from backend
@@ -73,7 +117,7 @@ const DeclarationPage = () => {
     setIsLoading(true);
     setHasError(false);
     
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/fetch-declaration`, {
+    fetch(`${sanitizeBackendUrl(process.env.NEXT_PUBLIC_BACKEND_URL)}/fetch-declaration`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ orderId }),
@@ -88,6 +132,7 @@ const DeclarationPage = () => {
           throw new Error("Failed to fetch declaration");
         }
         const data = await res.json();
+        
         setAgreementData(data);
        
         setIsLoading(false);
@@ -114,33 +159,55 @@ const DeclarationPage = () => {
     }
   };
 
-  // Handle accept declaration
-  const handleAccept = async () => {
+  // Open phone confirmation sheet (triggered when user clicks Accept)
+  const openPhoneConfirm = () => {
+    setPhoneError(null);
+    setValue("last4", "", { shouldDirty: false, shouldValidate: false });
+    setPhoneSheetOpen(true);
+  };
+
+  // Final submit after user enters last 4 digits
+  const onSubmit = handleSubmit(async (values: { last4: string }) => {
+    const last4Val = values.last4;
     if (!orderId) return;
-    
+    setPhoneError(null);
+
+    // if agreementData has a phone/mobile number, validate match
+    const phone = (agreementData?.mobileNumber as string) || (agreementData?.phoneNumber as string) || null;
+    if (phone && phone.length >= 4) {
+      const expected = phone.slice(-4);
+      if (expected !== last4Val) {
+        setPhoneError("Digits do not match our records");
+        return;
+      }
+    }
+
     setIsAccepting(true);
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/accept-declaration`,
+        `${sanitizeBackendUrl(process.env.NEXT_PUBLIC_BACKEND_URL)}/accept-declaration`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ orderId }),
+          body: JSON.stringify({ orderId, last4: last4Val }),
         }
       );
 
       if (response.ok) {
-        // Reload the page on success
+        // close sheet and reload
+        setPhoneSheetOpen(false);
         window.location.reload();
       } else {
         console.error("Failed to accept declaration");
         setIsAccepting(false);
+        setPhoneError("Failed to submit. Please try again.");
       }
     } catch (error) {
       console.error("Error accepting declaration:", error);
       setIsAccepting(false);
+      setPhoneError("Network error. Please try again.");
     }
-  };
+  });
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -403,7 +470,7 @@ const DeclarationPage = () => {
               <Button
                 className="flex-1 py-5"
                 disabled={!checked}
-                onClick={handleAccept}
+                onClick={openPhoneConfirm}
                 style={{
                   backgroundColor: checked ? "#2563eb" : "#d1d5db",
                   color: "white",
@@ -439,6 +506,76 @@ const DeclarationPage = () => {
           </AlertDialog>
 
           {/* Declaration Sheet */}
+          {/* Phone confirmation Sheet (asks last 4 digits) */}
+          <Sheet open={phoneSheetOpen} onOpenChange={setPhoneSheetOpen}>
+            <SheetContent
+              side="bottom"
+              className="max-h-[40vh] flex flex-col [&>button]:hidden"
+            >
+              <SheetHeader className="sticky top-0 bg-white z-10 pb-3 border-b border-gray-300 flex flex-row items-center justify-between">
+                <SheetTitle className="text-lg font-semibold">
+                  Confirm Phone
+                </SheetTitle>
+                <SheetClose asChild>
+                  <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                    <span className="text-xl">✕</span>
+                  </Button>
+                </SheetClose>
+              </SheetHeader>
+              <div className="p-4 flex flex-col gap-4">
+                <p className="text-sm text-gray-700">
+                  Enter the last 4 digits of your phone number to confirm.
+                </p>
+                <div className="w-full flex justify-center">
+                  <Controller
+                    control={control}
+                    name="last4"
+                    render={({ field }) => (
+                      <InputOTP
+                        maxLength={10}
+                        value={`XXXXXX${field.value}`}
+                        onChange={(value) => {
+                          // Extract only the last 4 characters (user input)
+                          const userInput = value.slice(6);
+                          field.onChange(userInput);
+                          if (phoneError) setPhoneError(null);
+                        }}
+                      >
+                        <InputOTPGroup>
+                          {/* First 6 slots - pre-filled with X and disabled */}
+                          {[0, 1, 2, 3, 4, 5].map((idx) => (
+                            <InputOTPSlot 
+                              key={idx} 
+                              index={idx} 
+                              className="bg-gray-50 text-gray-600" 
+                            />
+                          ))}
+                          {/* Last 4 slots - for user input */}
+                          {[6, 7, 8, 9].map((idx) => (
+                            <InputOTPSlot 
+                              key={idx} 
+                              index={idx} 
+                              className="bg-white text-gray-900" 
+                            />
+                          ))}
+                        </InputOTPGroup>
+                      </InputOTP>
+                    )}
+                  />
+                </div>
+                {phoneError && <div className="text-red-600 text-sm text-center">{phoneError}</div>}
+
+                <div className="mt-2">
+                  <Button
+                    className="w-full bg-blue-600 h-10"
+                    onClick={() => onSubmit()}
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetContent
               side="bottom"

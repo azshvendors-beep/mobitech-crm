@@ -8,27 +8,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum UserStatus {
-  ACTIVE
-  INACTIVE
-}
-
-enum Role {
-  ADMIN
-  MANAGER
-  FIELD_EXECUTIVE
-  MARKETING_EXECUTIVE
-  TECHNICIAN
-  STORE_OWNER
-}
-
 model User {
-  id            String   @id @default(cuid())
-  phone         String   @unique
-  phoneVerified Boolean?
-  salary        Decimal?
-  payoutDate    Int?
-
+  id                 String          @id @default(cuid())
+  phone              String          @unique
+  phoneVerified      Boolean?
+  salary             Decimal?
+  payoutDate         Int?
   password           String
   email              String?
   dateOfJoining      DateTime?
@@ -41,21 +26,21 @@ model User {
   VehicleBackImage   String?
   role               Role?
   storeId            String?
-  mfaEnabled         Boolean         @default(false)
-  mfaSecret          String?
-  mfaVerified        Boolean         @default(false)
   createdBy          String?
   isAdmin            Boolean         @default(false)
   status             UserStatus      @default(ACTIVE)
   createdAt          DateTime        @default(now())
   updatedAt          DateTime        @updatedAt
-  sessions           Session[]
-  manager            Manager?        @relation("ManagerToUser")
-  technician         Technician?     @relation("TechnicianToUser")
-  fieldExecutive     FieldExecutive? @relation("FieldExecToUser")
-  salesExecutive     SalesExecutive? @relation("SalesExecToUser")
-  store              Store?          @relation("StoreToUser")
+  mfaEnabled         Boolean         @default(false)
+  mfaSecret          String?
+  mfaVerified        Boolean         @default(false)
   admin              Admin?          @relation("AdminToUser")
+  fieldExecutive     FieldExecutive? @relation("FieldExecToUser")
+  manager            Manager?        @relation("ManagerToUser")
+  salesExecutive     SalesExecutive? @relation("SalesExecToUser")
+  sessions           Session[]
+  store              Store?          @relation("StoreToUser")
+  technician         Technician?     @relation("TechnicianToUser")
 }
 
 model Admin {
@@ -68,86 +53,82 @@ model Admin {
 
 model Manager {
   userId      String       @id
-  user        User         @relation("ManagerToUser", fields: [userId], references: [id], onDelete: Cascade)
   firstName   String
   lastName    String
   employeeId  String       @unique
   aadharId    String       @unique
   bankDetails BankDetails?
+  user        User         @relation("ManagerToUser", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Technician {
   userId      String       @id
-  user        User         @relation("TechnicianToUser", fields: [userId], references: [id], onDelete: Cascade)
   firstName   String
   lastName    String
   employeeId  String       @unique
   aadharId    String       @unique
   bankDetails BankDetails?
+  user        User         @relation("TechnicianToUser", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model FieldExecutive {
   userId      String       @id
-  user        User         @relation("FieldExecToUser", fields: [userId], references: [id], onDelete: Cascade)
   firstName   String
   lastName    String
   employeeId  String       @unique
   aadharId    String       @unique
   bankDetails BankDetails?
+  user        User         @relation("FieldExecToUser", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model SalesExecutive {
   userId      String       @id
-  user        User         @relation("SalesExecToUser", fields: [userId], references: [id], onDelete: Cascade)
   firstName   String
   lastName    String
   employeeId  String       @unique
   aadharId    String       @unique
   bankDetails BankDetails?
+  user        User         @relation("SalesExecToUser", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Store {
   userId      String       @id
-  user        User         @relation("StoreToUser", fields: [userId], references: [id], onDelete: Cascade)
   storeId     String       @unique
   storeName   String
   ownerName   String
   ownerPhone  String
   ownerEmail  String
-  address     Address?
-  bankDetails BankDetails?
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
+  address     Address?
+  bankDetails BankDetails?
+  user        User         @relation("StoreToUser", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model BankDetails {
-  id              String  @id @default(cuid())
+  id              String          @id @default(cuid())
   accountNumber   String?
   ifsc            String?
   bankName        String?
   beneficiaryName String?
   upiId           String?
-
-  managerId    String? @unique
-  technicianId String? @unique
-  fieldExecId  String? @unique
-  salesExecId  String? @unique
-  storeId      String? @unique
-
-  manager        Manager?        @relation(fields: [managerId], references: [userId], onDelete: Cascade)
-  technician     Technician?     @relation(fields: [technicianId], references: [userId], onDelete: Cascade)
-  fieldExecutive FieldExecutive? @relation(fields: [fieldExecId], references: [userId], onDelete: Cascade)
-  salesExecutive SalesExecutive? @relation(fields: [salesExecId], references: [userId], onDelete: Cascade)
-  store          Store?          @relation(fields: [storeId], references: [userId], onDelete: Cascade)
+  managerId       String?         @unique
+  technicianId    String?         @unique
+  fieldExecId     String?         @unique
+  salesExecId     String?         @unique
+  storeId         String?         @unique
+  fieldExecutive  FieldExecutive? @relation(fields: [fieldExecId], references: [userId], onDelete: Cascade)
+  manager         Manager?        @relation(fields: [managerId], references: [userId], onDelete: Cascade)
+  salesExecutive  SalesExecutive? @relation(fields: [salesExecId], references: [userId], onDelete: Cascade)
+  store           Store?          @relation(fields: [storeId], references: [userId], onDelete: Cascade)
+  technician      Technician?     @relation(fields: [technicianId], references: [userId], onDelete: Cascade)
 }
 
 model Session {
   id        String   @id @default(cuid())
   userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   expiresAt DateTime
   createdAt DateTime @default(now())
-
   ipAddress String?
   userAgent String?
   device    String?
@@ -156,6 +137,7 @@ model Session {
   location  String?
   latitude  Float?
   longitude Float?
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
@@ -170,27 +152,25 @@ model Notification {
 }
 
 model DeviceTest {
-  id         String   @id @default(cuid())
-  testId     String   @unique
-  employeeId String?
-  imageUrl   String?
-  expiresAt  DateTime
-  device     Json
-  imei1      String?
-  imei2      String?
-
-  connectivityTestResults ConnectivityTestResult[]
-  simTestResults          SimTestResult[]
-  deviceTestResults       DeviceTestResult[]
-  screenTest              ScreenTest?
-  audioTest               AudioTest?
-  proximitySensorTest     ProximitySensorTest?
-  cameraTest              CameraTest?
-  fingerprintTest         FingerprintTest?
-  usbTest                 UsbTest?
+  id                      String                   @id @default(cuid())
+  testId                  String                   @unique
+  employeeId              String?
+  imageUrl                String?
+  expiresAt               DateTime
+  device                  Json
+  imei1                   String?
+  imei2                   String?
+  createdAt               DateTime                 @default(now())
   audioJackTest           AudioJackTest?
-
-  createdAt DateTime @default(now())
+  audioTest               AudioTest?
+  cameraTest              CameraTest?
+  connectivityTestResults ConnectivityTestResult[]
+  deviceTestResults       DeviceTestResult[]
+  fingerprintTest         FingerprintTest?
+  proximitySensorTest     ProximitySensorTest?
+  screenTest              ScreenTest?
+  simTestResults          SimTestResult[]
+  usbTest                 UsbTest?
 }
 
 model ConnectivityTestResult {
@@ -214,10 +194,9 @@ model DeviceTestResult {
 }
 
 model SimTestResult {
-  id     String  @id @default(cuid())
-  name   String
-  status Boolean
-
+  id           String     @id @default(cuid())
+  name         String
+  status       Boolean
   timestamp    DateTime?
   deviceTestId String
   deviceTest   DeviceTest @relation(fields: [deviceTestId], references: [id], onDelete: Cascade)
@@ -289,60 +268,51 @@ model AudioJackTest {
 }
 
 model ManualDiagnosticsResult {
-  id          String  @id @default(cuid())
-  diagnoseId  String  @unique
-  employeeId  String?
-  smc         String
-  variant     String
-  imei1       String?
-  imei2       String?
-  screenTouch String
-
-  // Screen condition fields
-  screenSpot     String
-  screenLines    String
-  screenPhysical String
-  screenDiscolor String
-  screenBubble   String
-
-  // Functional Problems fields
-  frontCamera    String
-  backCamera     String
-  audioJack      String
-  wifi           String
-  gps            String
-  bluetooth      String
-  volumeButton   String
-  flashLight     String
-  fcImageBlurred String
-  bcImageBlurred String
-  vibrator       String
-  battery        String
-  speaker        String
-  microphone     String
-  fingerprint    String
-  proximity      String
-  chargingPort   String
-  powerButton    String
-  faceLock       String
-  copyScreen     String
-  sim            String
-
-  // Physical Condition fields
+  id              String   @id @default(cuid())
+  diagnoseId      String   @unique
+  employeeId      String?
+  smc             String
+  variant         String
+  imei1           String?
+  imei2           String?
+  screenTouch     String
+  screenSpot      String
+  screenLines     String
+  screenPhysical  String
+  screenDiscolor  String
+  screenBubble    String
+  frontCamera     String
+  backCamera      String
+  audioJack       String
+  wifi            String
+  gps             String
+  bluetooth       String
+  volumeButton    String
+  flashLight      String
+  fcImageBlurred  String
+  bcImageBlurred  String
+  vibrator        String
+  battery         String
+  speaker         String
+  microphone      String
+  fingerprint     String
+  proximity       String
+  chargingPort    String
+  powerButton     String
+  faceLock        String
+  copyScreen      String
+  sim             String
   physicalScratch String
   physicalDent    String
   physicalPanel   String
   physicalBent    String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }
 
 model Declaration {
   id                String   @id @default(cuid())
   orderId           String   @unique
-  brand             String
-  model             String
   smc               String
   variant           String
   imei1             String?
@@ -365,6 +335,7 @@ model Declaration {
   isAccepted        Boolean  @default(false)
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
+  finalAmount       String?
 }
 
 model Address {
@@ -404,11 +375,104 @@ model CustomModel {
   name      String
   code      String
   brandId   String
-  brand     CustomModelBrand @relation(fields: [brandId], references: [id], onDelete: Cascade)
   isActive  Boolean          @default(true)
   createdAt DateTime         @default(now())
   updatedAt DateTime         @updatedAt
+  brand     CustomModelBrand @relation(fields: [brandId], references: [id], onDelete: Cascade)
 
-  // @@unique([brandId, name])
   @@index([brandId])
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+  FIELD_EXECUTIVE
+  MARKETING_EXECUTIVE
+  TECHNICIAN
+  STORE_OWNER
+}
+
+model DoorstepPickup {
+  id                     String  @id @default(cuid())
+  orderId                String? @db.VarChar(255)
+  variant                String?
+  imei1                  String?
+  imei2                  String?
+  deviceFrontImage       String?
+  deviceBackImage        String?
+  diagnosticsProcess     String?
+  mbdgReport             Json? // JSON object of manual/app diagnostics (flexible)
+  diagnosticsProcessInit String?
+  qcReportInit           String?
+  qcReport               String?
+  repairRequired         String?
+  repairStatus           String?
+  accessories            String?
+  deviceAge              String?
+  warrantyType           String?
+  hasGstBill             String?
+  gstInvoice             String?
+  boxImeiMatch           String?
+
+  customerName      String?
+  mobileNumber      String?
+  addressProofType  String?
+  aadharNumber      String?
+  address           String?
+  fullAddress       String?
+  aadharFrontImage  String?
+  aadharBackImage   String?
+  epicNumber        String?
+  voterIdFrontImage String?
+  voterIdBackImage  String?
+  isAadharVerified  Boolean?
+  voterIdVerified   Boolean?
+  customerSignature String?
+
+  deviceReset             String?
+  deviceStartScreenImage  String?
+  customerProofImage      String?
+  customerDeclaration     String?
+  cashPaymentReceiptImage String?
+
+  paymentMode    String?
+  exchangeModel  String?
+  newModelIMEI   String?
+  manualQcReport Json? // keep structure flexible (or map to a dedicated model)
+  remarks        String?
+
+  finalAmount           Decimal? // numeric money - optional (use Decimal for precision)
+  sellingAmount         Decimal?
+  upiId                 String?
+  upiBeneficiaryName    String?
+  isUpiVerified         Boolean?
+  isUpiSaved            Boolean?
+  bankName              String?
+  accountNumber         String?
+  confirmAccountNumber  String?
+  ifscCode              String?
+  bankBeneficiaryName   String?
+  isBankDetailsVerified Boolean?
+  isBankDetailsSaved    Boolean?
+
+  paymentStatus          String?
+  utrrrnnumber           String?
+  paidBy                 String?
+  purchaserBankName      String?
+  purchaserPaymentMode   String?
+  isMobileNumberVerified Boolean?
+  isDeclarationSigned    Boolean?
+  phoneVerified          Boolean?
+
+  repairParts Json? // array of { name, price } or use a separate model
+  repairDate  DateTime?
+  assignedBC  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

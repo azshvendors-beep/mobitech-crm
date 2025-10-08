@@ -335,6 +335,8 @@ model Declaration {
   isAccepted        Boolean  @default(false)
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
+  finalAmount       String?
+  phoneNumber       String?
 }
 
 model Address {
@@ -380,6 +382,79 @@ model CustomModel {
   brand     CustomModelBrand @relation(fields: [brandId], references: [id], onDelete: Cascade)
 
   @@index([brandId])
+}
+
+model DoorstepPickup {
+  id                      String   @id @default(cuid())
+  orderId                 String   @unique
+  variant                 String?
+  imei1                   String?
+  imei2                   String?
+  deviceFrontImage        String?
+  deviceBackImage         String?
+  diagnosticsProcess      String?
+  mbdgReport              Json?
+  diagnosticsProcessInit  String?
+  qcReportInit            String?
+  qcReport                String?
+  repairRequired          String?
+  repairStatus            String?
+  accessories             String?
+  deviceAge               String?
+  warrantyType            String?
+  hasGstBill              String?
+  gstInvoice              String?
+  boxImeiMatch            String?
+  customerName            String?
+  mobileNumber            String?
+  addressProofType        String?
+  aadharNumber            String?
+  address                 String?
+  fullAddress             String?
+  aadharFrontImage        String?
+  aadharBackImage         String?
+  epicNumber              String?
+  voterIdFrontImage       String?
+  voterIdBackImage        String?
+  isAadharVerified        Boolean?
+  voterIdVerified         Boolean?
+  customerSignature       String?
+  deviceReset             String?
+  deviceStartScreenImage  String?
+  customerProofImage      String?
+  cashPaymentReceiptImage String?
+  paymentMode             String?
+  exchangeModel           String?
+  newModelIMEI            String?
+  manualQcReport          Json?
+  remarks                 String?
+  finalAmount             String?
+  sellingAmount           String?
+  upiId                   String?
+  upiBeneficiaryName      String?
+  isUpiVerified           Boolean?
+  isUpiSaved              Boolean?
+  bankName                String?
+  accountNumber           String?
+  confirmAccountNumber    String?
+  ifscCode                String?
+  bankBeneficiaryName     String?
+  isBankDetailsVerified   Boolean?
+  isBankDetailsSaved      Boolean?
+  paymentStatus           String?
+  utrrrnnumber            String?
+  paidBy                  String?
+  purchaserBankName       String?
+  purchaserPaymentMode    String?
+  isMobileNumberVerified  Boolean?
+  isDeclarationSigned     Boolean?
+  phoneVerified           Boolean?
+  repairParts             Json?
+  repairDate              String?
+  assignedBC              String?
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+  customerDeclaration     Boolean?
 }
 
 enum UserStatus {

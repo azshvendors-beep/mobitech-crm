@@ -138,14 +138,14 @@ exports.Prisma.UserScalarFieldEnum = {
   VehicleBackImage: 'VehicleBackImage',
   role: 'role',
   storeId: 'storeId',
-  mfaEnabled: 'mfaEnabled',
-  mfaSecret: 'mfaSecret',
-  mfaVerified: 'mfaVerified',
   createdBy: 'createdBy',
   isAdmin: 'isAdmin',
   status: 'status',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  mfaEnabled: 'mfaEnabled',
+  mfaSecret: 'mfaSecret',
+  mfaVerified: 'mfaVerified'
 };
 
 exports.Prisma.AdminScalarFieldEnum = {
@@ -378,8 +378,6 @@ exports.Prisma.ManualDiagnosticsResultScalarFieldEnum = {
 exports.Prisma.DeclarationScalarFieldEnum = {
   id: 'id',
   orderId: 'orderId',
-  brand: 'brand',
-  model: 'model',
   smc: 'smc',
   variant: 'variant',
   imei1: 'imei1',
@@ -401,7 +399,8 @@ exports.Prisma.DeclarationScalarFieldEnum = {
   audioJack: 'audioJack',
   isAccepted: 'isAccepted',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  finalAmount: 'finalAmount'
 };
 
 exports.Prisma.AddressScalarFieldEnum = {
@@ -444,12 +443,90 @@ exports.Prisma.CustomModelScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.DoorstepPickupScalarFieldEnum = {
+  id: 'id',
+  orderId: 'orderId',
+  variant: 'variant',
+  imei1: 'imei1',
+  imei2: 'imei2',
+  deviceFrontImage: 'deviceFrontImage',
+  deviceBackImage: 'deviceBackImage',
+  diagnosticsProcess: 'diagnosticsProcess',
+  mbdgReport: 'mbdgReport',
+  diagnosticsProcessInit: 'diagnosticsProcessInit',
+  qcReportInit: 'qcReportInit',
+  qcReport: 'qcReport',
+  repairRequired: 'repairRequired',
+  repairStatus: 'repairStatus',
+  accessories: 'accessories',
+  deviceAge: 'deviceAge',
+  warrantyType: 'warrantyType',
+  hasGstBill: 'hasGstBill',
+  gstInvoice: 'gstInvoice',
+  boxImeiMatch: 'boxImeiMatch',
+  customerName: 'customerName',
+  mobileNumber: 'mobileNumber',
+  addressProofType: 'addressProofType',
+  aadharNumber: 'aadharNumber',
+  address: 'address',
+  fullAddress: 'fullAddress',
+  aadharFrontImage: 'aadharFrontImage',
+  aadharBackImage: 'aadharBackImage',
+  epicNumber: 'epicNumber',
+  voterIdFrontImage: 'voterIdFrontImage',
+  voterIdBackImage: 'voterIdBackImage',
+  isAadharVerified: 'isAadharVerified',
+  voterIdVerified: 'voterIdVerified',
+  customerSignature: 'customerSignature',
+  deviceReset: 'deviceReset',
+  deviceStartScreenImage: 'deviceStartScreenImage',
+  customerProofImage: 'customerProofImage',
+  customerDeclaration: 'customerDeclaration',
+  cashPaymentReceiptImage: 'cashPaymentReceiptImage',
+  paymentMode: 'paymentMode',
+  exchangeModel: 'exchangeModel',
+  newModelIMEI: 'newModelIMEI',
+  manualQcReport: 'manualQcReport',
+  remarks: 'remarks',
+  finalAmount: 'finalAmount',
+  sellingAmount: 'sellingAmount',
+  upiId: 'upiId',
+  upiBeneficiaryName: 'upiBeneficiaryName',
+  isUpiVerified: 'isUpiVerified',
+  isUpiSaved: 'isUpiSaved',
+  bankName: 'bankName',
+  accountNumber: 'accountNumber',
+  confirmAccountNumber: 'confirmAccountNumber',
+  ifscCode: 'ifscCode',
+  bankBeneficiaryName: 'bankBeneficiaryName',
+  isBankDetailsVerified: 'isBankDetailsVerified',
+  isBankDetailsSaved: 'isBankDetailsSaved',
+  paymentStatus: 'paymentStatus',
+  utrrrnnumber: 'utrrrnnumber',
+  paidBy: 'paidBy',
+  purchaserBankName: 'purchaserBankName',
+  purchaserPaymentMode: 'purchaserPaymentMode',
+  isMobileNumberVerified: 'isMobileNumberVerified',
+  isDeclarationSigned: 'isDeclarationSigned',
+  phoneVerified: 'phoneVerified',
+  repairParts: 'repairParts',
+  repairDate: 'repairDate',
+  assignedBC: 'assignedBC',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
 };
 
 exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
   JsonNull: Prisma.JsonNull
 };
 
@@ -509,7 +586,8 @@ exports.Prisma.ModelName = {
   Address: 'Address',
   Otp: 'Otp',
   CustomModelBrand: 'CustomModelBrand',
-  CustomModel: 'CustomModel'
+  CustomModel: 'CustomModel',
+  DoorstepPickup: 'DoorstepPickup'
 };
 
 /**

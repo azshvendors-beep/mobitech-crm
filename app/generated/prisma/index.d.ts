@@ -28385,6 +28385,9 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     finalAmount: string | null
+    phoneNumber: string | null
+    customerName: string | null
+    modelName: string | null
   }
 
   export type DeclarationMaxAggregateOutputType = {
@@ -28413,6 +28416,9 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     finalAmount: string | null
+    phoneNumber: string | null
+    customerName: string | null
+    modelName: string | null
   }
 
   export type DeclarationCountAggregateOutputType = {
@@ -28441,6 +28447,9 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     finalAmount: number
+    phoneNumber: number
+    customerName: number
+    modelName: number
     _all: number
   }
 
@@ -28471,6 +28480,9 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     finalAmount?: true
+    phoneNumber?: true
+    customerName?: true
+    modelName?: true
   }
 
   export type DeclarationMaxAggregateInputType = {
@@ -28499,6 +28511,9 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     finalAmount?: true
+    phoneNumber?: true
+    customerName?: true
+    modelName?: true
   }
 
   export type DeclarationCountAggregateInputType = {
@@ -28527,6 +28542,9 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     finalAmount?: true
+    phoneNumber?: true
+    customerName?: true
+    modelName?: true
     _all?: true
   }
 
@@ -28628,6 +28646,9 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     finalAmount: string | null
+    phoneNumber: string | null
+    customerName: string | null
+    modelName: string | null
     _count: DeclarationCountAggregateOutputType | null
     _min: DeclarationMinAggregateOutputType | null
     _max: DeclarationMaxAggregateOutputType | null
@@ -28673,6 +28694,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     finalAmount?: boolean
+    phoneNumber?: boolean
+    customerName?: boolean
+    modelName?: boolean
   }, ExtArgs["result"]["declaration"]>
 
   export type DeclarationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -28701,6 +28725,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     finalAmount?: boolean
+    phoneNumber?: boolean
+    customerName?: boolean
+    modelName?: boolean
   }, ExtArgs["result"]["declaration"]>
 
   export type DeclarationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -28729,6 +28756,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     finalAmount?: boolean
+    phoneNumber?: boolean
+    customerName?: boolean
+    modelName?: boolean
   }, ExtArgs["result"]["declaration"]>
 
   export type DeclarationSelectScalar = {
@@ -28757,9 +28787,12 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     finalAmount?: boolean
+    phoneNumber?: boolean
+    customerName?: boolean
+    modelName?: boolean
   }
 
-  export type DeclarationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "smc" | "variant" | "imei1" | "imei2" | "bluetooth" | "gps" | "wifi" | "proximity" | "multiTouch" | "screenCalibration" | "speaker" | "earReceiver" | "microphone" | "frontCamera" | "backCamera" | "sim" | "fingerprint" | "chargingPort" | "audioJack" | "isAccepted" | "createdAt" | "updatedAt" | "finalAmount", ExtArgs["result"]["declaration"]>
+  export type DeclarationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "smc" | "variant" | "imei1" | "imei2" | "bluetooth" | "gps" | "wifi" | "proximity" | "multiTouch" | "screenCalibration" | "speaker" | "earReceiver" | "microphone" | "frontCamera" | "backCamera" | "sim" | "fingerprint" | "chargingPort" | "audioJack" | "isAccepted" | "createdAt" | "updatedAt" | "finalAmount" | "phoneNumber" | "customerName" | "modelName", ExtArgs["result"]["declaration"]>
 
   export type $DeclarationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Declaration"
@@ -28790,6 +28823,9 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       finalAmount: string | null
+      phoneNumber: string | null
+      customerName: string | null
+      modelName: string | null
     }, ExtArgs["result"]["declaration"]>
     composites: {}
   }
@@ -29238,6 +29274,9 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"Declaration", 'DateTime'>
     readonly updatedAt: FieldRef<"Declaration", 'DateTime'>
     readonly finalAmount: FieldRef<"Declaration", 'String'>
+    readonly phoneNumber: FieldRef<"Declaration", 'String'>
+    readonly customerName: FieldRef<"Declaration", 'String'>
+    readonly modelName: FieldRef<"Declaration", 'String'>
   }
     
 
@@ -33929,24 +33968,13 @@ export namespace Prisma {
 
   export type AggregateDoorstepPickup = {
     _count: DoorstepPickupCountAggregateOutputType | null
-    _avg: DoorstepPickupAvgAggregateOutputType | null
-    _sum: DoorstepPickupSumAggregateOutputType | null
     _min: DoorstepPickupMinAggregateOutputType | null
     _max: DoorstepPickupMaxAggregateOutputType | null
   }
 
-  export type DoorstepPickupAvgAggregateOutputType = {
-    finalAmount: Decimal | null
-    sellingAmount: Decimal | null
-  }
-
-  export type DoorstepPickupSumAggregateOutputType = {
-    finalAmount: Decimal | null
-    sellingAmount: Decimal | null
-  }
-
   export type DoorstepPickupMinAggregateOutputType = {
     id: string | null
+    employeeId: string | null
     orderId: string | null
     variant: string | null
     imei1: string | null
@@ -33982,14 +34010,13 @@ export namespace Prisma {
     deviceReset: string | null
     deviceStartScreenImage: string | null
     customerProofImage: string | null
-    customerDeclaration: string | null
     cashPaymentReceiptImage: string | null
     paymentMode: string | null
     exchangeModel: string | null
     newModelIMEI: string | null
     remarks: string | null
-    finalAmount: Decimal | null
-    sellingAmount: Decimal | null
+    finalAmount: string | null
+    sellingAmount: string | null
     upiId: string | null
     upiBeneficiaryName: string | null
     isUpiVerified: boolean | null
@@ -34009,14 +34036,17 @@ export namespace Prisma {
     isMobileNumberVerified: boolean | null
     isDeclarationSigned: boolean | null
     phoneVerified: boolean | null
-    repairDate: Date | null
+    repairDate: string | null
     assignedBC: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    customerDeclaration: boolean | null
+    purchaseAmount: string | null
   }
 
   export type DoorstepPickupMaxAggregateOutputType = {
     id: string | null
+    employeeId: string | null
     orderId: string | null
     variant: string | null
     imei1: string | null
@@ -34052,14 +34082,13 @@ export namespace Prisma {
     deviceReset: string | null
     deviceStartScreenImage: string | null
     customerProofImage: string | null
-    customerDeclaration: string | null
     cashPaymentReceiptImage: string | null
     paymentMode: string | null
     exchangeModel: string | null
     newModelIMEI: string | null
     remarks: string | null
-    finalAmount: Decimal | null
-    sellingAmount: Decimal | null
+    finalAmount: string | null
+    sellingAmount: string | null
     upiId: string | null
     upiBeneficiaryName: string | null
     isUpiVerified: boolean | null
@@ -34079,14 +34108,17 @@ export namespace Prisma {
     isMobileNumberVerified: boolean | null
     isDeclarationSigned: boolean | null
     phoneVerified: boolean | null
-    repairDate: Date | null
+    repairDate: string | null
     assignedBC: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    customerDeclaration: boolean | null
+    purchaseAmount: string | null
   }
 
   export type DoorstepPickupCountAggregateOutputType = {
     id: number
+    employeeId: number
     orderId: number
     variant: number
     imei1: number
@@ -34123,7 +34155,6 @@ export namespace Prisma {
     deviceReset: number
     deviceStartScreenImage: number
     customerProofImage: number
-    customerDeclaration: number
     cashPaymentReceiptImage: number
     paymentMode: number
     exchangeModel: number
@@ -34156,22 +34187,15 @@ export namespace Prisma {
     assignedBC: number
     createdAt: number
     updatedAt: number
+    customerDeclaration: number
+    purchaseAmount: number
     _all: number
   }
 
 
-  export type DoorstepPickupAvgAggregateInputType = {
-    finalAmount?: true
-    sellingAmount?: true
-  }
-
-  export type DoorstepPickupSumAggregateInputType = {
-    finalAmount?: true
-    sellingAmount?: true
-  }
-
   export type DoorstepPickupMinAggregateInputType = {
     id?: true
+    employeeId?: true
     orderId?: true
     variant?: true
     imei1?: true
@@ -34207,7 +34231,6 @@ export namespace Prisma {
     deviceReset?: true
     deviceStartScreenImage?: true
     customerProofImage?: true
-    customerDeclaration?: true
     cashPaymentReceiptImage?: true
     paymentMode?: true
     exchangeModel?: true
@@ -34238,10 +34261,13 @@ export namespace Prisma {
     assignedBC?: true
     createdAt?: true
     updatedAt?: true
+    customerDeclaration?: true
+    purchaseAmount?: true
   }
 
   export type DoorstepPickupMaxAggregateInputType = {
     id?: true
+    employeeId?: true
     orderId?: true
     variant?: true
     imei1?: true
@@ -34277,7 +34303,6 @@ export namespace Prisma {
     deviceReset?: true
     deviceStartScreenImage?: true
     customerProofImage?: true
-    customerDeclaration?: true
     cashPaymentReceiptImage?: true
     paymentMode?: true
     exchangeModel?: true
@@ -34308,10 +34333,13 @@ export namespace Prisma {
     assignedBC?: true
     createdAt?: true
     updatedAt?: true
+    customerDeclaration?: true
+    purchaseAmount?: true
   }
 
   export type DoorstepPickupCountAggregateInputType = {
     id?: true
+    employeeId?: true
     orderId?: true
     variant?: true
     imei1?: true
@@ -34348,7 +34376,6 @@ export namespace Prisma {
     deviceReset?: true
     deviceStartScreenImage?: true
     customerProofImage?: true
-    customerDeclaration?: true
     cashPaymentReceiptImage?: true
     paymentMode?: true
     exchangeModel?: true
@@ -34381,6 +34408,8 @@ export namespace Prisma {
     assignedBC?: true
     createdAt?: true
     updatedAt?: true
+    customerDeclaration?: true
+    purchaseAmount?: true
     _all?: true
   }
 
@@ -34422,18 +34451,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: DoorstepPickupAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: DoorstepPickupSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: DoorstepPickupMinAggregateInputType
@@ -34464,15 +34481,14 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: DoorstepPickupCountAggregateInputType | true
-    _avg?: DoorstepPickupAvgAggregateInputType
-    _sum?: DoorstepPickupSumAggregateInputType
     _min?: DoorstepPickupMinAggregateInputType
     _max?: DoorstepPickupMaxAggregateInputType
   }
 
   export type DoorstepPickupGroupByOutputType = {
     id: string
-    orderId: string | null
+    employeeId: string | null
+    orderId: string
     variant: string | null
     imei1: string | null
     imei2: string | null
@@ -34508,15 +34524,14 @@ export namespace Prisma {
     deviceReset: string | null
     deviceStartScreenImage: string | null
     customerProofImage: string | null
-    customerDeclaration: string | null
     cashPaymentReceiptImage: string | null
     paymentMode: string | null
     exchangeModel: string | null
     newModelIMEI: string | null
     manualQcReport: JsonValue | null
     remarks: string | null
-    finalAmount: Decimal | null
-    sellingAmount: Decimal | null
+    finalAmount: string | null
+    sellingAmount: string | null
     upiId: string | null
     upiBeneficiaryName: string | null
     isUpiVerified: boolean | null
@@ -34537,13 +34552,13 @@ export namespace Prisma {
     isDeclarationSigned: boolean | null
     phoneVerified: boolean | null
     repairParts: JsonValue | null
-    repairDate: Date | null
+    repairDate: string | null
     assignedBC: string | null
     createdAt: Date
     updatedAt: Date
+    customerDeclaration: boolean | null
+    purchaseAmount: string | null
     _count: DoorstepPickupCountAggregateOutputType | null
-    _avg: DoorstepPickupAvgAggregateOutputType | null
-    _sum: DoorstepPickupSumAggregateOutputType | null
     _min: DoorstepPickupMinAggregateOutputType | null
     _max: DoorstepPickupMaxAggregateOutputType | null
   }
@@ -34564,6 +34579,7 @@ export namespace Prisma {
 
   export type DoorstepPickupSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    employeeId?: boolean
     orderId?: boolean
     variant?: boolean
     imei1?: boolean
@@ -34600,7 +34616,6 @@ export namespace Prisma {
     deviceReset?: boolean
     deviceStartScreenImage?: boolean
     customerProofImage?: boolean
-    customerDeclaration?: boolean
     cashPaymentReceiptImage?: boolean
     paymentMode?: boolean
     exchangeModel?: boolean
@@ -34633,10 +34648,13 @@ export namespace Prisma {
     assignedBC?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    customerDeclaration?: boolean
+    purchaseAmount?: boolean
   }, ExtArgs["result"]["doorstepPickup"]>
 
   export type DoorstepPickupSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    employeeId?: boolean
     orderId?: boolean
     variant?: boolean
     imei1?: boolean
@@ -34673,7 +34691,6 @@ export namespace Prisma {
     deviceReset?: boolean
     deviceStartScreenImage?: boolean
     customerProofImage?: boolean
-    customerDeclaration?: boolean
     cashPaymentReceiptImage?: boolean
     paymentMode?: boolean
     exchangeModel?: boolean
@@ -34706,10 +34723,13 @@ export namespace Prisma {
     assignedBC?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    customerDeclaration?: boolean
+    purchaseAmount?: boolean
   }, ExtArgs["result"]["doorstepPickup"]>
 
   export type DoorstepPickupSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    employeeId?: boolean
     orderId?: boolean
     variant?: boolean
     imei1?: boolean
@@ -34746,7 +34766,6 @@ export namespace Prisma {
     deviceReset?: boolean
     deviceStartScreenImage?: boolean
     customerProofImage?: boolean
-    customerDeclaration?: boolean
     cashPaymentReceiptImage?: boolean
     paymentMode?: boolean
     exchangeModel?: boolean
@@ -34779,10 +34798,13 @@ export namespace Prisma {
     assignedBC?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    customerDeclaration?: boolean
+    purchaseAmount?: boolean
   }, ExtArgs["result"]["doorstepPickup"]>
 
   export type DoorstepPickupSelectScalar = {
     id?: boolean
+    employeeId?: boolean
     orderId?: boolean
     variant?: boolean
     imei1?: boolean
@@ -34819,7 +34841,6 @@ export namespace Prisma {
     deviceReset?: boolean
     deviceStartScreenImage?: boolean
     customerProofImage?: boolean
-    customerDeclaration?: boolean
     cashPaymentReceiptImage?: boolean
     paymentMode?: boolean
     exchangeModel?: boolean
@@ -34852,16 +34873,19 @@ export namespace Prisma {
     assignedBC?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    customerDeclaration?: boolean
+    purchaseAmount?: boolean
   }
 
-  export type DoorstepPickupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "variant" | "imei1" | "imei2" | "deviceFrontImage" | "deviceBackImage" | "diagnosticsProcess" | "mbdgReport" | "diagnosticsProcessInit" | "qcReportInit" | "qcReport" | "repairRequired" | "repairStatus" | "accessories" | "deviceAge" | "warrantyType" | "hasGstBill" | "gstInvoice" | "boxImeiMatch" | "customerName" | "mobileNumber" | "addressProofType" | "aadharNumber" | "address" | "fullAddress" | "aadharFrontImage" | "aadharBackImage" | "epicNumber" | "voterIdFrontImage" | "voterIdBackImage" | "isAadharVerified" | "voterIdVerified" | "customerSignature" | "deviceReset" | "deviceStartScreenImage" | "customerProofImage" | "customerDeclaration" | "cashPaymentReceiptImage" | "paymentMode" | "exchangeModel" | "newModelIMEI" | "manualQcReport" | "remarks" | "finalAmount" | "sellingAmount" | "upiId" | "upiBeneficiaryName" | "isUpiVerified" | "isUpiSaved" | "bankName" | "accountNumber" | "confirmAccountNumber" | "ifscCode" | "bankBeneficiaryName" | "isBankDetailsVerified" | "isBankDetailsSaved" | "paymentStatus" | "utrrrnnumber" | "paidBy" | "purchaserBankName" | "purchaserPaymentMode" | "isMobileNumberVerified" | "isDeclarationSigned" | "phoneVerified" | "repairParts" | "repairDate" | "assignedBC" | "createdAt" | "updatedAt", ExtArgs["result"]["doorstepPickup"]>
+  export type DoorstepPickupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "employeeId" | "orderId" | "variant" | "imei1" | "imei2" | "deviceFrontImage" | "deviceBackImage" | "diagnosticsProcess" | "mbdgReport" | "diagnosticsProcessInit" | "qcReportInit" | "qcReport" | "repairRequired" | "repairStatus" | "accessories" | "deviceAge" | "warrantyType" | "hasGstBill" | "gstInvoice" | "boxImeiMatch" | "customerName" | "mobileNumber" | "addressProofType" | "aadharNumber" | "address" | "fullAddress" | "aadharFrontImage" | "aadharBackImage" | "epicNumber" | "voterIdFrontImage" | "voterIdBackImage" | "isAadharVerified" | "voterIdVerified" | "customerSignature" | "deviceReset" | "deviceStartScreenImage" | "customerProofImage" | "cashPaymentReceiptImage" | "paymentMode" | "exchangeModel" | "newModelIMEI" | "manualQcReport" | "remarks" | "finalAmount" | "sellingAmount" | "upiId" | "upiBeneficiaryName" | "isUpiVerified" | "isUpiSaved" | "bankName" | "accountNumber" | "confirmAccountNumber" | "ifscCode" | "bankBeneficiaryName" | "isBankDetailsVerified" | "isBankDetailsSaved" | "paymentStatus" | "utrrrnnumber" | "paidBy" | "purchaserBankName" | "purchaserPaymentMode" | "isMobileNumberVerified" | "isDeclarationSigned" | "phoneVerified" | "repairParts" | "repairDate" | "assignedBC" | "createdAt" | "updatedAt" | "customerDeclaration" | "purchaseAmount", ExtArgs["result"]["doorstepPickup"]>
 
   export type $DoorstepPickupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "DoorstepPickup"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      orderId: string | null
+      employeeId: string | null
+      orderId: string
       variant: string | null
       imei1: string | null
       imei2: string | null
@@ -34897,15 +34921,14 @@ export namespace Prisma {
       deviceReset: string | null
       deviceStartScreenImage: string | null
       customerProofImage: string | null
-      customerDeclaration: string | null
       cashPaymentReceiptImage: string | null
       paymentMode: string | null
       exchangeModel: string | null
       newModelIMEI: string | null
       manualQcReport: Prisma.JsonValue | null
       remarks: string | null
-      finalAmount: Prisma.Decimal | null
-      sellingAmount: Prisma.Decimal | null
+      finalAmount: string | null
+      sellingAmount: string | null
       upiId: string | null
       upiBeneficiaryName: string | null
       isUpiVerified: boolean | null
@@ -34926,10 +34949,12 @@ export namespace Prisma {
       isDeclarationSigned: boolean | null
       phoneVerified: boolean | null
       repairParts: Prisma.JsonValue | null
-      repairDate: Date | null
+      repairDate: string | null
       assignedBC: string | null
       createdAt: Date
       updatedAt: Date
+      customerDeclaration: boolean | null
+      purchaseAmount: string | null
     }, ExtArgs["result"]["doorstepPickup"]>
     composites: {}
   }
@@ -35354,6 +35379,7 @@ export namespace Prisma {
    */
   interface DoorstepPickupFieldRefs {
     readonly id: FieldRef<"DoorstepPickup", 'String'>
+    readonly employeeId: FieldRef<"DoorstepPickup", 'String'>
     readonly orderId: FieldRef<"DoorstepPickup", 'String'>
     readonly variant: FieldRef<"DoorstepPickup", 'String'>
     readonly imei1: FieldRef<"DoorstepPickup", 'String'>
@@ -35390,15 +35416,14 @@ export namespace Prisma {
     readonly deviceReset: FieldRef<"DoorstepPickup", 'String'>
     readonly deviceStartScreenImage: FieldRef<"DoorstepPickup", 'String'>
     readonly customerProofImage: FieldRef<"DoorstepPickup", 'String'>
-    readonly customerDeclaration: FieldRef<"DoorstepPickup", 'String'>
     readonly cashPaymentReceiptImage: FieldRef<"DoorstepPickup", 'String'>
     readonly paymentMode: FieldRef<"DoorstepPickup", 'String'>
     readonly exchangeModel: FieldRef<"DoorstepPickup", 'String'>
     readonly newModelIMEI: FieldRef<"DoorstepPickup", 'String'>
     readonly manualQcReport: FieldRef<"DoorstepPickup", 'Json'>
     readonly remarks: FieldRef<"DoorstepPickup", 'String'>
-    readonly finalAmount: FieldRef<"DoorstepPickup", 'Decimal'>
-    readonly sellingAmount: FieldRef<"DoorstepPickup", 'Decimal'>
+    readonly finalAmount: FieldRef<"DoorstepPickup", 'String'>
+    readonly sellingAmount: FieldRef<"DoorstepPickup", 'String'>
     readonly upiId: FieldRef<"DoorstepPickup", 'String'>
     readonly upiBeneficiaryName: FieldRef<"DoorstepPickup", 'String'>
     readonly isUpiVerified: FieldRef<"DoorstepPickup", 'Boolean'>
@@ -35419,10 +35444,12 @@ export namespace Prisma {
     readonly isDeclarationSigned: FieldRef<"DoorstepPickup", 'Boolean'>
     readonly phoneVerified: FieldRef<"DoorstepPickup", 'Boolean'>
     readonly repairParts: FieldRef<"DoorstepPickup", 'Json'>
-    readonly repairDate: FieldRef<"DoorstepPickup", 'DateTime'>
+    readonly repairDate: FieldRef<"DoorstepPickup", 'String'>
     readonly assignedBC: FieldRef<"DoorstepPickup", 'String'>
     readonly createdAt: FieldRef<"DoorstepPickup", 'DateTime'>
     readonly updatedAt: FieldRef<"DoorstepPickup", 'DateTime'>
+    readonly customerDeclaration: FieldRef<"DoorstepPickup", 'Boolean'>
+    readonly purchaseAmount: FieldRef<"DoorstepPickup", 'String'>
   }
     
 
@@ -36149,7 +36176,10 @@ export namespace Prisma {
     isAccepted: 'isAccepted',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    finalAmount: 'finalAmount'
+    finalAmount: 'finalAmount',
+    phoneNumber: 'phoneNumber',
+    customerName: 'customerName',
+    modelName: 'modelName'
   };
 
   export type DeclarationScalarFieldEnum = (typeof DeclarationScalarFieldEnum)[keyof typeof DeclarationScalarFieldEnum]
@@ -36209,6 +36239,7 @@ export namespace Prisma {
 
   export const DoorstepPickupScalarFieldEnum: {
     id: 'id',
+    employeeId: 'employeeId',
     orderId: 'orderId',
     variant: 'variant',
     imei1: 'imei1',
@@ -36245,7 +36276,6 @@ export namespace Prisma {
     deviceReset: 'deviceReset',
     deviceStartScreenImage: 'deviceStartScreenImage',
     customerProofImage: 'customerProofImage',
-    customerDeclaration: 'customerDeclaration',
     cashPaymentReceiptImage: 'cashPaymentReceiptImage',
     paymentMode: 'paymentMode',
     exchangeModel: 'exchangeModel',
@@ -36277,7 +36307,9 @@ export namespace Prisma {
     repairDate: 'repairDate',
     assignedBC: 'assignedBC',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    customerDeclaration: 'customerDeclaration',
+    purchaseAmount: 'purchaseAmount'
   };
 
   export type DoorstepPickupScalarFieldEnum = (typeof DoorstepPickupScalarFieldEnum)[keyof typeof DoorstepPickupScalarFieldEnum]
@@ -38165,6 +38197,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Declaration"> | Date | string
     updatedAt?: DateTimeFilter<"Declaration"> | Date | string
     finalAmount?: StringNullableFilter<"Declaration"> | string | null
+    phoneNumber?: StringNullableFilter<"Declaration"> | string | null
+    customerName?: StringNullableFilter<"Declaration"> | string | null
+    modelName?: StringNullableFilter<"Declaration"> | string | null
   }
 
   export type DeclarationOrderByWithRelationInput = {
@@ -38193,6 +38228,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     finalAmount?: SortOrderInput | SortOrder
+    phoneNumber?: SortOrderInput | SortOrder
+    customerName?: SortOrderInput | SortOrder
+    modelName?: SortOrderInput | SortOrder
   }
 
   export type DeclarationWhereUniqueInput = Prisma.AtLeast<{
@@ -38224,6 +38262,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Declaration"> | Date | string
     updatedAt?: DateTimeFilter<"Declaration"> | Date | string
     finalAmount?: StringNullableFilter<"Declaration"> | string | null
+    phoneNumber?: StringNullableFilter<"Declaration"> | string | null
+    customerName?: StringNullableFilter<"Declaration"> | string | null
+    modelName?: StringNullableFilter<"Declaration"> | string | null
   }, "id" | "orderId">
 
   export type DeclarationOrderByWithAggregationInput = {
@@ -38252,6 +38293,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     finalAmount?: SortOrderInput | SortOrder
+    phoneNumber?: SortOrderInput | SortOrder
+    customerName?: SortOrderInput | SortOrder
+    modelName?: SortOrderInput | SortOrder
     _count?: DeclarationCountOrderByAggregateInput
     _max?: DeclarationMaxOrderByAggregateInput
     _min?: DeclarationMinOrderByAggregateInput
@@ -38286,6 +38330,9 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Declaration"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Declaration"> | Date | string
     finalAmount?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    phoneNumber?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    customerName?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
+    modelName?: StringNullableWithAggregatesFilter<"Declaration"> | string | null
   }
 
   export type AddressWhereInput = {
@@ -38552,7 +38599,8 @@ export namespace Prisma {
     OR?: DoorstepPickupWhereInput[]
     NOT?: DoorstepPickupWhereInput | DoorstepPickupWhereInput[]
     id?: StringFilter<"DoorstepPickup"> | string
-    orderId?: StringNullableFilter<"DoorstepPickup"> | string | null
+    employeeId?: StringNullableFilter<"DoorstepPickup"> | string | null
+    orderId?: StringFilter<"DoorstepPickup"> | string
     variant?: StringNullableFilter<"DoorstepPickup"> | string | null
     imei1?: StringNullableFilter<"DoorstepPickup"> | string | null
     imei2?: StringNullableFilter<"DoorstepPickup"> | string | null
@@ -38588,15 +38636,14 @@ export namespace Prisma {
     deviceReset?: StringNullableFilter<"DoorstepPickup"> | string | null
     deviceStartScreenImage?: StringNullableFilter<"DoorstepPickup"> | string | null
     customerProofImage?: StringNullableFilter<"DoorstepPickup"> | string | null
-    customerDeclaration?: StringNullableFilter<"DoorstepPickup"> | string | null
     cashPaymentReceiptImage?: StringNullableFilter<"DoorstepPickup"> | string | null
     paymentMode?: StringNullableFilter<"DoorstepPickup"> | string | null
     exchangeModel?: StringNullableFilter<"DoorstepPickup"> | string | null
     newModelIMEI?: StringNullableFilter<"DoorstepPickup"> | string | null
     manualQcReport?: JsonNullableFilter<"DoorstepPickup">
     remarks?: StringNullableFilter<"DoorstepPickup"> | string | null
-    finalAmount?: DecimalNullableFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
-    sellingAmount?: DecimalNullableFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
+    finalAmount?: StringNullableFilter<"DoorstepPickup"> | string | null
+    sellingAmount?: StringNullableFilter<"DoorstepPickup"> | string | null
     upiId?: StringNullableFilter<"DoorstepPickup"> | string | null
     upiBeneficiaryName?: StringNullableFilter<"DoorstepPickup"> | string | null
     isUpiVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
@@ -38617,15 +38664,18 @@ export namespace Prisma {
     isDeclarationSigned?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
     phoneVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
     repairParts?: JsonNullableFilter<"DoorstepPickup">
-    repairDate?: DateTimeNullableFilter<"DoorstepPickup"> | Date | string | null
+    repairDate?: StringNullableFilter<"DoorstepPickup"> | string | null
     assignedBC?: StringNullableFilter<"DoorstepPickup"> | string | null
     createdAt?: DateTimeFilter<"DoorstepPickup"> | Date | string
     updatedAt?: DateTimeFilter<"DoorstepPickup"> | Date | string
+    customerDeclaration?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    purchaseAmount?: StringNullableFilter<"DoorstepPickup"> | string | null
   }
 
   export type DoorstepPickupOrderByWithRelationInput = {
     id?: SortOrder
-    orderId?: SortOrderInput | SortOrder
+    employeeId?: SortOrderInput | SortOrder
+    orderId?: SortOrder
     variant?: SortOrderInput | SortOrder
     imei1?: SortOrderInput | SortOrder
     imei2?: SortOrderInput | SortOrder
@@ -38661,7 +38711,6 @@ export namespace Prisma {
     deviceReset?: SortOrderInput | SortOrder
     deviceStartScreenImage?: SortOrderInput | SortOrder
     customerProofImage?: SortOrderInput | SortOrder
-    customerDeclaration?: SortOrderInput | SortOrder
     cashPaymentReceiptImage?: SortOrderInput | SortOrder
     paymentMode?: SortOrderInput | SortOrder
     exchangeModel?: SortOrderInput | SortOrder
@@ -38694,14 +38743,17 @@ export namespace Prisma {
     assignedBC?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    customerDeclaration?: SortOrderInput | SortOrder
+    purchaseAmount?: SortOrderInput | SortOrder
   }
 
   export type DoorstepPickupWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    orderId?: string
     AND?: DoorstepPickupWhereInput | DoorstepPickupWhereInput[]
     OR?: DoorstepPickupWhereInput[]
     NOT?: DoorstepPickupWhereInput | DoorstepPickupWhereInput[]
-    orderId?: StringNullableFilter<"DoorstepPickup"> | string | null
+    employeeId?: StringNullableFilter<"DoorstepPickup"> | string | null
     variant?: StringNullableFilter<"DoorstepPickup"> | string | null
     imei1?: StringNullableFilter<"DoorstepPickup"> | string | null
     imei2?: StringNullableFilter<"DoorstepPickup"> | string | null
@@ -38737,15 +38789,14 @@ export namespace Prisma {
     deviceReset?: StringNullableFilter<"DoorstepPickup"> | string | null
     deviceStartScreenImage?: StringNullableFilter<"DoorstepPickup"> | string | null
     customerProofImage?: StringNullableFilter<"DoorstepPickup"> | string | null
-    customerDeclaration?: StringNullableFilter<"DoorstepPickup"> | string | null
     cashPaymentReceiptImage?: StringNullableFilter<"DoorstepPickup"> | string | null
     paymentMode?: StringNullableFilter<"DoorstepPickup"> | string | null
     exchangeModel?: StringNullableFilter<"DoorstepPickup"> | string | null
     newModelIMEI?: StringNullableFilter<"DoorstepPickup"> | string | null
     manualQcReport?: JsonNullableFilter<"DoorstepPickup">
     remarks?: StringNullableFilter<"DoorstepPickup"> | string | null
-    finalAmount?: DecimalNullableFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
-    sellingAmount?: DecimalNullableFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
+    finalAmount?: StringNullableFilter<"DoorstepPickup"> | string | null
+    sellingAmount?: StringNullableFilter<"DoorstepPickup"> | string | null
     upiId?: StringNullableFilter<"DoorstepPickup"> | string | null
     upiBeneficiaryName?: StringNullableFilter<"DoorstepPickup"> | string | null
     isUpiVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
@@ -38766,15 +38817,18 @@ export namespace Prisma {
     isDeclarationSigned?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
     phoneVerified?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
     repairParts?: JsonNullableFilter<"DoorstepPickup">
-    repairDate?: DateTimeNullableFilter<"DoorstepPickup"> | Date | string | null
+    repairDate?: StringNullableFilter<"DoorstepPickup"> | string | null
     assignedBC?: StringNullableFilter<"DoorstepPickup"> | string | null
     createdAt?: DateTimeFilter<"DoorstepPickup"> | Date | string
     updatedAt?: DateTimeFilter<"DoorstepPickup"> | Date | string
-  }, "id">
+    customerDeclaration?: BoolNullableFilter<"DoorstepPickup"> | boolean | null
+    purchaseAmount?: StringNullableFilter<"DoorstepPickup"> | string | null
+  }, "id" | "orderId">
 
   export type DoorstepPickupOrderByWithAggregationInput = {
     id?: SortOrder
-    orderId?: SortOrderInput | SortOrder
+    employeeId?: SortOrderInput | SortOrder
+    orderId?: SortOrder
     variant?: SortOrderInput | SortOrder
     imei1?: SortOrderInput | SortOrder
     imei2?: SortOrderInput | SortOrder
@@ -38810,7 +38864,6 @@ export namespace Prisma {
     deviceReset?: SortOrderInput | SortOrder
     deviceStartScreenImage?: SortOrderInput | SortOrder
     customerProofImage?: SortOrderInput | SortOrder
-    customerDeclaration?: SortOrderInput | SortOrder
     cashPaymentReceiptImage?: SortOrderInput | SortOrder
     paymentMode?: SortOrderInput | SortOrder
     exchangeModel?: SortOrderInput | SortOrder
@@ -38843,11 +38896,11 @@ export namespace Prisma {
     assignedBC?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    customerDeclaration?: SortOrderInput | SortOrder
+    purchaseAmount?: SortOrderInput | SortOrder
     _count?: DoorstepPickupCountOrderByAggregateInput
-    _avg?: DoorstepPickupAvgOrderByAggregateInput
     _max?: DoorstepPickupMaxOrderByAggregateInput
     _min?: DoorstepPickupMinOrderByAggregateInput
-    _sum?: DoorstepPickupSumOrderByAggregateInput
   }
 
   export type DoorstepPickupScalarWhereWithAggregatesInput = {
@@ -38855,7 +38908,8 @@ export namespace Prisma {
     OR?: DoorstepPickupScalarWhereWithAggregatesInput[]
     NOT?: DoorstepPickupScalarWhereWithAggregatesInput | DoorstepPickupScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"DoorstepPickup"> | string
-    orderId?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    employeeId?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    orderId?: StringWithAggregatesFilter<"DoorstepPickup"> | string
     variant?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     imei1?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     imei2?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
@@ -38891,15 +38945,14 @@ export namespace Prisma {
     deviceReset?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     deviceStartScreenImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     customerProofImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
-    customerDeclaration?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     cashPaymentReceiptImage?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     paymentMode?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     exchangeModel?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     newModelIMEI?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     manualQcReport?: JsonNullableWithAggregatesFilter<"DoorstepPickup">
     remarks?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
-    finalAmount?: DecimalNullableWithAggregatesFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
-    sellingAmount?: DecimalNullableWithAggregatesFilter<"DoorstepPickup"> | Decimal | DecimalJsLike | number | string | null
+    finalAmount?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
+    sellingAmount?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     upiId?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     upiBeneficiaryName?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     isUpiVerified?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
@@ -38920,10 +38973,12 @@ export namespace Prisma {
     isDeclarationSigned?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
     phoneVerified?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
     repairParts?: JsonNullableWithAggregatesFilter<"DoorstepPickup">
-    repairDate?: DateTimeNullableWithAggregatesFilter<"DoorstepPickup"> | Date | string | null
+    repairDate?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     assignedBC?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"DoorstepPickup"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"DoorstepPickup"> | Date | string
+    customerDeclaration?: BoolNullableWithAggregatesFilter<"DoorstepPickup"> | boolean | null
+    purchaseAmount?: StringNullableWithAggregatesFilter<"DoorstepPickup"> | string | null
   }
 
   export type UserCreateInput = {
@@ -40807,6 +40862,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     finalAmount?: string | null
+    phoneNumber?: string | null
+    customerName?: string | null
+    modelName?: string | null
   }
 
   export type DeclarationUncheckedCreateInput = {
@@ -40835,6 +40893,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     finalAmount?: string | null
+    phoneNumber?: string | null
+    customerName?: string | null
+    modelName?: string | null
   }
 
   export type DeclarationUpdateInput = {
@@ -40863,6 +40924,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DeclarationUncheckedUpdateInput = {
@@ -40891,6 +40955,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DeclarationCreateManyInput = {
@@ -40919,6 +40986,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     finalAmount?: string | null
+    phoneNumber?: string | null
+    customerName?: string | null
+    modelName?: string | null
   }
 
   export type DeclarationUpdateManyMutationInput = {
@@ -40947,6 +41017,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DeclarationUncheckedUpdateManyInput = {
@@ -40975,6 +41048,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    customerName?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AddressCreateInput = {
@@ -41261,7 +41337,8 @@ export namespace Prisma {
 
   export type DoorstepPickupCreateInput = {
     id?: string
-    orderId?: string | null
+    employeeId?: string | null
+    orderId: string
     variant?: string | null
     imei1?: string | null
     imei2?: string | null
@@ -41297,15 +41374,14 @@ export namespace Prisma {
     deviceReset?: string | null
     deviceStartScreenImage?: string | null
     customerProofImage?: string | null
-    customerDeclaration?: string | null
     cashPaymentReceiptImage?: string | null
     paymentMode?: string | null
     exchangeModel?: string | null
     newModelIMEI?: string | null
     manualQcReport?: NullableJsonNullValueInput | InputJsonValue
     remarks?: string | null
-    finalAmount?: Decimal | DecimalJsLike | number | string | null
-    sellingAmount?: Decimal | DecimalJsLike | number | string | null
+    finalAmount?: string | null
+    sellingAmount?: string | null
     upiId?: string | null
     upiBeneficiaryName?: string | null
     isUpiVerified?: boolean | null
@@ -41326,15 +41402,18 @@ export namespace Prisma {
     isDeclarationSigned?: boolean | null
     phoneVerified?: boolean | null
     repairParts?: NullableJsonNullValueInput | InputJsonValue
-    repairDate?: Date | string | null
+    repairDate?: string | null
     assignedBC?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    customerDeclaration?: boolean | null
+    purchaseAmount?: string | null
   }
 
   export type DoorstepPickupUncheckedCreateInput = {
     id?: string
-    orderId?: string | null
+    employeeId?: string | null
+    orderId: string
     variant?: string | null
     imei1?: string | null
     imei2?: string | null
@@ -41370,15 +41449,14 @@ export namespace Prisma {
     deviceReset?: string | null
     deviceStartScreenImage?: string | null
     customerProofImage?: string | null
-    customerDeclaration?: string | null
     cashPaymentReceiptImage?: string | null
     paymentMode?: string | null
     exchangeModel?: string | null
     newModelIMEI?: string | null
     manualQcReport?: NullableJsonNullValueInput | InputJsonValue
     remarks?: string | null
-    finalAmount?: Decimal | DecimalJsLike | number | string | null
-    sellingAmount?: Decimal | DecimalJsLike | number | string | null
+    finalAmount?: string | null
+    sellingAmount?: string | null
     upiId?: string | null
     upiBeneficiaryName?: string | null
     isUpiVerified?: boolean | null
@@ -41399,15 +41477,18 @@ export namespace Prisma {
     isDeclarationSigned?: boolean | null
     phoneVerified?: boolean | null
     repairParts?: NullableJsonNullValueInput | InputJsonValue
-    repairDate?: Date | string | null
+    repairDate?: string | null
     assignedBC?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    customerDeclaration?: boolean | null
+    purchaseAmount?: string | null
   }
 
   export type DoorstepPickupUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    orderId?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeId?: NullableStringFieldUpdateOperationsInput | string | null
+    orderId?: StringFieldUpdateOperationsInput | string
     variant?: NullableStringFieldUpdateOperationsInput | string | null
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41443,15 +41524,14 @@ export namespace Prisma {
     deviceReset?: NullableStringFieldUpdateOperationsInput | string | null
     deviceStartScreenImage?: NullableStringFieldUpdateOperationsInput | string | null
     customerProofImage?: NullableStringFieldUpdateOperationsInput | string | null
-    customerDeclaration?: NullableStringFieldUpdateOperationsInput | string | null
     cashPaymentReceiptImage?: NullableStringFieldUpdateOperationsInput | string | null
     paymentMode?: NullableStringFieldUpdateOperationsInput | string | null
     exchangeModel?: NullableStringFieldUpdateOperationsInput | string | null
     newModelIMEI?: NullableStringFieldUpdateOperationsInput | string | null
     manualQcReport?: NullableJsonNullValueInput | InputJsonValue
     remarks?: NullableStringFieldUpdateOperationsInput | string | null
-    finalAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    sellingAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    sellingAmount?: NullableStringFieldUpdateOperationsInput | string | null
     upiId?: NullableStringFieldUpdateOperationsInput | string | null
     upiBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
     isUpiVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -41472,15 +41552,18 @@ export namespace Prisma {
     isDeclarationSigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
     repairParts?: NullableJsonNullValueInput | InputJsonValue
-    repairDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    repairDate?: NullableStringFieldUpdateOperationsInput | string | null
     assignedBC?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerDeclaration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    purchaseAmount?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DoorstepPickupUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    orderId?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeId?: NullableStringFieldUpdateOperationsInput | string | null
+    orderId?: StringFieldUpdateOperationsInput | string
     variant?: NullableStringFieldUpdateOperationsInput | string | null
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41516,15 +41599,14 @@ export namespace Prisma {
     deviceReset?: NullableStringFieldUpdateOperationsInput | string | null
     deviceStartScreenImage?: NullableStringFieldUpdateOperationsInput | string | null
     customerProofImage?: NullableStringFieldUpdateOperationsInput | string | null
-    customerDeclaration?: NullableStringFieldUpdateOperationsInput | string | null
     cashPaymentReceiptImage?: NullableStringFieldUpdateOperationsInput | string | null
     paymentMode?: NullableStringFieldUpdateOperationsInput | string | null
     exchangeModel?: NullableStringFieldUpdateOperationsInput | string | null
     newModelIMEI?: NullableStringFieldUpdateOperationsInput | string | null
     manualQcReport?: NullableJsonNullValueInput | InputJsonValue
     remarks?: NullableStringFieldUpdateOperationsInput | string | null
-    finalAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    sellingAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    sellingAmount?: NullableStringFieldUpdateOperationsInput | string | null
     upiId?: NullableStringFieldUpdateOperationsInput | string | null
     upiBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
     isUpiVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -41545,15 +41627,18 @@ export namespace Prisma {
     isDeclarationSigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
     repairParts?: NullableJsonNullValueInput | InputJsonValue
-    repairDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    repairDate?: NullableStringFieldUpdateOperationsInput | string | null
     assignedBC?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerDeclaration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    purchaseAmount?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DoorstepPickupCreateManyInput = {
     id?: string
-    orderId?: string | null
+    employeeId?: string | null
+    orderId: string
     variant?: string | null
     imei1?: string | null
     imei2?: string | null
@@ -41589,15 +41674,14 @@ export namespace Prisma {
     deviceReset?: string | null
     deviceStartScreenImage?: string | null
     customerProofImage?: string | null
-    customerDeclaration?: string | null
     cashPaymentReceiptImage?: string | null
     paymentMode?: string | null
     exchangeModel?: string | null
     newModelIMEI?: string | null
     manualQcReport?: NullableJsonNullValueInput | InputJsonValue
     remarks?: string | null
-    finalAmount?: Decimal | DecimalJsLike | number | string | null
-    sellingAmount?: Decimal | DecimalJsLike | number | string | null
+    finalAmount?: string | null
+    sellingAmount?: string | null
     upiId?: string | null
     upiBeneficiaryName?: string | null
     isUpiVerified?: boolean | null
@@ -41618,15 +41702,18 @@ export namespace Prisma {
     isDeclarationSigned?: boolean | null
     phoneVerified?: boolean | null
     repairParts?: NullableJsonNullValueInput | InputJsonValue
-    repairDate?: Date | string | null
+    repairDate?: string | null
     assignedBC?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    customerDeclaration?: boolean | null
+    purchaseAmount?: string | null
   }
 
   export type DoorstepPickupUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    orderId?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeId?: NullableStringFieldUpdateOperationsInput | string | null
+    orderId?: StringFieldUpdateOperationsInput | string
     variant?: NullableStringFieldUpdateOperationsInput | string | null
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41662,15 +41749,14 @@ export namespace Prisma {
     deviceReset?: NullableStringFieldUpdateOperationsInput | string | null
     deviceStartScreenImage?: NullableStringFieldUpdateOperationsInput | string | null
     customerProofImage?: NullableStringFieldUpdateOperationsInput | string | null
-    customerDeclaration?: NullableStringFieldUpdateOperationsInput | string | null
     cashPaymentReceiptImage?: NullableStringFieldUpdateOperationsInput | string | null
     paymentMode?: NullableStringFieldUpdateOperationsInput | string | null
     exchangeModel?: NullableStringFieldUpdateOperationsInput | string | null
     newModelIMEI?: NullableStringFieldUpdateOperationsInput | string | null
     manualQcReport?: NullableJsonNullValueInput | InputJsonValue
     remarks?: NullableStringFieldUpdateOperationsInput | string | null
-    finalAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    sellingAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    sellingAmount?: NullableStringFieldUpdateOperationsInput | string | null
     upiId?: NullableStringFieldUpdateOperationsInput | string | null
     upiBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
     isUpiVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -41691,15 +41777,18 @@ export namespace Prisma {
     isDeclarationSigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
     repairParts?: NullableJsonNullValueInput | InputJsonValue
-    repairDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    repairDate?: NullableStringFieldUpdateOperationsInput | string | null
     assignedBC?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerDeclaration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    purchaseAmount?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DoorstepPickupUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    orderId?: NullableStringFieldUpdateOperationsInput | string | null
+    employeeId?: NullableStringFieldUpdateOperationsInput | string | null
+    orderId?: StringFieldUpdateOperationsInput | string
     variant?: NullableStringFieldUpdateOperationsInput | string | null
     imei1?: NullableStringFieldUpdateOperationsInput | string | null
     imei2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41735,15 +41824,14 @@ export namespace Prisma {
     deviceReset?: NullableStringFieldUpdateOperationsInput | string | null
     deviceStartScreenImage?: NullableStringFieldUpdateOperationsInput | string | null
     customerProofImage?: NullableStringFieldUpdateOperationsInput | string | null
-    customerDeclaration?: NullableStringFieldUpdateOperationsInput | string | null
     cashPaymentReceiptImage?: NullableStringFieldUpdateOperationsInput | string | null
     paymentMode?: NullableStringFieldUpdateOperationsInput | string | null
     exchangeModel?: NullableStringFieldUpdateOperationsInput | string | null
     newModelIMEI?: NullableStringFieldUpdateOperationsInput | string | null
     manualQcReport?: NullableJsonNullValueInput | InputJsonValue
     remarks?: NullableStringFieldUpdateOperationsInput | string | null
-    finalAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    sellingAmount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    finalAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    sellingAmount?: NullableStringFieldUpdateOperationsInput | string | null
     upiId?: NullableStringFieldUpdateOperationsInput | string | null
     upiBeneficiaryName?: NullableStringFieldUpdateOperationsInput | string | null
     isUpiVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -41764,10 +41852,12 @@ export namespace Prisma {
     isDeclarationSigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     phoneVerified?: NullableBoolFieldUpdateOperationsInput | boolean | null
     repairParts?: NullableJsonNullValueInput | InputJsonValue
-    repairDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    repairDate?: NullableStringFieldUpdateOperationsInput | string | null
     assignedBC?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerDeclaration?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    purchaseAmount?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -43015,6 +43105,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     finalAmount?: SortOrder
+    phoneNumber?: SortOrder
+    customerName?: SortOrder
+    modelName?: SortOrder
   }
 
   export type DeclarationMaxOrderByAggregateInput = {
@@ -43043,6 +43136,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     finalAmount?: SortOrder
+    phoneNumber?: SortOrder
+    customerName?: SortOrder
+    modelName?: SortOrder
   }
 
   export type DeclarationMinOrderByAggregateInput = {
@@ -43071,6 +43167,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     finalAmount?: SortOrder
+    phoneNumber?: SortOrder
+    customerName?: SortOrder
+    modelName?: SortOrder
   }
 
   export type StoreScalarRelationFilter = {
@@ -43273,6 +43372,7 @@ export namespace Prisma {
 
   export type DoorstepPickupCountOrderByAggregateInput = {
     id?: SortOrder
+    employeeId?: SortOrder
     orderId?: SortOrder
     variant?: SortOrder
     imei1?: SortOrder
@@ -43309,7 +43409,6 @@ export namespace Prisma {
     deviceReset?: SortOrder
     deviceStartScreenImage?: SortOrder
     customerProofImage?: SortOrder
-    customerDeclaration?: SortOrder
     cashPaymentReceiptImage?: SortOrder
     paymentMode?: SortOrder
     exchangeModel?: SortOrder
@@ -43342,15 +43441,13 @@ export namespace Prisma {
     assignedBC?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type DoorstepPickupAvgOrderByAggregateInput = {
-    finalAmount?: SortOrder
-    sellingAmount?: SortOrder
+    customerDeclaration?: SortOrder
+    purchaseAmount?: SortOrder
   }
 
   export type DoorstepPickupMaxOrderByAggregateInput = {
     id?: SortOrder
+    employeeId?: SortOrder
     orderId?: SortOrder
     variant?: SortOrder
     imei1?: SortOrder
@@ -43386,7 +43483,6 @@ export namespace Prisma {
     deviceReset?: SortOrder
     deviceStartScreenImage?: SortOrder
     customerProofImage?: SortOrder
-    customerDeclaration?: SortOrder
     cashPaymentReceiptImage?: SortOrder
     paymentMode?: SortOrder
     exchangeModel?: SortOrder
@@ -43417,10 +43513,13 @@ export namespace Prisma {
     assignedBC?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    customerDeclaration?: SortOrder
+    purchaseAmount?: SortOrder
   }
 
   export type DoorstepPickupMinOrderByAggregateInput = {
     id?: SortOrder
+    employeeId?: SortOrder
     orderId?: SortOrder
     variant?: SortOrder
     imei1?: SortOrder
@@ -43456,7 +43555,6 @@ export namespace Prisma {
     deviceReset?: SortOrder
     deviceStartScreenImage?: SortOrder
     customerProofImage?: SortOrder
-    customerDeclaration?: SortOrder
     cashPaymentReceiptImage?: SortOrder
     paymentMode?: SortOrder
     exchangeModel?: SortOrder
@@ -43487,11 +43585,8 @@ export namespace Prisma {
     assignedBC?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type DoorstepPickupSumOrderByAggregateInput = {
-    finalAmount?: SortOrder
-    sellingAmount?: SortOrder
+    customerDeclaration?: SortOrder
+    purchaseAmount?: SortOrder
   }
   export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<

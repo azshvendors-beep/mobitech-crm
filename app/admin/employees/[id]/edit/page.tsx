@@ -126,14 +126,13 @@ const EditEmployees = ({ params }: { params: Promise<{ id: string }> }) => {
           }),
         });
 
-        if (!response.ok) {
-          throw new Error("Employee not found");
-        }
-
         const data = await response.json();
-       
 
-        setEmployee(data.employee);
+        if (response.status === 404) {
+          toast.error(data.error);
+        } else if (response.status == 400) {
+          toast.error(data.error);
+        } else if (response.ok) setEmployee(data.employee);
         setUser(data.user);
         setRole(data.role);
         setPaymentType(
@@ -279,8 +278,6 @@ const EditEmployees = ({ params }: { params: Promise<{ id: string }> }) => {
 
       const data = await response.json();
 
-
-
       if (data.status === "success" && data.data.account_exists) {
         setIsUpiVerified(true);
         setUpiData(data.data);
@@ -314,11 +311,10 @@ const EditEmployees = ({ params }: { params: Promise<{ id: string }> }) => {
 
   // Submit handler
   const onSubmit = async (data: EditEmployeeFormData) => {
-    toast.loading("Updating employee details...");
-    console.log("Form Data:", data);
+    const toastId = toast.loading("Updating employee details...");
     try {
       const response = await fetch(`/api/employees/details`, {
-        method: "PUT", // Changed to PUT for updates
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -328,16 +324,20 @@ const EditEmployees = ({ params }: { params: Promise<{ id: string }> }) => {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to update employee");
-      }
-
       const result = await response.json();
-      console.log("Update Result:", result);
-      // Handle success (e.g., show a success message, redirect, etc.)
+
+      if (response.status === 404) {
+        toast.error(result.error, { id: toastId });
+      } else if (response.status === 400) {
+        toast.error(result.error, { id: toastId });
+      } else if (response.ok) {
+        toast.success("Employee updated successfully", { id: toastId });
+      } else {
+        toast.error("Unknown error", { id: toastId });
+      }
     } catch (error) {
       console.error("Error updating employee:", error);
-      // Handle error (e.g., show an error message)
+      toast.error("Error updating employee", { id: toastId });
     }
   };
 
@@ -725,7 +725,11 @@ const EditEmployees = ({ params }: { params: Promise<{ id: string }> }) => {
                 )}
               </div>
 
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className="w-full"
+                onClick={() => onSubmit(form.getValues())}
+              >
                 Update Employee
               </Button>
             </form>

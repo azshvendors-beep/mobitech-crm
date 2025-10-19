@@ -336,6 +336,9 @@ model Declaration {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
   finalAmount       String?
+  phoneNumber       String?
+  customerName      String?
+  modelName         String?
 }
 
 model Address {
@@ -383,6 +386,81 @@ model CustomModel {
   @@index([brandId])
 }
 
+model DoorstepPickup {
+  id                      String   @id @default(cuid())
+  employeeId              String?
+  orderId                 String   @unique
+  variant                 String?
+  imei1                   String?
+  imei2                   String?
+  deviceFrontImage        String?
+  deviceBackImage         String?
+  diagnosticsProcess      String?
+  mbdgReport              Json?
+  diagnosticsProcessInit  String?
+  qcReportInit            String?
+  qcReport                String?
+  repairRequired          String?
+  repairStatus            String?
+  accessories             String?
+  deviceAge               String?
+  warrantyType            String?
+  hasGstBill              String?
+  gstInvoice              String?
+  boxImeiMatch            String?
+  customerName            String?
+  mobileNumber            String?
+  addressProofType        String?
+  aadharNumber            String?
+  address                 String?
+  fullAddress             String?
+  aadharFrontImage        String?
+  aadharBackImage         String?
+  epicNumber              String?
+  voterIdFrontImage       String?
+  voterIdBackImage        String?
+  isAadharVerified        Boolean?
+  voterIdVerified         Boolean?
+  customerSignature       String?
+  deviceReset             String?
+  deviceStartScreenImage  String?
+  customerProofImage      String?
+  cashPaymentReceiptImage String?
+  paymentMode             String?
+  exchangeModel           String?
+  newModelIMEI            String?
+  manualQcReport          Json?
+  remarks                 String?
+  finalAmount             String?
+  sellingAmount           String?
+  upiId                   String?
+  upiBeneficiaryName      String?
+  isUpiVerified           Boolean?
+  isUpiSaved              Boolean?
+  bankName                String?
+  accountNumber           String?
+  confirmAccountNumber    String?
+  ifscCode                String?
+  bankBeneficiaryName     String?
+  isBankDetailsVerified   Boolean?
+  isBankDetailsSaved      Boolean?
+  paymentStatus           String?
+  utrrrnnumber            String?
+  paidBy                  String?
+  purchaserBankName       String?
+  purchaserPaymentMode    String?
+  isMobileNumberVerified  Boolean?
+  isDeclarationSigned     Boolean?
+  phoneVerified           Boolean?
+  repairParts             Json?
+  repairDate              String?
+  assignedBC              String?
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+  customerDeclaration     Boolean?
+  purchaseAmount          String?
+}
+
 enum UserStatus {
   ACTIVE
   INACTIVE
@@ -395,84 +473,4 @@ enum Role {
   MARKETING_EXECUTIVE
   TECHNICIAN
   STORE_OWNER
-}
-
-model DoorstepPickup {
-  id                     String  @id @default(cuid())
-  orderId                String? @db.VarChar(255)
-  variant                String?
-  imei1                  String?
-  imei2                  String?
-  deviceFrontImage       String?
-  deviceBackImage        String?
-  diagnosticsProcess     String?
-  mbdgReport             Json? // JSON object of manual/app diagnostics (flexible)
-  diagnosticsProcessInit String?
-  qcReportInit           String?
-  qcReport               String?
-  repairRequired         String?
-  repairStatus           String?
-  accessories            String?
-  deviceAge              String?
-  warrantyType           String?
-  hasGstBill             String?
-  gstInvoice             String?
-  boxImeiMatch           String?
-
-  customerName      String?
-  mobileNumber      String?
-  addressProofType  String?
-  aadharNumber      String?
-  address           String?
-  fullAddress       String?
-  aadharFrontImage  String?
-  aadharBackImage   String?
-  epicNumber        String?
-  voterIdFrontImage String?
-  voterIdBackImage  String?
-  isAadharVerified  Boolean?
-  voterIdVerified   Boolean?
-  customerSignature String?
-
-  deviceReset             String?
-  deviceStartScreenImage  String?
-  customerProofImage      String?
-  customerDeclaration     String?
-  cashPaymentReceiptImage String?
-
-  paymentMode    String?
-  exchangeModel  String?
-  newModelIMEI   String?
-  manualQcReport Json? // keep structure flexible (or map to a dedicated model)
-  remarks        String?
-
-  finalAmount           Decimal? // numeric money - optional (use Decimal for precision)
-  sellingAmount         Decimal?
-  upiId                 String?
-  upiBeneficiaryName    String?
-  isUpiVerified         Boolean?
-  isUpiSaved            Boolean?
-  bankName              String?
-  accountNumber         String?
-  confirmAccountNumber  String?
-  ifscCode              String?
-  bankBeneficiaryName   String?
-  isBankDetailsVerified Boolean?
-  isBankDetailsSaved    Boolean?
-
-  paymentStatus          String?
-  utrrrnnumber           String?
-  paidBy                 String?
-  purchaserBankName      String?
-  purchaserPaymentMode   String?
-  isMobileNumberVerified Boolean?
-  isDeclarationSigned    Boolean?
-  phoneVerified          Boolean?
-
-  repairParts Json? // array of { name, price } or use a separate model
-  repairDate  DateTime?
-  assignedBC  String?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }

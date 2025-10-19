@@ -9,8 +9,8 @@ datasource db {
 }
 
 model User {
-  id                 String          @id @default(cuid())
-  phone              String          @unique
+  id                 String           @id @default(cuid())
+  phone              String           @unique
   phoneVerified      Boolean?
   salary             Decimal?
   payoutDate         Int?
@@ -27,20 +27,21 @@ model User {
   role               Role?
   storeId            String?
   createdBy          String?
-  isAdmin            Boolean         @default(false)
-  status             UserStatus      @default(ACTIVE)
-  createdAt          DateTime        @default(now())
-  updatedAt          DateTime        @updatedAt
-  mfaEnabled         Boolean         @default(false)
+  isAdmin            Boolean          @default(false)
+  status             UserStatus       @default(ACTIVE)
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+  mfaEnabled         Boolean          @default(false)
   mfaSecret          String?
-  mfaVerified        Boolean         @default(false)
-  admin              Admin?          @relation("AdminToUser")
-  fieldExecutive     FieldExecutive? @relation("FieldExecToUser")
-  manager            Manager?        @relation("ManagerToUser")
-  salesExecutive     SalesExecutive? @relation("SalesExecToUser")
+  mfaVerified        Boolean          @default(false)
+  admin              Admin?           @relation("AdminToUser")
+  DoorstepPickup     DoorstepPickup[]
+  fieldExecutive     FieldExecutive?  @relation("FieldExecToUser")
+  manager            Manager?         @relation("ManagerToUser")
+  salesExecutive     SalesExecutive?  @relation("SalesExecToUser")
   sessions           Session[]
-  store              Store?          @relation("StoreToUser")
-  technician         Technician?     @relation("TechnicianToUser")
+  store              Store?           @relation("StoreToUser")
+  technician         Technician?      @relation("TechnicianToUser")
 }
 
 model Admin {
@@ -337,6 +338,8 @@ model Declaration {
   updatedAt         DateTime @updatedAt
   finalAmount       String?
   phoneNumber       String?
+  customerName      String?
+  modelName         String?
 }
 
 model Address {
@@ -455,6 +458,9 @@ model DoorstepPickup {
   createdAt               DateTime @default(now())
   updatedAt               DateTime @updatedAt
   customerDeclaration     Boolean?
+  purchaseAmount          String?
+  employeeId              String?
+  User                    User?    @relation(fields: [employeeId], references: [id])
 }
 
 enum UserStatus {

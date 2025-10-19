@@ -400,7 +400,10 @@ exports.Prisma.DeclarationScalarFieldEnum = {
   isAccepted: 'isAccepted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  finalAmount: 'finalAmount'
+  finalAmount: 'finalAmount',
+  phoneNumber: 'phoneNumber',
+  customerName: 'customerName',
+  modelName: 'modelName'
 };
 
 exports.Prisma.AddressScalarFieldEnum = {
@@ -445,6 +448,7 @@ exports.Prisma.CustomModelScalarFieldEnum = {
 
 exports.Prisma.DoorstepPickupScalarFieldEnum = {
   id: 'id',
+  employeeId: 'employeeId',
   orderId: 'orderId',
   variant: 'variant',
   imei1: 'imei1',
@@ -481,7 +485,6 @@ exports.Prisma.DoorstepPickupScalarFieldEnum = {
   deviceReset: 'deviceReset',
   deviceStartScreenImage: 'deviceStartScreenImage',
   customerProofImage: 'customerProofImage',
-  customerDeclaration: 'customerDeclaration',
   cashPaymentReceiptImage: 'cashPaymentReceiptImage',
   paymentMode: 'paymentMode',
   exchangeModel: 'exchangeModel',
@@ -513,7 +516,9 @@ exports.Prisma.DoorstepPickupScalarFieldEnum = {
   repairDate: 'repairDate',
   assignedBC: 'assignedBC',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  customerDeclaration: 'customerDeclaration',
+  purchaseAmount: 'purchaseAmount'
 };
 
 exports.Prisma.SortOrder = {

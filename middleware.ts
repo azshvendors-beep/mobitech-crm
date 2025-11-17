@@ -8,8 +8,8 @@ export async function middleware(request: NextRequest) {
   const blockedRoutes = [
     "/maintenance", // Maintenance mode routes
     "/deprecated/(.*)", // Deprecated features
-    "/api/auth/signup",
-    "/auth/user/sign-up", // Old API version
+    // "/api/auth/signup",
+    // "/auth/user/sign-up", // Old API version
     "/beta/(.*)", // Closed beta features
     "/internal/(.*)", // Internal tools
     "/disabled-feature", // Temporarily disabled feature
